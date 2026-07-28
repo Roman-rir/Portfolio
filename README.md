@@ -7,5 +7,6 @@ Live site: https://roman-rir.github.io/Portfolio/
 ## Files
 
 - `index.html` - portfolio homepage
-- `resume.pdf` - downloadable resume linked from the homepage
+- `MD_Robiul_Islam_Roman_CV_semiconductor.docx` - downloadable CV linked from the homepage
+- `resume.pdf` - previous resume file
 - `.nojekyll` - keeps GitHub Pages from applying Jekyll processing
