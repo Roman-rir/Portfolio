@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Robiul Islam Roman — Electrical &amp; Computer Engineer</title>
+<meta name="description" content="Portfolio of Md. Robiul Islam Roman — Electrical &amp; Electronic Engineering graduate and MSc CSE candidate working across VLSI design, embedded systems, and biomedical signal processing / ML.">
+<meta name="theme-color" content="#0A0E12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Md. Robiul Islam Roman — Electrical &amp; Computer Engineer">
+<meta property="og:description" content="Portfolio of Md. Robiul Islam Roman: VLSI design, embedded systems, biomedical signal processing, and machine learning.">
+<meta property="og:url" content="https://roman-rir.github.io/Portfolio/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0E12;
+    --panel:#121821;
+    --panel-2:#171F2A;
+    --line:#232E3B;
+    --fg:#E7EDF2;
+    --muted:#8B9BAA;
+    --signal:#33D6C0;
+    --signal-dim:rgba(51,214,192,0.15);
+    --pulse:#F2A65C;
+    --radius:10px;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--fg);
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    line-height:1.15;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--signal);color:var(--ink);}
+
+  a:focus-visible,button:focus-visible{
+    outline:2px solid var(--signal);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    color:var(--signal);
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:16px;height:1px;
+    background:var(--signal);
+    display:inline-block;
+  }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  section{
+    position:relative;
+    padding:104px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(10,14,18,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:16px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    letter-spacing:0.02em;
+    color:var(--fg);
+  }
+  .nav-mark span{color:var(--signal);}
+  .nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+  }
+  .nav-links a{
+    font-size:14px;
+    color:var(--muted);
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--fg);}
+  .nav-cta{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--signal) !important;
+    border:1px solid var(--signal);
+    padding:8px 14px;
+    border-radius:6px;
+    transition:background .2s, color .2s;
+  }
+  .nav-cta:hover{background:var(--signal);color:var(--ink) !important;}
+  .nav-toggle{
+    display:none;
+    background:none;border:none;
+    color:var(--fg);
+    font-size:22px;
+    cursor:pointer;
+  }
+
+  @media (max-width:840px){
+    .nav-links{
+      position:fixed;
+      top:57px;left:0;right:0;
+      background:var(--panel);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:20px 28px 26px;
+      gap:16px;
+      transform:translateY(-8px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .2s, transform .2s;
+    }
+    .nav-links.open{
+      opacity:1;
+      transform:translateY(0);
+      pointer-events:auto;
+    }
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- SIGNAL RAIL ---------- */
+  .rail{
+    position:fixed;
+    left:34px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:60;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+  }
+  .rail-line{
+    width:1px;
+    height:280px;
+    background:linear-gradient(var(--line),var(--line));
+    position:relative;
+  }
+  .rail-dot{
+    position:absolute;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:9px;height:9px;
+    border-radius:50%;
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    transition:background .3s, border-color .3s, box-shadow .3s;
+  }
+  .rail-dot.active{
+    background:var(--signal);
+    border-color:var(--signal);
+    box-shadow:0 0 0 4px var(--signal-dim);
+  }
+  .rail-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    color:var(--muted);
+    position:absolute;
+    left:16px;
+    top:50%;
+    transform:translateY(-50%);
+    white-space:nowrap;
+    opacity:0;
+    transition:opacity .2s;
+  }
+  .rail-dot:hover + .rail-tag,
+  .rail-dot.active + .rail-tag{opacity:1;}
+
+  @media (max-width:1180px){ .rail{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding-top:180px;
+    padding-bottom:100px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(34px,5vw,54px);
+    margin-top:6px;
+  }
+  .hero .role{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--muted);
+    font-size:15px;
+    margin-top:16px;
+  }
+  .hero p.lede{
+    color:var(--muted);
+    font-size:17px;
+    max-width:52ch;
+    margin-top:20px;
+  }
+  .hero-ctas{
+    display:flex;
+    gap:14px;
+    margin-top:34px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px;
+    padding:12px 20px;
+    border-radius:6px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:transform .2s, background .2s, border-color .2s;
+  }
+  .btn-primary{
+    background:var(--signal);
+    color:var(--ink);
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid var(--line);
+    color:var(--fg);
+  }
+  .btn-ghost:hover{border-color:var(--signal);color:var(--signal);}
+
+  .scope{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:22px 20px 18px;
+  }
+  .scope-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:0.06em;
+    margin-bottom:10px;
+  }
+  .scope-dots{display:flex;gap:6px;}
+  .scope-dots span{width:7px;height:7px;border-radius:50%;background:var(--line);}
+  .scope svg{width:100%;height:auto;display:block;}
+  .scope-path{
+    fill:none;
+    stroke:var(--signal);
+    stroke-width:2.4;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    filter:drop-shadow(0 0 6px rgba(51,214,192,0.45));
+    stroke-dasharray:1000;
+    stroke-dashoffset:1000;
+    animation:draw 2.4s cubic-bezier(.4,0,.2,1) .3s forwards;
+  }
+  .scope-grid line{stroke:var(--line);stroke-width:1;}
+  .scope-caption{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    margin-top:10px;
+    display:flex;
+    justify-content:space-between;
+  }
+  .scope-caption b{color:var(--pulse);font-weight:500;}
+
+  @keyframes draw{to{stroke-dashoffset:0;}}
+
+  @media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero{padding-top:140px;}
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-grid h2{font-size:clamp(26px,3.4vw,34px);margin-bottom:18px;}
+  .about-grid p{color:var(--muted);font-size:16px;}
+  .pillars{display:flex;flex-direction:column;gap:16px;}
+  .pillar{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 22px;
+  }
+  .pillar-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--pulse);
+    letter-spacing:0.06em;
+  }
+  .pillar h3{font-size:17px;margin-top:8px;}
+  .pillar p{color:var(--muted);font-size:14.5px;margin-top:6px;}
+
+  @media (max-width:840px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* ---------- SKILLS ---------- */
+  .skills-head{max-width:56ch;}
+  .skills-head h2{font-size:clamp(26px,3.4vw,34px);}
+  .skill-groups{
+    margin-top:44px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  .skill-group{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 24px;
+  }
+  .skill-group h3{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--muted);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    font-weight:500;
+    margin-bottom:14px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--fg);
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    padding:6px 11px;
+    border-radius:100px;
+  }
+  @media (max-width:720px){ .skill-groups{grid-template-columns:1fr;} }
+
+  /* ---------- EXPERIENCE / EDUCATION (timeline) ---------- */
+  .timeline{
+    margin-top:44px;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .t-item{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:28px;
+    padding:26px 0;
+    border-top:1px solid var(--line);
+  }
+  .t-item:first-child{border-top:none;}
+  .t-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--signal);
+    padding-top:2px;
+  }
+  .t-role{font-size:18px;font-weight:600;font-family:'Space Grotesk',sans-serif;}
+  .t-org{color:var(--muted);font-size:14.5px;margin-top:2px;}
+  .t-item ul{margin-top:12px;display:flex;flex-direction:column;gap:6px;}
+  .t-item li{
+    color:var(--muted);
+    font-size:14.5px;
+    padding-left:16px;
+    position:relative;
+  }
+  .t-item li::before{
+    content:"";
+    position:absolute;left:0;top:9px;
+    width:5px;height:5px;
+    background:var(--pulse);
+    border-radius:50%;
+  }
+  @media (max-width:640px){
+    .t-item{grid-template-columns:1fr;gap:8px;}
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .proj-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;}
+  .proj-head h2{font-size:clamp(26px,3.4vw,34px);}
+  .proj-head p{color:var(--muted);max-width:44ch;font-size:15px;}
+  .proj-grid{
+    margin-top:44px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  .proj-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 26px 22px;
+    display:flex;
+    flex-direction:column;
+    transition:border-color .25s, transform .25s;
+  }
+  .proj-card:hover{border-color:var(--signal);transform:translateY(-3px);}
+  .proj-index{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--pulse);
+  }
+  .proj-card h3{font-size:19px;margin-top:12px;}
+  .proj-card p{color:var(--muted);font-size:14.5px;margin-top:10px;flex:1;}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;}
+  .proj-tags span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:var(--muted);
+    border:1px solid var(--line);
+    padding:4px 9px;
+    border-radius:100px;
+  }
+  .proj-card.featured{
+    grid-column:span 2;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+  }
+  .proj-card.featured .proj-visual{
+    background:var(--panel-2);
+    border:1px solid var(--line);
+    border-radius:8px;
+    height:100%;
+    min-height:150px;
+    display:flex;align-items:center;justify-content:center;
+    padding:20px;
+  }
+  .proj-card.featured .proj-visual svg{width:100%;height:auto;}
+  @media (max-width:900px){
+    .proj-grid{grid-template-columns:1fr;}
+    .proj-card.featured{grid-column:span 1;grid-template-columns:1fr;}
+  }
+
+  /* ---------- PUBLICATIONS ---------- */
+  .pub-list{margin-top:40px;display:flex;flex-direction:column;}
+  .pub-item{
+    padding:22px 0;
+    border-top:1px solid var(--line);
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:20px;
+    align-items:baseline;
+  }
+  .pub-item:first-child{border-top:none;}
+  .pub-title{font-size:16.5px;font-weight:500;font-family:'Space Grotesk',sans-serif;}
+  .pub-venue{color:var(--muted);font-size:14px;margin-top:5px;}
+  .pub-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--signal);
+    white-space:nowrap;
+  }
+  @media (max-width:600px){ .pub-item{grid-template-columns:1fr;gap:6px;} }
+
+  /* ---------- AWARDS ---------- */
+  .awards-grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+  .award-item{
+    display:flex;
+    gap:14px;
+    padding:18px 20px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+  }
+  .award-mark{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--pulse);
+    font-size:13px;
+    flex-shrink:0;
+  }
+  .award-item h4{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;}
+  .award-item p{color:var(--muted);font-size:13.5px;margin-top:4px;}
+  @media (max-width:720px){ .awards-grid{grid-template-columns:1fr;} }
+
+  /* ---------- CONTACT ---------- */
+  .contact{text-align:left;}
+  .contact-inner{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:50px;
+    align-items:center;
+  }
+  .contact h2{font-size:clamp(28px,4vw,40px);}
+  .contact p.lede{color:var(--muted);max-width:46ch;margin-top:16px;font-size:16px;}
+  .contact-links{display:flex;flex-direction:column;gap:0;margin-top:6px;}
+  .c-link{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+    border-top:1px solid var(--line);
+    transition:padding-left .2s, color .2s;
+  }
+  .c-link:last-child{border-bottom:1px solid var(--line);}
+  .c-link:hover{padding-left:8px;color:var(--signal);}
+  .c-link .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--muted);
+    letter-spacing:0.06em;
+  }
+  .c-link .value{font-size:16px;font-family:'Space Grotesk',sans-serif;}
+  @media (max-width:840px){ .contact-inner{grid-template-columns:1fr;} }
+
+  footer{
+    padding:34px 0 44px;
+  }
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--muted);
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .scope-path{animation:none;stroke-dashoffset:0;}
+    *{transition-duration:0.001ms !important; animation-duration:0.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">roman<span>.</span>rir</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+  </div>
+</header>
+
+<!-- Signal rail -->
+<div class="rail" aria-hidden="true">
+  <div class="rail-line" id="railLine"></div>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow">Electrical &amp; Computer Engineer — Dhaka, Bangladesh</p>
+        <h1>Md. Robiul Islam<br>Roman</h1>
+        <p class="role">EEE (AIUB) → MSc CSE (BRAC University)</p>
+        <p class="lede">I build systems where circuits meet intelligence — from pipelined RISC‑V processors and physical IC layouts to a biomedical device that estimates blood pressure from a heartbeat.</p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+          <a href="resume.pdf" class="btn btn-ghost">Résumé ↓</a>
+        </div>
+      </div>
+      <div class="scope">
+        <div class="scope-head">
+          <span>CH1 — ECG</span>
+          <div class="scope-dots"><span></span><span></span><span></span></div>
+        </div>
+        <svg viewBox="0 0 400 140" xmlns="http://www.w3.org/2000/svg">
+          <g class="scope-grid">
+            <line x1="0" y1="35" x2="400" y2="35"></line>
+            <line x1="0" y1="70" x2="400" y2="70"></line>
+            <line x1="0" y1="105" x2="400" y2="105"></line>
+          </g>
+          <path class="scope-path" pathLength="1000"
+            d="M0,70 L36,70 L46,58 L54,86 L62,10 L70,120 L78,70 L100,70
+               C118,42 132,42 150,70 C168,98 182,98 200,70
+               C218,42 232,42 250,70 C268,98 282,98 300,70
+               L330,70 C344,52 358,52 372,70 L400,70" />
+        </svg>
+        <p class="scope-caption">ECG → PPG fusion &nbsp;·&nbsp; <b>cuffless BP estimation</b></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <p class="eyebrow">TP.01 — About</p>
+        <h2>Two disciplines,<br>one signal path</h2>
+        <p>Roman is an Electrical and Electronic Engineering graduate from AIUB, now pursuing an MSc in Computer Science and Engineering at BRAC University. His work sits at the junction of hardware and software: RTL design and physical IC layout on one side, embedded systems and machine learning on the other.</p>
+        <p style="margin-top:14px;">His capstone project — a cuffless blood‑pressure monitor built on fused ECG and PPG signals — won AIUB's Best Capstone Project Award and was published at IEEE BECITHCON.</p>
+      </div>
+      <div class="pillars reveal">
+        <div class="pillar">
+          <p class="pillar-tag">01 · SILICON</p>
+          <h3>Digital &amp; VLSI Design</h3>
+          <p>RTL coding, functional verification, synthesis, STA, and physical design (PnR) with Cadence Virtuoso, Xcelium, and Genus.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar-tag">02 · SYSTEMS</p>
+          <h3>Embedded Systems</h3>
+          <p>Raspberry Pi and FPGA‑based systems, real‑time computer vision, and robotics built on constrained hardware.</p>
+        </div>
+        <div class="pillar">
+          <p class="pillar-tag">03 · SIGNAL</p>
+          <h3>Signal Processing &amp; ML</h3>
+          <p>Biomedical signal fusion, predictive modeling, and data analysis in MATLAB, Python, and TensorFlow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="skills-head reveal">
+        <p class="eyebrow">TP.02 — Skills</p>
+        <h2>Toolkit</h2>
+      </div>
+      <div class="skill-groups reveal">
+        <div class="skill-group">
+          <h3>Programming Languages</h3>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">C/C++</span><span class="chip">MATLAB</span>
+            <span class="chip">SystemVerilog</span><span class="chip">JavaScript</span><span class="chip">SQL</span>
+            <span class="chip">PLC</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>EDA &amp; Design Tools</h3>
+          <div class="chips">
+            <span class="chip">Cadence Virtuoso</span><span class="chip">Xcelium</span><span class="chip">Genus</span>
+            <span class="chip">NI Multisim</span><span class="chip">CST Microwave Studio</span><span class="chip">Proteus</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Hardware &amp; Embedded</h3>
+          <div class="chips">
+            <span class="chip">Raspberry Pi</span><span class="chip">FPGA</span><span class="chip">Embedded Systems</span>
+            <span class="chip">CAD</span><span class="chip">SolidWorks</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Data, ML &amp; Platforms</h3>
+          <div class="chips">
+            <span class="chip">TensorFlow</span><span class="chip">Git / GitHub</span>
+            <span class="chip">Linux</span><span class="chip">Windows</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">TP.03 — Experience</p>
+        <h2 style="font-size:clamp(26px,3.4vw,34px);">Where I've worked</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="t-item">
+          <div class="t-date">NOV 2025 — DEC 2025</div>
+          <div>
+            <div class="t-role">Industrial Attachment Trainee</div>
+            <div class="t-org">Energypac Power Generation PLC, Dhaka</div>
+            <ul>
+              <li>Completed hands-on industrial training on diesel generators and Automatic Transfer Switch (ATS) systems.</li>
+              <li>Gained practical knowledge of generator operation, load handling, and ATS functionality in large-scale industrial power environments.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">JAN 2023 — JUL 2025</div>
+          <div>
+            <div class="t-role">Private Tutor</div>
+            <div class="t-org">Self-Employed, Dhaka</div>
+            <ul>
+              <li>Tutored students across secondary and higher secondary levels, fostering strong study habits, analytical thinking, and exam readiness.</li>
+              <li>Designed personalized learning strategies that improved students' academic confidence and performance.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="proj-head reveal">
+        <div>
+          <p class="eyebrow">TP.04 — Projects</p>
+          <h2>Selected work</h2>
+        </div>
+        <p>A mix of biomedical devices, digital VLSI flows, and embedded systems — from silicon to signal.</p>
+      </div>
+
+      <div class="proj-grid reveal">
+
+        <div class="proj-card featured">
+          <div>
+            <p class="proj-index">FEATURED · 01</p>
+            <h3>Cuffless Blood Pressure Estimation (ECG + PPG Fusion)</h3>
+            <p>A portable, wearable device for continuous, non‑invasive blood‑pressure estimation, fusing ECG and PPG signals. Winner of AIUB's Best Capstone Project Award; published at IEEE BECITHCON 2025 and presented at Broadband Expo 2026 (ISPAB) and a Magna Charta Observatory symposium.</p>
+            <div class="proj-tags">
+              <span>Biomedical Signals</span><span>Sensor Fusion</span><span>Embedded Systems</span><span>MATLAB</span>
+            </div>
+          </div>
+          <div class="proj-visual">
+            <svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg">
+              <polyline points="0,50 30,50 38,30 46,72 54,10 62,90 70,50 100,50 120,25 140,75 160,25 180,75 200,50 230,50 240,35 260,50"
+                fill="none" stroke="#33D6C0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <p class="proj-index">02</p>
+          <h3>RISC‑V3 Pipelined Processor</h3>
+          <p>A custom pipelined RISC-style CPU written in SystemVerilog, covering FSM design and pipeline hazard resolution, simulated in Icarus Verilog and carried through synthesis and place‑and‑route.</p>
+          <div class="proj-tags"><span>SystemVerilog</span><span>RTL</span><span>Synthesis</span><span>PnR</span></div>
+        </div>
+
+        <div class="proj-card">
+          <p class="proj-index">03</p>
+          <h3>Physical IC Layout in Cadence Virtuoso</h3>
+          <p>Implemented and verified physical layouts for digital IC blocks, including DRC and LVS checks, using the Cadence Virtuoso toolchain.</p>
+          <div class="proj-tags"><span>Cadence Virtuoso</span><span>DRC / LVS</span><span>VLSI</span></div>
+        </div>
+
+        <div class="proj-card">
+          <p class="proj-index">04</p>
+          <h3>Raspberry Pi Person-Tracking Robot</h3>
+          <p>A robot that detects and follows a person in real time, using computer vision running directly on embedded hardware.</p>
+          <div class="proj-tags"><span>Raspberry Pi</span><span>Computer Vision</span><span>Robotics</span></div>
+        </div>
+
+        <div class="proj-card">
+          <p class="proj-index">05</p>
+          <h3>MATLAB Music Signal Feature Extraction</h3>
+          <p>A MATLAB pipeline extracting time- and frequency-domain audio features for downstream classification tasks.</p>
+          <div class="proj-tags"><span>MATLAB</span><span>Signal Processing</span><span>Audio ML</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">TP.05 — Publications</p>
+        <h2 style="font-size:clamp(26px,3.4vw,34px);">Research</h2>
+      </div>
+      <div class="pub-list reveal">
+        <div class="pub-item">
+          <div>
+            <div class="pub-title">Development of a PPG‑Based Low‑Cost Cuffless Continuous Blood Pressure Monitoring with Vital Sign Detection System</div>
+            <div class="pub-venue">IEEE BECITHCON</div>
+          </div>
+          <div class="pub-date">NOV 2025</div>
+        </div>
+        <div class="pub-item">
+          <div>
+            <div class="pub-title">Predicting Diabetes in Bangladesh Using Machine Learning: A Data‑Driven Approach</div>
+            <div class="pub-venue">International Journal of Modern Engineering and Management (IJMEM), Vol. 2, Issue 4</div>
+          </div>
+          <div class="pub-date">APR 2025</div>
+        </div>
+        <div class="pub-item">
+          <div>
+            <div class="pub-title">Portable Health Insights: Designing a BIA‑Enabled Smartwatch for Clinical and Personal Use</div>
+            <div class="pub-venue">RURS 1st International Student Conference and Research Fair, University of Rajshahi</div>
+          </div>
+          <div class="pub-date">FEB 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">TP.06 — Awards &amp; Certifications</p>
+        <h2 style="font-size:clamp(26px,3.4vw,34px);">Recognition</h2>
+      </div>
+      <div class="awards-grid reveal">
+        <div class="award-item">
+          <span class="award-mark">★</span>
+          <div><h4>Best Capstone Project Award</h4><p>Faculty of Engineering, AIUB — October 2025</p></div>
+        </div>
+        <div class="award-item">
+          <span class="award-mark">★</span>
+          <div><h4>Runner-Up, Poster Competition</h4><p>ROBOLUTION 2025 — November 2025</p></div>
+        </div>
+        <div class="award-item">
+          <span class="award-mark">★</span>
+          <div><h4>Dean's List Honors</h4><p>Three consecutive semesters — AIUB</p></div>
+        </div>
+        <div class="award-item">
+          <span class="award-mark">★</span>
+          <div><h4>Academic Scholarship</h4><p>Spring 2022–23 to Spring 2024–25 — AIUB</p></div>
+        </div>
+        <div class="award-item">
+          <span class="award-mark">◆</span>
+          <div><h4>RTL Design, Verification, Synthesis &amp; PnR for Digital VLSI Design</h4><p>AIUB Institute of Continuing Education</p></div>
+        </div>
+        <div class="award-item">
+          <span class="award-mark">◆</span>
+          <div><h4>Chip-Based VLSI Design for Industrial Applications</h4><p>Coursera &amp; L&amp;T EduTech — October 2025</p></div>
+        </div>
+        <div class="award-item">
+          <span class="award-mark">◆</span>
+          <div><h4>Data Analysis with Python</h4><p>IIT, Jahangirnagar University — Nov 2024–Jan 2025</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow">TP.07 — Education</p>
+        <h2 style="font-size:clamp(26px,3.4vw,34px);">Academic background</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="t-item">
+          <div class="t-date">APR 2025 — PRESENT</div>
+          <div>
+            <div class="t-role">MSc, Computer Science &amp; Engineering</div>
+            <div class="t-org">BRAC University</div>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">GRAD. FEB 2026</div>
+          <div>
+            <div class="t-role">BSc, Electrical &amp; Electronic Engineering</div>
+            <div class="t-org">American International University–Bangladesh (AIUB) · CGPA 3.74 / 4.00</div>
+          </div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">JAN 2021</div>
+          <div>
+            <div class="t-role">Higher Secondary Certificate, Science</div>
+            <div class="t-org">Kurmitola High School and College, Dhaka</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap contact-inner">
+      <div class="reveal">
+        <p class="eyebrow">TP.08 — Contact</p>
+        <h2>Let's build<br>something.</h2>
+        <p class="lede">Open to roles in AI/ML, semiconductor and chip design, and embedded software engineering.</p>
+      </div>
+      <div class="contact-links reveal">
+        <a class="c-link" href="mailto:romanrir31@gmail.com">
+          <span class="label">EMAIL</span><span class="value">romanrir31@gmail.com</span>
+        </a>
+        <a class="c-link" href="tel:+8801607321547">
+          <span class="label">PHONE</span><span class="value">+880 1607-321547</span>
+        </a>
+        <a class="c-link" href="https://linkedin.com/in/roman31" target="_blank" rel="noopener">
+          <span class="label">LINKEDIN</span><span class="value">linkedin.com/in/roman31</span>
+        </a>
+        <a class="c-link" href="https://github.com/Roman-rir" target="_blank" rel="noopener">
+          <span class="label">GITHUB</span><span class="value">github.com/Roman-rir</span>
+        </a>
+        <div class="c-link" style="cursor:default;">
+          <span class="label">LOCATION</span><span class="value">Dhaka, Bangladesh</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>© 2026 Md. Robiul Islam Roman</span>
+    <span>Built with signal &amp; silicon</span>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Signal rail: build dots for each section, highlight active on scroll
+  const sections = ['about','skills','experience','projects','publications','awards','education','contact']
+    .map(id => document.getElementById(id)).filter(Boolean);
+  const railLine = document.getElementById('railLine');
+  const dots = sections.map((sec, i) => {
+    const dot = document.createElement('a');
+    dot.href = '#' + sec.id;
+    dot.className = 'rail-dot';
+    dot.style.top = (i / (sections.length - 1) * 100) + '%';
+    dot.setAttribute('aria-label', sec.id);
+    railLine.appendChild(dot);
+
+    const tag = document.createElement('span');
+    tag.className = 'rail-tag';
+    tag.style.top = (i / (sections.length - 1) * 100) + '%';
+    tag.textContent = 'TP.0' + (i + 1) + ' ' + sec.id;
+    railLine.appendChild(tag);
+
+    return dot;
+  });
+
+  const railObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const idx = sections.indexOf(entry.target);
+      if (idx === -1) return;
+      if (entry.isIntersecting) {
+        dots.forEach(d => d.classList.remove('active'));
+        dots[idx].classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+  sections.forEach(sec => railObserver.observe(sec));
+</script>
+
+</body>
+</html>
