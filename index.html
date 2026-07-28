@@ -270,6 +270,34 @@
   }
   .btn-ghost:hover{border-color:var(--signal);color:var(--signal);}
 
+  .hero-visual{
+    display:grid;
+    gap:18px;
+  }
+  .profile-card{
+    margin:0;
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--panel);
+    aspect-ratio:4/5;
+    min-height:420px;
+  }
+  .profile-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+  }
+  .profile-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border:1px solid rgba(51,214,192,0.25);
+    border-radius:inherit;
+    pointer-events:none;
+  }
   .scope{
     background:var(--panel);
     border:1px solid var(--line);
@@ -316,6 +344,7 @@
   @media (max-width:900px){
     .hero-inner{grid-template-columns:1fr;}
     .hero{padding-top:140px;}
+    .profile-card{min-height:360px;}
   }
 
   /* ---------- ABOUT ---------- */
@@ -625,7 +654,11 @@
           <a href="MD_Robiul_Islam_Roman_CV_semiconductor.docx" class="btn btn-ghost">CV ↓</a>
         </div>
       </div>
-      <div class="scope">
+      <div class="hero-visual">
+        <figure class="profile-card">
+          <img src="assets/profile.jpg" alt="Portrait of Md. Robiul Islam Roman">
+        </figure>
+        <div class="scope">
         <div class="scope-head">
           <span>CH1 — ECG</span>
           <div class="scope-dots"><span></span><span></span><span></span></div>
@@ -643,6 +676,7 @@
                L330,70 C344,52 358,52 372,70 L400,70" />
         </svg>
         <p class="scope-caption">ECG → PPG fusion &nbsp;·&nbsp; <b>cuffless BP estimation</b></p>
+        </div>
       </div>
     </div>
   </section>
