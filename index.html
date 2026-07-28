@@ -275,20 +275,31 @@
     gap:18px;
   }
   .profile-card{
-    margin:0;
+    margin:0 auto;
     position:relative;
     overflow:hidden;
     border:1px solid var(--line);
-    border-radius:14px;
+    border-radius:50%;
     background:var(--panel);
-    aspect-ratio:4/5;
-    min-height:420px;
+    aspect-ratio:1/1;
+    width:320px;
+    max-width:100%;
+    transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  .profile-card:hover{
+    transform:scale(1.03);
+    border-color:var(--signal);
+    box-shadow:0 0 24px var(--signal-dim);
   }
   .profile-card img{
     width:100%;
     height:100%;
     object-fit:cover;
     object-position:center top;
+    transition:transform .5s ease;
+  }
+  .profile-card:hover img{
+    transform:scale(1.05);
   }
   .profile-card::after{
     content:"";
@@ -344,7 +355,6 @@
   @media (max-width:900px){
     .hero-inner{grid-template-columns:1fr;}
     .hero{padding-top:140px;}
-    .profile-card{min-height:360px;}
   }
 
   /* ---------- ABOUT ---------- */
