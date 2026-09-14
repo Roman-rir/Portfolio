@@ -51,6 +51,30 @@
   window.matchMedia('(min-width: 851px)').addEventListener('change', () => setMenu(false));
 
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const projectVisuals = document.querySelectorAll('.proj-visual');
+  const projectMotionToggle = document.getElementById('projectMotionToggle');
+  let projectMotionPaused = false;
+  function syncProjectMotion() {
+    root.dataset.projectMotion = projectMotionPaused || motionQuery.matches || document.hidden ? 'paused' : 'running';
+    projectMotionToggle.hidden = motionQuery.matches;
+    projectMotionToggle.textContent = projectMotionPaused ? 'Resume animations' : 'Pause animations';
+    projectMotionToggle.setAttribute('aria-pressed', String(projectMotionPaused));
+  }
+  projectMotionToggle.addEventListener('click', () => {
+    projectMotionPaused = !projectMotionPaused;
+    syncProjectMotion();
+  });
+  motionQuery.addEventListener('change', syncProjectMotion);
+  document.addEventListener('visibilitychange', syncProjectMotion);
+  syncProjectMotion();
+  if ('IntersectionObserver' in window) {
+    const projectMotionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.target.classList.toggle('is-in-view', entry.isIntersecting));
+    }, { threshold: .1 });
+    projectVisuals.forEach(visual => projectMotionObserver.observe(visual));
+  } else {
+    projectVisuals.forEach(visual => visual.classList.add('is-in-view'));
+  }
   const video = document.getElementById('heroVideo');
   const videoToggle = document.getElementById('videoToggle');
   let userPaused = false;
