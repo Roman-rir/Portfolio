@@ -196,6 +196,36 @@ main > section:not(.hero) { padding: 100px 0; border-bottom: 1px solid var(--lin
 .publication-group .pub-list { margin-top: 18px; }
 .pub-authors { font-size: 12px; color: var(--muted); margin-top: 10px; }
 .project-source { margin-top: 18px; }
+.motion-toggle { display: block; margin: -8px 0 22px auto; padding: 5px 0; background: none; border: 0; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+.data-packet { fill: var(--accent); stroke: none; opacity: 0; }
+.layout-scan, .vision-scan { opacity: 0; }
+.audio-bar { transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .pulse-trace { stroke-dasharray: 100; animation: trace-pulse 3.8s linear infinite; }
+  .pulse-trace:nth-child(2) { animation-delay: -.45s; }
+  .data-packet { animation: packet-flow 2.8s ease-in-out infinite; }
+  .packet-out { animation-delay: 1.4s; }
+  .motion-processor .diagram-chip { animation: processor-clock 2.8s ease-in-out infinite; }
+  .layout-gate { animation: gate-activate 3.6s ease-in-out infinite; }
+  .gate-two { animation-delay: .45s; }
+  .gate-three { animation-delay: .9s; }
+  .layout-scan { animation: layout-inspect 3.6s ease-in-out infinite; }
+  .vision-target { animation: follow-target 5s ease-in-out infinite; }
+  .tracking-link { animation: link-flow 1.2s linear infinite; }
+  .vision-scan { animation: vision-inspect 2.5s ease-in-out infinite; }
+  .audio-bar { animation: equalizer var(--bar-duration) ease-in-out var(--bar-delay) infinite alternate; }
+  .proj-card .proj-visual * { animation-play-state: paused; }
+  html:not([data-project-motion="paused"]) .proj-visual.is-in-view * { animation-play-state: running; }
+}
+@keyframes trace-pulse { 0% { stroke-dashoffset: 100; } 70%, 90% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: .25; } }
+@keyframes packet-flow { 0% { transform: translateX(0); opacity: 0; } 15% { opacity: 1; } 70%, 100% { transform: translateX(100px); opacity: 0; } }
+@keyframes processor-clock { 0%, 100% { fill: var(--surface); } 50% { fill: var(--soft-accent); stroke-width: 2.8; } }
+@keyframes gate-activate { 0%, 75%, 100% { fill: transparent; } 35% { fill: var(--accent); fill-opacity: .28; } }
+@keyframes layout-inspect { 0% { transform: translateX(0); opacity: 0; } 15% { opacity: .65; } 80% { opacity: .65; } 100% { transform: translateX(380px); opacity: 0; } }
+@keyframes follow-target { 0%, 100% { transform: translateX(-8px); } 50% { transform: translateX(8px); } }
+@keyframes link-flow { to { stroke-dashoffset: -18; } }
+@keyframes vision-inspect { 0%, 100% { transform: translateY(0); opacity: 0; } 15%, 75% { opacity: .65; } 90% { transform: translateY(77px); opacity: 0; } }
+@keyframes equalizer { from { transform: scaleY(.35); } to { transform: scaleY(1); } }
 .pub-item { counter-increment: publications; padding: 29px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 45px 1fr auto; gap: 25px; align-items: baseline; }
 .pub-item::before { content: '0' counter(publications); font: 11px var(--mono); color: var(--muted); }
 .pub-title { font: 500 21px/1.4 var(--display); letter-spacing: -.02em; max-width: 850px; }
