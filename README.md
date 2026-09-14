@@ -45,7 +45,8 @@ Vercel references: [static build settings](https://vercel.com/docs/builds/config
 - `styles.css` - responsive layouts and both color themes
 - `script.js` - theme toggle and page interactions
 - `assets/` - portfolio images, optimized computing video, and video poster
-- `MD_Robiul_Islam_Roman_CV_semiconductor.pdf` - downloadable CV
+- `Roman_Academic_CV (1).pdf` - current downloadable academic CV and source for academic content
+- `MD_Robiul_Islam_Roman_CV_semiconductor.pdf` - previous semiconductor CV
 - `resume.pdf` - earlier resume
 - `vercel.json` - static hosting configuration
 - `.vercelignore` - files excluded from CLI uploads
