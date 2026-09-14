@@ -197,6 +197,7 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.remove('is-revealing');
+            entry.target.classList.add('has-entered');
             revealObserver.unobserve(entry.target);
           }
         });
