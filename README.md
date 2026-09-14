@@ -51,3 +51,10 @@ Vercel references: [static build settings](https://vercel.com/docs/builds/config
 - `vercel.json` - static hosting configuration
 - `.vercelignore` - files excluded from CLI uploads
 - `.nojekyll` - preserves compatibility with GitHub Pages
+
+## Motion and local media
+
+- Hero and About videos use optimized silent MP4s with WebP posters. They play only while visible, and respect reduced-motion and data-saving settings.
+- Selected Work, Toolkit scrolling, and Recognition each have independent pause/resume controls.
+- Toolkit logo rows scroll continuously, pause on hover/focus, and allow manual horizontal scrolling with reduced motion.
+- Technology logos are served locally from `assets/tool-logos.svg`; attribution and license are alongside it.

@@ -51,6 +51,42 @@
   window.matchMedia('(min-width: 851px)').addEventListener('change', () => setMenu(false));
 
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const toolkitScroll = document.querySelector('.toolkit-scroll');
+  const toolkitMotionToggle = document.getElementById('toolkitMotionToggle');
+  let toolkitPaused = false;
+  function syncToolkitMotion() {
+    root.dataset.toolkitMotion = toolkitPaused || motionQuery.matches || document.hidden ? 'paused' : 'running';
+    toolkitMotionToggle.hidden = motionQuery.matches;
+    toolkitMotionToggle.textContent = toolkitPaused ? 'Resume scrolling' : 'Pause scrolling';
+    toolkitMotionToggle.setAttribute('aria-pressed', String(toolkitPaused));
+  }
+  toolkitMotionToggle.addEventListener('click', () => {
+    toolkitPaused = !toolkitPaused;
+    syncToolkitMotion();
+  });
+  motionQuery.addEventListener('change', syncToolkitMotion);
+  document.addEventListener('visibilitychange', syncToolkitMotion);
+  syncToolkitMotion();
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      toolkitScroll.classList.toggle('is-in-view', entries[0].isIntersecting);
+    }, { threshold: .05 }).observe(toolkitScroll);
+  } else toolkitScroll.classList.add('is-in-view');
+
+  let progressPending = false;
+  function updateReadingProgress() {
+    if (progressPending) return;
+    progressPending = true;
+    requestAnimationFrame(() => {
+      const distance = document.documentElement.scrollHeight - innerHeight;
+      root.style.setProperty('--reading-progress', distance > 0 ? Math.min(1, Math.max(0, scrollY / distance)) : 0);
+      progressPending = false;
+    });
+  }
+  window.addEventListener('scroll', updateReadingProgress, { passive: true });
+  window.addEventListener('resize', updateReadingProgress);
+  window.addEventListener('load', updateReadingProgress);
+  updateReadingProgress();
   const projectVisuals = document.querySelectorAll('.proj-visual');
   const projectMotionToggle = document.getElementById('projectMotionToggle');
   let projectMotionPaused = false;
@@ -75,37 +111,66 @@
   } else {
     projectVisuals.forEach(visual => visual.classList.add('is-in-view'));
   }
-  const video = document.getElementById('heroVideo');
-  const videoToggle = document.getElementById('videoToggle');
-  let userPaused = false;
-  let videoVisible = true;
-  function updateVideoButton() {
-    const paused = video.paused;
-    videoToggle.classList.toggle('is-paused', paused);
-    videoToggle.setAttribute('aria-label', `${paused ? 'Play' : 'Pause'} background video`);
-    videoToggle.title = `${paused ? 'Play' : 'Pause'} background video`;
+  function setupBackgroundVideo(videoId, toggleId, label) {
+    const video = document.getElementById(videoId);
+    const toggle = document.getElementById(toggleId);
+    let userPaused = false;
+    let visible = !('IntersectionObserver' in window);
+    function updateButton() {
+      toggle.classList.toggle('is-paused', video.paused);
+      const action = `${video.paused ? 'Play' : 'Pause'} ${label}`;
+      toggle.setAttribute('aria-label', action);
+      toggle.title = action;
+    }
+    function play() {
+      const request = video.play();
+      if (request) request.catch(updateButton);
+    }
+    function syncPlayback() {
+      if (!visible || document.hidden || motionQuery.matches || navigator.connection?.saveData) video.pause();
+      else if (!userPaused) play();
+    }
+    toggle.addEventListener('click', () => {
+      if (video.paused) { userPaused = false; play(); }
+      else { userPaused = true; video.pause(); }
+    });
+    video.addEventListener('play', updateButton);
+    video.addEventListener('pause', updateButton);
+    video.addEventListener('error', () => { toggle.hidden = true; });
+    motionQuery.addEventListener('change', syncPlayback);
+    document.addEventListener('visibilitychange', syncPlayback);
+    updateButton();
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        visible = entries[0].isIntersecting;
+        syncPlayback();
+      }, { threshold: .05 }).observe(video);
+    } else syncPlayback();
   }
-  function playVideo() {
-    const result = video.play();
-    if (result) result.catch(updateVideoButton);
+  setupBackgroundVideo('heroVideo', 'videoToggle', 'background video');
+  setupBackgroundVideo('aboutVideo', 'aboutVideoToggle', 'About background video');
+
+  const recognitionFlow = document.getElementById('recognitionFlow');
+  const recognitionToggle = document.getElementById('recognitionMotionToggle');
+  let recognitionPaused = false;
+  function syncRecognitionMotion() {
+    root.dataset.recognitionMotion = recognitionPaused || motionQuery.matches || document.hidden ? 'paused' : 'running';
+    recognitionToggle.hidden = motionQuery.matches;
+    recognitionToggle.textContent = recognitionPaused ? 'Resume recognition animations' : 'Pause recognition animations';
+    recognitionToggle.setAttribute('aria-pressed', String(recognitionPaused));
   }
-  videoToggle.addEventListener('click', () => {
-    if (video.paused) { userPaused = false; playVideo(); }
-    else { userPaused = true; video.pause(); }
+  recognitionToggle.addEventListener('click', () => {
+    recognitionPaused = !recognitionPaused;
+    syncRecognitionMotion();
   });
-  video.addEventListener('play', updateVideoButton);
-  video.addEventListener('pause', updateVideoButton);
-  video.addEventListener('error', () => { videoToggle.hidden = true; });
-  updateVideoButton();
-  if (!motionQuery.matches && !navigator.connection?.saveData) playVideo();
-  motionQuery.addEventListener('change', (event) => {
-    if (event.matches) video.pause();
-    else if (!userPaused && !navigator.connection?.saveData && videoVisible && !document.hidden) playVideo();
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) video.pause();
-    else if (!userPaused && !motionQuery.matches && !navigator.connection?.saveData && videoVisible) playVideo();
-  });
+  motionQuery.addEventListener('change', syncRecognitionMotion);
+  document.addEventListener('visibilitychange', syncRecognitionMotion);
+  syncRecognitionMotion();
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      recognitionFlow.classList.toggle('is-in-view', entries[0].isIntersecting);
+    }, { threshold: .05 }).observe(recognitionFlow);
+  } else recognitionFlow.classList.add('is-in-view');
 
   const cards = Array.from(document.querySelectorAll('.proj-card'));
   const filters = document.querySelectorAll('.filter');
@@ -120,15 +185,12 @@
       if (show) count++;
     });
     projectStatus.textContent = `Showing ${count} ${count === 1 ? 'project' : 'projects'}.`;
+    updateReadingProgress();
   }));
 
+  document.querySelectorAll('[data-reset-projects]').forEach(link => link.addEventListener('click', () => filters[0].click()));
+
   if ('IntersectionObserver' in window) {
-    const videoObserver = new IntersectionObserver(entries => {
-      videoVisible = entries[0].isIntersecting;
-      if (!videoVisible) video.pause();
-      else if (!userPaused && !motionQuery.matches && !navigator.connection?.saveData && !document.hidden) playVideo();
-    }, { threshold: .05 });
-    videoObserver.observe(video);
 
     if (!motionQuery.matches) {
       const revealObserver = new IntersectionObserver(entries => {

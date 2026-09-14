@@ -1,0 +1,1 @@
+Technology logos sourced from Simple Icons (https://simpleicons.org / https://github.com/simple-icons/simple-icons), distributed under CC0 1.0. Brand names and marks belong to their respective owners. Generic discipline icons are original SVG illustrations.
