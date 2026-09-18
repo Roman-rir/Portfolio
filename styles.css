@@ -1,4 +1,4 @@
-/* Roman — silicon, systems, intelligence. */
+/* Roman — personal engineering portfolio. */
 :root {
   color-scheme: dark;
   --bg: #11130f;
@@ -680,6 +680,8 @@ footer { padding: 29px 0; }
 .pub-item { position: relative; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); padding: 26px; transition: border-color .25s, box-shadow .25s, opacity .65s, transform .65s; overflow: hidden; }
 .pub-item::before { display: grid; place-items: center; width: 34px; height: 34px; background: var(--soft-accent); color: var(--accent); border-radius: 8px; }
 .pub-item:hover { border-color: var(--accent); box-shadow: 0 7px 22px rgb(0 0 0 / 6%); }
+.publication-link { margin-top: 14px; font-size: 12px; color: var(--accent); min-height: 32px; }
+.pub-item:focus-within { border-color: var(--accent); }
 .pub-item::after { content: ''; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg, var(--accent), transparent); }
 .pub-item:nth-child(2) { transition-delay: .07s; }
 .pub-item:nth-child(3) { transition-delay: .14s; }
@@ -711,4 +713,50 @@ footer { padding: 29px 0; }
   .experience-node { width: 25px; height: 25px; left: -37px; top: 25px; font-size: 8px; }
   .experience-node::after { left: 24px; width: 12px; top: 11px; }
   #experience .t-role { font-size: 21px; }
+}
+
+/* A personal introduction with a compact profile photo. */
+.personal-hero { padding-top: 42px; }
+.personal-hero .hero-topline { margin-bottom: 32px; }
+.personal-hero .hero-inner { grid-template-columns: 1.25fr 1fr; gap: 80px; }
+.personal-hero h1 { font-size: clamp(66px, 6.5vw, 94px); line-height: 1.02; letter-spacing: -.065em; }
+.hero-role { margin: 22px 0 0; color: var(--accent); font-size: 14px; }
+.personal-hero .lede { max-width: 520px; margin-top: 21px; font-size: 15px; line-height: 1.8; }
+.personal-hero .hero-ctas { margin-top: 27px; }
+.personal-hero .hero-bottom { margin-top: 37px; padding: 26px 0; }
+.hero-bottom-actions { display: flex; align-items: center; gap: 25px; }
+.hero-bottom-actions .video-toggle { flex-shrink: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .personal-hero .hero-copy { animation: personal-intro .8s ease-out both; }
+}
+@keyframes personal-intro { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1100px) {
+  .personal-hero .hero-inner { gap: 45px; }
+  .personal-hero h1 { font-size: 76px; }
+  .hero-bottom-actions { gap: 18px; }
+}
+@media (max-width: 850px) {
+  .personal-hero .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .personal-hero h1 { font-size: 66px; }
+  .hero-role { font-size: 12px; }
+  .personal-hero .lede { font-size: 14px; }
+  .personal-hero .hero-ctas { gap: 17px; }
+  .personal-hero .hero-stats { width: auto; gap: 28px; }
+  .personal-hero .hero-location { display: flex; }
+  .personal-hero .hero-topline .eyebrow { font-size: 9px; }
+}
+@media (max-width: 620px) {
+  .personal-hero { padding-top: 29px; }
+  .personal-hero .hero-topline { margin-bottom: 27px; }
+  .personal-hero .hero-location { display: none; }
+  .personal-hero .hero-inner { grid-template-columns: 1fr; gap: 39px; }
+  .personal-hero h1 { font-size: clamp(65px, 18vw, 88px); }
+  .hero-role { font-size: 12px; }
+  .personal-hero .lede { margin-top: 18px; }
+  .personal-hero .hero-bottom { gap: 15px; margin-top: 28px; }
+  .personal-hero .hero-stats { flex: 1; gap: 14px; }
+  .personal-hero .stat { display: block; }
+  .personal-hero .stat strong { font-size: 26px; }
+  .personal-hero .stat span { font-size: 8px; }
+  .hero-bottom-actions .video-toggle { width: 36px; height: 36px; }
 }
