@@ -92,7 +92,7 @@
   let projectMotionPaused = false;
   function syncProjectMotion() {
     root.dataset.projectMotion = projectMotionPaused || motionQuery.matches || document.hidden ? 'paused' : 'running';
-    projectMotionToggle.hidden = motionQuery.matches;
+    projectMotionToggle.hidden = motionQuery.matches || projectVisuals.length === 0;
     projectMotionToggle.textContent = projectMotionPaused ? 'Resume animations' : 'Pause animations';
     projectMotionToggle.setAttribute('aria-pressed', String(projectMotionPaused));
   }
@@ -171,6 +171,30 @@
       recognitionFlow.classList.toggle('is-in-view', entries[0].isIntersecting);
     }, { threshold: .05 }).observe(recognitionFlow);
   } else recognitionFlow.classList.add('is-in-view');
+
+  // Switch project views without cropping the full-size source images.
+  document.querySelectorAll('[data-project-gallery]').forEach(gallery => {
+    const main = gallery.querySelector('[data-gallery-main]');
+    const image = main.querySelector('img');
+    const title = gallery.querySelector('[data-gallery-title]');
+    const detail = gallery.querySelector('[data-gallery-detail]');
+    const count = gallery.querySelector('[data-gallery-count]');
+    const choices = Array.from(gallery.querySelectorAll('[data-gallery-select]'));
+    choices.forEach((choice, index) => choice.addEventListener('click', () => {
+      const preview = choice.querySelector('img');
+      image.setAttribute('src', preview.getAttribute('src'));
+      image.alt = preview.alt;
+      image.setAttribute('width', preview.getAttribute('width'));
+      image.setAttribute('height', preview.getAttribute('height'));
+      main.setAttribute('href', preview.getAttribute('src'));
+      main.dataset.tone = choice.dataset.tone;
+      main.setAttribute('aria-label', `Open full-size image: ${choice.dataset.title}`);
+      title.textContent = choice.dataset.title;
+      detail.textContent = choice.dataset.detail;
+      count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(choices.length).padStart(2, '0')}`;
+      choices.forEach(item => item.setAttribute('aria-pressed', String(item === choice)));
+    }));
+  });
 
   const cards = Array.from(document.querySelectorAll('.proj-card'));
   const filters = document.querySelectorAll('.filter');
