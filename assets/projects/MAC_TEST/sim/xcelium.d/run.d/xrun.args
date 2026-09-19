@@ -1,0 +1,23 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-uvm
+-timescale
+1ns/1ps
++access+rwc
++incdir+rtl
++incdir+tb
+/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/rtl/top.sv
+/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/tb/TB_top.sv
+-top
+TB_test
+-elaborate
+-log
+elaborate.log
+-sv
+-gui
+-coverage
+all
+-input
+waves.tcl

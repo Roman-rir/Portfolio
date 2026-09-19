@@ -1,0 +1,13 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-sv
+-access
++rwc
++gui
+rtl/DATA_MEM.sv
+rtl/PROCESSOR_V3.sv
+rtl/PROG_MEM.sv
+rtl/RISC_V3.sv
+tb/RISC_V3_TB.sv

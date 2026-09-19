@@ -1,0 +1,62 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jul 14, 2026 at 14:01:04 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/data_mem.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/prog_mem.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/processor.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/risc_top.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/tb/TB_top.sv
+	-top TB_RISC_V3_PIPELINED
+	-elaborate
+	-log elaborate.log
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+Recompiling... reason: unable to stat '/./home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/data_mem.sv'.
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d
+xmvlog: *W,NOTIND: unable to access -INCDIR rtl (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR tb (No such file or directory).
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 2
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		TB_RISC_V3_PIPELINED
+
+	Extracting FSMs for coverage:
+		worklib.PROCESSOR_V3_PIPELINED
+			FSM extracted for state register PSTATE
+		worklib.PROG_MEM_P
+		worklib.DATA_MEM_P
+		worklib.RISC_V3_PIPELINED_TOP
+		worklib.TB_RISC_V3_PIPELINED
+	Total FSMs extracted = 1
+	Building instance overlay tables: ........
+xmelab: *W,COVFDP: FSM description matching across instance of a module for "COVFDM" warning has been moved from elaboration to simulation dumping. To restore old matching behavior, use "set_backward_compat -COVFDM_during_elab". Also, it is recommended to use set_parameterized_module_coverage CCF command to avoid coverage loss due to FSM description difference across instances of a module.
+xmelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are not extracted for any FSM in default mode.
+............ Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+xmelab: *W,COVMDD (/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/prog_mem.sv,9|17): Toggle coverage for bit, logic, reg, wire, enum and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage for enum multi-dimensional static arrays specify 'set_toggle_scoring -sv_enum enable_mda' and for other multi-dimensional static arrays, specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+xmelab: *W,COVUTA (/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/tb/TB_top.sv,28|12): Toggle coverage is not supported for SystemVerilog integer, real, string, dynamic array, sparse memory and reference ports. It is also not supported for VHDL multi-dimensional array and array of record. There may also be other such objects in the design.
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 5       5
+		Registers:              73      73
+		Scalar wires:           10       -
+		Vectored wires:         53       -
+		Always blocks:           6       6
+		Initial blocks:          6       6
+		Cont. assignments:      13      19
+		Pseudo assignments:     26       -
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.TB_RISC_V3_PIPELINED:sv
+TOOL:	xrun(64)	23.03-s011: Exiting on Jul 14, 2026 at 14:01:06 +06  (total: 00:00:02)

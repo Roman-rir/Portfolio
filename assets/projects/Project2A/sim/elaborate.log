@@ -1,0 +1,55 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Apr 25, 2026 at 03:35:20 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Abid/UDIF/aiub_vlsi_impl_demo/projects/Project2A/rtl/top.sv
+	/home/B2_Abid/UDIF/aiub_vlsi_impl_demo/projects/Project2A/tb/TB_top.sv
+	-top TB_top:module
+	-elaborate
+	-log elaborate.log
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+Recompiling... reason: file '/home/B2_Abid/MyProjects/Project2/projects/Project2A/rtl/top.sv' is newer than expected.
+	expected: Fri Apr 24 22:48:00 2026
+	actual:   Sat Apr 25 03:13:58 2026
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d
+xmvlog: *W,NOTIND: unable to access -INCDIR rtl (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR tb (No such file or directory).
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 2
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		TB_top
+
+	Extracting FSMs for coverage:
+		worklib.MAC_4BIT
+		worklib.TB_top
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+task automatic monitor(); 
+         |
+xmelab: *W,COVUTA (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,78|9): Toggle coverage is not supported for SystemVerilog integer, real, string, dynamic array, sparse memory and reference ports. It is also not supported for VHDL multi-dimensional array and array of record. There may also be other such objects in the design.
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:              24      24
+		Scalar wires:            2       -
+		Vectored wires:         10       -
+		Always blocks:           1       1
+		Initial blocks:          9       9
+		Parallel blocks:         1       1
+		Pseudo assignments:     11       -
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.TB_top:module
+TOOL:	xrun(64)	23.03-s011: Exiting on Apr 25, 2026 at 03:35:22 +06  (total: 00:00:02)

@@ -1,0 +1,261 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Apr 25, 2026 at 03:35:23 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Abid/UDIF/aiub_vlsi_impl_demo/projects/Project2A/rtl/top.sv
+	/home/B2_Abid/UDIF/aiub_vlsi_impl_demo/projects/Project2A/tb/TB_top.sv
+	-top TB_top:module
+	-R
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+xrun: *W,CSSF: -TOP with -R option will be ignored.
+xrun: *W,CSSF: HDL source files with -R option will be ignored.
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED default: 1
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cadence/lnx/xce_24/tools/xcelium/files/xmsimrc
+xcelium> source /home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves.shm -shm -default
+Created default SHM database waves.shm
+xcelium> probe -create -shm $::env(SIM_TOP) -depth all -all
+Created probe 1
+xcelium> run
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+MONITOR: Time =    0 ns,	+ve EdgeNo=    0,	SRST = 0,	X =   0,  0,  0,  0,	Y =          x
+ 5 ns: Monitor Task...
+
+MONITOR: Time =    5 ns,	+ve EdgeNo=    1,	SRST = 1,	X =   0,  0,  0,  0,	C =   1,  1,  1,  1,	Y =          0
+ 5 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 10 ns: Generator Task...
+
+ 15 ns: Monitor Task...
+
+MONITOR: Time =   15 ns,	+ve EdgeNo=    2,	SRST = 0,	X =   6, 13, 12, 10,	C =   1,  1,  1,  1,	Y =         41
+ 15 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 15001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =   15 ns,	ErrorNo =   1
+
+CHECKER: Time =   15 ns,	+ve EdgeNo=    2,	SRST = 0,	X =   6, 13, 12, 10,	Y =         41
+///////////////////////////////////////////////////////////
+ 20 ns: Generator Task...
+
+ 25 ns: Monitor Task...
+
+MONITOR: Time =   25 ns,	+ve EdgeNo=    3,	SRST = 0,	X =   2, 11,  5, 12,	C =   1,  1,  1,  1,	Y =         30
+ 25 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 25001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =   25 ns,	ErrorNo =   2
+
+CHECKER: Time =   25 ns,	+ve EdgeNo=    3,	SRST = 0,	X =   2, 11,  5, 12,	Y =         30
+///////////////////////////////////////////////////////////
+ 30 ns: Generator Task...
+
+ 35 ns: Monitor Task...
+
+MONITOR: Time =   35 ns,	+ve EdgeNo=    4,	SRST = 0,	X =   0,  0,  5,  5,	C =   1,  1,  1,  1,	Y =         10
+ 35 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 35001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =   35 ns,	ErrorNo =   3
+
+CHECKER: Time =   35 ns,	+ve EdgeNo=    4,	SRST = 0,	X =   0,  0,  5,  5,	Y =         10
+///////////////////////////////////////////////////////////
+ 40 ns: Generator Task...
+
+ 45 ns: Monitor Task...
+
+MONITOR: Time =   45 ns,	+ve EdgeNo=    5,	SRST = 0,	X =   8,  0,  8,  8,	C =   1,  1,  1,  1,	Y =         24
+ 45 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 45001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =   45 ns,	ErrorNo =   4
+
+CHECKER: Time =   45 ns,	+ve EdgeNo=    5,	SRST = 0,	X =   8,  0,  8,  8,	Y =         24
+///////////////////////////////////////////////////////////
+ 50 ns: Generator Task...
+
+ 55 ns: Monitor Task...
+
+MONITOR: Time =   55 ns,	+ve EdgeNo=    6,	SRST = 0,	X =   3,  2,  5,  0,	C =   1,  1,  1,  1,	Y =         10
+ 55 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 55001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =   55 ns,	ErrorNo =   5
+
+CHECKER: Time =   55 ns,	+ve EdgeNo=    6,	SRST = 0,	X =   3,  2,  5,  0,	Y =         10
+///////////////////////////////////////////////////////////
+ 60 ns: Generator Task...
+
+ 65 ns: Monitor Task...
+
+MONITOR: Time =   65 ns,	+ve EdgeNo=    7,	SRST = 0,	X =   2,  9,  4, 10,	C =   1,  1,  1,  1,	Y =         25
+ 65 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 65001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =   65 ns,	ErrorNo =   6
+
+CHECKER: Time =   65 ns,	+ve EdgeNo=    7,	SRST = 0,	X =   2,  9,  4, 10,	Y =         25
+///////////////////////////////////////////////////////////
+ 70 ns: Generator Task...
+
+ 75 ns: Monitor Task...
+
+MONITOR: Time =   75 ns,	+ve EdgeNo=    8,	SRST = 0,	X =   4, 15,  0,  5,	C =   1,  1,  1,  1,	Y =         24
+ 75 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 75001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =   75 ns,	ErrorNo =   7
+
+CHECKER: Time =   75 ns,	+ve EdgeNo=    8,	SRST = 0,	X =   4, 15,  0,  5,	Y =         24
+///////////////////////////////////////////////////////////
+ 80 ns: Generator Task...
+
+ 85 ns: Monitor Task...
+
+MONITOR: Time =   85 ns,	+ve EdgeNo=    9,	SRST = 0,	X =  10,  6,  4,  4,	C =   1,  1,  1,  1,	Y =         24
+ 85 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 85001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =   85 ns,	ErrorNo =   8
+
+CHECKER: Time =   85 ns,	+ve EdgeNo=    9,	SRST = 0,	X =  10,  6,  4,  4,	Y =         24
+///////////////////////////////////////////////////////////
+ 90 ns: Generator Task...
+
+ 95 ns: Monitor Task...
+
+MONITOR: Time =   95 ns,	+ve EdgeNo=   10,	SRST = 0,	X =   2,  7, 12, 12,	C =   1,  1,  1,  1,	Y =         33
+ 95 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 95001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =   95 ns,	ErrorNo =   9
+
+CHECKER: Time =   95 ns,	+ve EdgeNo=   10,	SRST = 0,	X =   2,  7, 12, 12,	Y =         33
+///////////////////////////////////////////////////////////
+ 100 ns: Generator Task...
+
+ 105 ns: Monitor Task...
+
+MONITOR: Time =  105 ns,	+ve EdgeNo=   11,	SRST = 0,	X =   1,  6, 15,  6,	C =   1,  1,  1,  1,	Y =         28
+ 105 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 105001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =  105 ns,	ErrorNo =  10
+
+CHECKER: Time =  105 ns,	+ve EdgeNo=   11,	SRST = 0,	X =   1,  6, 15,  6,	Y =         28
+///////////////////////////////////////////////////////////
+ 110 ns: Generator Task...
+
+ 115 ns: Monitor Task...
+
+MONITOR: Time =  115 ns,	+ve EdgeNo=   12,	SRST = 0,	X =   1, 13,  9, 11,	C =   1,  1,  1,  1,	Y =         34
+ 115 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 115001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =  115 ns,	ErrorNo =  11
+
+CHECKER: Time =  115 ns,	+ve EdgeNo=   12,	SRST = 0,	X =   1, 13,  9, 11,	Y =         34
+///////////////////////////////////////////////////////////
+ 120 ns: Generator Task...
+
+ 125 ns: Monitor Task...
+
+MONITOR: Time =  125 ns,	+ve EdgeNo=   13,	SRST = 0,	X =  15,  1,  6,  2,	C =   1,  1,  1,  1,	Y =         24
+ 125 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 125001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =  125 ns,	ErrorNo =  12
+
+CHECKER: Time =  125 ns,	+ve EdgeNo=   13,	SRST = 0,	X =  15,  1,  6,  2,	Y =         24
+///////////////////////////////////////////////////////////
+ 130 ns: Generator Task...
+
+ 135 ns: Monitor Task...
+
+MONITOR: Time =  135 ns,	+ve EdgeNo=   14,	SRST = 0,	X =  15, 12,  0,  5,	C =   1,  1,  1,  1,	Y =         32
+ 135 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 135001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =  135 ns,	ErrorNo =  13
+
+CHECKER: Time =  135 ns,	+ve EdgeNo=   14,	SRST = 0,	X =  15, 12,  0,  5,	Y =         32
+///////////////////////////////////////////////////////////
+ 140 ns: Generator Task...
+
+ 145 ns: Monitor Task...
+
+MONITOR: Time =  145 ns,	+ve EdgeNo=   15,	SRST = 0,	X =  11,  4,  9, 12,	C =   1,  1,  1,  1,	Y =         36
+ 145 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 145001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =  145 ns,	ErrorNo =  14
+
+CHECKER: Time =  145 ns,	+ve EdgeNo=   15,	SRST = 0,	X =  11,  4,  9, 12,	Y =         36
+///////////////////////////////////////////////////////////
+ 150 ns: Generator Task...
+
+ 155 ns: Monitor Task...
+
+MONITOR: Time =  155 ns,	+ve EdgeNo=   16,	SRST = 0,	X =   8,  7, 11,  4,	C =   1,  1,  1,  1,	Y =         30
+ 155 ns: Checker Task...
+
+///////////////////////////////////////////////////////////
+xmsim: *E,ERRSEV (/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv,118): (time 155001 PS).
+TB_top.check
+CHECKER: ERROR AT TIME =  155 ns,	ErrorNo =  15
+
+CHECKER: Time =  155 ns,	+ve EdgeNo=   16,	SRST = 0,	X =   8,  7, 11,  4,	Y =         30
+///////////////////////////////////////////////////////////
+ 160 ns: Generator Task...
+
+
+TEST FAILED: 15 errors detected.
+
+Simulation complete via $finish(1) at time 161 NS + 0
+/home/B2_Abid/MyProjects/Project2/projects/Project2A/tb/TB_top.sv:157     end
+xcelium> ^C
+xcelium> exit
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+TOOL:	xrun(64)	23.03-s011: Exiting on Apr 25, 2026 at 03:36:02 +06  (total: 00:00:39)

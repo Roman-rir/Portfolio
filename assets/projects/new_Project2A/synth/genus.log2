@@ -1,0 +1,585 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2023 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[09:57:56.095745] Configured Lic search path (21.01-s002): 5280@cadence
+
+Version: 21.18-s082_1, built Tue Jul 18 00:08:41 PDT 2023
+Options: -files scripts/run_synth.tcl 
+Date:    Sat May 02 09:57:56 2026
+Host:    cadence (x86_64 w/Linux 3.10.0-1160.el7.x86_64) (8cores*32cpus*2physical cpus*Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz 20480KB) (197849384KB)
+PID:     38624
+OS:      Red Hat Enterprise Linux Server release 7.9 (Maipo)
+
+
+[09:57:56.333411] Periodic Lic check successful
+[09:57:56.333425] Feature usage summary:
+[09:57:56.333426] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (17 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source scripts/run_synth.tcl
+#@ Begin verbose source ./scripts/run_synth.tcl
+@file(run_synth.tcl) 3: if {[file exists /proc/cpuinfo]} {
+  sh grep "model name" /proc/cpuinfo
+    sh grep "cpu MHz"    /proc/cpuinfo
+    }
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+cpu MHz		: 2200.006
+cpu MHz		: 1999.963
+cpu MHz		: 2199.890
+cpu MHz		: 2000.079
+cpu MHz		: 2199.890
+cpu MHz		: 1999.615
+cpu MHz		: 2200.469
+cpu MHz		: 1999.731
+cpu MHz		: 2200.006
+cpu MHz		: 2000.659
+cpu MHz		: 2199.890
+cpu MHz		: 2000.891
+cpu MHz		: 2200.006
+cpu MHz		: 1999.963
+cpu MHz		: 2199.890
+cpu MHz		: 1999.963
+cpu MHz		: 2200.006
+cpu MHz		: 2001.239
+cpu MHz		: 2200.006
+cpu MHz		: 1999.383
+cpu MHz		: 2199.890
+cpu MHz		: 1999.151
+cpu MHz		: 2199.890
+cpu MHz		: 1999.035
+cpu MHz		: 2200.006
+cpu MHz		: 1999.963
+cpu MHz		: 2200.006
+cpu MHz		: 1999.267
+cpu MHz		: 2200.006
+cpu MHz		: 1999.847
+cpu MHz		: 2200.006
+cpu MHz		: 2000.079
+@file(run_synth.tcl) 8:     puts "Hostname : [info hostname]"
+Hostname : cadence
+@file(run_synth.tcl) 10: set var(step) "synth"
+@file(run_synth.tcl) 11: if {[file exists ../project_setup.tcl]} {
+	source -e -v ../project_setup.tcl
+} else {
+	puts "ERROR: project_setup.tcl not found. Please check your setup"
+}
+Sourcing '../project_setup.tcl' (Sat May 02 09:58:13 +06 2026)...
+#@ Begin verbose source ../project_setup.tcl
+@file(project_setup.tcl) 10: set TECH "gpdk045" ;# Options: "gpdk045 | sky130_cadence | sky130_open"
+set TECH "gpdk045" ;# Options: "gpdk045 | sky130_cadence | sky130_open"
+@file(project_setup.tcl) 15: set MULTIVT "lvt"
+set MULTIVT "lvt"
+@file(project_setup.tcl) 16: set MBFF "false"
+set MBFF "false"
+@file(project_setup.tcl) 18: source -e -v $::env(REPO_ROOT)/util/tech/${TECH}.tcl 
+source -e -v $::env(REPO_ROOT)/util/tech/${TECH}.tcl 
+Sourcing '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/gpdk045.tcl' (Sat May 02 09:58:13 +06 2026)...
+#@ Begin verbose source /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/gpdk045.tcl
+@file(gpdk045.tcl) 10: set TECH "gpdk045" ;# Future options: "gpdk045 | sky130"
+set TECH "gpdk045" ;# Future options: "gpdk045 | sky130"
+@file(gpdk045.tcl) 12: puts "ATSH_VLSI: TECH=$TECH"
+puts "ATSH_VLSI: TECH=$TECH"
+ATSH_VLSI: TECH=gpdk045
+@file(gpdk045.tcl) 13: puts "ATSH_VLSI: Starting Setup"
+puts "ATSH_VLSI: Starting Setup"
+ATSH_VLSI: Starting Setup
+@file(gpdk045.tcl) 15: if { $TECH == "gpdk045" } {
+	set TECH_DIR "/home/user_27/work/tech/gpdk045"
+	set STD_LIB_DIR "gsclib045_all_v4.7"
+	#set MULTIVT "true"
+	if { [string equal -nocase $MULTIVT "false"] } {
+	        puts "ATSH_VLSI: MULTIVT is set to false. Using only RVT cells for synthesis. Please fix if other or all vt cells to be used."
+        	set MULTIVT "RVT"
+	} else {
+		puts "ATSH_VLSI: MULTIVT is set to true. All available (rvt, lvt, hvt) vt cells will be used."
+	}
+	#set MBFF "false"
+
+set LEF_FILES ""
+
+# Adding Technology LEF file
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_tech/lef/gsclib045_tech.lef"
+
+# Adding RVT Cell LEF | Default when MULTIVT is FALSE
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "RVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/lef/gsclib045_macro.lef"
+}
+
+# Adding LVT/H`VT Cell LEF
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "LVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/lef/gsclib045_lvt_macro.lef"
+}
+if { [string equal -nocase $MULTIVT "true"] ||  [regexp -nocase "HVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/lef/gsclib045_hvt_macro.lef"
+}
+
+if { $MBFF == "true" } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/gsclib045_multibitsDFF.lef"
+}
+
+set LIB_FILES(slow) ""
+set LIB_FILES(fast) ""
+
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "RVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/slow_vdd1v0_basicCells.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/fast_vdd1v2_basicCells.lib"
+}
+
+
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "LVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/timing/slow_vdd1v0_basicCells_lvt.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/timing/fast_vdd1v2_basicCells_lvt.lib"
+}
+if { [string equal -nocase $MULTIVT "true"] ||  [regexp -nocase "HVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/timing/slow_vdd1v0_basicCells_hvt.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/timing/fast_vdd1v2_basicCells_hvt.lib"
+}
+
+if { $MBFF == "true" } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/fast_vdd1v2_multibitsDFF.lib"
+}
+
+set LIB_FILES(all) "$LIB_FILES(slow) $LIB_FILES(fast)"
+
+set QRC_TECH_FILE(rcworst) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/rcworst/qrcTechFile"
+set QRC_TECH_FILE(rcbest) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/rcbest/qrcTechFile"
+set QRC_TECH_FILE(typical) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/typical/qrcTechFile"
+
+set PHYSICAL_CELL_LIST "[get_lib_cell */*FILL*]"
+set CLK_BUFFERS "[get_lib_cell */*CLKBUF*] "
+set CLK_INVERTERS " [get_lib_cell */*CLKINV*]"
+
+} ;# END OF GPDK045 SETUP
+if { $TECH == "gpdk045" } {
+	set TECH_DIR "/home/user_27/work/tech/gpdk045"
+	set STD_LIB_DIR "gsclib045_all_v4.7"
+	#set MULTIVT "true"
+	if { [string equal -nocase $MULTIVT "false"] } {
+	        puts "ATSH_VLSI: MULTIVT is set to false. Using only RVT cells for synthesis. Please fix if other or all vt cells to be used."
+        	set MULTIVT "RVT"
+	} else {
+		puts "ATSH_VLSI: MULTIVT is set to true. All available (rvt, lvt, hvt) vt cells will be used."
+	}
+	#set MBFF "false"
+
+set LEF_FILES ""
+
+# Adding Technology LEF file
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_tech/lef/gsclib045_tech.lef"
+
+# Adding RVT Cell LEF | Default when MULTIVT is FALSE
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "RVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/lef/gsclib045_macro.lef"
+}
+
+# Adding LVT/H`VT Cell LEF
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "LVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/lef/gsclib045_lvt_macro.lef"
+}
+if { [string equal -nocase $MULTIVT "true"] ||  [regexp -nocase "HVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/lef/gsclib045_hvt_macro.lef"
+}
+
+if { $MBFF == "true" } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/gsclib045_multibitsDFF.lef"
+}
+
+set LIB_FILES(slow) ""
+set LIB_FILES(fast) ""
+
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "RVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/slow_vdd1v0_basicCells.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/fast_vdd1v2_basicCells.lib"
+}
+
+
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "LVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/timing/slow_vdd1v0_basicCells_lvt.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/timing/fast_vdd1v2_basicCells_lvt.lib"
+}
+if { [string equal -nocase $MULTIVT "true"] ||  [regexp -nocase "HVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/timing/slow_vdd1v0_basicCells_hvt.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/timing/fast_vdd1v2_basicCells_hvt.lib"
+}
+
+if { $MBFF == "true" } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/fast_vdd1v2_multibitsDFF.lib"
+}
+
+set LIB_FILES(all) "$LIB_FILES(slow) $LIB_FILES(fast)"
+
+set QRC_TECH_FILE(rcworst) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/rcworst/qrcTechFile"
+set QRC_TECH_FILE(rcbest) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/rcbest/qrcTechFile"
+set QRC_TECH_FILE(typical) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/typical/qrcTechFile"
+
+set PHYSICAL_CELL_LIST "[get_lib_cell */*FILL*]"
+set CLK_BUFFERS "[get_lib_cell */*CLKBUF*] "
+set CLK_INVERTERS " [get_lib_cell */*CLKINV*]"
+
+} ;# END OF GPDK045 SETUP
+ATSH_VLSI: MULTIVT is set to true. All available (rvt, lvt, hvt) vt cells will be used.
+Warning : Could not find requested search value. [SDC-208] [get_lib_cells]
+        : The 'get_lib_cells' command cannot find any library cells for the specified objects.
+        : Use get_* commands to find the objects along with a wild card entry in the name of the object to check if the object is existing with different naming style.
+Warning : Could not find requested search value. [SDC-208] [get_lib_cells]
+        : The 'get_lib_cells' command cannot find any library cells for the specified objects.
+Warning : Could not find requested search value. [SDC-208] [get_lib_cells]
+        : The 'get_lib_cells' command cannot find any library cells for the specified objects.
+#@ End verbose source /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/gpdk045.tcl
+@file(project_setup.tcl) 24: set DESIGN_DIR "design_data"
+set DESIGN_DIR "design_data"
+@file(project_setup.tcl) 25: set DESIGN_NAME "$::env(TOP)"
+set DESIGN_NAME "$::env(TOP)"
+@file(project_setup.tcl) 26: puts "TOP DESIGN SET TO: $DESIGN_NAME"
+puts "TOP DESIGN SET TO: $DESIGN_NAME"
+TOP DESIGN SET TO: MAC_4BIT
+@file(project_setup.tcl) 27: set CLK_PORT "SYS_CLOCK" 
+set CLK_PORT "SYS_CLOCK" 
+@file(project_setup.tcl) 28: set CLK_PERIOD "5" ;# unit depends on pdk; for gpdk045 the unit is ns
+set CLK_PERIOD "5" ;# unit depends on pdk; for gpdk045 the unit is ns
+@file(project_setup.tcl) 30: set POWER_NET "VDD"
+set POWER_NET "VDD"
+@file(project_setup.tcl) 31: set GROUND_NET "VSS"
+set GROUND_NET "VSS"
+@file(project_setup.tcl) 40: set SYNTH_EFFORT_GENERIC "medium"
+set SYNTH_EFFORT_GENERIC "medium"
+@file(project_setup.tcl) 41: set SYNTH_EFFORT_OPT "high"
+set SYNTH_EFFORT_OPT "high"
+@file(project_setup.tcl) 42: set SYNTH_INFO_LEVEL 7
+set SYNTH_INFO_LEVEL 7
+@file(project_setup.tcl) 43: set SYNTH_LOW_POWER "false"
+set SYNTH_LOW_POWER "false"
+@file(project_setup.tcl) 45: if { $var(step) == "synth" } {
+set RTL_FILES "[glob $DESIGN_DIR/*v]"
+set CONSTRAINTS_FILE "[glob $DESIGN_DIR/*sdc]"
+#set RTL_FILES "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn]"
+#set CONSTRAINTS_FILE "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn_sdc]"
+}
+if { $var(step) == "synth" } {
+set RTL_FILES "[glob $DESIGN_DIR/*v]"
+set CONSTRAINTS_FILE "[glob $DESIGN_DIR/*sdc]"
+#set RTL_FILES "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn]"
+#set CONSTRAINTS_FILE "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn_sdc]"
+}
+@file(project_setup.tcl) 56: set PNR_INIT_NETLIST "$DESIGN_DIR/${DESIGN_NAME}_gate.v"
+set PNR_INIT_NETLIST "$DESIGN_DIR/${DESIGN_NAME}_gate.v"
+@file(project_setup.tcl) 57: set PNR_SDC "$DESIGN_DIR/${DESIGN_NAME}.sdc"
+set PNR_SDC "$DESIGN_DIR/${DESIGN_NAME}.sdc"
+@file(project_setup.tcl) 58: set PNR_VIEW_DEF "$DESIGN_DIR/viewDefinition.tcl"
+set PNR_VIEW_DEF "$DESIGN_DIR/viewDefinition.tcl"
+@file(project_setup.tcl) 59: set PNR_GND_NETS "VSS"
+set PNR_GND_NETS "VSS"
+@file(project_setup.tcl) 60: set PNR_PWR_NETS "VDD"
+set PNR_PWR_NETS "VDD"
+@file(project_setup.tcl) 61: set PNR_MAX_ROUTE_LAYER "6"
+set PNR_MAX_ROUTE_LAYER "6"
+@file(project_setup.tcl) 62: set PNR_FP_TCL "../floorplan/fp.tcl"
+set PNR_FP_TCL "../floorplan/fp.tcl"
+@file(project_setup.tcl) 63: set PNR_FP_DEF "../floorplan/fp.def"
+set PNR_FP_DEF "../floorplan/fp.def"
+@file(project_setup.tcl) 64: set PNR_FP_PRIORITY "TCL"
+set PNR_FP_PRIORITY "TCL"
+#@ End verbose source ../project_setup.tcl
+@file(run_synth.tcl) 20: set DESIGN $DESIGN_NAME
+@file(run_synth.tcl) 21: puts "DESIGN SET TO $DESIGN"
+DESIGN SET TO MAC_4BIT
+@file(run_synth.tcl) 22: set GEN_EFF $SYNTH_EFFORT_GENERIC
+@file(run_synth.tcl) 23: set MAP_OPT_EFF $SYNTH_EFFORT_OPT
+@file(run_synth.tcl) 24: set DATE [clock format [clock seconds] -format "%b%d-%T"]
+@file(run_synth.tcl) 25: set _OUTPUTS_PATH outputs_${DATE}
+@file(run_synth.tcl) 26: set _REPORTS_PATH reports_${DATE}
+@file(run_synth.tcl) 27: set _LOG_PATH logs_${DATE}
+@file(run_synth.tcl) 29: set_db / .init_lib_search_path  {. ../LIB $TECH_DIR}
+  Setting attribute of root '/': 'init_lib_search_path' = . ../LIB $TECH_DIR
+@file(run_synth.tcl) 31: set_db / .init_hdl_search_path  {. ../RTL $DESIGN_DIR}
+  Setting attribute of root '/': 'init_hdl_search_path' = . ../RTL $DESIGN_DIR
+@file(run_synth.tcl) 44: set_db / .information_level $SYNTH_INFO_LEVEL
+  Setting attribute of root '/': 'information_level' = 7
+@file(run_synth.tcl) 51: eval "set_db / .library {$LIB_FILES(all)}"
+
+Threads Configured:6
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Y' for the cell 'HOLDX1LVT'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045_lvt/timing/slow_vdd1v0_basicCells_lvt.lib, Line 67517)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Y' for the cell 'HOLDX1LVT'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045_lvt/timing/fast_vdd1v2_basicCells_lvt.lib, Line 67510)
+
+  Message Summary for Library both libraries:
+  *******************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 2
+  *******************************************
+ 
+            Reading file '/home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045_lvt/timing/slow_vdd1v0_basicCells_lvt.lib'
+            Reading file '/home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045_lvt/timing/fast_vdd1v2_basicCells_lvt.lib'
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'slow_vdd1v0' and 'fast_vdd1v2'.
+        : This is a common source of delay calculation confusion and should be avoided.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.900000, 125.000000) in library 'slow_vdd1v0_basicCells_lvt.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.320000, 0.000000) in library 'fast_vdd1v2_basicCells_lvt.lib'.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNALVT' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNALVT' must have an output pin.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'HOLDX1LVT/Y' has no function.
+        : If the remainder of this library cell's semantic checks are successful, it will be considered as a timing-model (because one of its outputs does not have a valid function.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNALVT' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNALVT' must have an output pin.
+Info    : An output library pin lacks a function attribute. [LBR-41]
+        : Output pin 'HOLDX1LVT/Y' has no function.
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ACHCONX2LVT and fast_vdd1v2/ACHCONX2LVT).  Deleting (fast_vdd1v2/ACHCONX2LVT).
+        : Library cell names must be unique.  Any duplicates will be deleted.  Only the first (as determined by the order of libraries) will be retained.
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDFHX1LVT and fast_vdd1v2/ADDFHX1LVT).  Deleting (fast_vdd1v2/ADDFHX1LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDFHX2LVT and fast_vdd1v2/ADDFHX2LVT).  Deleting (fast_vdd1v2/ADDFHX2LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDFHX4LVT and fast_vdd1v2/ADDFHX4LVT).  Deleting (fast_vdd1v2/ADDFHX4LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDFHXLLVT and fast_vdd1v2/ADDFHXLLVT).  Deleting (fast_vdd1v2/ADDFHXLLVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDFX1LVT and fast_vdd1v2/ADDFX1LVT).  Deleting (fast_vdd1v2/ADDFX1LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDFX2LVT and fast_vdd1v2/ADDFX2LVT).  Deleting (fast_vdd1v2/ADDFX2LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDFX4LVT and fast_vdd1v2/ADDFX4LVT).  Deleting (fast_vdd1v2/ADDFX4LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDFXLLVT and fast_vdd1v2/ADDFXLLVT).  Deleting (fast_vdd1v2/ADDFXLLVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDHX1LVT and fast_vdd1v2/ADDHX1LVT).  Deleting (fast_vdd1v2/ADDHX1LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDHX2LVT and fast_vdd1v2/ADDHX2LVT).  Deleting (fast_vdd1v2/ADDHX2LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDHX4LVT and fast_vdd1v2/ADDHX4LVT).  Deleting (fast_vdd1v2/ADDHX4LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/ADDHXLLVT and fast_vdd1v2/ADDHXLLVT).  Deleting (fast_vdd1v2/ADDHXLLVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/AND2X1LVT and fast_vdd1v2/AND2X1LVT).  Deleting (fast_vdd1v2/AND2X1LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/AND2X2LVT and fast_vdd1v2/AND2X2LVT).  Deleting (fast_vdd1v2/AND2X2LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/AND2X4LVT and fast_vdd1v2/AND2X4LVT).  Deleting (fast_vdd1v2/AND2X4LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/AND2X6LVT and fast_vdd1v2/AND2X6LVT).  Deleting (fast_vdd1v2/AND2X6LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/AND2X8LVT and fast_vdd1v2/AND2X8LVT).  Deleting (fast_vdd1v2/AND2X8LVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/AND2XLLVT and fast_vdd1v2/AND2XLLVT).  Deleting (fast_vdd1v2/AND2XLLVT).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/AND3X1LVT and fast_vdd1v2/AND3X1LVT).  Deleting (fast_vdd1v2/AND3X1LVT).
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-22'.
+  Setting attribute of root '/': 'library' =  /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045_lvt/timing/slow_vdd1v0_basicCells_lvt.lib  /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045_lvt/timing/fast_vdd1v2_basicCells_lvt.lib
+@file(run_synth.tcl) 53: eval "set_db / .lef_library  {$LEF_FILES}"
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_HV' has no resistance value.
+        : If this is the expected behavior, this message can be ignored.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_VV' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_VH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_HH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_2x1_HV_E' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_2x1_HV_W' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_1x2_HV_N' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_1x2_HV_S' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_VH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_HH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_HV' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_VV' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_M_NH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_M_SH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_2x1_VH_E' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_2x1_VH_W' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_1x2_VH_N' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_1x2_VH_S' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M4_M3_HV' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M4_M3_VV' has no resistance value.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-129'.
+
+  According to lef_library, there are total 11 routing layers [ V(5) / H(6) ]
+
+Info    : Mismatch in unateness between 'timing_sense' attribute and the function. [LBR-155]
+        : 'timing_sense' attribute between pin 'CI' and 'S' in libcell 'ADDFHX1LVT' is 'pos_unate', but unateness determined from function is 'non_unate'.
+        : The 'timing_sense' attribute will be respected.
+Info    : Mismatch in unateness between 'timing_sense' attribute and the function. [LBR-155]
+        : 'timing_sense' attribute between pin 'CI' and 'S' in libcell 'ADDFHX1LVT' is 'neg_unate', but unateness determined from function is 'non_unate'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'CI' and 'S' in libcell 'ADDFHX1LVT'.
+        : Setting the 'timing_sense' to non_unate.
+Info    : Mismatch in unateness between 'timing_sense' attribute and the function. [LBR-155]
+        : 'timing_sense' attribute between pin 'B' and 'S' in libcell 'ADDFHX1LVT' is 'pos_unate', but unateness determined from function is 'non_unate'.
+Info    : Mismatch in unateness between 'timing_sense' attribute and the function. [LBR-155]
+        : 'timing_sense' attribute between pin 'B' and 'S' in libcell 'ADDFHX1LVT' is 'neg_unate', but unateness determined from function is 'non_unate'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'B' and 'S' in libcell 'ADDFHX1LVT'.
+Info    : Mismatch in unateness between 'timing_sense' attribute and the function. [LBR-155]
+        : 'timing_sense' attribute between pin 'A' and 'S' in libcell 'ADDFHX1LVT' is 'pos_unate', but unateness determined from function is 'non_unate'.
+Info    : Mismatch in unateness between 'timing_sense' attribute and the function. [LBR-155]
+        : 'timing_sense' attribute between pin 'A' and 'S' in libcell 'ADDFHX1LVT' is 'neg_unate', but unateness determined from function is 'non_unate'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'A' and 'S' in libcell 'ADDFHX1LVT'.
+Info    : Mismatch in unateness between 'timing_sense' attribute and the function. [LBR-155]
+        : 'timing_sense' attribute between pin 'CI' and 'S' in libcell 'ADDFHX2LVT' is 'pos_unate', but unateness determined from function is 'non_unate'.
+Info    : Mismatch in unateness between 'timing_sense' attribute and the function. [LBR-155]
+        : 'timing_sense' attribute between pin 'CI' and 'S' in libcell 'ADDFHX2LVT' is 'neg_unate', but unateness determined from function is 'non_unate'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'CI' and 'S' in libcell 'ADDFHX2LVT'.
+Info    : Mismatch in unateness between 'timing_sense' attribute and the function. [LBR-155]
+        : 'timing_sense' attribute between pin 'B' and 'S' in libcell 'ADDFHX2LVT' is 'pos_unate', but unateness determined from function is 'non_unate'.
+Info    : Mismatch in unateness between 'timing_sense' attribute and the function. [LBR-155]
+        : 'timing_sense' attribute between pin 'B' and 'S' in libcell 'ADDFHX2LVT' is 'neg_unate', but unateness determined from function is 'non_unate'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'B' and 'S' in libcell 'ADDFHX2LVT'.
+Info    : Setting the maximum print count of this message to 10 if information_level is less than 9. [LBR-161]
+        : To print all the warning messages, set the information_level to 9.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'A' and 'S' in libcell 'ADDFHX2LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'CI' and 'S' in libcell 'ADDFHX4LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'B' and 'S' in libcell 'ADDFHX4LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'A' and 'S' in libcell 'ADDFHX4LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'CI' and 'S' in libcell 'ADDFHXLLVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'B' and 'S' in libcell 'ADDFHXLLVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'A' and 'S' in libcell 'ADDFHXLLVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'CI' and 'S' in libcell 'ADDFX1LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'B' and 'S' in libcell 'ADDFX1LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'A' and 'S' in libcell 'ADDFX1LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'CI' and 'S' in libcell 'ADDFX2LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'B' and 'S' in libcell 'ADDFX2LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'A' and 'S' in libcell 'ADDFX2LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'CI' and 'S' in libcell 'ADDFX4LVT'.
+Info    : Both 'pos_unate' and 'neg_unate' timing_sense arcs have been processed. [LBR-162]
+        : Non_unate 'timing_sense' inferred between pin 'B' and 'S' in libcell 'ADDFX4LVT'.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-162'.
+  Libraries have 324 usable logic and 128 usable sequential lib-cells.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL1LVT cannot be found in library.
+        : Ensure that the proper library files are available and have been imported.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL16LVT cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL2LVT cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL32LVT cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL4LVT cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL64LVT cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL8LVT cannot be found in library.
+  Setting attribute of root '/': 'lef_library' = /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045_tech/lef/gsclib045_tech.lef /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045_lvt/lef/gsclib045_lvt_macro.lef
+@file(run_synth.tcl) 56: if {$SYNTH_LOW_POWER == "true" } {
+set_db / .lp_insert_clock_gating true 
+}
+@file(run_synth.tcl) 68: if {$SYNTH_LOW_POWER == "true" } {
+set_db / .leakage_power_effort high 
+} else {
+set_db / .leakage_power_effort medium 
+}
+Warning : This attribute will be obsolete in a next major release. [TUI-32]
+        : attribute: 'leakage_power_effort', object type: 'root'
+        : This attribute is obsolete. Use design_power_effort attribute instead.
+  Setting attribute of root '/': 'leakage_power_effort' = medium
+@file(run_synth.tcl) 80: read_hdl -sv "$RTL_FILES"
+            Reading Verilog file 'design_data/top.sv'
+@file(run_synth.tcl) 81: eval "elaborate $DESIGN"
+Error   : Could not find an HDL design. [CDFG-210] [elaborate]
+        : The design is 'MAC_4BIT'.
+        : This error may happen if you read a set of files, and you try to elaborate a design which description is not part of the files read. To fix this, check the name of the design you want to elaborate, or check if you have read all the expected RTL files.
+UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   elaborate
+#@ End verbose source ./scripts/run_synth.tcl
+1
+Encountered problems processing file: scripts/run_synth.tcl
+WARNING: This version of the tool is 1018 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[09:58:28.262266] Cdslmd servers: cadence
+[09:58:28.262306] Feature usage summary:
+[09:58:28.262306] Genus_Synthesis
+
+Normal exit.

@@ -1,0 +1,27 @@
+# PNR Makefile
+
+pnr: init place cts route signoff
+
+init:
+	innovus -init scripts/$@.tcl -log logs/$@.log
+	@if [ ! -f DBS/$@.enc ] ; then printf "ERROR: PnR Stage \"$@\" did not complete succussfully \n\tPlease check logfile\n\n"; false ; fi
+
+place: init
+	innovus -init scripts/$@.tcl -log logs/$@.log
+	@if [ ! -f DBS/$@.enc ] ; then printf "ERROR: PnR Stage \"$@\" did not complete succussfully \n\tPlease check logfile\n\n"; false ; fi
+
+cts: place
+	innovus -init scripts/$@.tcl -log logs/$@.log
+	@if [ ! -f DBS/$@.enc ] ; then printf "ERROR: PnR Stage \"$@\" did not complete succussfully \n\tPlease check logfile\n\n"; false ; fi
+
+#postcts: cts
+
+route: cts
+	innovus -init scripts/$@.tcl -log logs/$@.log
+	@if [ ! -f DBS/$@.enc ] ; then printf "ERROR: PnR Stage \"$@\" did not complete succussfully \n\tPlease check logfile\n\n"; false ; fi
+
+#postroute: route
+
+signoff: route
+	innovus -init scripts/$@.tcl -log logs/$@.log
+	@if [ ! -f DBS/$@.enc ] ; then printf "ERROR: PnR Stage \"$@\" did not complete succussfully \n\tPlease check logfile\n\n"; false ; fi

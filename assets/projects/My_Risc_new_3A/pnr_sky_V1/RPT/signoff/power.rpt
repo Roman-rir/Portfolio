@@ -1,0 +1,97 @@
+*----------------------------------------------------------------------------------------
+*	Innovus 21.18-s099_1 (64bit) 07/18/2023 13:03 (Linux 3.10.0-693.el7.x86_64)
+*	
+*
+* 	Date & Time:	2026-Jul-11 16:59:21 (2026-Jul-11 10:59:21 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: RISC_V3
+*
+*	Liberty Libraries used: 
+*	        func_slow: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/my_risc/pnr_sky_V1/DBS/route.enc.dat/libs/mmmc/sky130_ss_1.62_125_nldm.lib
+*
+*	Power Domain used: 
+*              Rail:        VDD      Voltage:       1.62 
+*
+*       Power View : func_slow
+*
+*       User-Defined Activity : N.A.
+*
+*       Activity File: N.A.
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: 0.200000
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs 
+*
+*       report_power -output RPT/signoff -outfile power
+*
+-----------------------------------------------------------------------------------------
+
+
+Total Power 
+-----------------------------------------------------------------------------------------
+Total Internal Power:        2.68920809 	   55.5473%
+Total Switching Power:       2.14611252 	   44.3293%
+Total Leakage Power:         0.00596957 	    0.1233%
+Total Power:                 4.84129019 
+-----------------------------------------------------------------------------------------
+
+
+Group                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Sequential                         1.913      0.2179    0.004128       2.135        44.1 
+Macro                                  0           0           0           0           0 
+IO                                     0           0           0           0           0 
+Combinational                     0.5332       1.311    0.001781       1.846       38.13 
+Clock (Combinational)             0.2432      0.6174   6.078e-05      0.8606       17.78 
+Clock (Sequential)                     0           0           0           0           0 
+-----------------------------------------------------------------------------------------
+Total                              2.689       2.146     0.00597       4.841         100 
+-----------------------------------------------------------------------------------------
+
+
+Clock                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+SYS_CLOCK                         0.2432      0.6174   6.078e-05      0.8606       17.78 
+-----------------------------------------------------------------------------------------
+Total (excluding duplicates)      0.2432      0.6174   6.078e-05      0.8606       17.78 
+-----------------------------------------------------------------------------------------
+Clock: SYS_CLOCK
+Clock Period: 0.010000 usec 
+Clock Toggle Rate:   200.0000 Mhz 
+Clock Static Probability:  0.5000
+
+
+
+Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+VDD                      1.62      2.689       2.146     0.00597       4.841         100 
+
+
+-----------------------------------------------------------------------------------------
+*	Power Distribution Summary: 
+*                Highest Average Power:   PC1/CTS_ccl_a_buf_00025 (CLKBUFX8):           0.0489 
+*                Highest Leakage Power:            PC1/IR_reg[30] (DFFX4):        8.192e-06 
+*          Total Cap:      6.82986e-11 F
+*          Total instances in design:  4164
+*          Total instances in design with no power:     0
+*          Total instances in design with no activity:     0
+*          Total Fillers and Decap:     0
+-----------------------------------------------------------------------------------------
+

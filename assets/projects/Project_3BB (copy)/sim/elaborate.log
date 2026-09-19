@@ -1,0 +1,26 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jul 11, 2026 at 14:00:59 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/data_mem.sv
+	/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/prog_mem.sv
+	/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/processor.sv
+	/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/risc_top.sv
+	/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/tb/TB_top.sv
+	-top TB_RISC_V3_PIPELINED
+	-elaborate
+	-log elaborate.log
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+xrun: *E,FILEMIS: Cannot find the provided file /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/data_mem.sv.
+xrun: *E,FILEMIS: Cannot find the provided file /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/prog_mem.sv.
+xrun: *E,FILEMIS: Cannot find the provided file /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/processor.sv.
+xrun: *E,FILEMIS: Cannot find the provided file /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/risc_top.sv.
+xrun: *E,FILEMIS: Cannot find the provided file /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/tb/TB_top.sv.
+TOOL:	xrun(64)	23.03-s011: Exiting on Jul 11, 2026 at 14:01:00 +06  (total: 00:00:01)

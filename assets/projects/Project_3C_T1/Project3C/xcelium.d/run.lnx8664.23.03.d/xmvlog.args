@@ -1,0 +1,23 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-XLMODE
+./xcelium.d/run.lnx8664.23.03.d
+-RUNMODE
+-sv
+rtl/DATA_MEM.sv
+rtl/PROCESSOR_V3.sv
+rtl/PROG_MEM.sv
+rtl/RISC_V3.sv
+tb/RISC_V3_TB.sv
+-CDSLIB
+./xcelium.d/run.lnx8664.23.03.d/cdsrun.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.23.03.d/hdlrun.var
+-no_analogsolver
+-MESSAGES
+-UPDATE
+-XLLIBSTORE
+./xcelium.d/run.lnx8664.23.03.d/xllibs
+-ALLOWUNBOUND

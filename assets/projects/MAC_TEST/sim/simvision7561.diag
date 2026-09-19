@@ -1,0 +1,84 @@
+*** Message Type: info ***
+When: Sat Apr 25 01:25:21 PM +06 2026
+SimVision started.
+Version: TOOL:  simvision(64)   23.03-s011
+User: B2_Robiul
+Host: cadence
+Platform: Linux/x86_64/3.10.0-1160.el7.x86_64
+Started: Sat Apr 25 01:25:21 PM +06 2026
+Command: /home/cadence/lnx/xce_24/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:cadence:57171 -64BIT -nocopyright
+Work Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/sim
+ 
+*** Message Type: info ***
+When: Sat Apr 25 01:25:22 PM +06 2026
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Sat Apr 25 01:25:24 PM +06 2026
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Sat Apr 25 01:25:25 PM +06 2026
+Connect to Simulator
+      Design: worklib.TB_test:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:       xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Sat Apr 25 01:25:20 PM +06 2026
+  Process ID: 7525
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/rtl/top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/tb/TB_top.sv -top TB_test -R -sv -gui -coverage all -input waves.tcl
+
+ 
+*** Message Type: info ***
+When: Sat Apr 25 01:25:26 PM +06 2026
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Sat Apr 25 03:37:57 PM +06 2026
+Exit XM-Sim: user
+      Design: worklib.TB_test:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:       xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Sat Apr 25 01:25:20 PM +06 2026
+  Process ID: 7525
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/rtl/top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/tb/TB_top.sv -top TB_test -R -sv -gui -coverage all -input waves.tcl
+
+ 
+*** Message Type: error ***
+When: Sat Apr 25 03:37:57 PM +06 2026
+XM-Sim Crashed:
+      Design: worklib.TB_test:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:       xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Sat Apr 25 01:25:20 PM +06 2026
+  Process ID: 7525
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/rtl/top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/tb/TB_top.sv -top TB_test -R -sv -gui -coverage all -input waves.tcl
+      Design: worklib.TB_test:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:    xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Sat Apr 25 01:25:20 PM +06 2026
+  Process ID: 7525
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/rtl/top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/tb/TB_top.sv -top TB_test -R -sv -gui -coverage all -input waves.tcl
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Sat May 02 12:28:45 PM +06 2026
+SimVision Exit.
+ 

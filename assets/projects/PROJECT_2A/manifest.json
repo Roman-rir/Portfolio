@@ -1,0 +1,21 @@
+{
+  "sim_top": "PROJECT_2A_TOP_tb",
+  "syn_top": "PROJECT_2A_TOP",
+  "constraints": [
+	"constraints/PROJECT_2A.sdc"
+	],
+  "include_dirs": [
+    "rtl",
+    "tb"
+  ],
+  "defines": [],
+  "rtl_files": [
+	"rtl/PROJECT_2A_DATAPATH.v",
+	//"rtl/PROJECT_2A_DATAPATH.v",
+	"rtl/PROJECT_2A_FSM.v",
+	"rtl/PROJECT_2A_TOP.v"
+  ],
+  "tb_files": [
+	"tb/PROJECT_2A_TOP_TB.v"
+  ]
+}

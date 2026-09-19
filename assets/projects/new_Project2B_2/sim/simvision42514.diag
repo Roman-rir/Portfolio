@@ -1,0 +1,108 @@
+*** Message Type: info ***
+When: Sat Jun 13 12:39:01 PM +06 2026
+SimVision started.
+Version: TOOL:  simvision(64)   23.03-s011
+User: B2_Robiul
+Host: cadence
+Platform: Linux/x86_64/3.10.0-1160.el7.x86_64
+Started: Sat Jun 13 12:39:01 PM +06 2026
+Command: /home/cadence/lnx/xce_24/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:cadence:59763 -64BIT -nocopyright
+Work Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_2/sim
+ 
+*** Message Type: info ***
+When: Sat Jun 13 12:39:01 PM +06 2026
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Sat Jun 13 12:39:04 PM +06 2026
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Sat Jun 13 12:39:05 PM +06 2026
+Connect to Simulator
+      Design: worklib.TB_TOP2:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL: xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Sat Jun 13 12:38:59 PM +06 2026
+  Process ID: 42495
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_2/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/DATAPATH.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/FSM.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/TOP.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/tb/TB_TOP2.sv -top TB_TOP2 -R -sv -gui -coverage all -input waves.tcl
+
+ 
+*** Message Type: info ***
+When: Sat Jun 13 12:39:07 PM +06 2026
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Sat Jun 13 12:40:39 PM +06 2026
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Sat Jun 13 12:44:23 PM +06 2026
+Delete waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Sat Jun 13 12:45:20 PM +06 2026
+Create waveform window: "Waveform 2"
+ 
+*** Message Type: info ***
+When: Sat Jun 13 12:47:21 PM +06 2026
+Delete waveform window: "Waveform 2"
+ 
+*** Message Type: info ***
+When: Sat Jun 13 12:48:23 PM +06 2026
+Create waveform window: "Waveform 3"
+ 
+*** Message Type: info ***
+When: Sat Jun 13 01:51:26 PM +06 2026
+Exit XM-Sim: user
+      Design: worklib.TB_TOP2:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL: xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Sat Jun 13 12:38:59 PM +06 2026
+  Process ID: 42495
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_2/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/DATAPATH.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/FSM.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/TOP.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/tb/TB_TOP2.sv -top TB_TOP2 -R -sv -gui -coverage all -input waves.tcl
+
+ 
+*** Message Type: error ***
+When: Sat Jun 13 01:51:26 PM +06 2026
+XM-Sim Crashed:
+      Design: worklib.TB_TOP2:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL: xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Sat Jun 13 12:38:59 PM +06 2026
+  Process ID: 42495
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_2/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/DATAPATH.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/FSM.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/TOP.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/tb/TB_TOP2.sv -top TB_TOP2 -R -sv -gui -coverage all -input waves.tcl
+      Design: worklib.TB_TOP2:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:        xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Sat Jun 13 12:38:59 PM +06 2026
+  Process ID: 42495
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_2/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/DATAPATH.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/FSM.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/rtl/TOP.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_1/tb/TB_TOP2.sv -top TB_TOP2 -R -sv -gui -coverage all -input waves.tcl
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Fri Jun 19 06:49:08 PM +06 2026
+Delete waveform window: "Waveform 3"
+ 
+*** Message Type: info ***
+When: Fri Jun 19 06:49:32 PM +06 2026
+SimVision Exit.
+ 

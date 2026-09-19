@@ -1,0 +1,754 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.18-s099_1, built Tue Jul 18 13:03:50 PDT 2023
+Options:	-init scripts/place.tcl -log logs/place.log 
+Date:		Sat May  2 12:21:39 2026
+Host:		cadence (x86_64 w/Linux 3.10.0-1160.el7.x86_64) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz 20480KB)
+OS:		Red Hat Enterprise Linux Server 7.9 (Maipo)
+
+License:
+		[12:21:39.095633] Configured Lic search path (21.01-s002): 5280@cadence
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (386 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getVersion
+<CMD> define_proc_arguments ViaFillQor -info {This procedure extracts Viafill details from innovus db} -define_args {
+		{-window "window coordinates" "" list optional}
+		{-window_size "window size in microns" "" string optional}
+	
+	}
+[INFO] Loading Pegasus 22.24 fill procedures
+<CMD> define_proc_arguments ProcessFills -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+<CMD> define_proc_arguments FillQor -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+<CMD> define_proc_arguments ProcessFills_fast -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+<CMD> define_proc_arguments FillQor_fast -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+<CMD> define_proc_arguments ProcessFills_fast_stampOnly -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+	
+}
+<CMD> define_proc_arguments FillQor_fast_stampOnly -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+}
+Sourcing file "scripts/place.tcl" ...
+### Start verbose source output (echo mode) for '../project_setup.tcl' ...
+# set TECH "sky130_cadence" ;
+# set MULTIVT "false"
+# set MBFF "false"
+# source -e -v $::env(REPO_ROOT)/util/tech/${TECH}.tcl 
+### Start verbose source output (echo mode) for '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/sky130_cadence.tcl' ...
+# set TECH "sky130_cadence" 
+# puts "ATSH_VLSI: TECH=$TECH"
+# puts "ATSH_VLSI: Starting Setup"
+# if { $TECH == "sky130_cadence" } {
+	set TECH_DIR "/home/eee/sky130_cadence"
+	set STD_LIB_DIR "sky130_scl_9T_0.0.5"
+	puts "ATSH_VLSI: $TECH has no multivt or mbff options as of this release."
+	#set MULTIVT $::env(MULTIVT)
+	#set MBFF $::env(MBFF)
+
+set LEF_FILES ""
+
+# Adding Technology LEF file
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/lef/sky130_scl_9T.tlef"
+
+# Adding RVT Cell LEF
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/lef/sky130_scl_9T.lef"
+
+
+set LIB_FILES(slow) ""
+set LIB_FILES(fast) ""
+
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_ss_1.62_125_nldm.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_ff_1.98_0_nldm.lib"
+append LIB_FILES(typical) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_tt_1.8_25_nldm.lib"
+
+set LIB_FILES(all) "$LIB_FILES(slow) $LIB_FILES(fast) $LIB_FILES(typical)"
+
+set QRC_TECH_FILE(typical) "$TECH_DIR/sky130_release_0.0.4/quantus/extraction/typical/qrcTechFile"
+
+set PHYSICAL_CELL_LIST " FILL1 FILL2 FILL4 FILL8 FILL16 FILL32 FILL64 "
+set CLK_BUFFERS " CLKBUFX4 CLKBUFX8 CLKBUFX2 "
+set CLK_INVERTERS " CLKINVX2 CLKINVX8 CLKINVX1 CLKINVX4 "
+
+set GDS_MAP_FILE "$TECH_DIR/$STD_LIB_DIR/gds/sky130_stream.mapFile"
+set GDS_MERGE_FILE "$TECH_DIR/$STD_LIB_DIR/gds/sky130_scl_9T.gds"
+
+} ;
+### End verbose source output for '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/sky130_cadence.tcl'.
+# set DESIGN_DIR "design_data"
+# set DESIGN_NAME "$::env(TOP)"
+# puts "TOP DESIGN SET TO: $DESIGN_NAME"
+# set CLK_PORT "SYS_CLOCK" 
+# set CLK_PERIOD "5.0" ;
+# set POWER_NET "VDD"
+# set GROUND_NET "VSS"
+# set SYNTH_EFFORT_GENERIC "medium"
+# set SYNTH_EFFORT_OPT "high"
+# set SYNTH_INFO_LEVEL 7
+# set SYNTH_LOW_POWER "false"
+# if { $var(step) == "synth" } {
+set RTL_FILES "[glob $DESIGN_DIR/*v]"
+set CONSTRAINTS_FILE "[glob $DESIGN_DIR/*sdc]"
+#set RTL_FILES "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn]"
+#set CONSTRAINTS_FILE "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn_sdc]"
+}
+# set PNR_INIT_NETLIST "$DESIGN_DIR/${DESIGN_NAME}_gate.v"
+# set PNR_SDC "$DESIGN_DIR/${DESIGN_NAME}.sdc"
+# set PNR_VIEW_DEF "$DESIGN_DIR/viewDefinition.tcl"
+# set PNR_GND_NETS "VSS"
+# set PNR_PWR_NETS "VDD"
+# set PNR_MAX_ROUTE_LAYER "6"
+# set PNR_FP_TCL "../floorplan/fp.tcl"
+# set PNR_FP_DEF "../floorplan/fp.def"
+# set PNR_FP_PRIORITY "TCL"
+### End verbose source output for '../project_setup.tcl'.
+### Start verbose source output (echo mode) for 'scripts/always_source.tcl' ...
+# setAnalysisMode -analysisType onChipVariation
+<CMD> setAnalysisMode -analysisType onChipVariation
+### End verbose source output for 'scripts/always_source.tcl'.
+<CMD> restoreDesign DBS/init.enc.dat MAC_4BIT
+#% Begin load design ... (date=05/02 12:22:15, mem=747.2M)
+Set Default Input Pin Transition as 0.1 ps.
+Loading design 'MAC_4BIT' saved by 'Innovus' '21.18-s099_1' on 'Sat May 2 12:21:37 2026'.
+% Begin Load MMMC data ... (date=05/02 12:22:16, mem=749.2M)
+% End Load MMMC data ... (date=05/02 12:22:16, total cpu=0:00:00.0, real=0:00:00.0, peak res=749.2M, current mem=748.6M)
+rctypical
+
+Loading LEF file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/libs/lef/sky130_scl_9T.tlef ...
+
+Loading LEF file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/libs/lef/sky130_scl_9T.lef ...
+Set DBUPerIGU to M2 pitch 460.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+Loading view definition file from /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/viewDefinition.tcl
+Reading slow_libs timing library '/home/eee/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_ss_1.62_125_nldm.lib' ...
+Read 109 cells in library 'sky130_ss_1.62_125' 
+Reading fast_libs timing library '/home/eee/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_ff_1.98_0_nldm.lib' ...
+Read 109 cells in library 'sky130_ff_1.98_0' 
+*** End library_loading (cpu=0.02min, real=0.02min, mem=18.0M, fe_cpu=0.63min, fe_real=0.63min, fe_mem=1029.3M) ***
+% Begin Load netlist data ... (date=05/02 12:22:17, mem=763.9M)
+*** Begin netlist parsing (mem=1029.3M) ***
+Created 109 new cells from 2 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/MAC_4BIT.v.bin'
+
+*** Memory Usage v#1 (Current mem = 1036.305M, initial mem = 478.109M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1036.3M) ***
+% End Load netlist data ... (date=05/02 12:22:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=769.0M, current mem=769.0M)
+Set top cell to MAC_4BIT.
+Hooked 218 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell MAC_4BIT ...
+*** Netlist is unique.
+** info: there are 227 modules.
+** info: there are 64 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 1081.730M, initial mem = 478.109M) ***
+*info: set bottom ioPad orient R0
+**WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+Loading preference file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/gui.pref.tcl ...
+##  Process: 45            (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 45nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.1.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(-capFilterMode option of the setExtractRCMode) is 'relAndCoup' for all engines.
+	The accuracy mode for postRoute effortLevel low extraction will be set to 'high'.
+	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode will be 'medium' if Quantus QRC technology file is specified else 'low'.
+**WARN: (IMPOPT-3602):	The specified path group name reg2reg is not defined.
+Type 'man IMPOPT-3602' for more detail.
+Effort level <high> specified for reg2reg path_group
+Slack adjustment of -0 applied on reg2reg path_group
+Slack adjustment of -0 applied on <default> path group
+#WARNING (NRIF-91) Option setNanoRouteMode -routeTopRoutingLayer is obsolete. It will continue to work for the current release. To ensure compatibility with future releases, use option setDesignMode -topRoutingLayer instead.
+addRing command will ignore shorts while creating rings.
+addRing command will disallow rings to go over rows.
+addRing command will consider rows while creating rings.
+The ring targets are set to core/block ring wires.
+addStripe will allow jog to connect padcore ring and block ring.
+
+Stripes will not extend to closest target.
+When breaking rings, the power planner will consider the existence of blocks.
+addStripe will break automatically at non-default domains when generating global stripes over the core area or default domain.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+Stripes will not be created over regions without power planning wires.
+Offset for stripe breaking is set to 0.
+Stripes will stop at the boundary of the specified area.
+The power planner will set stripe antenna targets to none (no trimming allowed).
+**WARN: (IMPPSP-1003):	Found use of 'setRouteMode -earlyGlobalMaxRouteLayer'. This will continue to work in this release; however, it is recommended to use 'setDesignMode -topRoutingLayer' instead.
+Change floorplan default-technical-site to 'CoreSite'.
+*Info: initialize multi-corner CTS.
+Reading typical_libs timing library '/home/eee/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_tt_1.8_25_nldm.lib' ...
+Read 109 cells in library 'sky130_tt_1.8_25' 
+Total number of combinational cells: 87
+Total number of sequential cells: 19
+Total number of tristate cells: 3
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 0
+List of usable buffers: BUFX16 BUFX2 BUFX4 BUFX8 CLKBUFX2 CLKBUFX4 CLKBUFX8
+Total number of usable buffers: 7
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 INVX1 CLKINVX2 CLKINVX4 CLKINVX8 INVX16 INVX2 INVX4 INVX8
+Total number of usable inverters: 9
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X4 DLY4X4
+Total number of identified usable delay cells: 4
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Reading floorplan file - /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/MAC_4BIT.fp.gz (mem = 1347.0M).
+% Begin Load floorplan data ... (date=05/02 12:22:20, mem=1064.9M)
+*info: reset 100 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 64400 61640)
+**WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+ ... processed partition successfully.
+Reading binary special route file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/MAC_4BIT.fp.spr.gz (Created by Innovus v21.18-s099_1 on Sat May  2 12:21:35 2026, version: 1)
+Convert 0 swires and 0 svias from compressed groups
+43 swires and 176 svias were compressed
+49 swires and 91 svias were decompressed from small or sparse groups
+Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:01.0, peak res=1065.7M, current mem=1065.7M)
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+% End Load floorplan data ... (date=05/02 12:22:21, total cpu=0:00:00.1, real=0:00:01.0, peak res=1066.1M, current mem=1066.1M)
+Reading congestion map file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/MAC_4BIT.route.congmap.gz ...
+% Begin Load SymbolTable ... (date=05/02 12:22:21, mem=1066.6M)
+% End Load SymbolTable ... (date=05/02 12:22:21, total cpu=0:00:00.0, real=0:00:00.0, peak res=1066.9M, current mem=1066.9M)
+Loading place ...
+% Begin Load placement data ... (date=05/02 12:22:21, mem=1066.9M)
+Reading placement file - /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/MAC_4BIT.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v21.18-s099_1 on Sat May  2 12:21:36 2026, version# 2) ...
+Read Views for adaptive view pruning ...
+Read 0 views from Binary DB for adaptive view pruning
+*** Checked 2 GNC rules.
+*** applyConnectGlobalNets disabled.
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1349.0M) ***
+Total net length = 1.600e-01 (8.000e-02 8.000e-02) (ext = 0.000e+00)
+% End Load placement data ... (date=05/02 12:22:21, total cpu=0:00:00.0, real=0:00:00.0, peak res=1067.1M, current mem=1067.1M)
+Reading PG file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/MAC_4BIT.pg.gz, version#2, (Created by Innovus v21.18-s099_1 on       Sat May  2 12:21:35 2026)
+*** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1345.0M) ***
+% Begin Load routing data ... (date=05/02 12:22:21, mem=1067.2M)
+Reading routing file - /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/MAC_4BIT.route.gz.
+Reading Innovus routing data (Created by Innovus v21.18-s099_1 on Sat May  2 12:21:36 2026 Format: 20.1) ...
+*** Total 100 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.0 real=0:00:01.0 mem=1346.0M) ***
+% End Load routing data ... (date=05/02 12:22:22, total cpu=0:00:00.0, real=0:00:01.0, peak res=1068.3M, current mem=1067.3M)
+TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+Reading property file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/MAC_4BIT.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1349.0M) ***
+Set Default Input Pin Transition as 0.1 ps.
+Loading preRoute extraction data from directory '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/extraction/' ...
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+Captable file(s) not specified in multi-corner setup. PreRoute extraction will use technology file. For postRoute extraction, default value for effort level would be 'medium' and effort level 'low' would not be allowed.
+Generating auto layer map file.
+Loading preRoute extracted patterns from file '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/MAC_4BIT.techData.gz' ...
+Completed (cpu: 0:00:00.4 real: 0:00:01.0)
+Set Shrink Factor to 1.00000
+Summary of Active RC-Corners : 
+ 
+ Analysis View: func_slow
+    RC-Corner Name        : rctypical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+    RC-Corner Technology file: '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/libs/mmmc/rctypical/qrcTechFile'
+ 
+ Analysis View: func_typical
+    RC-Corner Name        : rctypical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+    RC-Corner Technology file: '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/libs/mmmc/rctypical/qrcTechFile'
+ 
+ Analysis View: func_fast
+    RC-Corner Name        : rctypical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+    RC-Corner Technology file: '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/init.enc.dat/libs/mmmc/rctypical/qrcTechFile'
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+Default value for postRoute extraction mode's effortLevel (-effortLevel option of setExtractRCMode) changed to 'medium'.
+Start generating vias ..
+#Skip building auto via since it is not turned on.
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+Via generation completed.
+% Begin Load power constraints ... (date=05/02 12:22:23, mem=1095.1M)
+% End Load power constraints ... (date=05/02 12:22:23, total cpu=0:00:00.1, real=0:00:00.0, peak res=1095.2M, current mem=1095.2M)
+rctypical_fast rctypical_typical rctypical_slow
+% Begin load AAE data ... (date=05/02 12:22:23, mem=1145.4M)
+AAE DB initialization (MEM=1457.44 CPU=0:00:00.1 REAL=0:00:00.0) 
+% End load AAE data ... (date=05/02 12:22:25, total cpu=0:00:01.3, real=0:00:02.0, peak res=1150.7M, current mem=1150.7M)
+Total number of combinational cells: 87
+Total number of sequential cells: 19
+Total number of tristate cells: 3
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 0
+List of usable buffers: BUFX16 BUFX2 BUFX4 BUFX8
+Total number of usable buffers: 4
+List of unusable buffers: CLKBUFX2 CLKBUFX4 CLKBUFX8
+Total number of unusable buffers: 3
+List of usable inverters: INVX1 INVX16 INVX2 INVX4 INVX8
+Total number of usable inverters: 5
+List of unusable inverters: CLKINVX1 CLKINVX2 CLKINVX4 CLKINVX8
+Total number of unusable inverters: 4
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X4 DLY4X4
+Total number of identified usable delay cells: 4
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+**WARN: (IMPCTE-107):	The following globals have been obsoleted since version . They will be removed in the next release. 
+timing_enable_separate_device_slew_effect_sensitivities
+#% End load design ... (date=05/02 12:22:25, total cpu=0:00:07.6, real=0:00:10.0, peak res=1175.9M, current mem=1151.1M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+WARNING   IMPOPT-3602          1  The specified path group name %s is not ...
+WARNING   NRIF-91              1  Option setNanoRouteMode -routeTopRouting...
+WARNING   IMPCTE-107           1  The following globals have been obsolete...
+WARNING   IMPPSP-1003          1  Found use of '%s'. This will continue to...
+*** Message Summary: 9 warning(s), 0 error(s)
+
+<CMD> setPlaceMode -fp false
+<CMD> place_design
+*** placeDesign #1 [begin] : totSession cpu/real = 0:00:43.5/0:00:44.3 (1.0), mem = 1457.4M
+*** Starting placeDesign default flow ***
+*** Start deleteBufferTree ***
+Info: Detect buffers to remove automatically.
+Analyzing netlist ...
+Updating netlist
+
+*summary: 0 instances (buffers/inverters) removed
+*** Finish deleteBufferTree (0:00:00.3) ***
+**INFO: Enable pre-place timing setting for timing analysis
+Set Using Default Delay Limit as 101.
+**WARN: (IMPDC-1629):	The default delay limit was set to 101. This is less than the default of 1000 and may result in inaccurate delay calculation for nets with a fanout higher than the setting.  If needed, the default delay limit may be adjusted by running the command 'set delaycal_use_default_delay_limit'.
+Set Default Net Delay as 0 ps.
+Set Default Net Load as 0 pF. 
+**INFO: Analyzing IO path groups for slack adjustment
+Effort level <high> specified for reg2reg_tmp.40668 path_group
+AAE_INFO: opIsDesignInPostRouteState() is 0
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: MAC_4BIT
+# Design Mode: 45nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Start delay calculation (fullDC) (1 T). (MEM=1558.39)
+Total number of fetched objects 98
+Total number of fetched objects 98
+End delay calculation. (MEM=1725.53 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1688.91 CPU=0:00:00.5 REAL=0:00:00.0)
+**INFO: Disable pre-place timing setting for timing analysis
+Set Using Default Delay Limit as 1000.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+**INFO: Pre-place timing setting for timing analysis already disabled
+Deleted 0 physical inst  (cell - / prefix -).
+Did not delete 20 physical insts as they were marked preplaced.
+INFO: #ExclusiveGroups=0
+INFO: There are no Exclusive Groups.
+*** Starting "NanoPlace(TM) placement v#4 (mem=1670.9M)" ...
+*** Build Buffered Sizing Timing Model
+(cpu=0:00:00.8 mem=1678.9M) ***
+*** Build Virtual Sizing Timing Model
+(cpu=0:00:00.8 mem=1678.9M) ***
+No user-set net weight.
+Net fanout histogram:
+2		: 59 (66.3%) nets
+3		: 20 (22.5%) nets
+4     -	14	: 10 (11.2%) nets
+15    -	39	: 0 (0.0%) nets
+40    -	79	: 0 (0.0%) nets
+80    -	159	: 0 (0.0%) nets
+160   -	319	: 0 (0.0%) nets
+320   -	639	: 0 (0.0%) nets
+640   -	1279	: 0 (0.0%) nets
+1280  -	2559	: 0 (0.0%) nets
+2560  -	5119	: 0 (0.0%) nets
+5120+		: 0 (0.0%) nets
+Options: timingDriven clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+Scan chains were not defined.
+#std cell=84 (20 fixed + 64 movable) #buf cell=0 #inv cell=8 #block=0 (0 floating + 0 preplaced)
+#ioInst=0 #net=89 #term=236 #term/net=2.65, #fixedIo=0, #floatIo=0, #fixedPin=0, #floatPin=18
+stdCell: 84 single + 0 double + 0 multi
+Total standard cell length = 0.3008 (mm), area = 0.0012 (mm^2)
+**WARN: (IMPSP-362):	Site 'CoreSite' has one std.Cell height, so ignoring its X-symmetry.
+Type 'man IMPSP-362' for more detail.
+Estimated cell power/ground rail width = 0.517 um
+Average module density = 0.652.
+Density for the design = 0.652.
+       = stdcell_area 574 sites (1093 um^2) / alloc_area 880 sites (1676 um^2).
+Pin Density = 0.2458.
+            = total # of pins 236 / total area 960.
+=== lastAutoLevel = 5 
+Clock gating cells determined by native netlist tracing.
+Iteration  1: Total net bbox = 8.989e+02 (8.23e+02 7.59e+01)
+              Est.  stn bbox = 9.404e+02 (8.60e+02 8.09e+01)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1837.6M
+Iteration  2: Total net bbox = 8.989e+02 (8.23e+02 7.59e+01)
+              Est.  stn bbox = 9.404e+02 (8.60e+02 8.09e+01)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1837.6M
+Iteration  3: Total net bbox = 7.985e+02 (7.29e+02 6.94e+01)
+              Est.  stn bbox = 8.450e+02 (7.70e+02 7.50e+01)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1855.0M
+Active setup views:
+    func_slow
+Iteration  4: Total net bbox = 1.162e+03 (7.52e+02 4.10e+02)
+              Est.  stn bbox = 1.234e+03 (7.97e+02 4.37e+02)
+              cpu = 0:00:00.3 real = 0:00:00.0 mem = 1871.2M
+Active setup views:
+    func_slow
+Iteration  5: Total net bbox = 1.294e+03 (7.86e+02 5.08e+02)
+              Est.  stn bbox = 1.372e+03 (8.33e+02 5.40e+02)
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 1871.2M
+Iteration  6: Total net bbox = 1.294e+03 (7.63e+02 5.32e+02)
+              Est.  stn bbox = 1.372e+03 (8.08e+02 5.64e+02)
+              cpu = 0:00:00.6 real = 0:00:02.0 mem = 1871.2M
+*** cost = 1.294e+03 (7.63e+02 5.32e+02) (cpu for global=0:00:00.6) real=0:00:02.0***
+Info: 0 clock gating cells identified, 0 (on average) moved 0/1
+Solver runtime cpu: 0:00:00.3 real: 0:00:00.3
+Core Placement runtime cpu: 0:00:00.5 real: 0:00:01.0
+**WARN: (IMPSP-9025):	No scan chain specified/traced.
+Type 'man IMPSP-9025' for more detail.
+*** Starting refinePlace (0:00:46.8 mem=1871.2M) ***
+Total net bbox length = 1.294e+03 (7.627e+02 5.316e+02) (ext = 3.867e+02)
+Move report: Detail placement moves 64 insts, mean move: 2.70 um, max move: 6.06 um 
+	Max move on inst (g24__6260): (48.25, 43.83) --> (42.78, 43.24)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1839.2MB
+Summary Report:
+Instances move: 64 (out of 64 movable)
+Instances flipped: 0
+Mean displacement: 2.70 um
+Max displacement: 6.06 um (Instance: g24__6260) (48.251, 43.831) -> (42.78, 43.24)
+	Length: 4 sites, height: 1 rows, site name: CoreSite, cell type: NOR2X1
+Total net bbox length = 1.402e+03 (7.756e+02 6.260e+02) (ext = 4.070e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 1839.2MB
+*** Finished refinePlace (0:00:46.9 mem=1839.2M) ***
+*** End of Placement (cpu=0:00:01.7, real=0:00:03.0, mem=1839.2M) ***
+default core: bins with density > 0.750 =  0.00 % ( 0 / 2 )
+Density distribution unevenness ratio = 0.000%
+*** Free Virtual Timing Model ...(mem=1855.2M)
+**INFO: Enable pre-place timing setting for timing analysis
+Set Using Default Delay Limit as 101.
+**WARN: (IMPDC-1629):	The default delay limit was set to 101. This is less than the default of 1000 and may result in inaccurate delay calculation for nets with a fanout higher than the setting.  If needed, the default delay limit may be adjusted by running the command 'set delaycal_use_default_delay_limit'.
+Set Default Net Delay as 0 ps.
+Set Default Net Load as 0 pF. 
+**INFO: Analyzing IO path groups for slack adjustment
+Effort level <high> specified for reg2reg_tmp.40668 path_group
+AAE_INFO: opIsDesignInPostRouteState() is 0
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: MAC_4BIT
+# Design Mode: 45nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Start delay calculation (fullDC) (1 T). (MEM=1835.18)
+Total number of fetched objects 98
+End delay calculation. (MEM=1886.88 CPU=0:00:00.0 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1886.88 CPU=0:00:00.1 REAL=0:00:00.0)
+**INFO: Disable pre-place timing setting for timing analysis
+Set Using Default Delay Limit as 1000.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Info: Disable timing driven in postCTS congRepair.
+
+Starting congRepair ...
+[NR-eGR] Track table information for default rule: 
+[NR-eGR] met1 has single uniform track structure
+[NR-eGR] met2 has single uniform track structure
+[NR-eGR] met3 has single uniform track structure
+[NR-eGR] met4 has single uniform track structure
+[NR-eGR] met5 has single uniform track structure
+[NR-eGR] Read 422 PG shapes
+[NR-eGR] Read 0 clock shapes
+[NR-eGR] Read 0 other shapes
+[NR-eGR] #Routing Blockages  : 0
+[NR-eGR] #Instance Blockages : 0
+[NR-eGR] #PG Blockages       : 422
+[NR-eGR] #Halo Blockages     : 0
+[NR-eGR] #Boundary Blockages : 0
+[NR-eGR] #Clock Blockages    : 0
+[NR-eGR] #Other Blockages    : 0
+[NR-eGR] Num Prerouted Nets = 0  Num Prerouted Wires = 0
+[NR-eGR] Read 89 nets ( ignored 0 )
+[NR-eGR] There are 1 clock nets ( 0 with NDR ).
+[NR-eGR] ============ Routing rule table ============
+[NR-eGR] Rule id: 0  Nets: 89
+[NR-eGR] ========================================
+[NR-eGR] 
+[NR-eGR] Layer group 1: route 89 net(s) in layer range [2, 5]
+[NR-eGR] Early Global Route overflow of layer group 1: 8.30% H + 0.00% V. EstWL: 1.457280e+03um
+[NR-eGR] Congestion Analysis By layer: (blocked Gcells are excluded) 
+[NR-eGR]                        OverCon           OverCon           OverCon            
+[NR-eGR]                         #Gcell            #Gcell            #Gcell     %Gcell
+[NR-eGR]        Layer             (1-2)             (3-4)             (5-6)    OverCon
+[NR-eGR] --------------------------------------------------------------------------------
+[NR-eGR]    met1 ( 1)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR]    met2 ( 2)         1( 0.44%)         0( 0.00%)         0( 0.00%)   ( 0.44%) 
+[NR-eGR]    met3 ( 3)        16( 7.08%)         7( 3.10%)         4( 1.77%)   (11.95%) 
+[NR-eGR]    met4 ( 4)         5( 2.22%)         0( 0.00%)         0( 0.00%)   ( 2.22%) 
+[NR-eGR]    met5 ( 5)         0( 0.00%)         0( 0.00%)         0( 0.00%)   ( 0.00%) 
+[NR-eGR] --------------------------------------------------------------------------------
+[NR-eGR]        Total        22( 2.79%)         7( 0.89%)         4( 0.51%)   ( 4.18%) 
+[NR-eGR] 
+[NR-eGR] Overflow after Early Global Route 7.47% H + 0.00% V
+Early Global Route congestion estimation runtime: 0.04 seconds, mem = 1876.9M
+Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
+Skipped repairing congestion.
+[NR-eGR]               Length (um)  Vias 
+[NR-eGR] --------------------------------
+[NR-eGR]  met1  (1H)             0   218 
+[NR-eGR]  met2  (2V)           655   327 
+[NR-eGR]  met3  (3H)           854    40 
+[NR-eGR]  met4  (4V)            79    18 
+[NR-eGR]  met5  (5H)            39     0 
+[NR-eGR] --------------------------------
+[NR-eGR]        Total         1628   603 
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR] Total half perimeter of net bounding box: 1402um
+[NR-eGR] Total length: 1628um, number of vias: 603
+[NR-eGR] --------------------------------------------------------------------------
+[NR-eGR] Total eGR-routed clock nets wire length: 90um, number of vias: 20
+[NR-eGR] --------------------------------------------------------------------------
+Early Global Route wiring runtime: 0.02 seconds, mem = 1818.9M
+Tdgp not successfully inited but do clear! skip clearing
+End of congRepair (cpu=0:00:00.1, real=0:00:01.0)
+*** Finishing placeDesign default flow ***
+**placeDesign ... cpu = 0: 0: 4, real = 0: 0: 5, mem = 1818.9M **
+
+Optimization is working on the following views:
+  Setup views: func_slow func_typical 
+  Hold  views: func_fast func_typical 
+Tdgp not successfully inited but do clear! skip clearing
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPDC-1629           2  The default delay limit was set to %d. T...
+WARNING   IMPSP-9025           1  No scan chain specified/traced.          
+WARNING   IMPSP-362            1  Site '%s' has %s std.Cell height, so ign...
+*** Message Summary: 4 warning(s), 0 error(s)
+
+*** placeDesign #1 [finish] : cpu/real = 0:00:03.8/0:00:04.8 (0.8), totSession cpu/real = 0:00:47.4/0:00:49.1 (1.0), mem = 1818.9M
+<CMD> timeDesign -prects -prefix place -outDir RPT/place
+*** timeDesign #1 [begin] : totSession cpu/real = 0:00:47.4/0:00:49.2 (1.0), mem = 1818.9M
+Start to check current routing status for nets...
+All nets are already routed correctly.
+End to check current routing status for nets (mem=1818.9M)
+Extraction called for design 'MAC_4BIT' of instances=84 and nets=100 using extraction engine 'preRoute' .
+PreRoute RC Extraction called for design MAC_4BIT.
+RC Extraction called in multi-corner(1) mode.
+RCMode: PreRoute
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+PreRoute extraction is honoring NDR/Shielding/ExtraSpace for clock nets.
+Using Quantus QRC technology file ...
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1818.883M)
+Starting delay calculation for Setup views
+AAE_INFO: opIsDesignInPostRouteState() is 0
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: MAC_4BIT
+# Design Mode: 45nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Start delay calculation (fullDC) (1 T). (MEM=1842)
+Total number of fetched objects 98
+Total number of fetched objects 98
+End delay calculation. (MEM=1888.71 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1888.71 CPU=0:00:00.2 REAL=0:00:00.0)
+*** Done Building Timing Graph (cpu=0:00:00.3 real=0:00:00.0 totSessionCpu=0:00:47.8 mem=1888.7M)
+
+------------------------------------------------------------------
+          timeDesign Summary
+------------------------------------------------------------------
+
+Setup views included:
+ func_slow func_typical 
+
++--------------------+---------+---------+---------+
+|     Setup mode     |   all   | reg2reg | default |
++--------------------+---------+---------+---------+
+|           WNS (ns):|  5.888  |  5.950  |  5.888  |
+|           TNS (ns):|  0.000  |  0.000  |  0.000  |
+|    Violating Paths:|    0    |    0    |    0    |
+|          All Paths:|   16    |    8    |   16    |
++--------------------+---------+---------+---------+
+
++----------------+-------------------------------+------------------+
+|                |              Real             |       Total      |
+|    DRVs        +------------------+------------+------------------|
+|                |  Nr nets(terms)  | Worst Vio  |  Nr nets(terms)  |
++----------------+------------------+------------+------------------+
+|   max_cap      |      0 (0)       |   0.000    |      0 (0)       |
+|   max_tran     |      0 (0)       |   0.000    |      0 (0)       |
+|   max_fanout   |      0 (0)       |     0      |      0 (0)       |
+|   max_length   |      0 (0)       |     0      |      0 (0)       |
++----------------+------------------+------------+------------------+
+
+Density: 65.227%
+Routing Overflow: 7.47% H and 0.00% V
+------------------------------------------------------------------
+Reported timing to dir RPT/place
+Total CPU time: 0.59 sec
+Total Real time: 3.0 sec
+Total Memory Usage: 1868.863281 Mbytes
+*** timeDesign #1 [finish] : cpu/real = 0:00:00.6/0:00:03.6 (0.2), totSession cpu/real = 0:00:48.0/0:00:52.8 (0.9), mem = 1868.9M
+<CMD> saveDesign DBS/place.enc
+#% Begin save design ... (date=05/02 12:22:33, mem=1342.4M)
+% Begin Save ccopt configuration ... (date=05/02 12:22:33, mem=1342.4M)
+% End Save ccopt configuration ... (date=05/02 12:22:33, total cpu=0:00:00.0, real=0:00:00.0, peak res=1343.4M, current mem=1343.4M)
+% Begin Save netlist data ... (date=05/02 12:22:33, mem=1343.4M)
+Writing Binary DB to DBS/place.enc.dat/MAC_4BIT.v.bin in single-threaded mode...
+% End Save netlist data ... (date=05/02 12:22:33, total cpu=0:00:00.0, real=0:00:00.0, peak res=1343.5M, current mem=1343.5M)
+Saving symbol-table file ...
+Saving congestion map file DBS/place.enc.dat/MAC_4BIT.route.congmap.gz ...
+% Begin Save AAE data ... (date=05/02 12:22:34, mem=1343.7M)
+Saving AAE Data ...
+% End Save AAE data ... (date=05/02 12:22:34, total cpu=0:00:00.0, real=0:00:00.0, peak res=1343.8M, current mem=1343.8M)
+Saving preference file DBS/place.enc.dat/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=05/02 12:22:35, mem=1344.4M)
+Saving floorplan file ...
+Convert 0 swires and 0 svias from compressed groups
+% End Save floorplan data ... (date=05/02 12:22:35, total cpu=0:00:00.0, real=0:00:00.0, peak res=1344.8M, current mem=1344.8M)
+Saving PG file DBS/place.enc.dat/MAC_4BIT.pg.gz, version#2, (Created by Innovus v21.18-s099_1 on Sat May  2 12:22:35 2026)
+*** Completed savePGFile (cpu=0:00:00.0 real=0:00:01.0 mem=1872.4M) ***
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=05/02 12:22:36, mem=1344.9M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=05/02 12:22:36, total cpu=0:00:00.0, real=0:00:00.0, peak res=1344.9M, current mem=1344.9M)
+% Begin Save routing data ... (date=05/02 12:22:36, mem=1344.9M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1872.4M) ***
+% End Save routing data ... (date=05/02 12:22:36, total cpu=0:00:00.0, real=0:00:00.0, peak res=1345.1M, current mem=1345.1M)
+Saving property file DBS/place.enc.dat/MAC_4BIT.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1875.4M) ***
+Saving preRoute extracted patterns in file 'DBS/place.enc.dat/MAC_4BIT.techData.gz' ...
+Saving preRoute extraction data in directory 'DBS/place.enc.dat/extraction/' ...
+% Begin Save power constraints data ... (date=05/02 12:22:36, mem=1347.2M)
+% End Save power constraints data ... (date=05/02 12:22:36, total cpu=0:00:00.0, real=0:00:00.0, peak res=1347.3M, current mem=1347.3M)
+rctypical
+rctypical
+rctypical
+Generated self-contained design place.enc.dat
+#% End save design ... (date=05/02 12:22:37, total cpu=0:00:01.1, real=0:00:04.0, peak res=1375.2M, current mem=1348.6M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+
+*** Memory Usage v#1 (Current mem = 1930.785M, initial mem = 478.109M) ***
+*** Message Summary: 13 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:49.2, real=0:00:58.0, mem=1930.8M) ---

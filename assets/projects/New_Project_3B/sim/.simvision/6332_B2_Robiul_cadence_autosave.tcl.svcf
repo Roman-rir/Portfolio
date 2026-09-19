@@ -1,0 +1,135 @@
+
+#
+# Preferences
+#
+preferences set toolbar-Standard-WatchWindow {
+  usual
+  shown 0
+}
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Windows-WatchWindow {
+  usual
+  shown 0
+}
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set toolbar-SimControl-WatchWindow {
+  usual
+  shown 0
+}
+preferences set savedlg-simulator ppe
+preferences set toolbar-TimeSearch-WatchWindow {
+  usual
+  shown 0
+}
+
+#
+# Databases
+#
+database require waves -search {
+	./waves.shm/waves-1.trn
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/sim/waves.shm/waves-1.trn
+}
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 730x500+261+33}] != ""} {
+    window geometry "Design Browser 1" 730x500+261+33
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  simulator::TB_RISC_V3_PIPELINED 
+browser set \
+    -signalsort name
+browser yview see  simulator::TB_RISC_V3_PIPELINED 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1366x665+-10+20}] != ""} {
+    window geometry "Waveform 1" 1366x665+-10+20
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ps \
+    -valuewidth 75
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	simulator::TB_RISC_V3_PIPELINED.SYS_CLOCK
+	} ]
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.IR1[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.IR2[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.PSTATE[2:0]}
+	} ]
+waveform format $id -radix %d
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.PC[3:0]}
+	} ]
+waveform format $id -radix %d
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.RF4[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.RF3[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.RF2[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.RF1[31:0]}
+	} ]
+set id [waveform add -signals  {
+	simulator::TB_RISC_V3_PIPELINED.RST
+	} ]
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.ACCUM_R[31:0]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.DM_IN[15]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.DM_IN[7]}
+	} ]
+set id [waveform add -signals  {
+	{simulator::TB_RISC_V3_PIPELINED.DM_IN[3]}
+	} ]
+
+waveform xview limits 0 76876ps
+
+#
+# Waveform Window Links
+#
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 730x250+251+435
+
+#
+# Layout selection
+#

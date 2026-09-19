@@ -1,0 +1,92 @@
+*** Message Type: info ***
+When: Mon Jul 06 07:15:56 AM +06 2026
+SimVision started.
+Version: TOOL:  simvision(64)   23.03-s011
+User: B2_Faysal
+Host: cadence
+Platform: Linux/x86_64/3.10.0-1160.el7.x86_64
+Started: Mon Jul 06 07:15:56 AM +06 2026
+Command: /home/cadence/lnx/xce_24/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:cadence:48697 -64BIT -nocopyright
+Work Directory: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/sim
+ 
+*** Message Type: info ***
+When: Mon Jul 06 07:15:56 AM +06 2026
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Mon Jul 06 07:15:58 AM +06 2026
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Mon Jul 06 07:16:00 AM +06 2026
+Connect to Simulator
+      Design: worklib.TB_RISC_V3_PIPELINED:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:    xmsim(64)       23.03-s011
+        User: B2_Faysal
+        Host: cadence
+Time Started: Mon Jul 06 07:15:54 AM +06 2026
+  Process ID: 1087
+   Directory: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/data_mem.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/prog_mem.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/processor.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/risc_top.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/tb/TB_top.sv -top TB_RISC_V3_PIPELINED -R -sv -gui -coverage all -input waves.tcl
+
+ 
+*** Message Type: info ***
+When: Mon Jul 06 07:16:02 AM +06 2026
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Mon Jul 06 07:16:49 AM +06 2026
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Mon Jul 06 10:07:46 AM +06 2026
+Exit XM-Sim: user
+      Design: worklib.TB_RISC_V3_PIPELINED:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:    xmsim(64)       23.03-s011
+        User: B2_Faysal
+        Host: cadence
+Time Started: Mon Jul 06 07:15:54 AM +06 2026
+  Process ID: 1087
+   Directory: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/data_mem.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/prog_mem.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/processor.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/risc_top.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/tb/TB_top.sv -top TB_RISC_V3_PIPELINED -R -sv -gui -coverage all -input waves.tcl
+
+ 
+*** Message Type: info ***
+When: Mon Jul 06 10:07:47 AM +06 2026
+Delete browser window: "Design Browser 1"
+ 
+*** Message Type: error ***
+When: Mon Jul 06 10:07:47 AM +06 2026
+XM-Sim Crashed:
+      Design: worklib.TB_RISC_V3_PIPELINED:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:    xmsim(64)       23.03-s011
+        User: B2_Faysal
+        Host: cadence
+Time Started: Mon Jul 06 07:15:54 AM +06 2026
+  Process ID: 1087
+   Directory: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/data_mem.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/prog_mem.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/processor.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/risc_top.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/tb/TB_top.sv -top TB_RISC_V3_PIPELINED -R -sv -gui -coverage all -input waves.tcl
+      Design: worklib.TB_RISC_V3_PIPELINED:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:   xmsim(64)       23.03-s011
+        User: B2_Faysal
+        Host: cadence
+Time Started: Mon Jul 06 07:15:54 AM +06 2026
+  Process ID: 1087
+   Directory: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/data_mem.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/prog_mem.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/processor.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/risc_top.sv /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/tb/TB_top.sv -top TB_RISC_V3_PIPELINED -R -sv -gui -coverage all -input waves.tcl
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Mon Jul 06 10:07:50 AM +06 2026
+SimVision Exit.
+ 

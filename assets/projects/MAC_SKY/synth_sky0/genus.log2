@@ -1,0 +1,295 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2023 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[12:15:58.095665] Configured Lic search path (21.01-s002): 5280@cadence
+
+Version: 21.18-s082_1, built Tue Jul 18 00:08:41 PDT 2023
+Options: -files scripts/run_synth.tcl 
+Date:    Sat May 02 12:15:58 2026
+Host:    cadence (x86_64 w/Linux 3.10.0-1160.el7.x86_64) (8cores*32cpus*2physical cpus*Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz 20480KB) (197849384KB)
+PID:     12592
+OS:      Red Hat Enterprise Linux Server release 7.9 (Maipo)
+
+
+[12:15:58.012778] Periodic Lic check successful
+[12:15:58.012811] Feature usage summary:
+[12:15:58.012811] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (16 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source scripts/run_synth.tcl
+#@ Begin verbose source ./scripts/run_synth.tcl
+@file(run_synth.tcl) 3: if {[file exists /proc/cpuinfo]} {
+  sh grep "model name" /proc/cpuinfo
+    sh grep "cpu MHz"    /proc/cpuinfo
+    }
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+cpu MHz		: 2199.890
+cpu MHz		: 1199.908
+cpu MHz		: 2199.890
+cpu MHz		: 1199.908
+cpu MHz		: 2200.006
+cpu MHz		: 1200.024
+cpu MHz		: 2200.006
+cpu MHz		: 1199.908
+cpu MHz		: 2199.890
+cpu MHz		: 1199.908
+cpu MHz		: 2199.890
+cpu MHz		: 1199.908
+cpu MHz		: 2200.006
+cpu MHz		: 1200.024
+cpu MHz		: 2200.006
+cpu MHz		: 1199.908
+cpu MHz		: 2200.122
+cpu MHz		: 1200.024
+cpu MHz		: 2199.890
+cpu MHz		: 1199.908
+cpu MHz		: 2200.006
+cpu MHz		: 1201.763
+cpu MHz		: 2200.122
+cpu MHz		: 1200.488
+cpu MHz		: 2199.890
+cpu MHz		: 1200.256
+cpu MHz		: 2200.585
+cpu MHz		: 1200.952
+cpu MHz		: 2199.890
+cpu MHz		: 1200.952
+cpu MHz		: 2199.658
+cpu MHz		: 1199.908
+@file(run_synth.tcl) 8:     puts "Hostname : [info hostname]"
+Hostname : cadence
+@file(run_synth.tcl) 10: set var(step) "synth"
+@file(run_synth.tcl) 11: if {[file exists ../project_setup.tcl]} {
+	source -e -v ../project_setup.tcl
+} else {
+	puts "ERROR: project_setup.tcl not found. Please check your setup"
+}
+Sourcing '../project_setup.tcl' (Sat May 02 12:16:15 +06 2026)...
+#@ Begin verbose source ../project_setup.tcl
+@file(project_setup.tcl) 10: set TECH "sky130_cadence" ;# Options: "gpdk045 | sky130_cadence | sky130_open"
+set TECH "sky130_cadence" ;# Options: "gpdk045 | sky130_cadence | sky130_open"
+@file(project_setup.tcl) 15: set MULTIVT "false"
+set MULTIVT "false"
+@file(project_setup.tcl) 16: set MBFF "false"
+set MBFF "false"
+@file(project_setup.tcl) 18: source -e -v $::env(REPO_ROOT)/util/tech/${TECH}.tcl 
+source -e -v $::env(REPO_ROOT)/util/tech/${TECH}.tcl 
+Sourcing '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/sky130_cadence.tcl' (Sat May 02 12:16:15 +06 2026)...
+#@ Begin verbose source /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/sky130_cadence.tcl
+@file(sky130_cadence.tcl) 10: set TECH "sky130_cadence" 
+set TECH "sky130_cadence" 
+@file(sky130_cadence.tcl) 12: puts "ATSH_VLSI: TECH=$TECH"
+puts "ATSH_VLSI: TECH=$TECH"
+ATSH_VLSI: TECH=sky130_cadence
+@file(sky130_cadence.tcl) 13: puts "ATSH_VLSI: Starting Setup"
+puts "ATSH_VLSI: Starting Setup"
+ATSH_VLSI: Starting Setup
+@file(sky130_cadence.tcl) 15: if { $TECH == "sky130_cadence" } {
+	set TECH_DIR "/home/eee/work/tech/sky130_cadence"
+	set STD_LIB_DIR "sky130_scl_9T_0.0.5"
+	puts "ATSH_VLSI: $TECH has no multivt or mbff options as of this release."
+	#set MULTIVT $::env(MULTIVT)
+	#set MBFF $::env(MBFF)
+
+set LEF_FILES ""
+
+# Adding Technology LEF file
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/lef/sky130_scl_9T.tlef"
+
+# Adding RVT Cell LEF
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/lef/sky130_scl_9T.lef"
+
+
+set LIB_FILES(slow) ""
+set LIB_FILES(fast) ""
+
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_ss_1.62_125_nldm.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_ff_1.98_0_nldm.lib"
+append LIB_FILES(typical) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_tt_1.8_25_nldm.lib"
+
+set LIB_FILES(all) "$LIB_FILES(slow) $LIB_FILES(fast) $LIB_FILES(typical)"
+
+set QRC_TECH_FILE(typical) "$TECH_DIR/sky130_release_0.0.4/quantus/extraction/typical/qrcTechFile"
+
+set PHYSICAL_CELL_LIST " FILL1 FILL2 FILL4 FILL8 FILL16 FILL32 FILL64 "
+set CLK_BUFFERS " CLKBUFX4 CLKBUFX8 CLKBUFX2 "
+set CLK_INVERTERS " CLKINVX2 CLKINVX8 CLKINVX1 CLKINVX4 "
+
+set GDS_MAP_FILE "$TECH_DIR/$STD_LIB_DIR/gds/sky130_stream.mapFile"
+set GDS_MERGE_FILE "$TECH_DIR/$STD_LIB_DIR/gds/sky130_scl_9T.gds"
+
+} ;# END OF SkyWater 130nm Cadence PDK SETUP
+if { $TECH == "sky130_cadence" } {
+	set TECH_DIR "/home/eee/work/tech/sky130_cadence"
+	set STD_LIB_DIR "sky130_scl_9T_0.0.5"
+	puts "ATSH_VLSI: $TECH has no multivt or mbff options as of this release."
+	#set MULTIVT $::env(MULTIVT)
+	#set MBFF $::env(MBFF)
+
+set LEF_FILES ""
+
+# Adding Technology LEF file
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/lef/sky130_scl_9T.tlef"
+
+# Adding RVT Cell LEF
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/lef/sky130_scl_9T.lef"
+
+
+set LIB_FILES(slow) ""
+set LIB_FILES(fast) ""
+
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_ss_1.62_125_nldm.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_ff_1.98_0_nldm.lib"
+append LIB_FILES(typical) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_tt_1.8_25_nldm.lib"
+
+set LIB_FILES(all) "$LIB_FILES(slow) $LIB_FILES(fast) $LIB_FILES(typical)"
+
+set QRC_TECH_FILE(typical) "$TECH_DIR/sky130_release_0.0.4/quantus/extraction/typical/qrcTechFile"
+
+set PHYSICAL_CELL_LIST " FILL1 FILL2 FILL4 FILL8 FILL16 FILL32 FILL64 "
+set CLK_BUFFERS " CLKBUFX4 CLKBUFX8 CLKBUFX2 "
+set CLK_INVERTERS " CLKINVX2 CLKINVX8 CLKINVX1 CLKINVX4 "
+
+set GDS_MAP_FILE "$TECH_DIR/$STD_LIB_DIR/gds/sky130_stream.mapFile"
+set GDS_MERGE_FILE "$TECH_DIR/$STD_LIB_DIR/gds/sky130_scl_9T.gds"
+
+} ;# END OF SkyWater 130nm Cadence PDK SETUP
+ATSH_VLSI: sky130_cadence has no multivt or mbff options as of this release.
+#@ End verbose source /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/sky130_cadence.tcl
+@file(project_setup.tcl) 24: set DESIGN_DIR "design_data"
+set DESIGN_DIR "design_data"
+@file(project_setup.tcl) 25: set DESIGN_NAME "$::env(TOP)"
+set DESIGN_NAME "$::env(TOP)"
+@file(project_setup.tcl) 26: puts "TOP DESIGN SET TO: $DESIGN_NAME"
+puts "TOP DESIGN SET TO: $DESIGN_NAME"
+TOP DESIGN SET TO: MAC_4BIT
+@file(project_setup.tcl) 27: set CLK_PORT "SYS_CLOCK" 
+set CLK_PORT "SYS_CLOCK" 
+@file(project_setup.tcl) 28: set CLK_PERIOD "5.0" ;# unit depends on pdk; for gpdk045 the unit is ns
+set CLK_PERIOD "5.0" ;# unit depends on pdk; for gpdk045 the unit is ns
+@file(project_setup.tcl) 30: set POWER_NET "VDD"
+set POWER_NET "VDD"
+@file(project_setup.tcl) 31: set GROUND_NET "VSS"
+set GROUND_NET "VSS"
+@file(project_setup.tcl) 40: set SYNTH_EFFORT_GENERIC "medium"
+set SYNTH_EFFORT_GENERIC "medium"
+@file(project_setup.tcl) 41: set SYNTH_EFFORT_OPT "high"
+set SYNTH_EFFORT_OPT "high"
+@file(project_setup.tcl) 42: set SYNTH_INFO_LEVEL 7
+set SYNTH_INFO_LEVEL 7
+@file(project_setup.tcl) 43: set SYNTH_LOW_POWER "false"
+set SYNTH_LOW_POWER "false"
+@file(project_setup.tcl) 45: if { $var(step) == "synth" } {
+set RTL_FILES "[glob $DESIGN_DIR/*v]"
+set CONSTRAINTS_FILE "[glob $DESIGN_DIR/*sdc]"
+#set RTL_FILES "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn]"
+#set CONSTRAINTS_FILE "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn_sdc]"
+}
+if { $var(step) == "synth" } {
+set RTL_FILES "[glob $DESIGN_DIR/*v]"
+set CONSTRAINTS_FILE "[glob $DESIGN_DIR/*sdc]"
+#set RTL_FILES "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn]"
+#set CONSTRAINTS_FILE "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn_sdc]"
+}
+@file(project_setup.tcl) 56: set PNR_INIT_NETLIST "$DESIGN_DIR/${DESIGN_NAME}_gate.v"
+set PNR_INIT_NETLIST "$DESIGN_DIR/${DESIGN_NAME}_gate.v"
+@file(project_setup.tcl) 57: set PNR_SDC "$DESIGN_DIR/${DESIGN_NAME}.sdc"
+set PNR_SDC "$DESIGN_DIR/${DESIGN_NAME}.sdc"
+@file(project_setup.tcl) 58: set PNR_VIEW_DEF "$DESIGN_DIR/viewDefinition.tcl"
+set PNR_VIEW_DEF "$DESIGN_DIR/viewDefinition.tcl"
+@file(project_setup.tcl) 59: set PNR_GND_NETS "VSS"
+set PNR_GND_NETS "VSS"
+@file(project_setup.tcl) 60: set PNR_PWR_NETS "VDD"
+set PNR_PWR_NETS "VDD"
+@file(project_setup.tcl) 61: set PNR_MAX_ROUTE_LAYER "6"
+set PNR_MAX_ROUTE_LAYER "6"
+@file(project_setup.tcl) 62: set PNR_FP_TCL "../floorplan/fp.tcl"
+set PNR_FP_TCL "../floorplan/fp.tcl"
+@file(project_setup.tcl) 63: set PNR_FP_DEF "../floorplan/fp.def"
+set PNR_FP_DEF "../floorplan/fp.def"
+@file(project_setup.tcl) 64: set PNR_FP_PRIORITY "TCL"
+set PNR_FP_PRIORITY "TCL"
+#@ End verbose source ../project_setup.tcl
+@file(run_synth.tcl) 20: set DESIGN $DESIGN_NAME
+@file(run_synth.tcl) 21: puts "DESIGN SET TO $DESIGN"
+DESIGN SET TO MAC_4BIT
+@file(run_synth.tcl) 22: set GEN_EFF $SYNTH_EFFORT_GENERIC
+@file(run_synth.tcl) 23: set MAP_OPT_EFF $SYNTH_EFFORT_OPT
+@file(run_synth.tcl) 24: set DATE [clock format [clock seconds] -format "%b%d-%T"]
+@file(run_synth.tcl) 25: set _OUTPUTS_PATH outputs_${DATE}
+@file(run_synth.tcl) 26: set _REPORTS_PATH reports_${DATE}
+@file(run_synth.tcl) 27: set _LOG_PATH logs_${DATE}
+@file(run_synth.tcl) 29: set_db / .init_lib_search_path  {. ../LIB $TECH_DIR}
+  Setting attribute of root '/': 'init_lib_search_path' = . ../LIB $TECH_DIR
+@file(run_synth.tcl) 31: set_db / .init_hdl_search_path  {. ../RTL $DESIGN_DIR}
+  Setting attribute of root '/': 'init_hdl_search_path' = . ../RTL $DESIGN_DIR
+@file(run_synth.tcl) 44: set_db / .information_level $SYNTH_INFO_LEVEL
+  Setting attribute of root '/': 'information_level' = 7
+@file(run_synth.tcl) 51: eval "set_db / .library {$LIB_FILES(all)}"
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file '/home/eee/work/tech/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_ss_1.62_125_nldm.lib'. File not found.
+        : Make sure that the file is a readable regular file and has the specified name.
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file '/home/eee/work/tech/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_ff_1.98_0_nldm.lib'. File not found.
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file '/home/eee/work/tech/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_tt_1.8_25_nldm.lib'. File not found.
+Error   : A library file does not exist. [LBR-68] [set_db]
+        : File '/home/eee/work/tech/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_ss_1.62_125_nldm.lib /home/eee/work/tech/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_ff_1.98_0_nldm.lib /home/eee/work/tech/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_tt_1.8_25_nldm.lib' could not be found. File '<none>' was the last file that was successfully read in.
+        : Make sure that the library file exists or check for a typo in the file name.
+Error   : The data value for this attribute is invalid. [TUI-24] [set_db]
+        : The value ' /home/eee/work/tech/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_ss_1.62_125_nldm.lib  /home/eee/work/tech/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_ff_1.98_0_nldm.lib  /home/eee/work/tech/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_tt_1.8_25_nldm.lib' cannot be set for attribute 'library'.
+        : To see the usage/description for this attribute, type '::legacy::set_attribute -h <attr_name> *' (in legacy UI mode) or 'help * <attr_name> -detail' (in CUI mode).
+#@ End verbose source ./scripts/run_synth.tcl
+1
+Encountered problems processing file: scripts/run_synth.tcl
+WARNING: This version of the tool is 1018 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[12:16:53.041353] Cdslmd servers: cadence
+[12:16:53.041379] Feature usage summary:
+[12:16:53.041379] Genus_Synthesis
+
+Normal exit.

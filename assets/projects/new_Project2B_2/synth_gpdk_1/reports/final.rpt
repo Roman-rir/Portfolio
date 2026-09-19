@@ -1,0 +1,52 @@
+
+
+Working Directory = /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_Project2B_2/synth_gpdk_1
+QoS Summary for TOP
+==========================================================================================
+Metric                          generic         map             syn_opt         final          
+==========================================================================================
+Slack (ps):                     2,619             313               2               2
+  R2R (ps):                     2,619             313               2               2
+  I2R (ps):                     4,615           3,976           3,975           3,975
+  R2O (ps):                     4,710           4,088           4,094           4,094
+  I2O (ps):                  no_value        no_value        no_value        no_value
+  CG  (ps):                  no_value        no_value        no_value        no_value
+TNS (ps):                           0               0               0               0
+  R2R (ps):                         0               0               0               0
+  I2R (ps):                         0               0               0               0
+  R2O (ps):                         0               0               0               0
+  I2O (ps):                  no_value        no_value        no_value        no_value
+  CG  (ps):                  no_value        no_value        no_value        no_value
+Failing Paths:                      0               0               0               0
+Leakage Power (nW):                26              28              21              21
+Cell Area:                      1,435             781             770             770
+Total Cell Area:                1,435             781             770             770
+Leaf Instances:                   447             282             279             279
+Total Instances:                  447             282             279             279
+Utilization (%):                 0.00            0.00            0.00            0.00
+Tot. Net Length (um):        no_value        no_value        no_value        no_value
+Avg. Net Length (um):        no_value        no_value        no_value        no_value
+Route Overflow H (%):        no_value        no_value        no_value        no_value
+Route Overflow V (%):        no_value        no_value        no_value        no_value
+MBCI(%) (bits/gate) :            0.00            0.00            0.00            0.00
+Norm Cong Hotspot Area:
+  Max Cong:                  no_value        no_value        no_value        no_value
+  Tot Cong:                  no_value        no_value        no_value        no_value
+==========================================================================================
+CPU  Runtime (h:m:s):        00:00:35        00:00:40        00:00:05        00:00:01
+Real Runtime (h:m:s):        00:00:33        00:00:29        00:00:06        00:00:03
+CPU  Elapsed (h:m:s):        00:00:45        00:01:24        00:01:29        00:01:30
+Real Elapsed (h:m:s):        00:00:37        00:01:05        00:01:11        00:01:14
+Memory (MB):                  1719.88         1689.96         1691.79         1734.80
+==========================================================================================
+==========================================================================================
+Flow Settings:
+==========================================================================================
+Total Runtime (h:m:s): 00:01:12
+Total Memory (MB):     1734.80
+Executable Version:    21.18-s082_1
+==========================================================================================
+Total Cell Area =  Cell Area + Physical Cell Area
+Total Instances =  Leaf Instances + Physical Instances
+
+

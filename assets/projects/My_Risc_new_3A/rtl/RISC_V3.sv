@@ -1,0 +1,57 @@
+//////////////////////////////////////////////////////////////////////////////////////////
+/*
+The following SystemVerilog RTL/testbench was developed by Dr. Shahriyar Masud Rizvi.
+
+    Â© 2025 Shahriyar Masud Rizvi
+
+Attribution Requirement:
+If you use the following SystemVerilog sources, in whole or in part,
+you MUST include visible credit to the original authors in:
+  - Documentation or README of your project, OR
+  - About/Info section of your tool, OR
+  - Academic citation/reference if used in research
+
+Citation Example:
+"This project uses work from S. M. Rizvi, "RISC Processor (version V3) Example", RTL Design, Verification, Synthesis & PnR for Digital VLSI Design, American International University-Bangladesh, Dhaka, Bangladesh, 2025."
+*/
+/////////////////////////////////////////////////////////////////////////////////////////////
+// RISC_V3 is the SYNTHESIS/PnR top.
+// Memories are intentionally outside this top so Genus cannot treat
+// the program/data memories as constants and optimize away the processor.
+
+module RISC_V3 
+(
+    input  logic        SYS_CLOCK,
+    input  logic        RST,
+
+    input  logic [31:0] PM_OUT,
+    input  logic [31:0] DM_OUT,
+
+    output logic [31:0] DM_IN,
+    output logic [3:0]  PC,
+    output logic [3:0]  DM_ADDR,
+    output logic        DM_WR,
+    output logic [31:0] IR,
+    output logic [31:0] ACCUM_R,
+    output logic [2:0]  PSTATE
+);
+
+PROCESSOR_V3 PC1
+(
+    .SYS_CLOCK (SYS_CLOCK),
+    .RST       (RST),
+
+    .PM_OUT    (PM_OUT),
+    .DM_OUT    (DM_OUT),
+
+    .DM_IN     (DM_IN),
+    .PC        (PC),
+    .DM_ADDR   (DM_ADDR),
+    .DM_WR     (DM_WR),
+    .IR        (IR),
+    .ACCUM_R   (ACCUM_R),
+    .PSTATE    (PSTATE)
+);
+
+endmodule
+

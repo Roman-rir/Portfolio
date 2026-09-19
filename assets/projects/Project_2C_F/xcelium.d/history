@@ -1,0 +1,12 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(20Jun2026:01:53:39):( xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all )
+s2::(20Jun2026:01:56:11):( xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all )
+s3::(29Jun2026:15:16:16):( xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all )
+s4::(04Jul2026:04:22:57):( xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all )
+s5::(09Jul2026:13:27:23):( xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all )
+s6::(09Jul2026:15:03:55):( xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all )
+s7::(20Jul2026:21:42:46):( xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all )
+s8::(20Jul2026:22:02:36):( xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all )

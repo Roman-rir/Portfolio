@@ -1,0 +1,24 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-timescale
+1ns/1ps
+-INCDIR
+rtl
+-INCDIR
+tb
+-top
+TB_RISC_V3_PIPELINED
+-sv
+-DEFINE
+USE_PARAMETERIZED_WRAPPER
+-MESSAGES
+-RUNMODE
+-uvm_home
+/home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d/sv
+-INCDIR
+/home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d/additions/sv
+-load_parsed_libraries
+-default_work_lib
+worklib

@@ -1,0 +1,97 @@
+*** Message Type: info ***
+When: Tue Jul 14 02:01:08 PM +06 2026
+SimVision started.
+Version: TOOL:  simvision(64)   23.03-s011
+User: B2_Robiul
+Host: cadence
+Platform: Linux/x86_64/3.10.0-1160.el7.x86_64
+Started: Tue Jul 14 02:01:08 PM +06 2026
+Command: /home/cadence/lnx/xce_24/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:cadence:44300 -64BIT -nocopyright
+Work Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/sim
+ 
+*** Message Type: info ***
+When: Tue Jul 14 02:01:08 PM +06 2026
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Tue Jul 14 02:01:10 PM +06 2026
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Tue Jul 14 02:01:11 PM +06 2026
+Connect to Simulator
+      Design: worklib.TB_RISC_V3_PIPELINED:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:    xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Tue Jul 14 02:01:06 PM +06 2026
+  Process ID: 32307
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/data_mem.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/prog_mem.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/processor.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/risc_top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/tb/TB_top.sv -top TB_RISC_V3_PIPELINED -R -sv -gui -coverage all -input waves.tcl
+
+ 
+*** Message Type: info ***
+When: Tue Jul 14 02:01:12 PM +06 2026
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Tue Jul 14 02:19:57 PM +06 2026
+Exit XM-Sim: user
+      Design: worklib.TB_RISC_V3_PIPELINED:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:    xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Tue Jul 14 02:01:06 PM +06 2026
+  Process ID: 32307
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/data_mem.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/prog_mem.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/processor.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/risc_top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/tb/TB_top.sv -top TB_RISC_V3_PIPELINED -R -sv -gui -coverage all -input waves.tcl
+
+ 
+*** Message Type: error ***
+When: Tue Jul 14 02:19:58 PM +06 2026
+XM-Sim Crashed:
+      Design: worklib.TB_RISC_V3_PIPELINED:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:    xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Tue Jul 14 02:01:06 PM +06 2026
+  Process ID: 32307
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/data_mem.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/prog_mem.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/processor.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/risc_top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/tb/TB_top.sv -top TB_RISC_V3_PIPELINED -R -sv -gui -coverage all -input waves.tcl
+      Design: worklib.TB_RISC_V3_PIPELINED:sv
+   Languages: verilog
+   Simulator: XM-Sim
+     Version: TOOL:        xmsim(64)       23.03-s011
+        User: B2_Robiul
+        Host: cadence
+Time Started: Tue Jul 14 02:01:06 PM +06 2026
+  Process ID: 32307
+   Directory: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/sim
+     Command: xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/data_mem.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/prog_mem.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/processor.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/rtl/risc_top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/New_Project_3B/tb/TB_top.sv -top TB_RISC_V3_PIPELINED -R -sv -gui -coverage all -input waves.tcl
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Sun Jul 19 11:19:19 AM +06 2026
+Recall Simulator
+ 
+*** Message Type: error ***
+When: Sun Jul 19 11:19:25 AM +06 2026
+slave "" does not exist
+    while executing
+"error "slave \"$slave\" does not exist""
+    (object "::taskmaster" method "::stuff::TaskMaster::delegate" body line 12)
+    invoked from within
+"::taskmaster delegate $slave sim.terminate"
+    (object "::application" method "::Application::shutdown" body line 65)
+    invoked from within
+"application shutdown"
+    (while executing background task for duty "shutdown" in owner exit)
+ 

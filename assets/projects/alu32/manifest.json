@@ -1,0 +1,33 @@
+{
+  "sim_top": "alu32_tb",
+  "syn_top": "alu32",
+  "constraints": [
+	"constraints/alu32.sdc"
+	],
+  "include_dirs": [
+    "rtl",
+    "tb"
+  ],
+  "defines": [],
+  "rtl_files": [
+// List your RTL files here
+// one at each line in double quotes
+// ending in comma "," except the last line before close brace "]"
+    "rtl/alu32.sv",
+  ],
+  "tb_files": [
+// List your Test Bench files here
+// one at each line in double quotes
+// ending in comma "," except the last line before close brace "]"
+    "tb/alu_if.sv",
+    "tb/alu_transaction.sv",
+    "tb/alu_sequence.sv",
+    "tb/alu_sequencer.sv",
+    "tb/alu_driver.sv",
+    "tb/alu_monitor.sv",
+    "tb/alu_scoreboard.sv",
+    "tb/alu_env.sv",
+    "tb/alu_test.sv",
+    "tb/alu32_tb.sv"
+  ]
+}

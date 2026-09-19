@@ -1,0 +1,499 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2023 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[11:08:59.095681] Configured Lic search path (21.01-s002): 5280@cadence
+
+Version: 21.18-s082_1, built Tue Jul 18 00:08:41 PDT 2023
+Options: -files scripts/run_synth.tcl 
+Date:    Sat May 02 11:08:59 2026
+Host:    cadence (x86_64 w/Linux 3.10.0-1160.el7.x86_64) (8cores*32cpus*2physical cpus*Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz 20480KB) (197849384KB)
+PID:     16782
+OS:      Red Hat Enterprise Linux Server release 7.9 (Maipo)
+
+
+[11:08:59.394280] Periodic Lic check successful
+[11:08:59.394298] Feature usage summary:
+[11:08:59.394299] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (17 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source scripts/run_synth.tcl
+#@ Begin verbose source ./scripts/run_synth.tcl
+@file(run_synth.tcl) 3: if {[file exists /proc/cpuinfo]} {
+  sh grep "model name" /proc/cpuinfo
+    sh grep "cpu MHz"    /proc/cpuinfo
+    }
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+model name	: Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz
+cpu MHz		: 2199.890
+cpu MHz		: 2199.890
+cpu MHz		: 2200.006
+cpu MHz		: 2199.890
+cpu MHz		: 2199.658
+cpu MHz		: 2200.006
+cpu MHz		: 2199.890
+cpu MHz		: 2199.890
+cpu MHz		: 2199.890
+cpu MHz		: 2199.890
+cpu MHz		: 2200.006
+cpu MHz		: 2200.006
+cpu MHz		: 2200.006
+cpu MHz		: 2200.006
+cpu MHz		: 2200.006
+cpu MHz		: 2200.006
+cpu MHz		: 2200.006
+cpu MHz		: 2200.701
+cpu MHz		: 2200.006
+cpu MHz		: 2200.006
+cpu MHz		: 2200.238
+cpu MHz		: 2200.006
+cpu MHz		: 2200.006
+cpu MHz		: 2199.890
+cpu MHz		: 2200.469
+cpu MHz		: 2199.890
+cpu MHz		: 2199.890
+cpu MHz		: 2200.817
+cpu MHz		: 2200.006
+cpu MHz		: 2202.093
+cpu MHz		: 2200.006
+cpu MHz		: 2200.006
+@file(run_synth.tcl) 8:     puts "Hostname : [info hostname]"
+Hostname : cadence
+@file(run_synth.tcl) 10: set var(step) "synth"
+@file(run_synth.tcl) 11: if {[file exists ../project_setup.tcl]} {
+	source -e -v ../project_setup.tcl
+} else {
+	puts "ERROR: project_setup.tcl not found. Please check your setup"
+}
+Sourcing '../project_setup.tcl' (Sat May 02 11:09:16 +06 2026)...
+#@ Begin verbose source ../project_setup.tcl
+@file(project_setup.tcl) 10: set TECH "gpdk045" ;# Options: "gpdk045 | sky130_cadence | sky130_open"
+set TECH "gpdk045" ;# Options: "gpdk045 | sky130_cadence | sky130_open"
+@file(project_setup.tcl) 15: set MULTIVT "mvt"
+set MULTIVT "mvt"
+@file(project_setup.tcl) 16: set MBFF "true"
+set MBFF "true"
+@file(project_setup.tcl) 18: source -e -v $::env(REPO_ROOT)/util/tech/${TECH}.tcl 
+source -e -v $::env(REPO_ROOT)/util/tech/${TECH}.tcl 
+Sourcing '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/gpdk045.tcl' (Sat May 02 11:09:16 +06 2026)...
+#@ Begin verbose source /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/gpdk045.tcl
+@file(gpdk045.tcl) 10: set TECH "gpdk045" ;# Future options: "gpdk045 | sky130"
+set TECH "gpdk045" ;# Future options: "gpdk045 | sky130"
+@file(gpdk045.tcl) 12: puts "ATSH_VLSI: TECH=$TECH"
+puts "ATSH_VLSI: TECH=$TECH"
+ATSH_VLSI: TECH=gpdk045
+@file(gpdk045.tcl) 13: puts "ATSH_VLSI: Starting Setup"
+puts "ATSH_VLSI: Starting Setup"
+ATSH_VLSI: Starting Setup
+@file(gpdk045.tcl) 15: if { $TECH == "gpdk045" } {
+	set TECH_DIR "/home/user_27/work/tech/gpdk045"
+	set STD_LIB_DIR "gsclib045_all_v4.7"
+	#set MULTIVT "true"
+	if { [string equal -nocase $MULTIVT "false"] } {
+	        puts "ATSH_VLSI: MULTIVT is set to false. Using only RVT cells for synthesis. Please fix if other or all vt cells to be used."
+        	set MULTIVT "RVT"
+	} else {
+		puts "ATSH_VLSI: MULTIVT is set to true. All available (rvt, lvt, hvt) vt cells will be used."
+	}
+	#set MBFF "false"
+
+set LEF_FILES ""
+
+# Adding Technology LEF file
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_tech/lef/gsclib045_tech.lef"
+
+# Adding RVT Cell LEF | Default when MULTIVT is FALSE
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "RVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/lef/gsclib045_macro.lef"
+}
+
+# Adding LVT/H`VT Cell LEF
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "LVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/lef/gsclib045_lvt_macro.lef"
+}
+if { [string equal -nocase $MULTIVT "true"] ||  [regexp -nocase "HVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/lef/gsclib045_hvt_macro.lef"
+}
+
+if { $MBFF == "true" } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/gsclib045_multibitsDFF.lef"
+}
+
+set LIB_FILES(slow) ""
+set LIB_FILES(fast) ""
+
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "RVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/slow_vdd1v0_basicCells.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/fast_vdd1v2_basicCells.lib"
+}
+
+
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "LVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/timing/slow_vdd1v0_basicCells_lvt.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/timing/fast_vdd1v2_basicCells_lvt.lib"
+}
+if { [string equal -nocase $MULTIVT "true"] ||  [regexp -nocase "HVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/timing/slow_vdd1v0_basicCells_hvt.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/timing/fast_vdd1v2_basicCells_hvt.lib"
+}
+
+if { $MBFF == "true" } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/fast_vdd1v2_multibitsDFF.lib"
+}
+
+set LIB_FILES(all) "$LIB_FILES(slow) $LIB_FILES(fast)"
+
+set QRC_TECH_FILE(rcworst) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/rcworst/qrcTechFile"
+set QRC_TECH_FILE(rcbest) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/rcbest/qrcTechFile"
+set QRC_TECH_FILE(typical) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/typical/qrcTechFile"
+
+set PHYSICAL_CELL_LIST "[get_lib_cell */*FILL*]"
+set CLK_BUFFERS "[get_lib_cell */*CLKBUF*] "
+set CLK_INVERTERS " [get_lib_cell */*CLKINV*]"
+
+} ;# END OF GPDK045 SETUP
+if { $TECH == "gpdk045" } {
+	set TECH_DIR "/home/user_27/work/tech/gpdk045"
+	set STD_LIB_DIR "gsclib045_all_v4.7"
+	#set MULTIVT "true"
+	if { [string equal -nocase $MULTIVT "false"] } {
+	        puts "ATSH_VLSI: MULTIVT is set to false. Using only RVT cells for synthesis. Please fix if other or all vt cells to be used."
+        	set MULTIVT "RVT"
+	} else {
+		puts "ATSH_VLSI: MULTIVT is set to true. All available (rvt, lvt, hvt) vt cells will be used."
+	}
+	#set MBFF "false"
+
+set LEF_FILES ""
+
+# Adding Technology LEF file
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_tech/lef/gsclib045_tech.lef"
+
+# Adding RVT Cell LEF | Default when MULTIVT is FALSE
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "RVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/lef/gsclib045_macro.lef"
+}
+
+# Adding LVT/H`VT Cell LEF
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "LVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/lef/gsclib045_lvt_macro.lef"
+}
+if { [string equal -nocase $MULTIVT "true"] ||  [regexp -nocase "HVT" $MULTIVT]  } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/lef/gsclib045_hvt_macro.lef"
+}
+
+if { $MBFF == "true" } {
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/gsclib045_multibitsDFF.lef"
+}
+
+set LIB_FILES(slow) ""
+set LIB_FILES(fast) ""
+
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "RVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/slow_vdd1v0_basicCells.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/fast_vdd1v2_basicCells.lib"
+}
+
+
+if { [string equal -nocase $MULTIVT "true"] || [regexp -nocase "LVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/timing/slow_vdd1v0_basicCells_lvt.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_lvt/timing/fast_vdd1v2_basicCells_lvt.lib"
+}
+if { [string equal -nocase $MULTIVT "true"] ||  [regexp -nocase "HVT" $MULTIVT]  } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/timing/slow_vdd1v0_basicCells_hvt.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045_hvt/timing/fast_vdd1v2_basicCells_hvt.lib"
+}
+
+if { $MBFF == "true" } {
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/gsclib045/timing/fast_vdd1v2_multibitsDFF.lib"
+}
+
+set LIB_FILES(all) "$LIB_FILES(slow) $LIB_FILES(fast)"
+
+set QRC_TECH_FILE(rcworst) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/rcworst/qrcTechFile"
+set QRC_TECH_FILE(rcbest) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/rcbest/qrcTechFile"
+set QRC_TECH_FILE(typical) "/home/user_27/work/tech/gpdk045/gpdk045_v_6_0/qrc/typical/qrcTechFile"
+
+set PHYSICAL_CELL_LIST "[get_lib_cell */*FILL*]"
+set CLK_BUFFERS "[get_lib_cell */*CLKBUF*] "
+set CLK_INVERTERS " [get_lib_cell */*CLKINV*]"
+
+} ;# END OF GPDK045 SETUP
+ATSH_VLSI: MULTIVT is set to true. All available (rvt, lvt, hvt) vt cells will be used.
+Warning : Could not find requested search value. [SDC-208] [get_lib_cells]
+        : The 'get_lib_cells' command cannot find any library cells for the specified objects.
+        : Use get_* commands to find the objects along with a wild card entry in the name of the object to check if the object is existing with different naming style.
+Warning : Could not find requested search value. [SDC-208] [get_lib_cells]
+        : The 'get_lib_cells' command cannot find any library cells for the specified objects.
+Warning : Could not find requested search value. [SDC-208] [get_lib_cells]
+        : The 'get_lib_cells' command cannot find any library cells for the specified objects.
+#@ End verbose source /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/gpdk045.tcl
+@file(project_setup.tcl) 24: set DESIGN_DIR "design_data"
+set DESIGN_DIR "design_data"
+@file(project_setup.tcl) 25: set DESIGN_NAME "$::env(TOP)"
+set DESIGN_NAME "$::env(TOP)"
+@file(project_setup.tcl) 26: puts "TOP DESIGN SET TO: $DESIGN_NAME"
+puts "TOP DESIGN SET TO: $DESIGN_NAME"
+TOP DESIGN SET TO: top
+@file(project_setup.tcl) 27: set CLK_PORT "SYS_CLOCK" 
+set CLK_PORT "SYS_CLOCK" 
+@file(project_setup.tcl) 28: set CLK_PERIOD "5" ;# unit depends on pdk; for gpdk045 the unit is ns
+set CLK_PERIOD "5" ;# unit depends on pdk; for gpdk045 the unit is ns
+@file(project_setup.tcl) 30: set POWER_NET "VDD"
+set POWER_NET "VDD"
+@file(project_setup.tcl) 31: set GROUND_NET "VSS"
+set GROUND_NET "VSS"
+@file(project_setup.tcl) 40: set SYNTH_EFFORT_GENERIC "medium"
+set SYNTH_EFFORT_GENERIC "medium"
+@file(project_setup.tcl) 41: set SYNTH_EFFORT_OPT "high"
+set SYNTH_EFFORT_OPT "high"
+@file(project_setup.tcl) 42: set SYNTH_INFO_LEVEL 7
+set SYNTH_INFO_LEVEL 7
+@file(project_setup.tcl) 43: set SYNTH_LOW_POWER "false"
+set SYNTH_LOW_POWER "false"
+@file(project_setup.tcl) 45: if { $var(step) == "synth" } {
+set RTL_FILES "[glob $DESIGN_DIR/*v]"
+set CONSTRAINTS_FILE "[glob $DESIGN_DIR/*sdc]"
+#set RTL_FILES "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn]"
+#set CONSTRAINTS_FILE "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn_sdc]"
+}
+if { $var(step) == "synth" } {
+set RTL_FILES "[glob $DESIGN_DIR/*v]"
+set CONSTRAINTS_FILE "[glob $DESIGN_DIR/*sdc]"
+#set RTL_FILES "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn]"
+#set CONSTRAINTS_FILE "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn_sdc]"
+}
+@file(project_setup.tcl) 56: set PNR_INIT_NETLIST "$DESIGN_DIR/${DESIGN_NAME}_gate.v"
+set PNR_INIT_NETLIST "$DESIGN_DIR/${DESIGN_NAME}_gate.v"
+@file(project_setup.tcl) 57: set PNR_SDC "$DESIGN_DIR/${DESIGN_NAME}.sdc"
+set PNR_SDC "$DESIGN_DIR/${DESIGN_NAME}.sdc"
+@file(project_setup.tcl) 58: set PNR_VIEW_DEF "$DESIGN_DIR/viewDefinition.tcl"
+set PNR_VIEW_DEF "$DESIGN_DIR/viewDefinition.tcl"
+@file(project_setup.tcl) 59: set PNR_GND_NETS "VSS"
+set PNR_GND_NETS "VSS"
+@file(project_setup.tcl) 60: set PNR_PWR_NETS "VDD"
+set PNR_PWR_NETS "VDD"
+@file(project_setup.tcl) 61: set PNR_MAX_ROUTE_LAYER "6"
+set PNR_MAX_ROUTE_LAYER "6"
+@file(project_setup.tcl) 62: set PNR_FP_TCL "../floorplan/fp.tcl"
+set PNR_FP_TCL "../floorplan/fp.tcl"
+@file(project_setup.tcl) 63: set PNR_FP_DEF "../floorplan/fp.def"
+set PNR_FP_DEF "../floorplan/fp.def"
+@file(project_setup.tcl) 64: set PNR_FP_PRIORITY "TCL"
+set PNR_FP_PRIORITY "TCL"
+#@ End verbose source ../project_setup.tcl
+@file(run_synth.tcl) 20: set DESIGN $DESIGN_NAME
+@file(run_synth.tcl) 21: puts "DESIGN SET TO $DESIGN"
+DESIGN SET TO top
+@file(run_synth.tcl) 22: set GEN_EFF $SYNTH_EFFORT_GENERIC
+@file(run_synth.tcl) 23: set MAP_OPT_EFF $SYNTH_EFFORT_OPT
+@file(run_synth.tcl) 24: set DATE [clock format [clock seconds] -format "%b%d-%T"]
+@file(run_synth.tcl) 25: set _OUTPUTS_PATH outputs_${DATE}
+@file(run_synth.tcl) 26: set _REPORTS_PATH reports_${DATE}
+@file(run_synth.tcl) 27: set _LOG_PATH logs_${DATE}
+@file(run_synth.tcl) 29: set_db / .init_lib_search_path  {. ../LIB $TECH_DIR}
+  Setting attribute of root '/': 'init_lib_search_path' = . ../LIB $TECH_DIR
+@file(run_synth.tcl) 31: set_db / .init_hdl_search_path  {. ../RTL $DESIGN_DIR}
+  Setting attribute of root '/': 'init_hdl_search_path' = . ../RTL $DESIGN_DIR
+@file(run_synth.tcl) 44: set_db / .information_level $SYNTH_INFO_LEVEL
+  Setting attribute of root '/': 'information_level' = 7
+@file(run_synth.tcl) 51: eval "set_db / .library {$LIB_FILES(all)}"
+
+Threads Configured:6
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q1' for the cell 'SDFF2RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 3574)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q2' for the cell 'SDFF2RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 3578)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q1N' for the cell 'SDFF2RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 3684)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q2N' for the cell 'SDFF2RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 3688)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q1' for the cell 'SDFF2RX2'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 4486)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q2' for the cell 'SDFF2RX2'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 4490)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q1N' for the cell 'SDFF2RX2'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 4596)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q2N' for the cell 'SDFF2RX2'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 4600)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q1' for the cell 'SDFF4RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 6358)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q2' for the cell 'SDFF4RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 6362)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q3' for the cell 'SDFF4RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 6366)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q4' for the cell 'SDFF4RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 6370)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q1N' for the cell 'SDFF4RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 6476)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q2N' for the cell 'SDFF4RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 6480)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q3N' for the cell 'SDFF4RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 6484)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q4N' for the cell 'SDFF4RX1'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 6488)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q1' for the cell 'SDFF4RX2'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 8262)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q2' for the cell 'SDFF4RX2'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 8266)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q3' for the cell 'SDFF4RX2'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 8270)
+Info    : Missing a function attribute in the output pin definition. [LBR-518]
+        : Functionality is missing at pin 'Q4' for the cell 'SDFF4RX2'. (File /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib, Line 8274)
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-518'.
+
+  Message Summary for Library both libraries:
+  *******************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 96
+  *******************************************
+ 
+            Reading file '/home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib'
+            Reading file '/home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/fast_vdd1v2_multibitsDFF.lib'
+Warning : Libraries have inconsistent nominal operating conditions. In the Liberty library, there are attributes called nom_voltage, nom_process and nom_temperature. Genus reports the message, if the respective values of the 2 given .libs differ. [LBR-38]
+        : The libraries are 'slow_vdd1v0' and 'fast_vdd1v2'.
+        : This is a common source of delay calculation confusion and should be avoided.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 0.900000, 125.000000) in library 'slow_vdd1v0_multibitsDFF.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.320000, 0.000000) in library 'fast_vdd1v2_multibitsDFF.lib'.
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/DFF2RX1 and fast_vdd1v2/DFF2RX1).  Deleting (fast_vdd1v2/DFF2RX1).
+        : Library cell names must be unique.  Any duplicates will be deleted.  Only the first (as determined by the order of libraries) will be retained.
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/DFF2RX2 and fast_vdd1v2/DFF2RX2).  Deleting (fast_vdd1v2/DFF2RX2).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/DFF2X1 and fast_vdd1v2/DFF2X1).  Deleting (fast_vdd1v2/DFF2X1).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/DFF2X2 and fast_vdd1v2/DFF2X2).  Deleting (fast_vdd1v2/DFF2X2).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/DFF4RX1 and fast_vdd1v2/DFF4RX1).  Deleting (fast_vdd1v2/DFF4RX1).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/DFF4RX2 and fast_vdd1v2/DFF4RX2).  Deleting (fast_vdd1v2/DFF4RX2).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/DFF4X1 and fast_vdd1v2/DFF4X1).  Deleting (fast_vdd1v2/DFF4X1).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/DFF4X2 and fast_vdd1v2/DFF4X2).  Deleting (fast_vdd1v2/DFF4X2).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/SDFF2RX1 and fast_vdd1v2/SDFF2RX1).  Deleting (fast_vdd1v2/SDFF2RX1).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/SDFF2RX2 and fast_vdd1v2/SDFF2RX2).  Deleting (fast_vdd1v2/SDFF2RX2).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/SDFF4RX1 and fast_vdd1v2/SDFF4RX1).  Deleting (fast_vdd1v2/SDFF4RX1).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/SDFF4RX2 and fast_vdd1v2/SDFF4RX2).  Deleting (fast_vdd1v2/SDFF4RX2).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/SPDFF2RX1 and fast_vdd1v2/SPDFF2RX1).  Deleting (fast_vdd1v2/SPDFF2RX1).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/SPDFF2RX2 and fast_vdd1v2/SPDFF2RX2).  Deleting (fast_vdd1v2/SPDFF2RX2).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/SPDFF4RX1 and fast_vdd1v2/SPDFF4RX1).  Deleting (fast_vdd1v2/SPDFF4RX1).
+Warning : Multiply-defined library cell. [LBR-22]
+        : Library-cell name collision (slow_vdd1v0/SPDFF4RX2 and fast_vdd1v2/SPDFF4RX2).  Deleting (fast_vdd1v2/SPDFF4RX2).
+  Setting attribute of root '/': 'library' =  /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/slow_vdd1v0_multibitsDFF.lib  /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/timing/fast_vdd1v2_multibitsDFF.lib
+@file(run_synth.tcl) 53: eval "set_db / .lef_library  {$LEF_FILES}"
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_HV' has no resistance value.
+        : If this is the expected behavior, this message can be ignored.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_VV' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_VH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_HH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_2x1_HV_E' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_2x1_HV_W' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_1x2_HV_N' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M2_M1_1x2_HV_S' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_VH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_HH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_HV' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_VV' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_M_NH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_M_SH' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_2x1_VH_E' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_2x1_VH_W' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_1x2_VH_N' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M3_M2_1x2_VH_S' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M4_M3_HV' has no resistance value.
+Info    : Via with no resistance will have a value of '0.0' assigned for resistance value. [PHYS-129]
+        : Via 'M4_M3_VV' has no resistance value.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-129'.
+Error   : File error. [FILE-100] [set_db]
+        : Cannot open file '/home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/gsclib045_multibitsDFF.lef'. File not found.
+        : Make sure that the file is a readable regular file and has the specified name.
+Error   : The attribute or the value for this attribute is not allowed at this moment. [TUI-48] [set_db]
+        : attribute: 'lef_library', value: ' /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045_tech/lef/gsclib045_tech.lef /home/user_27/work/tech/gpdk045/gsclib045_all_v4.7/gsclib045/gsclib045_multibitsDFF.lef'
+        : Cannot change the value of the attribute.
+#@ End verbose source ./scripts/run_synth.tcl
+1
+Encountered problems processing file: scripts/run_synth.tcl
+WARNING: This version of the tool is 1018 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[11:09:32.478754] Cdslmd servers: cadence
+[11:09:32.478793] Feature usage summary:
+[11:09:32.478800] Genus_Synthesis
+
+Normal exit.

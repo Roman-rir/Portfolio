@@ -1,0 +1,383 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jun 20, 2026 at 13:01:41 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/rtl/DATAPATH.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/rtl/FSM.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/rtl/TOP.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/tb/TB_TOP2.sv
+	-top TB_TOP2
+	-R
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+xrun: *W,CSSF: -TOP with -R option will be ignored.
+xrun: *W,CSSF: HDL source files with -R option will be ignored.
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED default: 1
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cadence/lnx/xce_24/tools/xcelium/files/xmsimrc
+xcelium> source /home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves.shm -shm -default
+Created default SHM database waves.shm
+xcelium> probe -create -shm $::env(SIM_TOP) -depth all -all
+Created probe 1
+xcelium> run
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 550000 ns
+P_STATE   = 4
+
+X_REG     = 0
+Y_REG     = 0
+
+FORMULA   = 1*(0)^2 + 2*(0) + 3
+EXPECTED  = 3
+ACTUAL    = 0
+
+STATUS    = FIRST OUTPUT SKIPPED
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 950000 ns
+P_STATE   = 4
+
+X_REG     = 10
+Y_REG     = 123
+
+FORMULA   = 1*(10)^2 + 2*(10) + 3
+EXPECTED  = 123
+ACTUAL    = 123
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 1350000 ns
+P_STATE   = 4
+
+X_REG     = 13
+Y_REG     = 198
+
+FORMULA   = 1*(13)^2 + 2*(13) + 3
+EXPECTED  = 198
+ACTUAL    = 198
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 1750000 ns
+P_STATE   = 4
+
+X_REG     = 11
+Y_REG     = 146
+
+FORMULA   = 1*(11)^2 + 2*(11) + 3
+EXPECTED  = 146
+ACTUAL    = 146
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 2150000 ns
+P_STATE   = 4
+
+X_REG     = 10
+Y_REG     = 123
+
+FORMULA   = 1*(10)^2 + 2*(10) + 3
+EXPECTED  = 123
+ACTUAL    = 123
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 2550000 ns
+P_STATE   = 4
+
+X_REG     = 8
+Y_REG     = 83
+
+FORMULA   = 1*(8)^2 + 2*(8) + 3
+EXPECTED  = 83
+ACTUAL    = 83
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 2950000 ns
+P_STATE   = 4
+
+X_REG     = 12
+Y_REG     = 171
+
+FORMULA   = 1*(12)^2 + 2*(12) + 3
+EXPECTED  = 171
+ACTUAL    = 171
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 3350000 ns
+P_STATE   = 4
+
+X_REG     = 15
+Y_REG     = 258
+
+FORMULA   = 1*(15)^2 + 2*(15) + 3
+EXPECTED  = 258
+ACTUAL    = 258
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 3750000 ns
+P_STATE   = 4
+
+X_REG     = 15
+Y_REG     = 258
+
+FORMULA   = 1*(15)^2 + 2*(15) + 3
+EXPECTED  = 258
+ACTUAL    = 258
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 4150000 ns
+P_STATE   = 4
+
+X_REG     = 11
+Y_REG     = 146
+
+FORMULA   = 1*(11)^2 + 2*(11) + 3
+EXPECTED  = 146
+ACTUAL    = 146
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 4550000 ns
+P_STATE   = 4
+
+X_REG     = 8
+Y_REG     = 83
+
+FORMULA   = 1*(8)^2 + 2*(8) + 3
+EXPECTED  = 83
+ACTUAL    = 83
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 4950000 ns
+P_STATE   = 4
+
+X_REG     = 9
+Y_REG     = 102
+
+FORMULA   = 1*(9)^2 + 2*(9) + 3
+EXPECTED  = 102
+ACTUAL    = 102
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 5350000 ns
+P_STATE   = 4
+
+X_REG     = 5
+Y_REG     = 38
+
+FORMULA   = 1*(5)^2 + 2*(5) + 3
+EXPECTED  = 38
+ACTUAL    = 38
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 5750000 ns
+P_STATE   = 4
+
+X_REG     = 6
+Y_REG     = 51
+
+FORMULA   = 1*(6)^2 + 2*(6) + 3
+EXPECTED  = 51
+ACTUAL    = 51
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 6150000 ns
+P_STATE   = 4
+
+X_REG     = 9
+Y_REG     = 102
+
+FORMULA   = 1*(9)^2 + 2*(9) + 3
+EXPECTED  = 102
+ACTUAL    = 102
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 6550000 ns
+P_STATE   = 4
+
+X_REG     = 6
+Y_REG     = 51
+
+FORMULA   = 1*(6)^2 + 2*(6) + 3
+EXPECTED  = 51
+ACTUAL    = 51
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 6950000 ns
+P_STATE   = 4
+
+X_REG     = 5
+Y_REG     = 38
+
+FORMULA   = 1*(5)^2 + 2*(5) + 3
+EXPECTED  = 38
+ACTUAL    = 38
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 7350000 ns
+P_STATE   = 4
+
+X_REG     = 9
+Y_REG     = 102
+
+FORMULA   = 1*(9)^2 + 2*(9) + 3
+EXPECTED  = 102
+ACTUAL    = 102
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 7750000 ns
+P_STATE   = 4
+
+X_REG     = 13
+Y_REG     = 198
+
+FORMULA   = 1*(13)^2 + 2*(13) + 3
+EXPECTED  = 198
+ACTUAL    = 198
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 8150000 ns
+P_STATE   = 4
+
+X_REG     = 1
+Y_REG     = 6
+
+FORMULA   = 1*(1)^2 + 2*(1) + 3
+EXPECTED  = 6
+ACTUAL    = 6
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 8550000 ns
+P_STATE   = 4
+
+X_REG     = 10
+Y_REG     = 123
+
+FORMULA   = 1*(10)^2 + 2*(10) + 3
+EXPECTED  = 123
+ACTUAL    = 123
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 8950000 ns
+P_STATE   = 4
+
+X_REG     = 4
+Y_REG     = 27
+
+FORMULA   = 1*(4)^2 + 2*(4) + 3
+EXPECTED  = 27
+ACTUAL    = 27
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 9350000 ns
+P_STATE   = 4
+
+X_REG     = 0
+Y_REG     = 3
+
+FORMULA   = 1*(0)^2 + 2*(0) + 3
+EXPECTED  = 3
+ACTUAL    = 3
+
+STATUS    = PASS
+
+============RESOURCE SHARING EXECUTION REPORT=============
+
+TIME      = 9750000 ns
+P_STATE   = 4
+
+X_REG     = 12
+Y_REG     = 171
+
+FORMULA   = 1*(12)^2 + 2*(12) + 3
+EXPECTED  = 171
+ACTUAL    = 171
+
+STATUS    = PASS
+
+
+==============FINAL VERIFICATION REPORT===============
+
+TOTAL ERRORS = 0
+FINAL STATUS = PASS
+
+
+Simulation complete via $finish(1) at time 12 US + 0
+../tb/TB_TOP2.sv:266     $finish;
+xcelium> ^C
+xcelium> exit
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+TOOL:	xrun(64)	23.03-s011: Exiting on Jun 20, 2026 at 13:13:36 +06  (total: 00:11:55)

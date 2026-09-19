@@ -1,0 +1,26 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-uvm
+-timescale
+1ns/1ps
++access+rwc
++incdir+rtl
++incdir+tb
+/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/data_mem.sv
+/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/prog_mem.sv
+/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/processor.sv
+/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/rtl/risc_top.sv
+/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_3BB/tb/TB_top.sv
+-top
+TB_RISC_V3_PIPELINED
+-elaborate
+-log
+elaborate.log
+-sv
+-gui
+-coverage
+all
+-input
+waves.tcl

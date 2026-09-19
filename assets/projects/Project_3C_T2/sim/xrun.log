@@ -1,0 +1,54 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jul 20, 2026 at 10:13:42 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/DATA_MEM.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/PROCESSOR_V3.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/PROG_MEM.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/RISC_V3.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/tb/RISC_V3_TB.sv
+	-top RISC_V3_tb
+	-R
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+xrun: *W,CSSF: -TOP with -R option will be ignored.
+xrun: *W,CSSF: HDL source files with -R option will be ignored.
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cadence/lnx/xce_24/tools/xcelium/files/xmsimrc
+xcelium> source /home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves.shm -shm -default
+Created default SHM database waves.shm
+xcelium> probe -create -shm $::env(SIM_TOP) -depth all -all
+Created probe 1
+xcelium> run
+Simulation complete via $finish(1) at time 400 NS + 0
+../tb/RISC_V3_TB.sv:146 $finish;
+xcelium> reset
+xmsim: *W,C58RST: Reset command executed. Coverage is enabled for the subsequent simulation run.  The coverage test name needs to be changed to prevent data overwrite, and any coverage control commands previously used must be reissued.
+Loaded snapshot worklib.RISC_V3_tb:sv
+xcelium> run
+Simulation complete via $finish(1) at time 400 NS + 0
+../tb/RISC_V3_TB.sv:146 $finish;
+xcelium> ^C
+xcelium> exit
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  RISC_V3_tb(RISC_V3_tb)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_423e1097_00000000.ucm
+  data               :  ./cov_work/scope/test/icc_423e1097_00000000.ucd
+TOOL:	xrun(64)	23.03-s011: Exiting on Jul 20, 2026 at 10:16:51 +06  (total: 00:03:09)

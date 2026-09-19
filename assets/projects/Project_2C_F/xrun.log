@@ -1,0 +1,2109 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jul 20, 2026 at 22:02:36 +06
+xrun
+	-sv
+	-access +rwc
+	+gui
+	design.sv
+	testbench.sv
+	-coverage all
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+xmelab: *W,CUSRCH: Resolved design unit 'intf' at 'i_ntff' to 'worklib.intf:interface' through a global search of all libraries.
+xmelab: *W,CUSRCH: Resolved design unit 'test' at 't1' to 'worklib.test:program' through a global search of all libraries.
+xmelab: *W,CUSRCH: Resolved design unit 'assertions' at 'ASSERTION_INST' to 'worklib.assertions:module' through a global search of all libraries.
+	Top level design units:
+		$unit_0x3affc3e6
+		testbench
+
+	Extracting FSMs for coverage:
+		worklib.test
+		worklib.MAC_4BIT
+		worklib.assertions
+		worklib.testbench
+	Total FSMs extracted = 0
+	Building instance overlay tables: .................... Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.assertions:module <0x00706bf0>
+			streams:  23, words: 18898
+		worklib.test:program <0x35fa91d6>
+			streams:   1, words:  1201
+		worklib.testbench:sv <0x39a902a4>
+			streams:   9, words:  4674
+		worklib.intf:interface <0x3daf0b83>
+			streams:  64, words: 57356
+	Building instance specific data structures.
+xmelab: *W,CGPIDF: Covergroup "per_instance" option , by default, is set as 0.
+xmelab: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                     Instances  Unique
+		Modules:                     3       3
+		Interfaces:                  1       1
+		Programs:                    1       1
+		Registers:                  81     113
+		Scalar wires:                4       -
+		Vectored wires:              7       -
+		Named events:                8       8
+		Always blocks:              31      31
+		Initial blocks:             13      13
+		Parallel blocks:             1       1
+		Pseudo assignments:          6       -
+		Assertions:                  4       4
+		Covergroup Instances:        0       1
+		Compilation units:           1       1
+		SV Class declarations:       7       7
+		SV Class specializations:    7       7
+		Simulation timescale:      1ps
+	Writing initial simulation snapshot: worklib.testbench:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED default: 1
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cadence/lnx/xce_24/tools/xcelium/files/xmsimrc
+xcelium> coverage -analyze
+xmsim: *E,CVGIMC: The IMC window cannot be opened before simulation starts.
+xcelium> reset
+xmsim: *W,C58RST: Reset command executed. Coverage is enabled for the subsequent simulation run.  The coverage test name needs to be changed to prevent data overwrite, and any coverage control commands previously used must be reissued.
+SVSEED default: 1
+Loaded snapshot worklib.testbench:sv
+xcelium> run
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+stop -create -name Randomize -randomize
+Created stop Randomize
+
+=============================
+Generator
+[Generator] A=1 B=6 Y=0
+=============================
+=============================
+Generator
+[Generator] A=10 B=1 Y=0
+=============================
+=============================
+Generator
+[Generator] A=13 B=13 Y=0
+=============================
+=============================
+Generator
+[Generator] A=14 B=5 Y=0
+=============================
+=============================
+Generator
+[Generator] A=6 B=4 Y=0
+=============================
+=============================
+Generator
+[Generator] A=9 B=10 Y=0
+=============================
+=============================
+Generator
+[Generator] A=5 B=13 Y=0
+=============================
+=============================
+Generator
+[Generator] A=12 B=6 Y=0
+=============================
+=============================
+Generator
+[Generator] A=2 B=6 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=4 Y=0
+=============================
+=============================
+Generator
+[Generator] A=7 B=0 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=7 Y=0
+=============================
+=============================
+Generator
+[Generator] A=7 B=2 Y=0
+=============================
+=============================
+Generator
+[Generator] A=9 B=3 Y=0
+=============================
+=============================
+Generator
+[Generator] A=15 B=8 Y=0
+=============================
+=============================
+Generator
+[Generator] A=11 B=3 Y=0
+=============================
+=============================
+Generator
+[Generator] A=9 B=7 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=11 Y=0
+=============================
+=============================
+Generator
+[Generator] A=13 B=5 Y=0
+=============================
+=============================
+Generator
+[Generator] A=7 B=2 Y=0
+=============================
+=============================
+Generator
+[Generator] A=14 B=3 Y=0
+=============================
+=============================
+Generator
+[Generator] A=13 B=5 Y=0
+=============================
+=============================
+Generator
+[Generator] A=8 B=9 Y=0
+=============================
+=============================
+Generator
+[Generator] A=8 B=13 Y=0
+=============================
+=============================
+Generator
+[Generator] A=14 B=8 Y=0
+=============================
+=============================
+Generator
+[Generator] A=0 B=8 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=8 Y=0
+=============================
+=============================
+Generator
+[Generator] A=15 B=11 Y=0
+=============================
+=============================
+Generator
+[Generator] A=13 B=8 Y=0
+=============================
+=============================
+Generator
+[Generator] A=2 B=9 Y=0
+=============================
+=============================
+Generator
+[Generator] A=5 B=4 Y=0
+=============================
+=============================
+Generator
+[Generator] A=13 B=6 Y=0
+=============================
+=============================
+Generator
+[Generator] A=6 B=14 Y=0
+=============================
+=============================
+Generator
+[Generator] A=2 B=11 Y=0
+=============================
+=============================
+Generator
+[Generator] A=2 B=14 Y=0
+=============================
+=============================
+Generator
+[Generator] A=6 B=5 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=2 Y=0
+=============================
+=============================
+Generator
+[Generator] A=3 B=12 Y=0
+=============================
+=============================
+Generator
+[Generator] A=5 B=1 Y=0
+=============================
+=============================
+Generator
+[Generator] A=5 B=10 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=3 Y=0
+=============================
+=============================
+Generator
+[Generator] A=0 B=14 Y=0
+=============================
+=============================
+Generator
+[Generator] A=5 B=6 Y=0
+=============================
+=============================
+Generator
+[Generator] A=12 B=15 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=10 Y=0
+=============================
+=============================
+Generator
+[Generator] A=8 B=4 Y=0
+=============================
+=============================
+Generator
+[Generator] A=2 B=8 Y=0
+=============================
+=============================
+Generator
+[Generator] A=1 B=13 Y=0
+=============================
+=============================
+Generator
+[Generator] A=14 B=1 Y=0
+=============================
+=============================
+Generator
+[Generator] A=9 B=0 Y=0
+=============================
+=============================
+Generator
+[Generator] A=7 B=9 Y=0
+=============================
+=============================
+Generator
+[Generator] A=3 B=8 Y=0
+=============================
+=============================
+Generator
+[Generator] A=7 B=2 Y=0
+=============================
+=============================
+Generator
+[Generator] A=3 B=4 Y=0
+=============================
+=============================
+Generator
+[Generator] A=11 B=9 Y=0
+=============================
+=============================
+Generator
+[Generator] A=1 B=10 Y=0
+=============================
+=============================
+Generator
+[Generator] A=7 B=3 Y=0
+=============================
+=============================
+Generator
+[Generator] A=13 B=5 Y=0
+=============================
+=============================
+Generator
+[Generator] A=2 B=11 Y=0
+=============================
+=============================
+Generator
+[Generator] A=14 B=2 Y=0
+=============================
+=============================
+Generator
+[Generator] A=6 B=15 Y=0
+=============================
+=============================
+Generator
+[Generator] A=12 B=14 Y=0
+=============================
+=============================
+Generator
+[Generator] A=8 B=6 Y=0
+=============================
+=============================
+Generator
+[Generator] A=8 B=7 Y=0
+=============================
+=============================
+Generator
+[Generator] A=11 B=10 Y=0
+=============================
+=============================
+Generator
+[Generator] A=5 B=0 Y=0
+=============================
+=============================
+Generator
+[Generator] A=0 B=13 Y=0
+=============================
+=============================
+Generator
+[Generator] A=1 B=6 Y=0
+=============================
+=============================
+Generator
+[Generator] A=1 B=9 Y=0
+=============================
+=============================
+Generator
+[Generator] A=0 B=1 Y=0
+=============================
+=============================
+Generator
+[Generator] A=1 B=0 Y=0
+=============================
+=============================
+Generator
+[Generator] A=1 B=5 Y=0
+=============================
+=============================
+Generator
+[Generator] A=8 B=10 Y=0
+=============================
+=============================
+Generator
+[Generator] A=15 B=6 Y=0
+=============================
+=============================
+Generator
+[Generator] A=0 B=13 Y=0
+=============================
+=============================
+Generator
+[Generator] A=13 B=5 Y=0
+=============================
+=============================
+Generator
+[Generator] A=14 B=11 Y=0
+=============================
+=============================
+Generator
+[Generator] A=11 B=9 Y=0
+=============================
+=============================
+Generator
+[Generator] A=12 B=6 Y=0
+=============================
+=============================
+Generator
+[Generator] A=9 B=10 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=15 Y=0
+=============================
+=============================
+Generator
+[Generator] A=9 B=3 Y=0
+=============================
+=============================
+Generator
+[Generator] A=7 B=13 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=5 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=1 Y=0
+=============================
+=============================
+Generator
+[Generator] A=8 B=4 Y=0
+=============================
+=============================
+Generator
+[Generator] A=5 B=8 Y=0
+=============================
+=============================
+Generator
+[Generator] A=13 B=5 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=14 Y=0
+=============================
+=============================
+Generator
+[Generator] A=1 B=11 Y=0
+=============================
+=============================
+Generator
+[Generator] A=5 B=9 Y=0
+=============================
+=============================
+Generator
+[Generator] A=4 B=15 Y=0
+=============================
+=============================
+Generator
+[Generator] A=13 B=10 Y=0
+=============================
+=============================
+Generator
+[Generator] A=3 B=3 Y=0
+=============================
+=============================
+Generator
+[Generator] A=7 B=8 Y=0
+=============================
+=============================
+Generator
+[Generator] A=9 B=13 Y=0
+=============================
+=============================
+Generator
+[Generator] A=12 B=1 Y=0
+=============================
+=============================
+Generator
+[Generator] A=12 B=13 Y=0
+=============================
+=============================
+Generator
+[Generator] A=0 B=8 Y=0
+=============================
+=============================
+Generator
+[Generator] A=0 B=7 Y=0
+=============================
+=============================
+Driver
+[Driver] A=1 B=6 Y=0
+=============================
+No of Transactions 1
+DRIVER SET A=1 B=6 @ 6000
+=============================
+Monitor
+[Monitor] A=1 B=6 Y=0
+=============================
+[Monitor] A=1 B=6 SRST=1 Y=0
+******** PASS ********
+SCB: A=1 B=6 SRST=1 Expected=0 Actual=0
+[15000] ASSERT PASS : Reset Working
+=============================
+Driver
+[Driver] A=10 B=1 Y=0
+=============================
+No of Transactions 2
+DRIVER SET A=10 B=1 @ 16000
+=============================
+Monitor
+[Monitor] A=10 B=1 Y=0
+=============================
+[Monitor] A=10 B=1 SRST=0 Y=0
+******** PASS ********
+SCB: A=10 B=1 SRST=0 Expected=0 Actual=0
+[25000] ASSERT PASS : Reset Working
+[25000] ASSERT PASS : No X/Z Detected
+[25000] ASSERT PASS : Y Known
+[25000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=13 B=13 Y=0
+=============================
+No of Transactions 3
+DRIVER SET A=13 B=13 @ 26000
+=============================
+Monitor
+[Monitor] A=13 B=13 Y=10
+=============================
+[Monitor] A=13 B=13 SRST=0 Y=10
+******** PASS ********
+SCB: A=13 B=13 SRST=0 Expected=10 Actual=10
+[35000] ASSERT PASS : No X/Z Detected
+[35000] ASSERT PASS : Y Known
+[35000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=14 B=5 Y=0
+=============================
+No of Transactions 4
+DRIVER SET A=14 B=5 @ 36000
+=============================
+Monitor
+[Monitor] A=14 B=5 Y=179
+=============================
+[Monitor] A=14 B=5 SRST=0 Y=179
+******** PASS ********
+SCB: A=14 B=5 SRST=0 Expected=179 Actual=179
+[45000] ASSERT PASS : No X/Z Detected
+[45000] ASSERT PASS : Y Known
+[45000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=6 B=4 Y=0
+=============================
+No of Transactions 5
+DRIVER SET A=6 B=4 @ 46000
+=============================
+Monitor
+[Monitor] A=6 B=4 Y=249
+=============================
+[Monitor] A=6 B=4 SRST=0 Y=249
+******** PASS ********
+SCB: A=6 B=4 SRST=0 Expected=249 Actual=249
+[55000] ASSERT PASS : No X/Z Detected
+[55000] ASSERT PASS : Y Known
+[55000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=9 B=10 Y=0
+=============================
+No of Transactions 6
+DRIVER SET A=9 B=10 @ 56000
+=============================
+Monitor
+[Monitor] A=9 B=10 Y=17
+=============================
+[Monitor] A=9 B=10 SRST=0 Y=17
+******** PASS ********
+SCB: A=9 B=10 SRST=0 Expected=17 Actual=17
+[65000] ASSERT PASS : No X/Z Detected
+[65000] ASSERT PASS : Y Known
+[65000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=5 B=13 Y=0
+=============================
+No of Transactions 7
+DRIVER SET A=5 B=13 @ 66000
+=============================
+Monitor
+[Monitor] A=5 B=13 Y=107
+=============================
+[Monitor] A=5 B=13 SRST=0 Y=107
+******** PASS ********
+SCB: A=5 B=13 SRST=0 Expected=107 Actual=107
+[75000] ASSERT PASS : No X/Z Detected
+[75000] ASSERT PASS : Y Known
+[75000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=12 B=6 Y=0
+=============================
+No of Transactions 8
+DRIVER SET A=12 B=6 @ 76000
+=============================
+Monitor
+[Monitor] A=12 B=6 Y=172
+=============================
+[Monitor] A=12 B=6 SRST=0 Y=172
+******** PASS ********
+SCB: A=12 B=6 SRST=0 Expected=172 Actual=172
+[85000] ASSERT PASS : No X/Z Detected
+[85000] ASSERT PASS : Y Known
+[85000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=2 B=6 Y=0
+=============================
+No of Transactions 9
+DRIVER SET A=2 B=6 @ 86000
+=============================
+Monitor
+[Monitor] A=2 B=6 Y=244
+=============================
+[Monitor] A=2 B=6 SRST=0 Y=244
+******** PASS ********
+SCB: A=2 B=6 SRST=0 Expected=244 Actual=244
+[95000] ASSERT PASS : No X/Z Detected
+[95000] ASSERT PASS : Y Known
+[95000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=4 Y=0
+=============================
+No of Transactions 10
+DRIVER SET A=4 B=4 @ 96000
+=============================
+Monitor
+[Monitor] A=4 B=4 Y=0
+=============================
+[Monitor] A=4 B=4 SRST=0 Y=0
+******** PASS ********
+SCB: A=4 B=4 SRST=0 Expected=0 Actual=0
+[105000] ASSERT PASS : No X/Z Detected
+[105000] ASSERT PASS : Y Known
+[105000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=7 B=0 Y=0
+=============================
+No of Transactions 11
+DRIVER SET A=7 B=0 @ 106000
+=============================
+Monitor
+[Monitor] A=7 B=0 Y=16
+=============================
+[Monitor] A=7 B=0 SRST=0 Y=16
+******** PASS ********
+SCB: A=7 B=0 SRST=0 Expected=16 Actual=16
+[115000] ASSERT PASS : No X/Z Detected
+[115000] ASSERT PASS : Y Known
+[115000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=7 Y=0
+=============================
+No of Transactions 12
+DRIVER SET A=4 B=7 @ 116000
+=============================
+Monitor
+[Monitor] A=4 B=7 Y=16
+=============================
+[Monitor] A=4 B=7 SRST=0 Y=16
+******** PASS ********
+SCB: A=4 B=7 SRST=0 Expected=16 Actual=16
+[125000] ASSERT PASS : No X/Z Detected
+[125000] ASSERT PASS : Y Known
+[125000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=7 B=2 Y=0
+=============================
+No of Transactions 13
+DRIVER SET A=7 B=2 @ 126000
+=============================
+Monitor
+[Monitor] A=7 B=2 Y=44
+=============================
+[Monitor] A=7 B=2 SRST=0 Y=44
+******** PASS ********
+SCB: A=7 B=2 SRST=0 Expected=44 Actual=44
+[135000] ASSERT PASS : No X/Z Detected
+[135000] ASSERT PASS : Y Known
+[135000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=9 B=3 Y=0
+=============================
+No of Transactions 14
+DRIVER SET A=9 B=3 @ 136000
+=============================
+Monitor
+[Monitor] A=9 B=3 Y=58
+=============================
+[Monitor] A=9 B=3 SRST=0 Y=58
+******** PASS ********
+SCB: A=9 B=3 SRST=0 Expected=58 Actual=58
+[145000] ASSERT PASS : No X/Z Detected
+[145000] ASSERT PASS : Y Known
+[145000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=15 B=8 Y=0
+=============================
+No of Transactions 15
+DRIVER SET A=15 B=8 @ 146000
+=============================
+Monitor
+[Monitor] A=15 B=8 Y=85
+=============================
+[Monitor] A=15 B=8 SRST=0 Y=85
+******** PASS ********
+SCB: A=15 B=8 SRST=0 Expected=85 Actual=85
+[155000] ASSERT PASS : No X/Z Detected
+[155000] ASSERT PASS : Y Known
+[155000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=11 B=3 Y=0
+=============================
+No of Transactions 16
+DRIVER SET A=11 B=3 @ 156000
+=============================
+Monitor
+[Monitor] A=11 B=3 Y=205
+=============================
+[Monitor] A=11 B=3 SRST=0 Y=205
+******** PASS ********
+SCB: A=11 B=3 SRST=0 Expected=205 Actual=205
+[165000] ASSERT PASS : No X/Z Detected
+[165000] ASSERT PASS : Y Known
+[165000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=9 B=7 Y=0
+=============================
+No of Transactions 17
+DRIVER SET A=9 B=7 @ 166000
+=============================
+Monitor
+[Monitor] A=9 B=7 Y=238
+=============================
+[Monitor] A=9 B=7 SRST=0 Y=238
+******** PASS ********
+SCB: A=9 B=7 SRST=0 Expected=238 Actual=238
+[175000] ASSERT PASS : No X/Z Detected
+[175000] ASSERT PASS : Y Known
+[175000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=11 Y=0
+=============================
+No of Transactions 18
+DRIVER SET A=4 B=11 @ 176000
+=============================
+Monitor
+[Monitor] A=4 B=11 Y=45
+=============================
+[Monitor] A=4 B=11 SRST=0 Y=45
+******** PASS ********
+SCB: A=4 B=11 SRST=0 Expected=45 Actual=45
+[185000] ASSERT PASS : No X/Z Detected
+[185000] ASSERT PASS : Y Known
+[185000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=13 B=5 Y=0
+=============================
+No of Transactions 19
+DRIVER SET A=13 B=5 @ 186000
+=============================
+Monitor
+[Monitor] A=13 B=5 Y=89
+=============================
+[Monitor] A=13 B=5 SRST=0 Y=89
+******** PASS ********
+SCB: A=13 B=5 SRST=0 Expected=89 Actual=89
+[195000] ASSERT PASS : No X/Z Detected
+[195000] ASSERT PASS : Y Known
+[195000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=7 B=2 Y=0
+=============================
+No of Transactions 20
+DRIVER SET A=7 B=2 @ 196000
+=============================
+Monitor
+[Monitor] A=7 B=2 Y=154
+=============================
+[Monitor] A=7 B=2 SRST=0 Y=154
+******** PASS ********
+SCB: A=7 B=2 SRST=0 Expected=154 Actual=154
+[205000] ASSERT PASS : No X/Z Detected
+[205000] ASSERT PASS : Y Known
+[205000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=14 B=3 Y=0
+=============================
+No of Transactions 21
+DRIVER SET A=14 B=3 @ 206000
+=============================
+Monitor
+[Monitor] A=14 B=3 Y=168
+=============================
+[Monitor] A=14 B=3 SRST=0 Y=168
+******** PASS ********
+SCB: A=14 B=3 SRST=0 Expected=168 Actual=168
+[215000] ASSERT PASS : No X/Z Detected
+[215000] ASSERT PASS : Y Known
+[215000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=13 B=5 Y=0
+=============================
+No of Transactions 22
+DRIVER SET A=13 B=5 @ 216000
+=============================
+Monitor
+[Monitor] A=13 B=5 Y=210
+=============================
+[Monitor] A=13 B=5 SRST=0 Y=210
+******** PASS ********
+SCB: A=13 B=5 SRST=0 Expected=210 Actual=210
+[225000] ASSERT PASS : No X/Z Detected
+[225000] ASSERT PASS : Y Known
+[225000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=8 B=9 Y=0
+=============================
+No of Transactions 23
+DRIVER SET A=8 B=9 @ 226000
+=============================
+Monitor
+[Monitor] A=8 B=9 Y=19
+=============================
+[Monitor] A=8 B=9 SRST=0 Y=19
+******** PASS ********
+SCB: A=8 B=9 SRST=0 Expected=19 Actual=19
+[235000] ASSERT PASS : No X/Z Detected
+[235000] ASSERT PASS : Y Known
+[235000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=8 B=13 Y=0
+=============================
+No of Transactions 24
+DRIVER SET A=8 B=13 @ 236000
+=============================
+Monitor
+[Monitor] A=8 B=13 Y=91
+=============================
+[Monitor] A=8 B=13 SRST=0 Y=91
+******** PASS ********
+SCB: A=8 B=13 SRST=0 Expected=91 Actual=91
+[245000] ASSERT PASS : No X/Z Detected
+[245000] ASSERT PASS : Y Known
+[245000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=14 B=8 Y=0
+=============================
+No of Transactions 25
+DRIVER SET A=14 B=8 @ 246000
+=============================
+Monitor
+[Monitor] A=14 B=8 Y=195
+=============================
+[Monitor] A=14 B=8 SRST=0 Y=195
+******** PASS ********
+SCB: A=14 B=8 SRST=0 Expected=195 Actual=195
+[255000] ASSERT PASS : No X/Z Detected
+[255000] ASSERT PASS : Y Known
+[255000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=0 B=8 Y=0
+=============================
+No of Transactions 26
+DRIVER SET A=0 B=8 @ 256000
+=============================
+Monitor
+[Monitor] A=0 B=8 Y=51
+=============================
+[Monitor] A=0 B=8 SRST=0 Y=51
+******** PASS ********
+SCB: A=0 B=8 SRST=0 Expected=51 Actual=51
+[265000] ASSERT PASS : No X/Z Detected
+[265000] ASSERT PASS : Y Known
+[265000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=8 Y=0
+=============================
+No of Transactions 27
+DRIVER SET A=4 B=8 @ 266000
+=============================
+Monitor
+[Monitor] A=4 B=8 Y=51
+=============================
+[Monitor] A=4 B=8 SRST=0 Y=51
+******** PASS ********
+SCB: A=4 B=8 SRST=0 Expected=51 Actual=51
+[275000] ASSERT PASS : No X/Z Detected
+[275000] ASSERT PASS : Y Known
+[275000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=15 B=11 Y=0
+=============================
+No of Transactions 28
+DRIVER SET A=15 B=11 @ 276000
+=============================
+Monitor
+[Monitor] A=15 B=11 Y=83
+=============================
+[Monitor] A=15 B=11 SRST=0 Y=83
+******** PASS ********
+SCB: A=15 B=11 SRST=0 Expected=83 Actual=83
+[285000] ASSERT PASS : No X/Z Detected
+[285000] ASSERT PASS : Y Known
+[285000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=13 B=8 Y=0
+=============================
+No of Transactions 29
+DRIVER SET A=13 B=8 @ 286000
+=============================
+Monitor
+[Monitor] A=13 B=8 Y=248
+=============================
+[Monitor] A=13 B=8 SRST=0 Y=248
+******** PASS ********
+SCB: A=13 B=8 SRST=0 Expected=248 Actual=248
+[295000] ASSERT PASS : No X/Z Detected
+[295000] ASSERT PASS : Y Known
+[295000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=2 B=9 Y=0
+=============================
+No of Transactions 30
+DRIVER SET A=2 B=9 @ 296000
+=============================
+Monitor
+[Monitor] A=2 B=9 Y=96
+=============================
+[Monitor] A=2 B=9 SRST=0 Y=96
+******** PASS ********
+SCB: A=2 B=9 SRST=0 Expected=96 Actual=96
+[305000] ASSERT PASS : No X/Z Detected
+[305000] ASSERT PASS : Y Known
+[305000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=5 B=4 Y=0
+=============================
+No of Transactions 31
+DRIVER SET A=5 B=4 @ 306000
+=============================
+Monitor
+[Monitor] A=5 B=4 Y=114
+=============================
+[Monitor] A=5 B=4 SRST=0 Y=114
+******** PASS ********
+SCB: A=5 B=4 SRST=0 Expected=114 Actual=114
+[315000] ASSERT PASS : No X/Z Detected
+[315000] ASSERT PASS : Y Known
+[315000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=13 B=6 Y=0
+=============================
+No of Transactions 32
+DRIVER SET A=13 B=6 @ 316000
+=============================
+Monitor
+[Monitor] A=13 B=6 Y=134
+=============================
+[Monitor] A=13 B=6 SRST=0 Y=134
+******** PASS ********
+SCB: A=13 B=6 SRST=0 Expected=134 Actual=134
+[325000] ASSERT PASS : No X/Z Detected
+[325000] ASSERT PASS : Y Known
+[325000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=6 B=14 Y=0
+=============================
+No of Transactions 33
+DRIVER SET A=6 B=14 @ 326000
+=============================
+Monitor
+[Monitor] A=6 B=14 Y=212
+=============================
+[Monitor] A=6 B=14 SRST=0 Y=212
+******** PASS ********
+SCB: A=6 B=14 SRST=0 Expected=212 Actual=212
+[335000] ASSERT PASS : No X/Z Detected
+[335000] ASSERT PASS : Y Known
+[335000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=2 B=11 Y=0
+=============================
+No of Transactions 34
+DRIVER SET A=2 B=11 @ 336000
+=============================
+Monitor
+[Monitor] A=2 B=11 Y=40
+=============================
+[Monitor] A=2 B=11 SRST=0 Y=40
+******** PASS ********
+SCB: A=2 B=11 SRST=0 Expected=40 Actual=40
+[345000] ASSERT PASS : No X/Z Detected
+[345000] ASSERT PASS : Y Known
+[345000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=2 B=14 Y=0
+=============================
+No of Transactions 35
+DRIVER SET A=2 B=14 @ 346000
+=============================
+Monitor
+[Monitor] A=2 B=14 Y=62
+=============================
+[Monitor] A=2 B=14 SRST=0 Y=62
+******** PASS ********
+SCB: A=2 B=14 SRST=0 Expected=62 Actual=62
+[355000] ASSERT PASS : No X/Z Detected
+[355000] ASSERT PASS : Y Known
+[355000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=6 B=5 Y=0
+=============================
+No of Transactions 36
+DRIVER SET A=6 B=5 @ 356000
+=============================
+Monitor
+[Monitor] A=6 B=5 Y=90
+=============================
+[Monitor] A=6 B=5 SRST=0 Y=90
+******** PASS ********
+SCB: A=6 B=5 SRST=0 Expected=90 Actual=90
+[365000] ASSERT PASS : No X/Z Detected
+[365000] ASSERT PASS : Y Known
+[365000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=2 Y=0
+=============================
+No of Transactions 37
+DRIVER SET A=4 B=2 @ 366000
+=============================
+Monitor
+[Monitor] A=4 B=2 Y=120
+=============================
+[Monitor] A=4 B=2 SRST=0 Y=120
+******** PASS ********
+SCB: A=4 B=2 SRST=0 Expected=120 Actual=120
+[375000] ASSERT PASS : No X/Z Detected
+[375000] ASSERT PASS : Y Known
+[375000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=3 B=12 Y=0
+=============================
+No of Transactions 38
+DRIVER SET A=3 B=12 @ 376000
+=============================
+Monitor
+[Monitor] A=3 B=12 Y=128
+=============================
+[Monitor] A=3 B=12 SRST=0 Y=128
+******** PASS ********
+SCB: A=3 B=12 SRST=0 Expected=128 Actual=128
+[385000] ASSERT PASS : No X/Z Detected
+[385000] ASSERT PASS : Y Known
+[385000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=5 B=1 Y=0
+=============================
+No of Transactions 39
+DRIVER SET A=5 B=1 @ 386000
+=============================
+Monitor
+[Monitor] A=5 B=1 Y=164
+=============================
+[Monitor] A=5 B=1 SRST=0 Y=164
+******** PASS ********
+SCB: A=5 B=1 SRST=0 Expected=164 Actual=164
+[395000] ASSERT PASS : No X/Z Detected
+[395000] ASSERT PASS : Y Known
+[395000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=5 B=10 Y=0
+=============================
+No of Transactions 40
+DRIVER SET A=5 B=10 @ 396000
+=============================
+Monitor
+[Monitor] A=5 B=10 Y=169
+=============================
+[Monitor] A=5 B=10 SRST=0 Y=169
+******** PASS ********
+SCB: A=5 B=10 SRST=0 Expected=169 Actual=169
+[405000] ASSERT PASS : No X/Z Detected
+[405000] ASSERT PASS : Y Known
+[405000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=3 Y=0
+=============================
+No of Transactions 41
+DRIVER SET A=4 B=3 @ 406000
+=============================
+Monitor
+[Monitor] A=4 B=3 Y=219
+=============================
+[Monitor] A=4 B=3 SRST=0 Y=219
+******** PASS ********
+SCB: A=4 B=3 SRST=0 Expected=219 Actual=219
+[415000] ASSERT PASS : No X/Z Detected
+[415000] ASSERT PASS : Y Known
+[415000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=0 B=14 Y=0
+=============================
+No of Transactions 42
+DRIVER SET A=0 B=14 @ 416000
+=============================
+Monitor
+[Monitor] A=0 B=14 Y=231
+=============================
+[Monitor] A=0 B=14 SRST=0 Y=231
+******** PASS ********
+SCB: A=0 B=14 SRST=0 Expected=231 Actual=231
+[425000] ASSERT PASS : No X/Z Detected
+[425000] ASSERT PASS : Y Known
+[425000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=5 B=6 Y=0
+=============================
+No of Transactions 43
+DRIVER SET A=5 B=6 @ 426000
+=============================
+Monitor
+[Monitor] A=5 B=6 Y=231
+=============================
+[Monitor] A=5 B=6 SRST=0 Y=231
+******** PASS ********
+SCB: A=5 B=6 SRST=0 Expected=231 Actual=231
+[435000] ASSERT PASS : No X/Z Detected
+[435000] ASSERT PASS : Y Known
+[435000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=12 B=15 Y=0
+=============================
+No of Transactions 44
+DRIVER SET A=12 B=15 @ 436000
+=============================
+Monitor
+[Monitor] A=12 B=15 Y=5
+=============================
+[Monitor] A=12 B=15 SRST=0 Y=5
+******** PASS ********
+SCB: A=12 B=15 SRST=0 Expected=5 Actual=5
+[445000] ASSERT PASS : No X/Z Detected
+[445000] ASSERT PASS : Y Known
+[445000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=10 Y=0
+=============================
+No of Transactions 45
+DRIVER SET A=4 B=10 @ 446000
+=============================
+Monitor
+[Monitor] A=4 B=10 Y=185
+=============================
+[Monitor] A=4 B=10 SRST=0 Y=185
+******** PASS ********
+SCB: A=4 B=10 SRST=0 Expected=185 Actual=185
+[455000] ASSERT PASS : No X/Z Detected
+[455000] ASSERT PASS : Y Known
+[455000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=8 B=4 Y=0
+=============================
+No of Transactions 46
+DRIVER SET A=8 B=4 @ 456000
+=============================
+Monitor
+[Monitor] A=8 B=4 Y=225
+=============================
+[Monitor] A=8 B=4 SRST=0 Y=225
+******** PASS ********
+SCB: A=8 B=4 SRST=0 Expected=225 Actual=225
+[465000] ASSERT PASS : No X/Z Detected
+[465000] ASSERT PASS : Y Known
+[465000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=2 B=8 Y=0
+=============================
+No of Transactions 47
+DRIVER SET A=2 B=8 @ 466000
+=============================
+Monitor
+[Monitor] A=2 B=8 Y=1
+=============================
+[Monitor] A=2 B=8 SRST=0 Y=1
+******** PASS ********
+SCB: A=2 B=8 SRST=0 Expected=1 Actual=1
+[475000] ASSERT PASS : No X/Z Detected
+[475000] ASSERT PASS : Y Known
+[475000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=1 B=13 Y=0
+=============================
+No of Transactions 48
+DRIVER SET A=1 B=13 @ 476000
+=============================
+Monitor
+[Monitor] A=1 B=13 Y=17
+=============================
+[Monitor] A=1 B=13 SRST=0 Y=17
+******** PASS ********
+SCB: A=1 B=13 SRST=0 Expected=17 Actual=17
+[485000] ASSERT PASS : No X/Z Detected
+[485000] ASSERT PASS : Y Known
+[485000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=14 B=1 Y=0
+=============================
+No of Transactions 49
+DRIVER SET A=14 B=1 @ 486000
+=============================
+Monitor
+[Monitor] A=14 B=1 Y=30
+=============================
+[Monitor] A=14 B=1 SRST=0 Y=30
+******** PASS ********
+SCB: A=14 B=1 SRST=0 Expected=30 Actual=30
+[495000] ASSERT PASS : No X/Z Detected
+[495000] ASSERT PASS : Y Known
+[495000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=9 B=0 Y=0
+=============================
+No of Transactions 50
+DRIVER SET A=9 B=0 @ 496000
+=============================
+Monitor
+[Monitor] A=9 B=0 Y=44
+=============================
+[Monitor] A=9 B=0 SRST=0 Y=44
+******** PASS ********
+SCB: A=9 B=0 SRST=0 Expected=44 Actual=44
+[505000] ASSERT PASS : No X/Z Detected
+[505000] ASSERT PASS : Y Known
+[505000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=7 B=9 Y=0
+=============================
+No of Transactions 51
+DRIVER SET A=7 B=9 @ 506000
+=============================
+Monitor
+[Monitor] A=7 B=9 Y=44
+=============================
+[Monitor] A=7 B=9 SRST=0 Y=44
+******** PASS ********
+SCB: A=7 B=9 SRST=0 Expected=44 Actual=44
+[515000] ASSERT PASS : No X/Z Detected
+[515000] ASSERT PASS : Y Known
+[515000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=3 B=8 Y=0
+=============================
+No of Transactions 52
+DRIVER SET A=3 B=8 @ 516000
+=============================
+Monitor
+[Monitor] A=3 B=8 Y=107
+=============================
+[Monitor] A=3 B=8 SRST=0 Y=107
+******** PASS ********
+SCB: A=3 B=8 SRST=0 Expected=107 Actual=107
+[525000] ASSERT PASS : No X/Z Detected
+[525000] ASSERT PASS : Y Known
+[525000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=7 B=2 Y=0
+=============================
+No of Transactions 53
+DRIVER SET A=7 B=2 @ 526000
+=============================
+Monitor
+[Monitor] A=7 B=2 Y=131
+=============================
+[Monitor] A=7 B=2 SRST=0 Y=131
+******** PASS ********
+SCB: A=7 B=2 SRST=0 Expected=131 Actual=131
+[535000] ASSERT PASS : No X/Z Detected
+[535000] ASSERT PASS : Y Known
+[535000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=3 B=4 Y=0
+=============================
+No of Transactions 54
+DRIVER SET A=3 B=4 @ 536000
+=============================
+Monitor
+[Monitor] A=3 B=4 Y=145
+=============================
+[Monitor] A=3 B=4 SRST=0 Y=145
+******** PASS ********
+SCB: A=3 B=4 SRST=0 Expected=145 Actual=145
+[545000] ASSERT PASS : No X/Z Detected
+[545000] ASSERT PASS : Y Known
+[545000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=11 B=9 Y=0
+=============================
+No of Transactions 55
+DRIVER SET A=11 B=9 @ 546000
+=============================
+Monitor
+[Monitor] A=11 B=9 Y=157
+=============================
+[Monitor] A=11 B=9 SRST=0 Y=157
+******** PASS ********
+SCB: A=11 B=9 SRST=0 Expected=157 Actual=157
+[555000] ASSERT PASS : No X/Z Detected
+[555000] ASSERT PASS : Y Known
+[555000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=1 B=10 Y=0
+=============================
+No of Transactions 56
+DRIVER SET A=1 B=10 @ 556000
+=============================
+Monitor
+[Monitor] A=1 B=10 Y=0
+=============================
+[Monitor] A=1 B=10 SRST=0 Y=0
+******** PASS ********
+SCB: A=1 B=10 SRST=0 Expected=0 Actual=0
+[565000] ASSERT PASS : No X/Z Detected
+[565000] ASSERT PASS : Y Known
+[565000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=7 B=3 Y=0
+=============================
+No of Transactions 57
+DRIVER SET A=7 B=3 @ 566000
+=============================
+Monitor
+[Monitor] A=7 B=3 Y=10
+=============================
+[Monitor] A=7 B=3 SRST=0 Y=10
+******** PASS ********
+SCB: A=7 B=3 SRST=0 Expected=10 Actual=10
+[575000] ASSERT PASS : No X/Z Detected
+[575000] ASSERT PASS : Y Known
+[575000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=13 B=5 Y=0
+=============================
+No of Transactions 58
+DRIVER SET A=13 B=5 @ 576000
+=============================
+Monitor
+[Monitor] A=13 B=5 Y=31
+=============================
+[Monitor] A=13 B=5 SRST=0 Y=31
+******** PASS ********
+SCB: A=13 B=5 SRST=0 Expected=31 Actual=31
+[585000] ASSERT PASS : No X/Z Detected
+[585000] ASSERT PASS : Y Known
+[585000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=2 B=11 Y=0
+=============================
+No of Transactions 59
+DRIVER SET A=2 B=11 @ 586000
+=============================
+Monitor
+[Monitor] A=2 B=11 Y=96
+=============================
+[Monitor] A=2 B=11 SRST=0 Y=96
+******** PASS ********
+SCB: A=2 B=11 SRST=0 Expected=96 Actual=96
+[595000] ASSERT PASS : No X/Z Detected
+[595000] ASSERT PASS : Y Known
+[595000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=14 B=2 Y=0
+=============================
+No of Transactions 60
+DRIVER SET A=14 B=2 @ 596000
+=============================
+Monitor
+[Monitor] A=14 B=2 Y=118
+=============================
+[Monitor] A=14 B=2 SRST=0 Y=118
+******** PASS ********
+SCB: A=14 B=2 SRST=0 Expected=118 Actual=118
+[605000] ASSERT PASS : No X/Z Detected
+[605000] ASSERT PASS : Y Known
+[605000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=6 B=15 Y=0
+=============================
+No of Transactions 61
+DRIVER SET A=6 B=15 @ 606000
+=============================
+Monitor
+[Monitor] A=6 B=15 Y=146
+=============================
+[Monitor] A=6 B=15 SRST=0 Y=146
+******** PASS ********
+SCB: A=6 B=15 SRST=0 Expected=146 Actual=146
+[615000] ASSERT PASS : No X/Z Detected
+[615000] ASSERT PASS : Y Known
+[615000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=12 B=14 Y=0
+=============================
+No of Transactions 62
+DRIVER SET A=12 B=14 @ 616000
+=============================
+Monitor
+[Monitor] A=12 B=14 Y=236
+=============================
+[Monitor] A=12 B=14 SRST=0 Y=236
+******** PASS ********
+SCB: A=12 B=14 SRST=0 Expected=236 Actual=236
+[625000] ASSERT PASS : No X/Z Detected
+[625000] ASSERT PASS : Y Known
+[625000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=8 B=6 Y=0
+=============================
+No of Transactions 63
+DRIVER SET A=8 B=6 @ 626000
+=============================
+Monitor
+[Monitor] A=8 B=6 Y=148
+=============================
+[Monitor] A=8 B=6 SRST=0 Y=148
+******** PASS ********
+SCB: A=8 B=6 SRST=0 Expected=148 Actual=148
+[635000] ASSERT PASS : No X/Z Detected
+[635000] ASSERT PASS : Y Known
+[635000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=8 B=7 Y=0
+=============================
+No of Transactions 64
+DRIVER SET A=8 B=7 @ 636000
+=============================
+Monitor
+[Monitor] A=8 B=7 Y=196
+=============================
+[Monitor] A=8 B=7 SRST=0 Y=196
+******** PASS ********
+SCB: A=8 B=7 SRST=0 Expected=196 Actual=196
+[645000] ASSERT PASS : No X/Z Detected
+[645000] ASSERT PASS : Y Known
+[645000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=11 B=10 Y=0
+=============================
+No of Transactions 65
+DRIVER SET A=11 B=10 @ 646000
+=============================
+Monitor
+[Monitor] A=11 B=10 Y=252
+=============================
+[Monitor] A=11 B=10 SRST=0 Y=252
+******** PASS ********
+SCB: A=11 B=10 SRST=0 Expected=252 Actual=252
+[655000] ASSERT PASS : No X/Z Detected
+[655000] ASSERT PASS : Y Known
+[655000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=5 B=0 Y=0
+=============================
+No of Transactions 66
+DRIVER SET A=5 B=0 @ 656000
+=============================
+Monitor
+[Monitor] A=5 B=0 Y=106
+=============================
+[Monitor] A=5 B=0 SRST=0 Y=106
+******** PASS ********
+SCB: A=5 B=0 SRST=0 Expected=106 Actual=106
+[665000] ASSERT PASS : No X/Z Detected
+[665000] ASSERT PASS : Y Known
+[665000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=0 B=13 Y=0
+=============================
+No of Transactions 67
+DRIVER SET A=0 B=13 @ 666000
+=============================
+Monitor
+[Monitor] A=0 B=13 Y=106
+=============================
+[Monitor] A=0 B=13 SRST=0 Y=106
+******** PASS ********
+SCB: A=0 B=13 SRST=0 Expected=106 Actual=106
+[675000] ASSERT PASS : No X/Z Detected
+[675000] ASSERT PASS : Y Known
+[675000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=1 B=6 Y=0
+=============================
+No of Transactions 68
+DRIVER SET A=1 B=6 @ 676000
+=============================
+Monitor
+[Monitor] A=1 B=6 Y=106
+=============================
+[Monitor] A=1 B=6 SRST=0 Y=106
+******** PASS ********
+SCB: A=1 B=6 SRST=0 Expected=106 Actual=106
+[685000] ASSERT PASS : No X/Z Detected
+[685000] ASSERT PASS : Y Known
+[685000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=1 B=9 Y=0
+=============================
+No of Transactions 69
+DRIVER SET A=1 B=9 @ 686000
+=============================
+Monitor
+[Monitor] A=1 B=9 Y=112
+=============================
+[Monitor] A=1 B=9 SRST=0 Y=112
+******** PASS ********
+SCB: A=1 B=9 SRST=0 Expected=112 Actual=112
+[695000] ASSERT PASS : No X/Z Detected
+[695000] ASSERT PASS : Y Known
+[695000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=0 B=1 Y=0
+=============================
+No of Transactions 70
+DRIVER SET A=0 B=1 @ 696000
+=============================
+Monitor
+[Monitor] A=0 B=1 Y=121
+=============================
+[Monitor] A=0 B=1 SRST=0 Y=121
+******** PASS ********
+SCB: A=0 B=1 SRST=0 Expected=121 Actual=121
+[705000] ASSERT PASS : No X/Z Detected
+[705000] ASSERT PASS : Y Known
+[705000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=1 B=0 Y=0
+=============================
+No of Transactions 71
+DRIVER SET A=1 B=0 @ 706000
+=============================
+Monitor
+[Monitor] A=1 B=0 Y=121
+=============================
+[Monitor] A=1 B=0 SRST=0 Y=121
+******** PASS ********
+SCB: A=1 B=0 SRST=0 Expected=121 Actual=121
+[715000] ASSERT PASS : No X/Z Detected
+[715000] ASSERT PASS : Y Known
+[715000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=1 B=5 Y=0
+=============================
+No of Transactions 72
+DRIVER SET A=1 B=5 @ 716000
+=============================
+Monitor
+[Monitor] A=1 B=5 Y=121
+=============================
+[Monitor] A=1 B=5 SRST=0 Y=121
+******** PASS ********
+SCB: A=1 B=5 SRST=0 Expected=121 Actual=121
+[725000] ASSERT PASS : No X/Z Detected
+[725000] ASSERT PASS : Y Known
+[725000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=8 B=10 Y=0
+=============================
+No of Transactions 73
+DRIVER SET A=8 B=10 @ 726000
+=============================
+Monitor
+[Monitor] A=8 B=10 Y=126
+=============================
+[Monitor] A=8 B=10 SRST=0 Y=126
+******** PASS ********
+SCB: A=8 B=10 SRST=0 Expected=126 Actual=126
+[735000] ASSERT PASS : No X/Z Detected
+[735000] ASSERT PASS : Y Known
+[735000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=15 B=6 Y=0
+=============================
+No of Transactions 74
+DRIVER SET A=15 B=6 @ 736000
+=============================
+Monitor
+[Monitor] A=15 B=6 Y=206
+=============================
+[Monitor] A=15 B=6 SRST=0 Y=206
+******** PASS ********
+SCB: A=15 B=6 SRST=0 Expected=206 Actual=206
+[745000] ASSERT PASS : No X/Z Detected
+[745000] ASSERT PASS : Y Known
+[745000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=0 B=13 Y=0
+=============================
+No of Transactions 75
+DRIVER SET A=0 B=13 @ 746000
+=============================
+Monitor
+[Monitor] A=0 B=13 Y=40
+=============================
+[Monitor] A=0 B=13 SRST=0 Y=40
+******** PASS ********
+SCB: A=0 B=13 SRST=0 Expected=40 Actual=40
+[755000] ASSERT PASS : No X/Z Detected
+[755000] ASSERT PASS : Y Known
+[755000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=13 B=5 Y=0
+=============================
+No of Transactions 76
+DRIVER SET A=13 B=5 @ 756000
+=============================
+Monitor
+[Monitor] A=13 B=5 Y=40
+=============================
+[Monitor] A=13 B=5 SRST=0 Y=40
+******** PASS ********
+SCB: A=13 B=5 SRST=0 Expected=40 Actual=40
+[765000] ASSERT PASS : No X/Z Detected
+[765000] ASSERT PASS : Y Known
+[765000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=14 B=11 Y=0
+=============================
+No of Transactions 77
+DRIVER SET A=14 B=11 @ 766000
+=============================
+Monitor
+[Monitor] A=14 B=11 Y=105
+=============================
+[Monitor] A=14 B=11 SRST=0 Y=105
+******** PASS ********
+SCB: A=14 B=11 SRST=0 Expected=105 Actual=105
+[775000] ASSERT PASS : No X/Z Detected
+[775000] ASSERT PASS : Y Known
+[775000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=11 B=9 Y=0
+=============================
+No of Transactions 78
+DRIVER SET A=11 B=9 @ 776000
+=============================
+Monitor
+[Monitor] A=11 B=9 Y=3
+=============================
+[Monitor] A=11 B=9 SRST=0 Y=3
+******** PASS ********
+SCB: A=11 B=9 SRST=0 Expected=3 Actual=3
+[785000] ASSERT PASS : No X/Z Detected
+[785000] ASSERT PASS : Y Known
+[785000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=12 B=6 Y=0
+=============================
+No of Transactions 79
+DRIVER SET A=12 B=6 @ 786000
+=============================
+Monitor
+[Monitor] A=12 B=6 Y=102
+=============================
+[Monitor] A=12 B=6 SRST=0 Y=102
+******** PASS ********
+SCB: A=12 B=6 SRST=0 Expected=102 Actual=102
+[795000] ASSERT PASS : No X/Z Detected
+[795000] ASSERT PASS : Y Known
+[795000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=9 B=10 Y=0
+=============================
+No of Transactions 80
+DRIVER SET A=9 B=10 @ 796000
+=============================
+Monitor
+[Monitor] A=9 B=10 Y=174
+=============================
+[Monitor] A=9 B=10 SRST=0 Y=174
+******** PASS ********
+SCB: A=9 B=10 SRST=0 Expected=174 Actual=174
+[805000] ASSERT PASS : No X/Z Detected
+[805000] ASSERT PASS : Y Known
+[805000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=15 Y=0
+=============================
+No of Transactions 81
+DRIVER SET A=4 B=15 @ 806000
+=============================
+Monitor
+[Monitor] A=4 B=15 Y=8
+=============================
+[Monitor] A=4 B=15 SRST=0 Y=8
+******** PASS ********
+SCB: A=4 B=15 SRST=0 Expected=8 Actual=8
+[815000] ASSERT PASS : No X/Z Detected
+[815000] ASSERT PASS : Y Known
+[815000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=9 B=3 Y=0
+=============================
+No of Transactions 82
+DRIVER SET A=9 B=3 @ 816000
+=============================
+Monitor
+[Monitor] A=9 B=3 Y=68
+=============================
+[Monitor] A=9 B=3 SRST=0 Y=68
+******** PASS ********
+SCB: A=9 B=3 SRST=0 Expected=68 Actual=68
+[825000] ASSERT PASS : No X/Z Detected
+[825000] ASSERT PASS : Y Known
+[825000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=7 B=13 Y=0
+=============================
+No of Transactions 83
+DRIVER SET A=7 B=13 @ 826000
+=============================
+Monitor
+[Monitor] A=7 B=13 Y=95
+=============================
+[Monitor] A=7 B=13 SRST=0 Y=95
+******** PASS ********
+SCB: A=7 B=13 SRST=0 Expected=95 Actual=95
+[835000] ASSERT PASS : No X/Z Detected
+[835000] ASSERT PASS : Y Known
+[835000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=5 Y=0
+=============================
+No of Transactions 84
+DRIVER SET A=4 B=5 @ 836000
+=============================
+Monitor
+[Monitor] A=4 B=5 Y=186
+=============================
+[Monitor] A=4 B=5 SRST=0 Y=186
+******** PASS ********
+SCB: A=4 B=5 SRST=0 Expected=186 Actual=186
+[845000] ASSERT PASS : No X/Z Detected
+[845000] ASSERT PASS : Y Known
+[845000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=1 Y=0
+=============================
+No of Transactions 85
+DRIVER SET A=4 B=1 @ 846000
+=============================
+Monitor
+[Monitor] A=4 B=1 Y=206
+=============================
+[Monitor] A=4 B=1 SRST=0 Y=206
+******** PASS ********
+SCB: A=4 B=1 SRST=0 Expected=206 Actual=206
+[855000] ASSERT PASS : No X/Z Detected
+[855000] ASSERT PASS : Y Known
+[855000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=8 B=4 Y=0
+=============================
+No of Transactions 86
+DRIVER SET A=8 B=4 @ 856000
+=============================
+Monitor
+[Monitor] A=8 B=4 Y=210
+=============================
+[Monitor] A=8 B=4 SRST=0 Y=210
+******** PASS ********
+SCB: A=8 B=4 SRST=0 Expected=210 Actual=210
+[865000] ASSERT PASS : No X/Z Detected
+[865000] ASSERT PASS : Y Known
+[865000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=5 B=8 Y=0
+=============================
+No of Transactions 87
+DRIVER SET A=5 B=8 @ 866000
+=============================
+Monitor
+[Monitor] A=5 B=8 Y=242
+=============================
+[Monitor] A=5 B=8 SRST=0 Y=242
+******** PASS ********
+SCB: A=5 B=8 SRST=0 Expected=242 Actual=242
+[875000] ASSERT PASS : No X/Z Detected
+[875000] ASSERT PASS : Y Known
+[875000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=13 B=5 Y=0
+=============================
+No of Transactions 88
+DRIVER SET A=13 B=5 @ 876000
+=============================
+Monitor
+[Monitor] A=13 B=5 Y=26
+=============================
+[Monitor] A=13 B=5 SRST=0 Y=26
+******** PASS ********
+SCB: A=13 B=5 SRST=0 Expected=26 Actual=26
+[885000] ASSERT PASS : No X/Z Detected
+[885000] ASSERT PASS : Y Known
+[885000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=14 Y=0
+=============================
+No of Transactions 89
+DRIVER SET A=4 B=14 @ 886000
+=============================
+Monitor
+[Monitor] A=4 B=14 Y=91
+=============================
+[Monitor] A=4 B=14 SRST=0 Y=91
+******** PASS ********
+SCB: A=4 B=14 SRST=0 Expected=91 Actual=91
+[895000] ASSERT PASS : No X/Z Detected
+[895000] ASSERT PASS : Y Known
+[895000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=1 B=11 Y=0
+=============================
+No of Transactions 90
+DRIVER SET A=1 B=11 @ 896000
+=============================
+Monitor
+[Monitor] A=1 B=11 Y=147
+=============================
+[Monitor] A=1 B=11 SRST=0 Y=147
+******** PASS ********
+SCB: A=1 B=11 SRST=0 Expected=147 Actual=147
+[905000] ASSERT PASS : No X/Z Detected
+[905000] ASSERT PASS : Y Known
+[905000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=5 B=9 Y=0
+=============================
+No of Transactions 91
+DRIVER SET A=5 B=9 @ 906000
+=============================
+Monitor
+[Monitor] A=5 B=9 Y=158
+=============================
+[Monitor] A=5 B=9 SRST=0 Y=158
+******** PASS ********
+SCB: A=5 B=9 SRST=0 Expected=158 Actual=158
+[915000] ASSERT PASS : No X/Z Detected
+[915000] ASSERT PASS : Y Known
+[915000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=4 B=15 Y=0
+=============================
+No of Transactions 92
+DRIVER SET A=4 B=15 @ 916000
+=============================
+Monitor
+[Monitor] A=4 B=15 Y=203
+=============================
+[Monitor] A=4 B=15 SRST=0 Y=203
+******** PASS ********
+SCB: A=4 B=15 SRST=0 Expected=203 Actual=203
+[925000] ASSERT PASS : No X/Z Detected
+[925000] ASSERT PASS : Y Known
+[925000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=13 B=10 Y=0
+=============================
+No of Transactions 93
+DRIVER SET A=13 B=10 @ 926000
+=============================
+Monitor
+[Monitor] A=13 B=10 Y=7
+=============================
+[Monitor] A=13 B=10 SRST=0 Y=7
+******** PASS ********
+SCB: A=13 B=10 SRST=0 Expected=7 Actual=7
+[935000] ASSERT PASS : No X/Z Detected
+[935000] ASSERT PASS : Y Known
+[935000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=3 B=3 Y=0
+=============================
+No of Transactions 94
+DRIVER SET A=3 B=3 @ 936000
+=============================
+Monitor
+[Monitor] A=3 B=3 Y=137
+=============================
+[Monitor] A=3 B=3 SRST=0 Y=137
+******** PASS ********
+SCB: A=3 B=3 SRST=0 Expected=137 Actual=137
+[945000] ASSERT PASS : No X/Z Detected
+[945000] ASSERT PASS : Y Known
+[945000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=7 B=8 Y=0
+=============================
+No of Transactions 95
+DRIVER SET A=7 B=8 @ 946000
+=============================
+Monitor
+[Monitor] A=7 B=8 Y=146
+=============================
+[Monitor] A=7 B=8 SRST=0 Y=146
+******** PASS ********
+SCB: A=7 B=8 SRST=0 Expected=146 Actual=146
+[955000] ASSERT PASS : No X/Z Detected
+[955000] ASSERT PASS : Y Known
+[955000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=9 B=13 Y=0
+=============================
+No of Transactions 96
+DRIVER SET A=9 B=13 @ 956000
+=============================
+Monitor
+[Monitor] A=9 B=13 Y=202
+=============================
+[Monitor] A=9 B=13 SRST=0 Y=202
+******** PASS ********
+SCB: A=9 B=13 SRST=0 Expected=202 Actual=202
+[965000] ASSERT PASS : No X/Z Detected
+[965000] ASSERT PASS : Y Known
+[965000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=12 B=1 Y=0
+=============================
+No of Transactions 97
+DRIVER SET A=12 B=1 @ 966000
+=============================
+Monitor
+[Monitor] A=12 B=1 Y=63
+=============================
+[Monitor] A=12 B=1 SRST=0 Y=63
+******** PASS ********
+SCB: A=12 B=1 SRST=0 Expected=63 Actual=63
+[975000] ASSERT PASS : No X/Z Detected
+[975000] ASSERT PASS : Y Known
+[975000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=12 B=13 Y=0
+=============================
+No of Transactions 98
+DRIVER SET A=12 B=13 @ 976000
+=============================
+Monitor
+[Monitor] A=12 B=13 Y=75
+=============================
+[Monitor] A=12 B=13 SRST=0 Y=75
+******** PASS ********
+SCB: A=12 B=13 SRST=0 Expected=75 Actual=75
+[985000] ASSERT PASS : No X/Z Detected
+[985000] ASSERT PASS : Y Known
+[985000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=0 B=8 Y=0
+=============================
+No of Transactions 99
+DRIVER SET A=0 B=8 @ 986000
+=============================
+Monitor
+[Monitor] A=0 B=8 Y=231
+=============================
+[Monitor] A=0 B=8 SRST=0 Y=231
+******** PASS ********
+SCB: A=0 B=8 SRST=0 Expected=231 Actual=231
+[995000] ASSERT PASS : No X/Z Detected
+[995000] ASSERT PASS : Y Known
+[995000] ASSERT PASS : A/B In Range
+=============================
+Driver
+[Driver] A=0 B=7 Y=0
+=============================
+No of Transactions 100
+DRIVER SET A=0 B=7 @ 996000
+=============================
+Monitor
+[Monitor] A=0 B=7 Y=231
+=============================
+[Monitor] A=0 B=7 SRST=0 Y=231
+******** PASS ********
+SCB: A=0 B=7 SRST=0 Expected=231 Actual=231
+Completed test case 1
+Functional Coverage = 100.00 %
+End of test
+Simulation complete via $finish(1) at time 1001 NS + 1
+./environment.sv:97     $finish;
+xcelium> coverage -analyze
+xmsim: *N,COVCGN: Coverage configuration file command "set_covergroup -new_instance_reporting" can be specified to improve the scoping and naming of covergroup instances. It may be noted that subsequent merging of a coverage database saved with this command and a coverage database saved without this command is not allowed.
+xmsim: *W,CGPIZE: Instance coverage for covergroup instance "cg" will not be dumped to database as per_instance option value is set to 0:./coverage.sv, 8.
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  testbench(testbench)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_1941ffc6_2699d3a9.ucm (reused)
+  data               :  ./cov_work/scope/test/icc_1941ffc6_2699d3a9.ucd
+
+Launching IMC...
+
+xcelium> ^C
+xcelium> exit
+
+coverage setup:
+  workdir  :  ./cov_work
+  dutinst  :  testbench(testbench)
+  scope    :  scope
+  testname :  test
+
+coverage files:
+  model(design data) :  ./cov_work/scope/icc_1941ffc6_2699d3a9.ucm (reused)
+  data               :  ./cov_work/scope/test/icc_1941ffc6_2699d3a9.ucd
+TOOL:	xrun(64)	23.03-s011: Exiting on Jul 20, 2026 at 22:03:32 +06  (total: 00:00:56)

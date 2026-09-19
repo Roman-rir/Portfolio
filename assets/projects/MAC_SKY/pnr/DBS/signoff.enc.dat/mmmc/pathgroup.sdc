@@ -1,0 +1,1 @@
+group_path -name reg2reg -from [get_pins {{Y_reg[6]/CK} {Y_reg[1]/CK} {Y_reg[0]/CK} {Y_reg[7]/CK} {Y_reg[4]/CK} {Y_reg[3]/CK} {Y_reg[2]/CK} {Y_reg[5]/CK}}]  -to [get_pins {{Y_reg[6]/D} {Y_reg[1]/D} {Y_reg[0]/D} {Y_reg[7]/D} {Y_reg[4]/D} {Y_reg[3]/D} {Y_reg[2]/D} {Y_reg[5]/D}}] 

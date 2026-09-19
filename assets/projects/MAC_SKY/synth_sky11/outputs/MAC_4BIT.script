@@ -1,0 +1,267 @@
+######################################################################
+
+# Created by Genus(TM) Synthesis Solution 21.18-s082_1 on Sat May 02 12:17:42 +06 2026
+
+# This file contains the Genus script for design:MAC_4BIT
+
+######################################################################
+
+set_db -quiet information_level 7
+set_db -quiet init_lib_search_path {. ../LIB $TECH_DIR}
+set_db -quiet design_mode_process 140.0
+set_db -quiet phys_assume_met_fill 0.0
+set_db -quiet map_placed_for_route_early_global false
+set_db -quiet phys_use_invs_extraction true
+set_db -quiet phys_route_time_out 120.0
+set_db -quiet capacitance_per_unit_length_mmmc {}
+set_db -quiet resistance_per_unit_length_mmmc {}
+set_db -quiet runtime_by_stage {{PBS_Generic-Start 0 23 0.0 22.0} {to_generic 5 28 4 27} {first_condense 1 29 0 28} {PBS_Generic_Opt-Post 6 29 5.894078 27.894078} {{PBS_Generic-Postgen HBO Optimizations} 0 29 0.0 27.894078} {PBS_TechMap-Start 0 31 0.0 28.891896} {{PBS_TechMap-Premap HBO Optimizations} 0 31 1.0 29.891896} {second_condense 0 32 0 30} {reify 2 34 3 33} {global_incr_map 1 35 0 34} {{PBS_Techmap-Global Mapping} 4 35 2.8060870000000016 32.697983} {{PBS_TechMap-Datapath Postmap Operations} 3 38 2.9997959999999964 35.697779} {{PBS_TechMap-Postmap HBO Optimizations} 0 38 -0.0010779999999996903 35.696701} {{PBS_TechMap-Postmap Clock Gating} 0 38 0.0 35.696701} {{PBS_TechMap-Postmap Cleanup} 1 39 -0.0006209999999953197 35.69608} {PBS_Techmap-Post_MBCI 0 39 0.0 35.69608} {incr_opt 0 41 0 38} }
+set_db -quiet timing_adjust_tns_of_complex_flops false
+set_db -quiet tinfo_tstamp_file .rs_B2_Robiul.tstamp
+set_db -quiet metric_enable true
+set_db -quiet use_area_from_lef true
+set_db -quiet flow_metrics_snapshot_uuid ebbfa88c-5821-4590-8e7f-b79f9c30943c
+set_db -quiet phys_use_segment_parasitics true
+set_db -quiet probabilistic_extraction true
+set_db -quiet ple_correlation_factors {1.9000 2.0000}
+set_db -quiet maximum_interval_of_vias inf
+set_db -quiet layer_aware_buffer true
+set_db -quiet ple_mode global
+set_db -quiet wireload_selection none
+set_db -quiet operating_condition:default_emulate_libset_max/sky130_ss_1.62_125/ss_1.62_125 .tree_type balanced_tree
+set_db -quiet operating_condition:default_emulate_libset_max/sky130_ss_1.62_125/_nominal_ .tree_type balanced_tree
+set_db -quiet operating_condition:default_emulate_libset_max/sky130_ff_1.98_0/ff_1.98_0 .tree_type balanced_tree
+set_db -quiet operating_condition:default_emulate_libset_max/sky130_ff_1.98_0/_nominal_ .tree_type balanced_tree
+set_db -quiet operating_condition:default_emulate_libset_max/sky130_tt_1.8_25/tt_1.8_25 .tree_type balanced_tree
+set_db -quiet operating_condition:default_emulate_libset_max/sky130_tt_1.8_25/_nominal_ .tree_type balanced_tree
+# BEGIN MSV SECTION
+# END MSV SECTION
+define_clock -name SYS_CLOCK -domain domain_1 -period 10000.0 -divide_period 1 -rise 0 -divide_rise 1 -fall 1 -divide_fall 2 -remove -design design:MAC_4BIT port:MAC_4BIT/SYS_CLOCK
+define_cost_group -design design:MAC_4BIT -name C2C
+define_cost_group -design design:MAC_4BIT -name C2O
+define_cost_group -design design:MAC_4BIT -name I2C
+define_cost_group -design design:MAC_4BIT -name I2O
+define_cost_group -design design:MAC_4BIT -name SYS_CLOCK
+external_delay -accumulate -input {0.0 no_value 0.0 no_value} -clock clock:MAC_4BIT/SYS_CLOCK -name create_clock_delay_domain_1_SYS_CLOCK_R_0 port:MAC_4BIT/SYS_CLOCK
+set_db -quiet external_delay:MAC_4BIT/create_clock_delay_domain_1_SYS_CLOCK_R_0 .clock_network_latency_included true
+external_delay -accumulate -input {no_value 0.0 no_value 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -edge_fall -name create_clock_delay_domain_1_SYS_CLOCK_F_0 port:MAC_4BIT/SYS_CLOCK
+set_db -quiet external_delay:MAC_4BIT/create_clock_delay_domain_1_SYS_CLOCK_F_0 .clock_network_latency_included true
+external_delay -accumulate -input {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_7 port:MAC_4BIT/SRST
+external_delay -accumulate -input {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_7_1_1 {{port:MAC_4BIT/A[3]}}
+external_delay -accumulate -input {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_7_2_1 {{port:MAC_4BIT/A[2]}}
+external_delay -accumulate -input {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_7_3_1 {{port:MAC_4BIT/A[1]}}
+external_delay -accumulate -input {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_7_4_1 {{port:MAC_4BIT/A[0]}}
+external_delay -accumulate -input {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_7_5_1 {{port:MAC_4BIT/B[3]}}
+external_delay -accumulate -input {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_7_6_1 {{port:MAC_4BIT/B[2]}}
+external_delay -accumulate -input {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_7_7_1 {{port:MAC_4BIT/B[1]}}
+external_delay -accumulate -input {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_7_8_1 {{port:MAC_4BIT/B[0]}}
+external_delay -accumulate -output {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_10 {{port:MAC_4BIT/Y[7]}}
+external_delay -accumulate -output {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_10_8_1 {{port:MAC_4BIT/Y[6]}}
+external_delay -accumulate -output {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_10_9_1 {{port:MAC_4BIT/Y[5]}}
+external_delay -accumulate -output {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_10_10_1 {{port:MAC_4BIT/Y[4]}}
+external_delay -accumulate -output {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_10_11_1 {{port:MAC_4BIT/Y[3]}}
+external_delay -accumulate -output {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_10_12_1 {{port:MAC_4BIT/Y[2]}}
+external_delay -accumulate -output {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_10_13_1 {{port:MAC_4BIT/Y[1]}}
+external_delay -accumulate -output {0.0 0.0 0.0 0.0} -clock clock:MAC_4BIT/SYS_CLOCK -name top.sdc_line_10_14_1 {{port:MAC_4BIT/Y[0]}}
+path_group -paths [specify_paths -lenient -to clock:MAC_4BIT/SYS_CLOCK]  -name SYS_CLOCK -group cost_group:MAC_4BIT/SYS_CLOCK -user_priority -1047552
+path_disable -paths [specify_paths -lenient -from port:MAC_4BIT/SRST]  -name top.sdc_line_13 -user_priority -770048
+set_db -quiet exception:MAC_4BIT/top.sdc_line_13 .sdc_filename_linenumber {{design_data/top.sdc 13}}
+path_group -paths [specify_paths -lenient -from {{inst:MAC_4BIT/Y_reg[6]} {inst:MAC_4BIT/Y_reg[1]} {inst:MAC_4BIT/Y_reg[0]} {inst:MAC_4BIT/Y_reg[7]} {inst:MAC_4BIT/Y_reg[4]} {inst:MAC_4BIT/Y_reg[3]} {inst:MAC_4BIT/Y_reg[2]} {inst:MAC_4BIT/Y_reg[5]}} -to {{inst:MAC_4BIT/Y_reg[6]} {inst:MAC_4BIT/Y_reg[1]} {inst:MAC_4BIT/Y_reg[0]} {inst:MAC_4BIT/Y_reg[7]} {inst:MAC_4BIT/Y_reg[4]} {inst:MAC_4BIT/Y_reg[3]} {inst:MAC_4BIT/Y_reg[2]} {inst:MAC_4BIT/Y_reg[5]}}]  -name C2C -group cost_group:MAC_4BIT/C2C
+path_group -paths [specify_paths -lenient -from {{inst:MAC_4BIT/Y_reg[6]} {inst:MAC_4BIT/Y_reg[1]} {inst:MAC_4BIT/Y_reg[0]} {inst:MAC_4BIT/Y_reg[7]} {inst:MAC_4BIT/Y_reg[4]} {inst:MAC_4BIT/Y_reg[3]} {inst:MAC_4BIT/Y_reg[2]} {inst:MAC_4BIT/Y_reg[5]}} -to {{port:MAC_4BIT/Y[7]} {port:MAC_4BIT/Y[6]} {port:MAC_4BIT/Y[5]} {port:MAC_4BIT/Y[4]} {port:MAC_4BIT/Y[3]} {port:MAC_4BIT/Y[2]} {port:MAC_4BIT/Y[1]} {port:MAC_4BIT/Y[0]}}]  -name C2O -group cost_group:MAC_4BIT/C2O
+path_group -paths [specify_paths -lenient -from {port:MAC_4BIT/SYS_CLOCK port:MAC_4BIT/SRST {port:MAC_4BIT/A[3]} {port:MAC_4BIT/A[2]} {port:MAC_4BIT/A[1]} {port:MAC_4BIT/A[0]} {port:MAC_4BIT/B[3]} {port:MAC_4BIT/B[2]} {port:MAC_4BIT/B[1]} {port:MAC_4BIT/B[0]}} -to {{inst:MAC_4BIT/Y_reg[6]} {inst:MAC_4BIT/Y_reg[1]} {inst:MAC_4BIT/Y_reg[0]} {inst:MAC_4BIT/Y_reg[7]} {inst:MAC_4BIT/Y_reg[4]} {inst:MAC_4BIT/Y_reg[3]} {inst:MAC_4BIT/Y_reg[2]} {inst:MAC_4BIT/Y_reg[5]}}]  -name I2C -group cost_group:MAC_4BIT/I2C
+path_group -paths [specify_paths -lenient -from {port:MAC_4BIT/SYS_CLOCK port:MAC_4BIT/SRST {port:MAC_4BIT/A[3]} {port:MAC_4BIT/A[2]} {port:MAC_4BIT/A[1]} {port:MAC_4BIT/A[0]} {port:MAC_4BIT/B[3]} {port:MAC_4BIT/B[2]} {port:MAC_4BIT/B[1]} {port:MAC_4BIT/B[0]}} -to {{port:MAC_4BIT/Y[7]} {port:MAC_4BIT/Y[6]} {port:MAC_4BIT/Y[5]} {port:MAC_4BIT/Y[4]} {port:MAC_4BIT/Y[3]} {port:MAC_4BIT/Y[2]} {port:MAC_4BIT/Y[1]} {port:MAC_4BIT/Y[0]}}]  -name I2O -group cost_group:MAC_4BIT/I2O
+# BEGIN DFT SECTION
+set_db -quiet dft_scan_style muxed_scan
+set_db -quiet dft_scanbit_waveform_analysis false
+# END DFT SECTION
+set_db -quiet design:MAC_4BIT .seq_reason_deleted_internal {}
+set_db -quiet design:MAC_4BIT .qos_by_stage {{to_generic {wns -11111111} {tns -111111111} {vep -111111111} {area 1903} {cell_count 143} {utilization  0.00} {runtime 5 28 4 27} }{first_condense {wns -11111111} {tns -111111111} {vep -111111111} {area 2352} {cell_count 179} {utilization  0.00} {runtime 1 29 0 28} }{second_condense {wns -11111111} {tns -111111111} {vep -111111111} {area 2340} {cell_count 178} {utilization  0.00} {runtime 0 32 0 30} }{reify {wns 5752} {tns 0} {vep 0} {area 1093} {cell_count 64} {utilization  0.00} {runtime 2 34 3 33} }{global_incr_map {wns 5752} {tns 0} {vep 0} {area 1093} {cell_count 64} {utilization  0.00} {runtime 1 35 0 34} }{incr_opt {wns 214748365} {tns 0} {vep 0} {area 1093} {cell_count 64} {utilization  0.00} {runtime 0 41 0 38} }}
+set_db -quiet design:MAC_4BIT .seq_mbci_coverage 0.0
+set_db -quiet design:MAC_4BIT .hdl_filelist {{default -sv {SYNTHESIS} {design_data/top.sv} {. ../RTL $DESIGN_DIR} {}}}
+set_db -quiet design:MAC_4BIT .hdl_user_name MAC_4BIT
+set_db -quiet design:MAC_4BIT .verification_directory fv/MAC_4BIT
+set_db -quiet design:MAC_4BIT .lp_clock_gating_max_flops inf
+set_db -quiet port:MAC_4BIT/SYS_CLOCK .original_name SYS_CLOCK
+set_db -quiet port:MAC_4BIT/SRST .original_name SRST
+set_db -quiet {port:MAC_4BIT/A[3]} .original_name {A[3]}
+set_db -quiet {port:MAC_4BIT/A[2]} .original_name {A[2]}
+set_db -quiet {port:MAC_4BIT/A[1]} .original_name {A[1]}
+set_db -quiet {port:MAC_4BIT/A[0]} .original_name {A[0]}
+set_db -quiet {port:MAC_4BIT/B[3]} .original_name {B[3]}
+set_db -quiet {port:MAC_4BIT/B[2]} .original_name {B[2]}
+set_db -quiet {port:MAC_4BIT/B[1]} .original_name {B[1]}
+set_db -quiet {port:MAC_4BIT/B[0]} .original_name {B[0]}
+set_db -quiet {port:MAC_4BIT/Y[7]} .original_name {Y[7]}
+set_db -quiet {port:MAC_4BIT/Y[6]} .original_name {Y[6]}
+set_db -quiet {port:MAC_4BIT/Y[5]} .original_name {Y[5]}
+set_db -quiet {port:MAC_4BIT/Y[4]} .original_name {Y[4]}
+set_db -quiet {port:MAC_4BIT/Y[3]} .original_name {Y[3]}
+set_db -quiet {port:MAC_4BIT/Y[2]} .original_name {Y[2]}
+set_db -quiet {port:MAC_4BIT/Y[1]} .original_name {Y[1]}
+set_db -quiet {port:MAC_4BIT/Y[0]} .original_name {Y[0]}
+set_db -quiet {inst:MAC_4BIT/Y_reg[6]} .original_name {{Y[6]}}
+set_db -quiet {inst:MAC_4BIT/Y_reg[6]} .orig_hdl_instantiated false
+set_db -quiet {inst:MAC_4BIT/Y_reg[6]} .single_bit_orig_name {Y[6]}
+set_db -quiet {inst:MAC_4BIT/Y_reg[6]} .gint_phase_inversion false
+set_db -quiet {pin:MAC_4BIT/Y_reg[6]/Q} .original_name {Y[6]/q}
+set_db -quiet {pin:MAC_4BIT/Y_reg[6]/QN} .original_name {Y[6]/q}
+set_db -quiet {inst:MAC_4BIT/Y_reg[1]} .original_name {{Y[1]}}
+set_db -quiet {inst:MAC_4BIT/Y_reg[1]} .orig_hdl_instantiated false
+set_db -quiet {inst:MAC_4BIT/Y_reg[1]} .single_bit_orig_name {Y[1]}
+set_db -quiet {inst:MAC_4BIT/Y_reg[1]} .gint_phase_inversion false
+set_db -quiet {pin:MAC_4BIT/Y_reg[1]/Q} .original_name {Y[1]/q}
+set_db -quiet {pin:MAC_4BIT/Y_reg[1]/QN} .original_name {Y[1]/q}
+set_db -quiet {inst:MAC_4BIT/Y_reg[0]} .original_name {{Y[0]}}
+set_db -quiet {inst:MAC_4BIT/Y_reg[0]} .orig_hdl_instantiated false
+set_db -quiet {inst:MAC_4BIT/Y_reg[0]} .single_bit_orig_name {Y[0]}
+set_db -quiet {inst:MAC_4BIT/Y_reg[0]} .gint_phase_inversion false
+set_db -quiet {pin:MAC_4BIT/Y_reg[0]/Q} .original_name {Y[0]/q}
+set_db -quiet {pin:MAC_4BIT/Y_reg[0]/QN} .original_name {Y[0]/q}
+set_db -quiet {inst:MAC_4BIT/Y_reg[7]} .original_name {{Y[7]}}
+set_db -quiet {inst:MAC_4BIT/Y_reg[7]} .orig_hdl_instantiated false
+set_db -quiet {inst:MAC_4BIT/Y_reg[7]} .single_bit_orig_name {Y[7]}
+set_db -quiet {inst:MAC_4BIT/Y_reg[7]} .gint_phase_inversion false
+set_db -quiet {pin:MAC_4BIT/Y_reg[7]/Q} .original_name {Y[7]/q}
+set_db -quiet {pin:MAC_4BIT/Y_reg[7]/QN} .original_name {Y[7]/q}
+set_db -quiet {inst:MAC_4BIT/Y_reg[4]} .original_name {{Y[4]}}
+set_db -quiet {inst:MAC_4BIT/Y_reg[4]} .orig_hdl_instantiated false
+set_db -quiet {inst:MAC_4BIT/Y_reg[4]} .single_bit_orig_name {Y[4]}
+set_db -quiet {inst:MAC_4BIT/Y_reg[4]} .gint_phase_inversion false
+set_db -quiet {pin:MAC_4BIT/Y_reg[4]/Q} .original_name {Y[4]/q}
+set_db -quiet {pin:MAC_4BIT/Y_reg[4]/QN} .original_name {Y[4]/q}
+set_db -quiet {inst:MAC_4BIT/Y_reg[3]} .original_name {{Y[3]}}
+set_db -quiet {inst:MAC_4BIT/Y_reg[3]} .orig_hdl_instantiated false
+set_db -quiet {inst:MAC_4BIT/Y_reg[3]} .single_bit_orig_name {Y[3]}
+set_db -quiet {inst:MAC_4BIT/Y_reg[3]} .gint_phase_inversion false
+set_db -quiet {pin:MAC_4BIT/Y_reg[3]/Q} .original_name {Y[3]/q}
+set_db -quiet {pin:MAC_4BIT/Y_reg[3]/QN} .original_name {Y[3]/q}
+set_db -quiet {inst:MAC_4BIT/Y_reg[2]} .original_name {{Y[2]}}
+set_db -quiet {inst:MAC_4BIT/Y_reg[2]} .orig_hdl_instantiated false
+set_db -quiet {inst:MAC_4BIT/Y_reg[2]} .single_bit_orig_name {Y[2]}
+set_db -quiet {inst:MAC_4BIT/Y_reg[2]} .gint_phase_inversion false
+set_db -quiet {pin:MAC_4BIT/Y_reg[2]/Q} .original_name {Y[2]/q}
+set_db -quiet {pin:MAC_4BIT/Y_reg[2]/QN} .original_name {Y[2]/q}
+set_db -quiet {inst:MAC_4BIT/Y_reg[5]} .original_name {{Y[5]}}
+set_db -quiet {inst:MAC_4BIT/Y_reg[5]} .orig_hdl_instantiated false
+set_db -quiet {inst:MAC_4BIT/Y_reg[5]} .single_bit_orig_name {Y[5]}
+set_db -quiet {inst:MAC_4BIT/Y_reg[5]} .gint_phase_inversion false
+set_db -quiet {pin:MAC_4BIT/Y_reg[5]/Q} .original_name {Y[5]/q}
+set_db -quiet {pin:MAC_4BIT/Y_reg[5]/QN} .original_name {Y[5]/q}
+# BEGIN PMBIST SECTION
+# END PMBIST SECTION
+# BEGIN PHYSICAL ANNOTATION SECTION
+# END PHYSICAL ANNOTATION SECTION
+set_db -quiet source_verbose true
+#############################################################
+#####   FLOW WRITE   ########################################
+##
+## Written by Genus(TM) Synthesis Solution version 21.18-s082_1
+## flowkit v21.12-s019_1
+## Written on 12:17:43 02-May 2026
+#############################################################
+#####   Flow Definitions   ##################################
+
+#############################################################
+#####   Step Definitions   ##################################
+
+
+#############################################################
+#####   Attribute Definitions   #############################
+
+if {[is_attribute flow_edit_end_steps -obj_type root]} {set_db flow_edit_end_steps {}}
+if {[is_attribute flow_edit_start_steps -obj_type root]} {set_db flow_edit_start_steps {}}
+if {[is_attribute flow_footer_tcl -obj_type root]} {set_db flow_footer_tcl {}}
+if {[is_attribute flow_header_tcl -obj_type root]} {set_db flow_header_tcl {}}
+if {[is_attribute flow_metadata -obj_type root]} {set_db flow_metadata {}}
+if {[is_attribute flow_setup_config -obj_type root]} {set_db flow_setup_config {HUDDLE {!!map {}}}}
+if {[is_attribute flow_step_begin_tcl -obj_type root]} {set_db flow_step_begin_tcl {}}
+if {[is_attribute flow_step_check_tcl -obj_type root]} {set_db flow_step_check_tcl {}}
+if {[is_attribute flow_step_end_tcl -obj_type root]} {set_db flow_step_end_tcl {}}
+if {[is_attribute flow_step_order -obj_type root]} {set_db flow_step_order {}}
+if {[is_attribute flow_summary_tcl -obj_type root]} {set_db flow_summary_tcl {}}
+if {[is_attribute flow_template_feature_definition -obj_type root]} {set_db flow_template_feature_definition {}}
+if {[is_attribute flow_template_type -obj_type root]} {set_db flow_template_type {}}
+if {[is_attribute flow_template_tools -obj_type root]} {set_db flow_template_tools {}}
+if {[is_attribute flow_template_version -obj_type root]} {set_db flow_template_version {}}
+if {[is_attribute flow_user_templates -obj_type root]} {set_db flow_user_templates {}}
+
+
+#############################################################
+#####   Flow History   ######################################
+
+if {[is_attribute flow_user_templates -obj_type root]} {set_db flow_user_templates {}}
+if {[is_attribute flow_plugin_steps -obj_type root]} {set_db flow_plugin_steps {}}
+if {[is_attribute flow_template_type -obj_type root]} {set_db flow_template_type {}}
+if {[is_attribute flow_template_tools -obj_type root]} {set_db flow_template_tools {}}
+if {[is_attribute flow_template_version -obj_type root]} {set_db flow_template_version {}}
+if {[is_attribute flow_template_feature_definition -obj_type root]} {set_db flow_template_feature_definition {}}
+if {[is_attribute flow_remark -obj_type root]} {set_db flow_remark {}}
+if {[is_attribute flow_features -obj_type root]} {set_db flow_features {}}
+if {[is_attribute flow_feature_values -obj_type root]} {set_db flow_feature_values {}}
+if {[is_attribute flow_write_db_args -obj_type root]} {set_db flow_write_db_args {}}
+if {[is_attribute flow_write_db_sdc -obj_type root]} {set_db flow_write_db_sdc true}
+if {[is_attribute flow_write_db_common -obj_type root]} {set_db flow_write_db_common false}
+if {[is_attribute flow_post_db_overwrite -obj_type root]} {set_db flow_post_db_overwrite {}}
+if {[is_attribute flow_step_order -obj_type root]} {set_db flow_step_order {}}
+if {[is_attribute flow_step_begin_tcl -obj_type root]} {set_db flow_step_begin_tcl {}}
+if {[is_attribute flow_step_end_tcl -obj_type root]} {set_db flow_step_end_tcl {}}
+if {[is_attribute flow_step_last -obj_type root]} {set_db flow_step_last {}}
+if {[is_attribute flow_step_current -obj_type root]} {set_db flow_step_current {}}
+if {[is_attribute flow_step_canonical_current -obj_type root]} {set_db flow_step_canonical_current {}}
+if {[is_attribute flow_step_next -obj_type root]} {set_db flow_step_next {}}
+if {[is_attribute flow_working_directory -obj_type root]} {set_db flow_working_directory .}
+if {[is_attribute flow_branch -obj_type root]} {set_db flow_branch {}}
+if {[is_attribute flow_caller_data -obj_type root]} {set_db flow_caller_data {}}
+if {[is_attribute flow_metrics_snapshot_uuid -obj_type root]} {set_db flow_metrics_snapshot_uuid ebbfa88c-5821-4590-8e7f-b79f9c30943c}
+if {[is_attribute flow_starting_db -obj_type root]} {set_db flow_starting_db {}}
+if {[is_attribute flow_db_directory -obj_type root]} {set_db flow_db_directory dbs}
+if {[is_attribute flow_report_directory -obj_type root]} {set_db flow_report_directory reports}
+if {[is_attribute flow_log_directory -obj_type root]} {set_db flow_log_directory logs}
+if {[is_attribute flow_mail_to -obj_type root]} {set_db flow_mail_to {}}
+if {[is_attribute flow_exit_when_done -obj_type root]} {set_db flow_exit_when_done false}
+if {[is_attribute flow_mail_on_error -obj_type root]} {set_db flow_mail_on_error false}
+if {[is_attribute flow_summary_tcl -obj_type root]} {set_db flow_summary_tcl {}}
+if {[is_attribute flow_history -obj_type root]} {set_db flow_history {}}
+if {[is_attribute flow_step_last_status -obj_type root]} {set_db flow_step_last_status not_run}
+if {[is_attribute flow_step_last_msg -obj_type root]} {set_db flow_step_last_msg {}}
+if {[is_attribute flow_run_tag -obj_type root]} {set_db flow_run_tag {}}
+if {[is_attribute flow_current_cache -obj_type root]} {set_db flow_current_cache {}}
+if {[is_attribute flow_step_order_cache -obj_type root]} {set_db flow_step_order_cache {}}
+if {[is_attribute flow_step_results_cache -obj_type root]} {set_db flow_step_results_cache {}}
+if {[is_attribute flow_metadata -obj_type root]} {set_db flow_metadata {}}
+if {[is_attribute flow_execute_in_global -obj_type root]} {set_db flow_execute_in_global true}
+if {[is_attribute flow_overwrite_db -obj_type root]} {set_db flow_overwrite_db false}
+if {[is_attribute flow_print_run_information -obj_type root]} {set_db flow_print_run_information false}
+if {[is_attribute flow_verbose -obj_type root]} {set_db flow_verbose true}
+if {[is_attribute flow_print_run_information_full -obj_type root]} {set_db flow_print_run_information_full false}
+if {[is_attribute flow_header_tcl -obj_type root]} {set_db flow_header_tcl {}}
+if {[is_attribute flow_footer_tcl -obj_type root]} {set_db flow_footer_tcl {}}
+if {[is_attribute flow_init_header_tcl -obj_type root]} {set_db flow_init_header_tcl {}}
+if {[is_attribute flow_init_footer_tcl -obj_type root]} {set_db flow_init_footer_tcl {}}
+if {[is_attribute flow_edit_start_steps -obj_type root]} {set_db flow_edit_start_steps {}}
+if {[is_attribute flow_edit_end_steps -obj_type root]} {set_db flow_edit_end_steps {}}
+if {[is_attribute flow_step_last_number -obj_type root]} {set_db flow_step_last_number 0}
+if {[is_attribute flow_autoload_applets -obj_type root]} {set_db flow_autoload_applets false}
+if {[is_attribute flow_autoload_dir -obj_type root]} {set_db flow_autoload_dir error}
+if {[is_attribute flow_skip_auto_db_save -obj_type root]} {set_db flow_skip_auto_db_save true}
+if {[is_attribute flow_skip_auto_generate_metrics -obj_type root]} {set_db flow_skip_auto_generate_metrics false}
+if {[is_attribute flow_top -obj_type root]} {set_db flow_top {}}
+if {[is_attribute flow_hier_path -obj_type root]} {set_db flow_hier_path {}}
+if {[is_attribute flow_schedule -obj_type root]} {set_db flow_schedule {}}
+if {[is_attribute flow_step_check_tcl -obj_type root]} {set_db flow_step_check_tcl {}}
+if {[is_attribute flow_script -obj_type root]} {set_db flow_script {}}
+if {[is_attribute flow_yaml_script -obj_type root]} {set_db flow_yaml_script {}}
+if {[is_attribute flow_cla_enabled_features -obj_type root]} {set_db flow_cla_enabled_features {}}
+if {[is_attribute flow_cla_inject_tcl -obj_type root]} {set_db flow_cla_inject_tcl {}}
+if {[is_attribute flow_error_message -obj_type root]} {set_db flow_error_message {}}
+if {[is_attribute flow_error_errorinfo -obj_type root]} {set_db flow_error_errorinfo {}}
+if {[is_attribute flow_exclude_time_for_init_flow -obj_type root]} {set_db flow_exclude_time_for_init_flow false}
+if {[is_attribute flow_error_write_db -obj_type root]} {set_db flow_error_write_db true}
+if {[is_attribute flow_advanced_metric_isolation -obj_type root]} {set_db flow_advanced_metric_isolation flow}
+if {[is_attribute flow_yaml_root -obj_type root]} {set_db flow_yaml_root {}}
+if {[is_attribute flow_yaml_root_dir -obj_type root]} {set_db flow_yaml_root_dir {}}
+if {[is_attribute flow_setup_config -obj_type root]} {set_db flow_setup_config {HUDDLE {!!map {}}}}
+
+#############################################################
+#####   User Defined Attributes   ###########################
+

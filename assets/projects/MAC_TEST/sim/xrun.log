@@ -1,0 +1,184 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Apr 25, 2026 at 13:25:20 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/rtl/top.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/tb/TB_top.sv
+	-top TB_test
+	-R
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+xrun: *W,CSSF: -TOP with -R option will be ignored.
+xrun: *W,CSSF: HDL source files with -R option will be ignored.
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+SVSEED default: 1
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cadence/lnx/xce_24/tools/xcelium/files/xmsimrc
+xcelium> source /home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves.shm -shm -default
+Created default SHM database waves.shm
+xcelium> probe -create -shm $::env(SIM_TOP) -depth all -all
+Created probe 1
+xcelium> run
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+MONITOR: Time =    0 ns,	+ve EdgeNo=    0,	SRST = 0,	A =   0,	B =   0,	Y =          x
+ 5 ns: Monitor Task...
+
+MONITOR: Time =    5 ns,	+ve EdgeNo=    1,	SRST = 1,	A =   0,	B =   0,	Y =          0
+ 5 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 10 ns: Generator Task...
+
+ 15 ns: Monitor Task...
+
+MONITOR: Time =   15 ns,	+ve EdgeNo=    2,	SRST = 0,	A =   3,	B =   3,	Y =          9
+ 15 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 20 ns: Generator Task...
+
+ 25 ns: Monitor Task...
+
+MONITOR: Time =   25 ns,	+ve EdgeNo=    3,	SRST = 0,	A =   1,	B =   2,	Y =         11
+ 25 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 30 ns: Generator Task...
+
+ 35 ns: Monitor Task...
+
+MONITOR: Time =   35 ns,	+ve EdgeNo=    4,	SRST = 0,	A =   3,	B =   1,	Y =         14
+ 35 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 40 ns: Generator Task...
+
+ 45 ns: Monitor Task...
+
+MONITOR: Time =   45 ns,	+ve EdgeNo=    5,	SRST = 0,	A =   1,	B =   2,	Y =         16
+ 45 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 50 ns: Generator Task...
+
+ 55 ns: Monitor Task...
+
+MONITOR: Time =   55 ns,	+ve EdgeNo=    6,	SRST = 0,	A =   3,	B =   3,	Y =         25
+ 55 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 60 ns: Generator Task...
+
+ 65 ns: Monitor Task...
+
+MONITOR: Time =   65 ns,	+ve EdgeNo=    7,	SRST = 0,	A =   1,	B =   3,	Y =         28
+ 65 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 70 ns: Generator Task...
+
+ 75 ns: Monitor Task...
+
+MONITOR: Time =   75 ns,	+ve EdgeNo=    8,	SRST = 0,	A =   2,	B =   1,	Y =         30
+ 75 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 80 ns: Generator Task...
+
+ 85 ns: Monitor Task...
+
+MONITOR: Time =   85 ns,	+ve EdgeNo=    9,	SRST = 0,	A =   2,	B =   2,	Y =         34
+ 85 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 90 ns: Generator Task...
+
+ 95 ns: Monitor Task...
+
+MONITOR: Time =   95 ns,	+ve EdgeNo=   10,	SRST = 0,	A =   2,	B =   2,	Y =         38
+ 95 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 100 ns: Generator Task...
+
+ 105 ns: Monitor Task...
+
+MONITOR: Time =  105 ns,	+ve EdgeNo=   11,	SRST = 0,	A =   1,	B =   2,	Y =         40
+ 105 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 110 ns: Generator Task...
+
+ 115 ns: Monitor Task...
+
+MONITOR: Time =  115 ns,	+ve EdgeNo=   12,	SRST = 0,	A =   1,	B =   3,	Y =         43
+ 115 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 120 ns: Generator Task...
+
+ 125 ns: Monitor Task...
+
+MONITOR: Time =  125 ns,	+ve EdgeNo=   13,	SRST = 0,	A =   2,	B =   2,	Y =         47
+ 125 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 130 ns: Generator Task...
+
+ 135 ns: Monitor Task...
+
+MONITOR: Time =  135 ns,	+ve EdgeNo=   14,	SRST = 0,	A =   1,	B =   1,	Y =         48
+ 135 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 140 ns: Generator Task...
+
+ 145 ns: Monitor Task...
+
+MONITOR: Time =  145 ns,	+ve EdgeNo=   15,	SRST = 0,	A =   2,	B =   1,	Y =         50
+ 145 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 150 ns: Generator Task...
+
+ 155 ns: Monitor Task...
+
+MONITOR: Time =  155 ns,	+ve EdgeNo=   16,	SRST = 0,	A =   1,	B =   1,	Y =         51
+ 155 ns: Checker Task...
+
+CHECKER:===============  OUTPUT IS OK  ================
+
+ 160 ns: Generator Task...
+
+
+TEST PASSED: No errors detected.
+
+Simulation complete via $finish(1) at time 161 NS + 0
+../tb/TB_top.sv:143 	$finish;
+xcelium> xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+TOOL:	xrun(64)	23.03-s011: Exiting on Apr 25, 2026 at 15:37:57 +06  (total: 02:12:37)

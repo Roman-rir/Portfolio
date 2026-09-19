@@ -1,0 +1,12 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-sv
+-access
++rwc
++gui
+design.sv
+testbench.sv
+-coverage
+all

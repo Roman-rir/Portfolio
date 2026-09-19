@@ -1,0 +1,2 @@
+SOFTINCLUDE /home/cadence/lnx/xce_24/tools/inca/files/cds.lib
+define worklib ../worklib

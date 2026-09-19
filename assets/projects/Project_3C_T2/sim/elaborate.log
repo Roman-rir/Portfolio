@@ -1,0 +1,100 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jul 20, 2026 at 10:13:39 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/DATA_MEM.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/PROCESSOR_V3.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/PROG_MEM.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/RISC_V3.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/tb/RISC_V3_TB.sv
+	-top RISC_V3_tb
+	-elaborate
+	-log elaborate.log
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d
+xmvlog: *W,NOTIND: unable to access -INCDIR rtl (No such file or directory).
+xmvlog: *W,NOTIND: unable to access -INCDIR tb (No such file or directory).
+file: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/DATA_MEM.sv
+	module worklib.DATA_MEM:sv
+		errors: 0, warnings: 0
+file: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/PROCESSOR_V3.sv
+	module worklib.PROCESSOR_V3:sv
+		errors: 0, warnings: 0
+file: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/PROG_MEM.sv
+	module worklib.PROG_MEM:sv
+		errors: 0, warnings: 0
+file: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/rtl/RISC_V3.sv
+	module worklib.RISC_V3:sv
+		errors: 0, warnings: 0
+file: /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C_T2/tb/RISC_V3_TB.sv
+	module worklib.RISC_V3_tb:sv
+		errors: 0, warnings: 0
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 2
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		RISC_V3_tb
+
+	Extracting FSMs for coverage:
+		worklib.PROCESSOR_V3
+			FSM extracted for state register PSTATE
+		worklib.PROG_MEM
+		worklib.DATA_MEM
+		worklib.RISC_V3
+		worklib.RISC_V3_tb
+	Total FSMs extracted = 1
+PROCESSOR_V3 PC1 (.*);
+                   |
+xmelab: *W,CUVMPW (../rtl/RISC_V3.sv,17|19): port sizes differ in port connection(32/4) for the instance(RISC_V3_tb.DUV)  for child port:  PC.
+PROCESSOR_V3 PC1 (.*);
+                   |
+xmelab: *W,CUVMPW (../rtl/RISC_V3.sv,17|19): port sizes differ in port connection(32/4) for the instance(RISC_V3_tb.DUV)  for child port:  DM_ADDR.
+PROG_MEM PM (.*); 
+              |
+xmelab: *W,CUVMPW (../rtl/RISC_V3.sv,18|14): port sizes differ in port connection(32/4) for the instance(RISC_V3_tb.DUV)  for child port:  PC.
+DATA_MEM DM (.*);
+              |
+xmelab: *W,CUVMPW (../rtl/RISC_V3.sv,19|14): port sizes differ in port connection(32/4) for the instance(RISC_V3_tb.DUV)  for child port:  DM_ADDR.
+	Building instance overlay tables: ........
+xmelab: *W,COVFDP: FSM description matching across instance of a module for "COVFDM" warning has been moved from elaboration to simulation dumping. To restore old matching behavior, use "set_backward_compat -COVFDM_during_elab". Also, it is recommended to use set_parameterized_module_coverage CCF command to avoid coverage loss due to FSM description difference across instances of a module.
+xmelab: *W,COVFHT: FSM hold transitions (transitions to the current state) are not extracted for any FSM in default mode.
+............ Done
+	Enabling instrumentation for coverage types: block expression FSM toggle functional
+xmelab: *W,COVDCL: By default expression coverage is scored only for Verilog logical operators (|| and &&) and VHDL logical operators (OR, AND, NOR, and NAND), and is scored only in condition expressions. To score coverage for other operators and for expressions in other statements, use the "set_expr_coverable_operators" and "set_expr_coverable_statements" coverage configuration file commands with suitable options at elaboration.
+	Generating native compiled code:
+		worklib.PROG_MEM:sv <0x3180cc8b>
+			streams:   2, words:   979
+		worklib.RISC_V3:sv <0x6c55a97a>
+			streams:  18, words:  7587
+		worklib.RISC_V3_tb:sv <0x707d29a8>
+			streams:  30, words: 14224
+		worklib.PROCESSOR_V3:sv <0x2e510131>
+			streams:   9, words: 34000
+		worklib.DATA_MEM:sv <0x72aec9f1>
+			streams:   4, words:  2386
+logic [31:0] P_MEM [0:15] = '{
+                 |
+xmelab: *W,COVMDD (../rtl/PROG_MEM.sv,18|17): Toggle coverage for bit, logic, reg, wire, enum and struct multi-dimensional static arrays and vectors is not supported by default. To enable toggle coverage for enum multi-dimensional static arrays specify 'set_toggle_scoring -sv_enum enable_mda' and for other multi-dimensional static arrays, specify 'set_toggle_scoring -sv_mda [<max_bit_base2_exponent>] [-sv_mda_of_struct]' ccf command in the coverage configuration file.
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 5       5
+		Registers:              67      67
+		Scalar wires:            8       -
+		Vectored wires:         67       -
+		Always blocks:           3       3
+		Initial blocks:          9       9
+		Cont. assignments:      13      19
+		Pseudo assignments:     32       -
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.RISC_V3_tb:sv
+TOOL:	xrun(64)	23.03-s011: Exiting on Jul 20, 2026 at 10:13:42 +06  (total: 00:00:03)

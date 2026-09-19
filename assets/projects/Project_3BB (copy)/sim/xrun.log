@@ -1,0 +1,366 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jul 11, 2026 at 14:01:00 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/data_mem.sv
+	/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/prog_mem.sv
+	/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/processor.sv
+	/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/rtl/risc_top.sv
+	/home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C/tb/TB_top.sv
+	-top TB_RISC_V3_PIPELINED
+	-R
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+xrun: *W,CSSF: -TOP with -R option will be ignored.
+xrun: *W,CSSF: HDL source files with -R option will be ignored.
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cadence/lnx/xce_24/tools/xcelium/files/xmsimrc
+xcelium> source /home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves.shm -shm -default
+Created default SHM database waves.shm
+xcelium> probe -create -shm $::env(SIM_TOP) -depth all -all
+Created probe 1
+xcelium> run
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+================================================================
+  PIPELINED RISC V3 - PIPELINE EVALUATION TESTBENCH
+================================================================
+  Program: 15 / 7 - Expected: DM[3] = 2
+  Pipeline: 1 instruction completes every 1 cycle after priming
+================================================================
+
+>> Reset released at cycle 2
+
+ Cyc | St | PC |   IR1 fetch    |  IR2 execute   | RF1 | RF2 | RF3 | RF4 | ACCUM_R | DM_WR | DM_ADDR | DM_IN
+-----|----|----|----------------|----------------|-----|-----|-----|-----|---------|-------|---------|------
+   3 | S1 |  0 | 0x00000000   | 0x00000000   |   1 |   2 |   3 |   4 |       0 |   0   |     0   | x
+   4 | S2 |  1 | 0x201f0000   | 0x00000000   |   1 |   2 |   3 |   4 |       0 |   0   |     0   | x
+  [PIPELINE] Cycle 5 | S4 | Instr #1 completes | FIRST - pipeline primed
+   5 | S4 |  2 | 0x20270000   | 0x201f0000   |   1 |   2 |   3 |   4 |       0 |   0   |    15   | x
+  [PIPELINE] Cycle 6 | S4 | Instr #2 completes | Gap = 1 cycle(s) |            PIPELINED OK
+   6 | S4 |  3 | 0x17300000   | 0x20270000   |  15 |   2 |   3 |   4 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 7 | S3 | Instr #3 completes | Gap = 1 cycle(s) |            PIPELINED OK
+   7 | S3 |  4 | 0x01112000   | 0x17300000   |  15 |   7 |   3 |   4 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 8 | S3 | Instr #4 completes | Gap = 1 cycle(s) |            PIPELINED OK
+   8 | S3 |  5 | 0x10330001   | 0x01112000   |  15 |   7 |   0 |   4 |       8 |   0   |     7   | x
+  [PIPELINE] Cycle 9 | S3 | Instr #5 completes | Gap = 1 cycle(s) |            PIPELINED OK
+   9 | S3 |  6 | 0x01112000   | 0x10330001   |   8 |   7 |   0 |   4 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 10 | S3 | Instr #6 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  10 | S3 |  7 | 0x10330001   | 0x01112000   |   8 |   7 |   1 |   4 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 11 | S3 | Instr #7 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  11 | S3 |  8 | 0x17400003   | 0x10330001   |   1 |   7 |   1 |   4 |       2 |   0   |     7   | x
+  [PIPELINE] Cycle 12 | S3 | Instr #8 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  12 | S3 |  9 | 0x30340000   | 0x17400003   |   1 |   7 |   2 |   4 |       3 |   0   |     7   | x
+  [PIPELINE] Cycle 13 | S5 | Instr #9 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  13 | S5 | 10 | 0x00000000   | 0x30340000   |   1 |   7 |   2 |   3 |       3 |   1   |     3   | 2
+  [PIPELINE] Cycle 14 | S3 | Instr #10 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  14 | S3 | 11 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 15 | S3 | Instr #11 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  15 | S3 | 12 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 16 | S3 | Instr #12 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  16 | S3 | 13 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 17 | S3 | Instr #13 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  17 | S3 | 14 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 18 | S3 | Instr #14 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  18 | S3 | 15 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 19 | S3 | Instr #15 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  19 | S3 |  0 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 20 | S3 | Instr #16 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  20 | S3 |  1 | 0x201f0000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 21 | S4 | Instr #17 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  21 | S4 |  2 | 0x20270000   | 0x201f0000   |   1 |   7 |   2 |   3 |       0 |   0   |    15   | x
+  [PIPELINE] Cycle 22 | S4 | Instr #18 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  22 | S4 |  3 | 0x17300000   | 0x20270000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 23 | S3 | Instr #19 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  23 | S3 |  4 | 0x01112000   | 0x17300000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 24 | S3 | Instr #20 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  24 | S3 |  5 | 0x10330001   | 0x01112000   |  15 |   7 |   0 |   3 |       8 |   0   |     7   | x
+  [PIPELINE] Cycle 25 | S3 | Instr #21 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  25 | S3 |  6 | 0x01112000   | 0x10330001   |   8 |   7 |   0 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 26 | S3 | Instr #22 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  26 | S3 |  7 | 0x10330001   | 0x01112000   |   8 |   7 |   1 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 27 | S3 | Instr #23 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  27 | S3 |  8 | 0x17400003   | 0x10330001   |   1 |   7 |   1 |   3 |       2 |   0   |     7   | x
+  [PIPELINE] Cycle 28 | S3 | Instr #24 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  28 | S3 |  9 | 0x30340000   | 0x17400003   |   1 |   7 |   2 |   3 |       3 |   0   |     7   | x
+  [PIPELINE] Cycle 29 | S5 | Instr #25 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  29 | S5 | 10 | 0x00000000   | 0x30340000   |   1 |   7 |   2 |   3 |       3 |   1   |     3   | 2
+  [PIPELINE] Cycle 30 | S3 | Instr #26 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  30 | S3 | 11 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 31 | S3 | Instr #27 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  31 | S3 | 12 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 32 | S3 | Instr #28 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  32 | S3 | 13 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 33 | S3 | Instr #29 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  33 | S3 | 14 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 34 | S3 | Instr #30 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  34 | S3 | 15 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 35 | S3 | Instr #31 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  35 | S3 |  0 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 36 | S3 | Instr #32 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  36 | S3 |  1 | 0x201f0000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 37 | S4 | Instr #33 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  37 | S4 |  2 | 0x20270000   | 0x201f0000   |   1 |   7 |   2 |   3 |       0 |   0   |    15   | x
+  [PIPELINE] Cycle 38 | S4 | Instr #34 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  38 | S4 |  3 | 0x17300000   | 0x20270000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 39 | S3 | Instr #35 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  39 | S3 |  4 | 0x01112000   | 0x17300000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 40 | S3 | Instr #36 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  40 | S3 |  5 | 0x10330001   | 0x01112000   |  15 |   7 |   0 |   3 |       8 |   0   |     7   | x
+  [PIPELINE] Cycle 41 | S3 | Instr #37 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  41 | S3 |  6 | 0x01112000   | 0x10330001   |   8 |   7 |   0 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 42 | S3 | Instr #38 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  42 | S3 |  7 | 0x10330001   | 0x01112000   |   8 |   7 |   1 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 43 | S3 | Instr #39 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  43 | S3 |  8 | 0x17400003   | 0x10330001   |   1 |   7 |   1 |   3 |       2 |   0   |     7   | x
+  [PIPELINE] Cycle 44 | S3 | Instr #40 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  44 | S3 |  9 | 0x30340000   | 0x17400003   |   1 |   7 |   2 |   3 |       3 |   0   |     7   | x
+  [PIPELINE] Cycle 45 | S5 | Instr #41 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  45 | S5 | 10 | 0x00000000   | 0x30340000   |   1 |   7 |   2 |   3 |       3 |   1   |     3   | 2
+  [PIPELINE] Cycle 46 | S3 | Instr #42 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  46 | S3 | 11 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 47 | S3 | Instr #43 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  47 | S3 | 12 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 48 | S3 | Instr #44 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  48 | S3 | 13 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 49 | S3 | Instr #45 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  49 | S3 | 14 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 50 | S3 | Instr #46 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  50 | S3 | 15 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 51 | S3 | Instr #47 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  51 | S3 |  0 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 52 | S3 | Instr #48 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  52 | S3 |  1 | 0x201f0000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 53 | S4 | Instr #49 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  53 | S4 |  2 | 0x20270000   | 0x201f0000   |   1 |   7 |   2 |   3 |       0 |   0   |    15   | x
+  [PIPELINE] Cycle 54 | S4 | Instr #50 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  54 | S4 |  3 | 0x17300000   | 0x20270000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 55 | S3 | Instr #51 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  55 | S3 |  4 | 0x01112000   | 0x17300000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 56 | S3 | Instr #52 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  56 | S3 |  5 | 0x10330001   | 0x01112000   |  15 |   7 |   0 |   3 |       8 |   0   |     7   | x
+  [PIPELINE] Cycle 57 | S3 | Instr #53 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  57 | S3 |  6 | 0x01112000   | 0x10330001   |   8 |   7 |   0 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 58 | S3 | Instr #54 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  58 | S3 |  7 | 0x10330001   | 0x01112000   |   8 |   7 |   1 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 59 | S3 | Instr #55 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  59 | S3 |  8 | 0x17400003   | 0x10330001   |   1 |   7 |   1 |   3 |       2 |   0   |     7   | x
+  [PIPELINE] Cycle 60 | S3 | Instr #56 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  60 | S3 |  9 | 0x30340000   | 0x17400003   |   1 |   7 |   2 |   3 |       3 |   0   |     7   | x
+  [PIPELINE] Cycle 61 | S5 | Instr #57 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  61 | S5 | 10 | 0x00000000   | 0x30340000   |   1 |   7 |   2 |   3 |       3 |   1   |     3   | 2
+  [PIPELINE] Cycle 62 | S3 | Instr #58 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  62 | S3 | 11 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+
+================================================================
+  FINAL RESULT CHECK
+================================================================
+  DM[3] = 2   CORRECT (15/7 = 2)
+
+  FINAL REGISTER FILE STATE
+----------------------------------------------------------------
+  RF[1] = 1   (expected  1 - remainder of 15/7)
+  RF[2] = 7   (expected  7 - divisor)
+  RF[3] = 2   (expected  2 - quotient)
+  RF[4] = 3   (expected  3 - store address)
+
+  FINAL DATA MEMORY DM[0] to DM[9]
+----------------------------------------------------------------
+  DM[0] = 0
+  DM[1] = 1
+  DM[2] = 2
+  DM[3] = 2
+  DM[4] = 4
+  DM[5] = 5
+  DM[6] = 6
+  DM[7] = 7
+  DM[8] = 8
+  DM[9] = 9
+
+================================================================
+  PIPELINE VERDICT
+  Total instructions completed: 58
+  All gaps = 1 cycle means fully pipelined (1 instruction/cycle)
+  Any gap  > 1 cycle means a stall/bubble occurred - check FSM dispatch
+================================================================
+Simulation complete via $finish(1) at time 615 NS + 0
+../tb/TB_top.sv:139     $finish;
+xcelium> reset
+xmsim: *W,C58RST: Reset command executed. Coverage is enabled for the subsequent simulation run.  The coverage test name needs to be changed to prevent data overwrite, and any coverage control commands previously used must be reissued.
+Loaded snapshot worklib.TB_RISC_V3_PIPELINED:sv
+xcelium> run
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+================================================================
+  PIPELINED RISC V3 - PIPELINE EVALUATION TESTBENCH
+================================================================
+  Program: 15 / 7 - Expected: DM[3] = 2
+  Pipeline: 1 instruction completes every 1 cycle after priming
+================================================================
+
+>> Reset released at cycle 2
+
+ Cyc | St | PC |   IR1 fetch    |  IR2 execute   | RF1 | RF2 | RF3 | RF4 | ACCUM_R | DM_WR | DM_ADDR | DM_IN
+-----|----|----|----------------|----------------|-----|-----|-----|-----|---------|-------|---------|------
+   3 | S1 |  0 | 0x00000000   | 0x00000000   |   1 |   2 |   3 |   4 |       0 |   0   |     0   | x
+   4 | S2 |  1 | 0x201f0000   | 0x00000000   |   1 |   2 |   3 |   4 |       0 |   0   |     0   | x
+  [PIPELINE] Cycle 5 | S4 | Instr #1 completes | FIRST - pipeline primed
+   5 | S4 |  2 | 0x20270000   | 0x201f0000   |   1 |   2 |   3 |   4 |       0 |   0   |    15   | x
+  [PIPELINE] Cycle 6 | S4 | Instr #2 completes | Gap = 1 cycle(s) |            PIPELINED OK
+   6 | S4 |  3 | 0x17300000   | 0x20270000   |  15 |   2 |   3 |   4 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 7 | S3 | Instr #3 completes | Gap = 1 cycle(s) |            PIPELINED OK
+   7 | S3 |  4 | 0x01112000   | 0x17300000   |  15 |   7 |   3 |   4 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 8 | S3 | Instr #4 completes | Gap = 1 cycle(s) |            PIPELINED OK
+   8 | S3 |  5 | 0x10330001   | 0x01112000   |  15 |   7 |   0 |   4 |       8 |   0   |     7   | x
+  [PIPELINE] Cycle 9 | S3 | Instr #5 completes | Gap = 1 cycle(s) |            PIPELINED OK
+   9 | S3 |  6 | 0x01112000   | 0x10330001   |   8 |   7 |   0 |   4 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 10 | S3 | Instr #6 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  10 | S3 |  7 | 0x10330001   | 0x01112000   |   8 |   7 |   1 |   4 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 11 | S3 | Instr #7 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  11 | S3 |  8 | 0x17400003   | 0x10330001   |   1 |   7 |   1 |   4 |       2 |   0   |     7   | x
+  [PIPELINE] Cycle 12 | S3 | Instr #8 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  12 | S3 |  9 | 0x30340000   | 0x17400003   |   1 |   7 |   2 |   4 |       3 |   0   |     7   | x
+  [PIPELINE] Cycle 13 | S5 | Instr #9 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  13 | S5 | 10 | 0x00000000   | 0x30340000   |   1 |   7 |   2 |   3 |       3 |   1   |     3   | 2
+  [PIPELINE] Cycle 14 | S3 | Instr #10 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  14 | S3 | 11 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 15 | S3 | Instr #11 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  15 | S3 | 12 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 16 | S3 | Instr #12 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  16 | S3 | 13 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 17 | S3 | Instr #13 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  17 | S3 | 14 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 18 | S3 | Instr #14 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  18 | S3 | 15 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 19 | S3 | Instr #15 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  19 | S3 |  0 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 20 | S3 | Instr #16 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  20 | S3 |  1 | 0x201f0000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 21 | S4 | Instr #17 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  21 | S4 |  2 | 0x20270000   | 0x201f0000   |   1 |   7 |   2 |   3 |       0 |   0   |    15   | x
+  [PIPELINE] Cycle 22 | S4 | Instr #18 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  22 | S4 |  3 | 0x17300000   | 0x20270000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 23 | S3 | Instr #19 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  23 | S3 |  4 | 0x01112000   | 0x17300000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 24 | S3 | Instr #20 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  24 | S3 |  5 | 0x10330001   | 0x01112000   |  15 |   7 |   0 |   3 |       8 |   0   |     7   | x
+  [PIPELINE] Cycle 25 | S3 | Instr #21 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  25 | S3 |  6 | 0x01112000   | 0x10330001   |   8 |   7 |   0 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 26 | S3 | Instr #22 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  26 | S3 |  7 | 0x10330001   | 0x01112000   |   8 |   7 |   1 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 27 | S3 | Instr #23 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  27 | S3 |  8 | 0x17400003   | 0x10330001   |   1 |   7 |   1 |   3 |       2 |   0   |     7   | x
+  [PIPELINE] Cycle 28 | S3 | Instr #24 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  28 | S3 |  9 | 0x30340000   | 0x17400003   |   1 |   7 |   2 |   3 |       3 |   0   |     7   | x
+  [PIPELINE] Cycle 29 | S5 | Instr #25 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  29 | S5 | 10 | 0x00000000   | 0x30340000   |   1 |   7 |   2 |   3 |       3 |   1   |     3   | 2
+  [PIPELINE] Cycle 30 | S3 | Instr #26 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  30 | S3 | 11 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 31 | S3 | Instr #27 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  31 | S3 | 12 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 32 | S3 | Instr #28 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  32 | S3 | 13 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 33 | S3 | Instr #29 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  33 | S3 | 14 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 34 | S3 | Instr #30 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  34 | S3 | 15 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 35 | S3 | Instr #31 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  35 | S3 |  0 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 36 | S3 | Instr #32 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  36 | S3 |  1 | 0x201f0000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 37 | S4 | Instr #33 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  37 | S4 |  2 | 0x20270000   | 0x201f0000   |   1 |   7 |   2 |   3 |       0 |   0   |    15   | x
+  [PIPELINE] Cycle 38 | S4 | Instr #34 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  38 | S4 |  3 | 0x17300000   | 0x20270000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 39 | S3 | Instr #35 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  39 | S3 |  4 | 0x01112000   | 0x17300000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 40 | S3 | Instr #36 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  40 | S3 |  5 | 0x10330001   | 0x01112000   |  15 |   7 |   0 |   3 |       8 |   0   |     7   | x
+  [PIPELINE] Cycle 41 | S3 | Instr #37 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  41 | S3 |  6 | 0x01112000   | 0x10330001   |   8 |   7 |   0 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 42 | S3 | Instr #38 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  42 | S3 |  7 | 0x10330001   | 0x01112000   |   8 |   7 |   1 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 43 | S3 | Instr #39 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  43 | S3 |  8 | 0x17400003   | 0x10330001   |   1 |   7 |   1 |   3 |       2 |   0   |     7   | x
+  [PIPELINE] Cycle 44 | S3 | Instr #40 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  44 | S3 |  9 | 0x30340000   | 0x17400003   |   1 |   7 |   2 |   3 |       3 |   0   |     7   | x
+  [PIPELINE] Cycle 45 | S5 | Instr #41 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  45 | S5 | 10 | 0x00000000   | 0x30340000   |   1 |   7 |   2 |   3 |       3 |   1   |     3   | 2
+  [PIPELINE] Cycle 46 | S3 | Instr #42 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  46 | S3 | 11 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 47 | S3 | Instr #43 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  47 | S3 | 12 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 48 | S3 | Instr #44 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  48 | S3 | 13 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 49 | S3 | Instr #45 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  49 | S3 | 14 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 50 | S3 | Instr #46 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  50 | S3 | 15 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 51 | S3 | Instr #47 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  51 | S3 |  0 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 52 | S3 | Instr #48 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  52 | S3 |  1 | 0x201f0000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+  [PIPELINE] Cycle 53 | S4 | Instr #49 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  53 | S4 |  2 | 0x20270000   | 0x201f0000   |   1 |   7 |   2 |   3 |       0 |   0   |    15   | x
+  [PIPELINE] Cycle 54 | S4 | Instr #50 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  54 | S4 |  3 | 0x17300000   | 0x20270000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 55 | S3 | Instr #51 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  55 | S3 |  4 | 0x01112000   | 0x17300000   |  15 |   7 |   2 |   3 |       0 |   0   |     7   | x
+  [PIPELINE] Cycle 56 | S3 | Instr #52 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  56 | S3 |  5 | 0x10330001   | 0x01112000   |  15 |   7 |   0 |   3 |       8 |   0   |     7   | x
+  [PIPELINE] Cycle 57 | S3 | Instr #53 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  57 | S3 |  6 | 0x01112000   | 0x10330001   |   8 |   7 |   0 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 58 | S3 | Instr #54 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  58 | S3 |  7 | 0x10330001   | 0x01112000   |   8 |   7 |   1 |   3 |       1 |   0   |     7   | x
+  [PIPELINE] Cycle 59 | S3 | Instr #55 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  59 | S3 |  8 | 0x17400003   | 0x10330001   |   1 |   7 |   1 |   3 |       2 |   0   |     7   | x
+  [PIPELINE] Cycle 60 | S3 | Instr #56 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  60 | S3 |  9 | 0x30340000   | 0x17400003   |   1 |   7 |   2 |   3 |       3 |   0   |     7   | x
+  [PIPELINE] Cycle 61 | S5 | Instr #57 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  61 | S5 | 10 | 0x00000000   | 0x30340000   |   1 |   7 |   2 |   3 |       3 |   1   |     3   | 2
+  [PIPELINE] Cycle 62 | S3 | Instr #58 completes | Gap = 1 cycle(s) |            PIPELINED OK
+  62 | S3 | 11 | 0x00000000   | 0x00000000   |   1 |   7 |   2 |   3 |       0 |   0   |     3   | x
+
+================================================================
+  FINAL RESULT CHECK
+================================================================
+  DM[3] = 2   CORRECT (15/7 = 2)
+
+  FINAL REGISTER FILE STATE
+----------------------------------------------------------------
+  RF[1] = 1   (expected  1 - remainder of 15/7)
+  RF[2] = 7   (expected  7 - divisor)
+  RF[3] = 2   (expected  2 - quotient)
+  RF[4] = 3   (expected  3 - store address)
+
+  FINAL DATA MEMORY DM[0] to DM[9]
+----------------------------------------------------------------
+  DM[0] = 0
+  DM[1] = 1
+  DM[2] = 2
+  DM[3] = 2
+  DM[4] = 4
+  DM[5] = 5
+  DM[6] = 6
+  DM[7] = 7
+  DM[8] = 8
+  DM[9] = 9
+
+================================================================
+  PIPELINE VERDICT
+  Total instructions completed: 58
+  All gaps = 1 cycle means fully pipelined (1 instruction/cycle)
+  Any gap  > 1 cycle means a stall/bubble occurred - check FSM dispatch
+================================================================
+Simulation complete via $finish(1) at time 615 NS + 0
+../tb/TB_top.sv:139     $finish;
+xcelium> 

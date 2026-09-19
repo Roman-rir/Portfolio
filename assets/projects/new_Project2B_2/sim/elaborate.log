@@ -1,0 +1,24 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jun 20, 2026 at 13:01:40 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/rtl/DATAPATH.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/rtl/FSM.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/rtl/TOP.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/tb/TB_TOP2.sv
+	-top TB_TOP2
+	-elaborate
+	-log elaborate.log
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+xrun: *E,FILEMIS: Cannot find the provided file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/rtl/DATAPATH.sv.
+xrun: *E,FILEMIS: Cannot find the provided file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/rtl/FSM.sv.
+xrun: *E,FILEMIS: Cannot find the provided file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/rtl/TOP.sv.
+xrun: *E,FILEMIS: Cannot find the provided file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/new_project2B_2/tb/TB_TOP2.sv.
+TOOL:	xrun(64)	23.03-s011: Exiting on Jun 20, 2026 at 13:01:41 +06  (total: 00:00:01)

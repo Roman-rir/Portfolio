@@ -1,0 +1,169 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jul 20, 2026 at 21:15:46 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C/rtl/DATA_MEM.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C/rtl/PROCESSOR_V3.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C/rtl/PROG_MEM.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C/rtl/RISC_V3.sv
+	/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/Project_3C/tb/RISC_V3_tb_C.sv
+	-top RISC_V3_tb_C
+	-R
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+xrun: *W,CSSF: -TOP with -R option will be ignored.
+xrun: *W,CSSF: HDL source files with -R option will be ignored.
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cadence/lnx/xce_24/tools/xcelium/files/xmsimrc
+xcelium> source /home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves.shm -shm -default
+Created default SHM database waves.shm
+xcelium> probe -create -shm $::env(SIM_TOP) -depth all -all
+Created probe 1
+xcelium> run
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+Time=   5 ns, PSTATE=0, PC=x, IR=xxxxxxxx, BR_DIR=x, IMM=x, RF_Q1=x, RF_Q2=x, ALU_OUT=0, ACCUM_R=0
+Time=  15 ns, PSTATE=1, PC=0, IR=xxxxxxxx, BR_DIR=x, IMM=x, RF_Q1=x, RF_Q2=x, ALU_OUT=0, ACCUM_R=0
+Time=  25 ns, PSTATE=2, PC=1, IR=17100005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=5, ACCUM_R=0
+Time=  35 ns, PSTATE=1, PC=1, IR=17100005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=5
+Time=  45 ns, PSTATE=2, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=5, ACCUM_R=0
+Time=  55 ns, PSTATE=1, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=5
+Time=  65 ns, PSTATE=2, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=5, RF_Q2=5, ALU_OUT=0, ACCUM_R=0
+Time=  75 ns, PSTATE=1, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=5, RF_Q2=5, ALU_OUT=0, ACCUM_R=0
+Time=  85 ns, PSTATE=2, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=15, ACCUM_R=0
+Time=  95 ns, PSTATE=1, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=15
+Time= 105 ns, PSTATE=2, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 115 ns, PSTATE=1, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Time= 125 ns, PSTATE=2, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=8, ACCUM_R=0
+Time= 135 ns, PSTATE=1, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=0, ACCUM_R=8
+Time= 145 ns, PSTATE=2, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 155 ns, PSTATE=1, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Time= 165 ns, PSTATE=2, PC=8, IR=1720000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=15, ACCUM_R=0
+Time= 175 ns, PSTATE=1, PC=8, IR=1720000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=15
+Time= 185 ns, PSTATE=2, PC=9, IR=40012200, BR_DIR=2, IMM=0, RF_Q1=7, RF_Q2=15, ALU_OUT=4294967288, ACCUM_R=0
+Time= 195 ns, PSTATE=1, PC=9, IR=40012200, BR_DIR=2, IMM=0, RF_Q1=7, RF_Q2=15, ALU_OUT=0, ACCUM_R=4294967288
+Time= 205 ns, PSTATE=2, PC=10, IR=17100001, BR_DIR=0, IMM=1, RF_Q1=0, RF_Q2=0, ALU_OUT=1, ACCUM_R=0
+Time= 215 ns, PSTATE=1, PC=10, IR=17100001, BR_DIR=0, IMM=1, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=1
+Time= 225 ns, PSTATE=2, PC=11, IR=17200009, BR_DIR=0, IMM=9, RF_Q1=0, RF_Q2=0, ALU_OUT=9, ACCUM_R=0
+Time= 235 ns, PSTATE=1, PC=11, IR=17200009, BR_DIR=0, IMM=9, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=9
+Time= 245 ns, PSTATE=2, PC=12, IR=400123f5, BR_DIR=3, IMM=4294967285, RF_Q1=1, RF_Q2=9, ALU_OUT=4294967288, ACCUM_R=0
+Time= 255 ns, PSTATE=1, PC=1, IR=400123f5, BR_DIR=3, IMM=4294967285, RF_Q1=1, RF_Q2=9, ALU_OUT=0, ACCUM_R=4294967288
+Time= 265 ns, PSTATE=2, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=5, ACCUM_R=0
+Time= 275 ns, PSTATE=1, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=5
+Time= 285 ns, PSTATE=2, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=1, RF_Q2=5, ALU_OUT=4294967292, ACCUM_R=0
+Time= 295 ns, PSTATE=1, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=1, RF_Q2=5, ALU_OUT=0, ACCUM_R=4294967292
+Time= 305 ns, PSTATE=2, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=15, ACCUM_R=0
+Time= 315 ns, PSTATE=1, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=15
+Time= 325 ns, PSTATE=2, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 335 ns, PSTATE=1, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Time= 345 ns, PSTATE=2, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=8, ACCUM_R=0
+Time= 355 ns, PSTATE=1, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=0, ACCUM_R=8
+Time= 365 ns, PSTATE=2, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 375 ns, PSTATE=1, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Time= 385 ns, PSTATE=2, PC=8, IR=1720000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=15, ACCUM_R=0
+Time= 395 ns, PSTATE=1, PC=8, IR=1720000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=15
+Time= 405 ns, PSTATE=2, PC=9, IR=40012200, BR_DIR=2, IMM=0, RF_Q1=7, RF_Q2=15, ALU_OUT=4294967288, ACCUM_R=0
+Time= 415 ns, PSTATE=1, PC=9, IR=40012200, BR_DIR=2, IMM=0, RF_Q1=7, RF_Q2=15, ALU_OUT=0, ACCUM_R=4294967288
+Time= 425 ns, PSTATE=2, PC=10, IR=17100001, BR_DIR=0, IMM=1, RF_Q1=0, RF_Q2=0, ALU_OUT=1, ACCUM_R=0
+Time= 435 ns, PSTATE=1, PC=10, IR=17100001, BR_DIR=0, IMM=1, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=1
+Time= 445 ns, PSTATE=2, PC=11, IR=17200009, BR_DIR=0, IMM=9, RF_Q1=0, RF_Q2=0, ALU_OUT=9, ACCUM_R=0
+Time= 455 ns, PSTATE=1, PC=11, IR=17200009, BR_DIR=0, IMM=9, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=9
+Time= 465 ns, PSTATE=2, PC=12, IR=400123f5, BR_DIR=3, IMM=4294967285, RF_Q1=1, RF_Q2=9, ALU_OUT=4294967288, ACCUM_R=0
+Time= 475 ns, PSTATE=1, PC=1, IR=400123f5, BR_DIR=3, IMM=4294967285, RF_Q1=1, RF_Q2=9, ALU_OUT=0, ACCUM_R=4294967288
+Time= 485 ns, PSTATE=2, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=5, ACCUM_R=0
+Time= 495 ns, PSTATE=1, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=5
+Time= 505 ns, PSTATE=2, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=1, RF_Q2=5, ALU_OUT=4294967292, ACCUM_R=0
+Time= 515 ns, PSTATE=1, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=1, RF_Q2=5, ALU_OUT=0, ACCUM_R=4294967292
+Time= 525 ns, PSTATE=2, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=15, ACCUM_R=0
+Time= 535 ns, PSTATE=1, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=15
+Time= 545 ns, PSTATE=2, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 555 ns, PSTATE=1, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Time= 565 ns, PSTATE=2, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=8, ACCUM_R=0
+Time= 575 ns, PSTATE=1, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=0, ACCUM_R=8
+Time= 585 ns, PSTATE=2, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 595 ns, PSTATE=1, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Simulation complete via $finish(1) at time 600 NS + 0
+../tb/RISC_V3_tb_C.sv:153 $finish;
+xcelium> probe -create -shm RISC_V3_tb_C.D_MEM
+Created probe 2
+xcelium> reset
+xmsim: *W,C58RST: Reset command executed. Coverage is enabled for the subsequent simulation run.  The coverage test name needs to be changed to prevent data overwrite, and any coverage control commands previously used must be reissued.
+Loaded snapshot worklib.RISC_V3_tb_C:sv
+xcelium> run
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+Time=   5 ns, PSTATE=0, PC=x, IR=xxxxxxxx, BR_DIR=x, IMM=x, RF_Q1=x, RF_Q2=x, ALU_OUT=0, ACCUM_R=0
+Time=  15 ns, PSTATE=1, PC=0, IR=xxxxxxxx, BR_DIR=x, IMM=x, RF_Q1=x, RF_Q2=x, ALU_OUT=0, ACCUM_R=0
+Time=  25 ns, PSTATE=2, PC=1, IR=17100005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=5, ACCUM_R=0
+Time=  35 ns, PSTATE=1, PC=1, IR=17100005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=5
+Time=  45 ns, PSTATE=2, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=5, ACCUM_R=0
+Time=  55 ns, PSTATE=1, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=5
+Time=  65 ns, PSTATE=2, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=5, RF_Q2=5, ALU_OUT=0, ACCUM_R=0
+Time=  75 ns, PSTATE=1, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=5, RF_Q2=5, ALU_OUT=0, ACCUM_R=0
+Time=  85 ns, PSTATE=2, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=15, ACCUM_R=0
+Time=  95 ns, PSTATE=1, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=15
+Time= 105 ns, PSTATE=2, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 115 ns, PSTATE=1, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Time= 125 ns, PSTATE=2, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=8, ACCUM_R=0
+Time= 135 ns, PSTATE=1, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=0, ACCUM_R=8
+Time= 145 ns, PSTATE=2, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 155 ns, PSTATE=1, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Time= 165 ns, PSTATE=2, PC=8, IR=1720000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=15, ACCUM_R=0
+Time= 175 ns, PSTATE=1, PC=8, IR=1720000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=15
+Time= 185 ns, PSTATE=2, PC=9, IR=40012200, BR_DIR=2, IMM=0, RF_Q1=7, RF_Q2=15, ALU_OUT=4294967288, ACCUM_R=0
+Time= 195 ns, PSTATE=1, PC=9, IR=40012200, BR_DIR=2, IMM=0, RF_Q1=7, RF_Q2=15, ALU_OUT=0, ACCUM_R=4294967288
+Time= 205 ns, PSTATE=2, PC=10, IR=17100001, BR_DIR=0, IMM=1, RF_Q1=0, RF_Q2=0, ALU_OUT=1, ACCUM_R=0
+Time= 215 ns, PSTATE=1, PC=10, IR=17100001, BR_DIR=0, IMM=1, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=1
+Time= 225 ns, PSTATE=2, PC=11, IR=17200009, BR_DIR=0, IMM=9, RF_Q1=0, RF_Q2=0, ALU_OUT=9, ACCUM_R=0
+Time= 235 ns, PSTATE=1, PC=11, IR=17200009, BR_DIR=0, IMM=9, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=9
+Time= 245 ns, PSTATE=2, PC=12, IR=400123f5, BR_DIR=3, IMM=4294967285, RF_Q1=1, RF_Q2=9, ALU_OUT=4294967288, ACCUM_R=0
+Time= 255 ns, PSTATE=1, PC=1, IR=400123f5, BR_DIR=3, IMM=4294967285, RF_Q1=1, RF_Q2=9, ALU_OUT=0, ACCUM_R=4294967288
+Time= 265 ns, PSTATE=2, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=5, ACCUM_R=0
+Time= 275 ns, PSTATE=1, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=5
+Time= 285 ns, PSTATE=2, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=1, RF_Q2=5, ALU_OUT=4294967292, ACCUM_R=0
+Time= 295 ns, PSTATE=1, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=1, RF_Q2=5, ALU_OUT=0, ACCUM_R=4294967292
+Time= 305 ns, PSTATE=2, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=15, ACCUM_R=0
+Time= 315 ns, PSTATE=1, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=15
+Time= 325 ns, PSTATE=2, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 335 ns, PSTATE=1, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Time= 345 ns, PSTATE=2, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=8, ACCUM_R=0
+Time= 355 ns, PSTATE=1, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=0, ACCUM_R=8
+Time= 365 ns, PSTATE=2, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 375 ns, PSTATE=1, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Time= 385 ns, PSTATE=2, PC=8, IR=1720000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=15, ACCUM_R=0
+Time= 395 ns, PSTATE=1, PC=8, IR=1720000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=15
+Time= 405 ns, PSTATE=2, PC=9, IR=40012200, BR_DIR=2, IMM=0, RF_Q1=7, RF_Q2=15, ALU_OUT=4294967288, ACCUM_R=0
+Time= 415 ns, PSTATE=1, PC=9, IR=40012200, BR_DIR=2, IMM=0, RF_Q1=7, RF_Q2=15, ALU_OUT=0, ACCUM_R=4294967288
+Time= 425 ns, PSTATE=2, PC=10, IR=17100001, BR_DIR=0, IMM=1, RF_Q1=0, RF_Q2=0, ALU_OUT=1, ACCUM_R=0
+Time= 435 ns, PSTATE=1, PC=10, IR=17100001, BR_DIR=0, IMM=1, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=1
+Time= 445 ns, PSTATE=2, PC=11, IR=17200009, BR_DIR=0, IMM=9, RF_Q1=0, RF_Q2=0, ALU_OUT=9, ACCUM_R=0
+Time= 455 ns, PSTATE=1, PC=11, IR=17200009, BR_DIR=0, IMM=9, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=9
+Time= 465 ns, PSTATE=2, PC=12, IR=400123f5, BR_DIR=3, IMM=4294967285, RF_Q1=1, RF_Q2=9, ALU_OUT=4294967288, ACCUM_R=0
+Time= 475 ns, PSTATE=1, PC=1, IR=400123f5, BR_DIR=3, IMM=4294967285, RF_Q1=1, RF_Q2=9, ALU_OUT=0, ACCUM_R=4294967288
+Time= 485 ns, PSTATE=2, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=5, ACCUM_R=0
+Time= 495 ns, PSTATE=1, PC=2, IR=17200005, BR_DIR=0, IMM=5, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=5
+Time= 505 ns, PSTATE=2, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=1, RF_Q2=5, ALU_OUT=4294967292, ACCUM_R=0
+Time= 515 ns, PSTATE=1, PC=3, IR=40012000, BR_DIR=0, IMM=0, RF_Q1=1, RF_Q2=5, ALU_OUT=0, ACCUM_R=4294967292
+Time= 525 ns, PSTATE=2, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=15, ACCUM_R=0
+Time= 535 ns, PSTATE=1, PC=4, IR=1710000f, BR_DIR=0, IMM=15, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=15
+Time= 545 ns, PSTATE=2, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 555 ns, PSTATE=1, PC=5, IR=17200007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Time= 565 ns, PSTATE=2, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=8, ACCUM_R=0
+Time= 575 ns, PSTATE=1, PC=6, IR=40012100, BR_DIR=1, IMM=0, RF_Q1=15, RF_Q2=7, ALU_OUT=0, ACCUM_R=8
+Time= 585 ns, PSTATE=2, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=7, ACCUM_R=0
+Time= 595 ns, PSTATE=1, PC=7, IR=17100007, BR_DIR=0, IMM=7, RF_Q1=0, RF_Q2=0, ALU_OUT=0, ACCUM_R=7
+Simulation complete via $finish(1) at time 600 NS + 0
+../tb/RISC_V3_tb_C.sv:153 $finish;
+xcelium> ^C
+xcelium> exit
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+TOOL:	xrun(64)	23.03-s011: Exiting on Jul 20, 2026 at 21:18:26 +06  (total: 00:02:40)

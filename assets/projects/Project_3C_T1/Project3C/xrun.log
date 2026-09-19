@@ -1,0 +1,86 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Apr 06, 2026 at 09:10:50 +06
+xrun
+	-sv
+	-access +rwc
+	+gui
+	rtl/DATA_MEM.sv
+	rtl/PROCESSOR_V3.sv
+	rtl/PROG_MEM.sv
+	rtl/RISC_V3.sv
+	tb/RISC_V3_TB.sv
+file: rtl/DATA_MEM.sv
+	module worklib.DATA_MEM:sv
+		errors: 0, warnings: 0
+file: rtl/PROCESSOR_V3.sv
+	module worklib.PROCESSOR_V3:sv
+		errors: 0, warnings: 0
+file: rtl/PROG_MEM.sv
+	module worklib.PROG_MEM:sv
+		errors: 0, warnings: 0
+file: rtl/RISC_V3.sv
+	module worklib.RISC_V3:sv
+		errors: 0, warnings: 0
+file: tb/RISC_V3_TB.sv
+	module worklib.RISC_V3_tb:sv
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		RISC_V3_tb
+PROCESSOR_V3 PC1 (.*);
+                   |
+xmelab: *W,CUVMPW (./rtl/RISC_V3.sv,33|19): port sizes differ in port connection(32/4) for the instance(RISC_V3_tb.DUV)  for child port:  PC.
+PROCESSOR_V3 PC1 (.*);
+                   |
+xmelab: *W,CUVMPW (./rtl/RISC_V3.sv,33|19): port sizes differ in port connection(32/4) for the instance(RISC_V3_tb.DUV)  for child port:  DM_ADDR.
+PROG_MEM PM (.*); 
+              |
+xmelab: *W,CUVMPW (./rtl/RISC_V3.sv,34|14): port sizes differ in port connection(32/4) for the instance(RISC_V3_tb.DUV)  for child port:  PC.
+DATA_MEM DM (.*);
+              |
+xmelab: *W,CUVMPW (./rtl/RISC_V3.sv,35|14): port sizes differ in port connection(32/4) for the instance(RISC_V3_tb.DUV)  for child port:  DM_ADDR.
+$timeformat(-9, 0, " ns", 0);
+          |
+xmelab: *W,NOMDTS (./tb/RISC_V3_TB.sv,36|10): No module timescale, $timeformat ignored.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.PROG_MEM:sv <0x08109cc8>
+			streams:   2, words:  1294
+		worklib.RISC_V3:sv <0x180472db>
+			streams:  18, words:  5563
+		worklib.RISC_V3_tb:sv <0x70180418>
+			streams:  30, words: 10157
+		worklib.PROCESSOR_V3:sv <0x622d2d41>
+			streams:   9, words: 20656
+		worklib.DATA_MEM:sv <0x08840be5>
+			streams:   2, words:  1395
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:              5       5
+		Registers:           67      67
+		Scalar wires:         8       -
+		Vectored wires:      67       -
+		Always blocks:        3       3
+		Initial blocks:       9       9
+		Cont. assignments:   13      19
+		Pseudo assignments:  32       -
+	Writing initial simulation snapshot: worklib.RISC_V3_tb:sv
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cadence/lnx/xce_24/tools/xcelium/files/xmsimrc
+xcelium> database -open waves -into waves.shm -default
+Created default SHM database waves
+xcelium> probe -create -shm RISC_V3_tb.DUV.SYS_CLOCK RISC_V3_tb.DUV.RST RISC_V3_tb.DUV.PC RISC_V3_tb.DUV.IR RISC_V3_tb.DUV.DM_ADDR RISC_V3_tb.BRANCH_DIR RISC_V3_tb.DUV.DM_IN RISC_V3_tb.DUV.DM_OUT RISC_V3_tb.DUV.IMM_DATA RISC_V3_tb.DUV.PM_OUT RISC_V3_tb.DUV.RF_Q1 RISC_V3_tb.DUV.RF_Q2 RISC_V3_tb.DUV.ALU_OUT RISC_V3_tb.DUV.DM_WR RISC_V3_tb.DUV.PSTATE
+Created probe 1
+xcelium> run
+Simulation complete via $finish(1) at time 400 NS + 0
+./tb/RISC_V3_TB.sv:146 $finish;
+xcelium> ^C
+xcelium> exit
+TOOL:	xrun(64)	23.03-s011: Exiting on Apr 06, 2026 at 09:15:49 +06  (total: 00:04:59)

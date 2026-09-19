@@ -1,0 +1,1051 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.18-s099_1, built Tue Jul 18 13:03:50 PDT 2023
+Options:	-init scripts/signoff.tcl -log logs/signoff.log 
+Date:		Sat May  2 12:25:29 2026
+Host:		cadence (x86_64 w/Linux 3.10.0-1160.el7.x86_64) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2440 v2 @ 1.90GHz 20480KB)
+OS:		Red Hat Enterprise Linux Server 7.9 (Maipo)
+
+License:
+		[12:25:29.095657] Configured Lic search path (21.01-s002): 5280@cadence
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (386 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getVersion
+<CMD> define_proc_arguments ViaFillQor -info {This procedure extracts Viafill details from innovus db} -define_args {
+		{-window "window coordinates" "" list optional}
+		{-window_size "window size in microns" "" string optional}
+	
+	}
+[INFO] Loading Pegasus 22.24 fill procedures
+<CMD> define_proc_arguments ProcessFills -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+<CMD> define_proc_arguments FillQor -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+<CMD> define_proc_arguments ProcessFills_fast -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+<CMD> define_proc_arguments FillQor_fast -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+<CMD> define_proc_arguments ProcessFills_fast_stampOnly -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+	
+}
+<CMD> define_proc_arguments FillQor_fast_stampOnly -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+}
+Sourcing file "scripts/signoff.tcl" ...
+### Start verbose source output (echo mode) for '../project_setup.tcl' ...
+# set TECH "sky130_cadence" ;
+# set MULTIVT "false"
+# set MBFF "false"
+# source -e -v $::env(REPO_ROOT)/util/tech/${TECH}.tcl 
+### Start verbose source output (echo mode) for '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/sky130_cadence.tcl' ...
+# set TECH "sky130_cadence" 
+# puts "ATSH_VLSI: TECH=$TECH"
+# puts "ATSH_VLSI: Starting Setup"
+# if { $TECH == "sky130_cadence" } {
+	set TECH_DIR "/home/eee/sky130_cadence"
+	set STD_LIB_DIR "sky130_scl_9T_0.0.5"
+	puts "ATSH_VLSI: $TECH has no multivt or mbff options as of this release."
+	#set MULTIVT $::env(MULTIVT)
+	#set MBFF $::env(MBFF)
+
+set LEF_FILES ""
+
+# Adding Technology LEF file
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/lef/sky130_scl_9T.tlef"
+
+# Adding RVT Cell LEF
+append LEF_FILES " " "$TECH_DIR/$STD_LIB_DIR/lef/sky130_scl_9T.lef"
+
+
+set LIB_FILES(slow) ""
+set LIB_FILES(fast) ""
+
+append LIB_FILES(slow) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_ss_1.62_125_nldm.lib"
+append LIB_FILES(fast) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_ff_1.98_0_nldm.lib"
+append LIB_FILES(typical) " " "$TECH_DIR/$STD_LIB_DIR/lib/sky130_tt_1.8_25_nldm.lib"
+
+set LIB_FILES(all) "$LIB_FILES(slow) $LIB_FILES(fast) $LIB_FILES(typical)"
+
+set QRC_TECH_FILE(typical) "$TECH_DIR/sky130_release_0.0.4/quantus/extraction/typical/qrcTechFile"
+
+set PHYSICAL_CELL_LIST " FILL1 FILL2 FILL4 FILL8 FILL16 FILL32 FILL64 "
+set CLK_BUFFERS " CLKBUFX4 CLKBUFX8 CLKBUFX2 "
+set CLK_INVERTERS " CLKINVX2 CLKINVX8 CLKINVX1 CLKINVX4 "
+
+set GDS_MAP_FILE "$TECH_DIR/$STD_LIB_DIR/gds/sky130_stream.mapFile"
+set GDS_MERGE_FILE "$TECH_DIR/$STD_LIB_DIR/gds/sky130_scl_9T.gds"
+
+} ;
+### End verbose source output for '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/util/tech/sky130_cadence.tcl'.
+# set DESIGN_DIR "design_data"
+# set DESIGN_NAME "$::env(TOP)"
+# puts "TOP DESIGN SET TO: $DESIGN_NAME"
+# set CLK_PORT "SYS_CLOCK" 
+# set CLK_PERIOD "5.0" ;
+# set POWER_NET "VDD"
+# set GROUND_NET "VSS"
+# set SYNTH_EFFORT_GENERIC "medium"
+# set SYNTH_EFFORT_OPT "high"
+# set SYNTH_INFO_LEVEL 7
+# set SYNTH_LOW_POWER "false"
+# if { $var(step) == "synth" } {
+set RTL_FILES "[glob $DESIGN_DIR/*v]"
+set CONSTRAINTS_FILE "[glob $DESIGN_DIR/*sdc]"
+#set RTL_FILES "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn]"
+#set CONSTRAINTS_FILE "[exec python3 $::env(REPO_ROOT)/util/compile.py $::env(REPO_ROOT)/frontend/$::env(PROJECT)/manifest.json syn_sdc]"
+}
+# set PNR_INIT_NETLIST "$DESIGN_DIR/${DESIGN_NAME}_gate.v"
+# set PNR_SDC "$DESIGN_DIR/${DESIGN_NAME}.sdc"
+# set PNR_VIEW_DEF "$DESIGN_DIR/viewDefinition.tcl"
+# set PNR_GND_NETS "VSS"
+# set PNR_PWR_NETS "VDD"
+# set PNR_MAX_ROUTE_LAYER "6"
+# set PNR_FP_TCL "../floorplan/fp.tcl"
+# set PNR_FP_DEF "../floorplan/fp.def"
+# set PNR_FP_PRIORITY "TCL"
+### End verbose source output for '../project_setup.tcl'.
+### Start verbose source output (echo mode) for 'scripts/always_source.tcl' ...
+# setAnalysisMode -analysisType onChipVariation
+<CMD> setAnalysisMode -analysisType onChipVariation
+### End verbose source output for 'scripts/always_source.tcl'.
+<CMD> restoreDesign DBS/route.enc.dat MAC_4BIT
+#% Begin load design ... (date=05/02 12:26:05, mem=746.3M)
+Set Default Input Pin Transition as 0.1 ps.
+Loading design 'MAC_4BIT' saved by 'Innovus' '21.18-s099_1' on 'Sat May 2 12:25:28 2026'.
+% Begin Load MMMC data ... (date=05/02 12:26:06, mem=748.3M)
+% End Load MMMC data ... (date=05/02 12:26:06, total cpu=0:00:00.0, real=0:00:00.0, peak res=749.1M, current mem=749.1M)
+rctypical
+
+Loading LEF file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/libs/lef/sky130_scl_9T.tlef ...
+
+Loading LEF file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/libs/lef/sky130_scl_9T.lef ...
+Set DBUPerIGU to M2 pitch 460.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+Loading view definition file from /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/viewDefinition.tcl
+Reading slow_libs timing library '/home/eee/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_ss_1.62_125_nldm.lib' ...
+Read 109 cells in library 'sky130_ss_1.62_125' 
+Reading fast_libs timing library '/home/eee/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_ff_1.98_0_nldm.lib' ...
+Read 109 cells in library 'sky130_ff_1.98_0' 
+*** End library_loading (cpu=0.02min, real=0.02min, mem=18.0M, fe_cpu=0.62min, fe_real=0.63min, fe_mem=1029.8M) ***
+% Begin Load netlist data ... (date=05/02 12:26:07, mem=764.3M)
+*** Begin netlist parsing (mem=1029.8M) ***
+Created 109 new cells from 2 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.v.bin'
+
+*** Memory Usage v#1 (Current mem = 1036.781M, initial mem = 486.109M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1036.8M) ***
+% End Load netlist data ... (date=05/02 12:26:07, total cpu=0:00:00.0, real=0:00:00.0, peak res=769.5M, current mem=769.5M)
+Set top cell to MAC_4BIT.
+Hooked 218 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell MAC_4BIT ...
+*** Netlist is unique.
+** info: there are 227 modules.
+** info: there are 64 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 1082.207M, initial mem = 486.109M) ***
+*info: set bottom ioPad orient R0
+**WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+Loading preference file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/gui.pref.tcl ...
+##  Process: 45            (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 45nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.1.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(-capFilterMode option of the setExtractRCMode) is 'relAndCoup' for all engines.
+	The accuracy mode for postRoute effortLevel low extraction will be set to 'high'.
+	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode will be 'medium' if Quantus QRC technology file is specified else 'low'.
+Slack adjustment of -0 applied on <default> path group
+**WARN: (IMPOPT-3602):	The specified path group name reg2reg is not defined.
+Type 'man IMPOPT-3602' for more detail.
+Effort level <high> specified for reg2reg path_group
+Slack adjustment of -0 applied on reg2reg path_group
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+#WARNING (NRIF-91) Option setNanoRouteMode -routeTopRoutingLayer is obsolete. It will continue to work for the current release. To ensure compatibility with future releases, use option setDesignMode -topRoutingLayer instead.
+AAE_INFO: switching -siAware from false to true ...
+AAE_INFO: The setting is changed from false to true in setDelayCalMode -SIAware
+addRing command will ignore shorts while creating rings.
+addRing command will disallow rings to go over rows.
+addRing command will consider rows while creating rings.
+The ring targets are set to core/block ring wires.
+addStripe will allow jog to connect padcore ring and block ring.
+
+Stripes will not extend to closest target.
+When breaking rings, the power planner will consider the existence of blocks.
+addStripe will break automatically at non-default domains when generating global stripes over the core area or default domain.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+Stripes will not be created over regions without power planning wires.
+Offset for stripe breaking is set to 0.
+Stripes will stop at the boundary of the specified area.
+The power planner will set stripe antenna targets to none (no trimming allowed).
+**WARN: (IMPPSP-1003):	Found use of 'setRouteMode -earlyGlobalMaxRouteLayer'. This will continue to work in this release; however, it is recommended to use 'setDesignMode -topRoutingLayer' instead.
+**WARN: (IMPPSP-1003):	Found use of 'setRouteMode -earlyGlobalMinRouteLayer'. This will continue to work in this release; however, it is recommended to use 'setDesignMode -bottomRoutingLayer' instead.
+Change floorplan default-technical-site to 'CoreSite'.
+*Info: initialize multi-corner CTS.
+Reading typical_libs timing library '/home/eee/sky130_cadence/sky130_scl_9T_0.0.5/lib/sky130_tt_1.8_25_nldm.lib' ...
+Read 109 cells in library 'sky130_tt_1.8_25' 
+Total number of combinational cells: 87
+Total number of sequential cells: 19
+Total number of tristate cells: 3
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 0
+List of usable buffers: BUFX16 BUFX2 BUFX4 BUFX8 CLKBUFX2 CLKBUFX4 CLKBUFX8
+Total number of usable buffers: 7
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: CLKINVX1 INVX1 CLKINVX2 CLKINVX4 CLKINVX8 INVX16 INVX2 INVX4 INVX8
+Total number of usable inverters: 9
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X4 DLY4X4
+Total number of identified usable delay cells: 4
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Reading floorplan file - /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.fp.gz (mem = 1345.7M).
+% Begin Load floorplan data ... (date=05/02 12:26:09, mem=1067.7M)
+*info: reset 100 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 64400 61640)
+**WARN: (IMPFP-3961):	The techSite 'CornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'IOSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+Generated pitch 3.66 in met5 is different from 3.22 defined in technology file in preferred direction.
+Generated pitch 0.615 in met4 is different from 0.69 defined in technology file in preferred direction.
+Generated pitch 0.61 in met3 is different from 0.69 defined in technology file in preferred direction.
+ ... processed partition successfully.
+Reading binary special route file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.fp.spr.gz (Created by Innovus v21.18-s099_1 on Sat May  2 12:25:26 2026, version: 1)
+Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1068.4M, current mem=1068.4M)
+There are 1 nets with weight being set
+There are 1 nets with bottomPreferredRoutingLayer being set
+There are 1 nets with avoidDetour being set
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+% End Load floorplan data ... (date=05/02 12:26:10, total cpu=0:00:00.1, real=0:00:01.0, peak res=1069.1M, current mem=1069.1M)
+Reading congestion map file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.route.congmap.gz ...
+% Begin Load SymbolTable ... (date=05/02 12:26:10, mem=1069.3M)
+Suppress "**WARN ..." messages.
+Un-suppress "**WARN ..." messages.
+% End Load SymbolTable ... (date=05/02 12:26:10, total cpu=0:00:00.0, real=0:00:00.0, peak res=1069.6M, current mem=1069.6M)
+Loading place ...
+% Begin Load placement data ... (date=05/02 12:26:10, mem=1069.6M)
+Reading placement file - /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v21.18-s099_1 on Sat May  2 12:25:26 2026, version# 2) ...
+Read Views for adaptive view pruning ...
+Read 0 views from Binary DB for adaptive view pruning
+*** Checked 2 GNC rules.
+*** applyConnectGlobalNets disabled.
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1348.7M) ***
+Total net length = 1.354e+03 (7.585e+02 5.952e+02) (ext = 7.677e+02)
+% End Load placement data ... (date=05/02 12:26:10, total cpu=0:00:00.0, real=0:00:00.0, peak res=1070.3M, current mem=1070.3M)
+Reading PG file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.pg.gz, version#2, (Created by Innovus v21.18-s099_1 on       Sat May  2 12:25:26 2026)
+*** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1345.7M) ***
+% Begin Load routing data ... (date=05/02 12:26:10, mem=1070.4M)
+Reading routing file - /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.route.gz.
+Reading Innovus routing data (Created by Innovus v21.18-s099_1 on Sat May  2 12:25:26 2026 Format: 20.1) ...
+*** Total 100 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.0 real=0:00:01.0 mem=1345.7M) ***
+% End Load routing data ... (date=05/02 12:26:11, total cpu=0:00:00.0, real=0:00:01.0, peak res=1071.7M, current mem=1070.7M)
+TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+Reading property file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1349.7M) ***
+Reading dirtyarea snapshot file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.db.da.gz (Create by Innovus v21.18-s099_1 on Sat May  2 12:25:27 2026, version: 4).
+Set Default Input Pin Transition as 0.1 ps.
+Loading preRoute extraction data from directory '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/extraction/' ...
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+Captable file(s) not specified in multi-corner setup. PreRoute extraction will use technology file. For postRoute extraction, default value for effort level would be 'medium' and effort level 'low' would not be allowed.
+Generating auto layer map file.
+Loading preRoute extracted patterns from file '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.techData.gz' ...
+Completed (cpu: 0:00:00.4 real: 0:00:01.0)
+Set Shrink Factor to 1.00000
+Summary of Active RC-Corners : 
+ 
+ Analysis View: func_slow
+    RC-Corner Name        : rctypical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel medium)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel medium)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 	[Derived from postRoute_xcap (effortLevel medium)]
+    RC-Corner Technology file: '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/libs/mmmc/rctypical/qrcTechFile'
+ 
+ Analysis View: func_typical
+    RC-Corner Name        : rctypical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel medium)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel medium)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 	[Derived from postRoute_xcap (effortLevel medium)]
+    RC-Corner Technology file: '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/libs/mmmc/rctypical/qrcTechFile'
+ 
+ Analysis View: func_fast
+    RC-Corner Name        : rctypical
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel medium)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel medium)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 	[Derived from postRoute_xcap (effortLevel medium)]
+    RC-Corner Technology file: '/home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/libs/mmmc/rctypical/qrcTechFile'
+Initializing multi-corner resistance tables ...
+Default value for postRoute extraction mode's effortLevel (-effortLevel option of setExtractRCMode) changed to 'medium'.
+Start generating vias ..
+#Skip building auto via since it is not turned on.
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+Via generation completed.
+% Begin Load power constraints ... (date=05/02 12:26:13, mem=1098.9M)
+'set_default_switching_activity' finished successfully.
+% End Load power constraints ... (date=05/02 12:26:13, total cpu=0:00:00.1, real=0:00:00.0, peak res=1105.4M, current mem=1105.4M)
+rctypical_fast rctypical_typical rctypical_slow
+% Begin load AAE data ... (date=05/02 12:26:13, mem=1150.7M)
+AAE DB initialization (MEM=1460.17 CPU=0:00:00.0 REAL=0:00:00.0) 
+% End load AAE data ... (date=05/02 12:26:14, total cpu=0:00:00.9, real=0:00:01.0, peak res=1156.0M, current mem=1156.0M)
+Restoring CCOpt config...
+  Extracting original clock gating for SYS_CLOCK...
+    clock_tree SYS_CLOCK contains 8 sinks and 0 clock gates.
+  Extracting original clock gating for SYS_CLOCK done.
+  The skew group SYS_CLOCK/func was created. It contains 8 sinks and 1 sources.
+  The skew group SYS_CLOCK/func was created. It contains 8 sinks and 1 sources.
+Restoring CCOpt config done.
+Total number of combinational cells: 87
+Total number of sequential cells: 19
+Total number of tristate cells: 3
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 0
+List of usable buffers: BUFX16 BUFX2 BUFX4 BUFX8
+Total number of usable buffers: 4
+List of unusable buffers: CLKBUFX2 CLKBUFX4 CLKBUFX8
+Total number of unusable buffers: 3
+List of usable inverters: INVX1 INVX16 INVX2 INVX4 INVX8
+Total number of usable inverters: 5
+List of unusable inverters: CLKINVX1 CLKINVX2 CLKINVX4 CLKINVX8
+Total number of unusable inverters: 4
+List of identified usable delay cells: DLY1X1 DLY1X4 DLY2X4 DLY4X4
+Total number of identified usable delay cells: 4
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+**WARN: (IMPCTE-107):	The following globals have been obsoleted since version . They will be removed in the next release. 
+timing_enable_separate_device_slew_effect_sensitivities
+#% End load design ... (date=05/02 12:26:14, total cpu=0:00:06.8, real=0:00:09.0, peak res=1181.2M, current mem=1159.2M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+WARNING   IMPOPT-3602          1  The specified path group name %s is not ...
+WARNING   NRIF-91              1  Option setNanoRouteMode -routeTopRouting...
+WARNING   IMPCTE-107           1  The following globals have been obsolete...
+WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+WARNING   IMPPSP-1003          2  Found use of '%s'. This will continue to...
+*** Message Summary: 11 warning(s), 0 error(s)
+
+<CMD> addFiller -prefix FILLER -cell { FILL1 FILL2 FILL4 FILL8 FILL16 FILL32 FILL64 }
+**WARN: (IMPSP-5217):	addFiller command is running on a postRoute database. It is recommended to be followed by ecoRoute -target command to make the DRC clean.
+Type 'man IMPSP-5217' for more detail.
+**WARN: (IMPSP-362):	Site 'CoreSite' has one std.Cell height, so ignoring its X-symmetry.
+Type 'man IMPSP-362' for more detail.
+Estimated cell power/ground rail width = 0.517 um
+*INFO: Adding fillers to top-module.
+*INFO:   Added 0 filler inst  (cell FILL64 / prefix FILLER).
+*INFO:   Added 0 filler inst  (cell FILL32 / prefix FILLER).
+*INFO:   Added 4 filler insts (cell FILL16 / prefix FILLER).
+*INFO:   Added 12 filler insts (cell FILL8 / prefix FILLER).
+*INFO:   Added 17 filler insts (cell FILL4 / prefix FILLER).
+*INFO:   Added 27 filler insts (cell FILL2 / prefix FILLER).
+*INFO:   Added 24 filler insts (cell FILL1 / prefix FILLER).
+*INFO: Total 84 filler insts added - prefix FILLER (CPU: 0:00:00.1).
+For 84 new insts, <CMD> ecoRoute
+**INFO: User settings:
+setNanoRouteMode -drouteAntennaFactor                           1
+setNanoRouteMode -droutePostRouteSpreadWire                     auto
+setNanoRouteMode -drouteStartIteration                          0
+setNanoRouteMode -drouteUseLefPinTaperRule                      true
+setNanoRouteMode -extractDesignSignature                        50831749
+setNanoRouteMode -extractRcModelFile                            /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/libs/misc/rc_model.bin
+setNanoRouteMode -extractThirdPartyCompatible                   false
+setNanoRouteMode -grouteExpTdStdDelay                           60
+setNanoRouteMode -grouteExpTdUseTifTimingEngineForImportDesign  false
+setNanoRouteMode -routeTopRoutingLayer                          6
+setNanoRouteMode -routeWithSiPostRouteFix                       false
+setNanoRouteMode -timingEngine                                  .timing_file_13905.tif.gz
+setDesignMode -process                                          45
+
+#% Begin globalDetailRoute (date=05/02 12:26:14, mem=1165.8M)
+
+globalDetailRoute
+
+#Start globalDetailRoute on Sat May  2 12:26:14 2026
+#
+#create default rule from bind_ndr_rule rule=0x7f2451179ea0 0x7f2438465538
+#num needed restored net=0
+#need_extraction net=0 (total=100)
+#NanoRoute Version 21.18-s099_1 NR230707-1955/21_18-UB
+#Skip comparing routing design signature in db-snapshot flow
+#Total number of trivial nets (e.g. < 2 pins) = 11 (skipped).
+#Total number of routable nets = 89.
+#Total number of nets in the design = 100.
+#89 routable nets have routed wires.
+#1 detail routed (routable) net has been constrained (e.g. have preferred extra spacing, require shielding etc.)
+#No nets have been global routed.
+#Start routing data preparation on Sat May  2 12:26:14 2026
+#
+#WARNING (NRDB-2040) Rule LEF_DEFAULT doesn't specify any vias that satisfy all of the area rules for layer met3 
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#Build and mark too close pins for the same net.
+#Restoring pin access data from file /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/MAC_4BIT.apa ...
+#Done restoring pin access data
+#Initial pin access analysis.
+#Detail pin access analysis.
+# met1         H   Track-Pitch = 0.4600    Line-2-Via Pitch = 0.3400
+# met2         V   Track-Pitch = 0.4600    Line-2-Via Pitch = 0.3400
+# met3         H   Track-Pitch = 0.6100    Line-2-Via Pitch = 0.6100
+# met4         V   Track-Pitch = 0.6150    Line-2-Via Pitch = 0.6150
+# met5         H   Track-Pitch = 3.6600    Line-2-Via Pitch = 3.2000
+#Bottom routing layer index=1(met1), bottom routing layer for shielding=1(met1), bottom shield layer=1(met1)
+#shield_bottom_stripe_layer=1(met1), shield_top_stripe_layer=5(met5)
+#pin_access_rlayer=2(met2)
+#shield_top_dpt_rlayer=-1 top_rlayer=5 top_trim_metal_rlayer=-1 rlayer_lowest=1 bottom_rlayer=1
+#enable_trim_layer_shield=F enable_dpt_layer_shield=F has_line_end_grid=F
+#Processed 84/0 dirty instances, 0/0 dirty terms, 0/0 dirty fterms, 0/0 dirty pgterms, 0/0 misc dirty regions(84 insts marked dirty, reset pre-exisiting dirty flag on 84 insts, 0 nets marked need extraction)
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1180.75 (MB), peak = 1182.17 (MB)
+#Regenerating Ggrids automatically.
+#Auto generating G-grids with size=15 tracks, using layer met3's pitch = 0.6150.
+#Using automatically generated G-grids.
+#Done routing data preparation.
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1184.52 (MB), peak = 1184.52 (MB)
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#
+#Finished routing data preparation on Sat May  2 12:26:15 2026
+#
+#Cpu time = 00:00:00
+#Elapsed time = 00:00:00
+#Increased memory = 10.76 (MB)
+#Total memory = 1184.64 (MB)
+#Peak memory = 1184.64 (MB)
+#
+#
+#Start global routing on Sat May  2 12:26:15 2026
+#
+#
+#Start global routing initialization on Sat May  2 12:26:15 2026
+#
+#WARNING (NRGR-22) Design is already detail routed.
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#Routing data preparation, pin analysis, global routing and track assignment statistics:
+#Cpu time = 00:00:00
+#Elapsed time = 00:00:00
+#Increased memory = 10.37 (MB)
+#Total memory = 1184.13 (MB)
+#Peak memory = 1184.72 (MB)
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#
+#Start Detail Routing..
+#start initial detail routing ...
+# ECO: 100.00% of the total area was rechecked for DRC, and 0.00% required routing.
+#   number of violations = 0
+#84 out of 168 instances (50.0%) need to be verified(marked ipoed), dirty area = 16.1%.
+#0.0% of the total area is being checked for drcs
+#0.0% of the total area was checked
+#   number of violations = 0
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1188.88 (MB), peak = 1236.11 (MB)
+#Complete Detail Routing.
+#Total number of nets with non-default rule or having extra spacing = 1
+#Total wire length = 1459 um.
+#Total half perimeter of net bounding box = 1562 um.
+#Total wire length on LAYER met1 = 212 um.
+#Total wire length on LAYER met2 = 612 um.
+#Total wire length on LAYER met3 = 572 um.
+#Total wire length on LAYER met4 = 63 um.
+#Total wire length on LAYER met5 = 0 um.
+#Total number of vias = 322
+#Up-Via Summary (total 322):
+#           
+#-----------------------
+# met1              222
+# met2               82
+# met3               18
+#-----------------------
+#                   322 
+#
+#Total number of DRC violations = 0
+#Cpu time = 00:00:00
+#Elapsed time = 00:00:00
+#Increased memory = 4.79 (MB)
+#Total memory = 1188.92 (MB)
+#Peak memory = 1236.11 (MB)
+#
+#start routing for process antenna violation fix ...
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1189.08 (MB), peak = 1236.11 (MB)
+#
+#Total number of nets with non-default rule or having extra spacing = 1
+#Total wire length = 1459 um.
+#Total half perimeter of net bounding box = 1562 um.
+#Total wire length on LAYER met1 = 212 um.
+#Total wire length on LAYER met2 = 612 um.
+#Total wire length on LAYER met3 = 572 um.
+#Total wire length on LAYER met4 = 63 um.
+#Total wire length on LAYER met5 = 0 um.
+#Total number of vias = 322
+#Up-Via Summary (total 322):
+#           
+#-----------------------
+# met1              222
+# met2               82
+# met3               18
+#-----------------------
+#                   322 
+#
+#Total number of DRC violations = 0
+#Total number of process antenna violations = 0
+#Total number of net violated process antenna rule = 0
+#
+#
+#Total number of nets with non-default rule or having extra spacing = 1
+#Total wire length = 1459 um.
+#Total half perimeter of net bounding box = 1562 um.
+#Total wire length on LAYER met1 = 212 um.
+#Total wire length on LAYER met2 = 612 um.
+#Total wire length on LAYER met3 = 572 um.
+#Total wire length on LAYER met4 = 63 um.
+#Total wire length on LAYER met5 = 0 um.
+#Total number of vias = 322
+#Up-Via Summary (total 322):
+#           
+#-----------------------
+# met1              222
+# met2               82
+# met3               18
+#-----------------------
+#                   322 
+#
+#Total number of DRC violations = 0
+#Total number of process antenna violations = 0
+#Total number of net violated process antenna rule = 0
+#
+#detailRoute Statistics:
+#Cpu time = 00:00:00
+#Elapsed time = 00:00:00
+#Increased memory = 5.06 (MB)
+#Total memory = 1189.20 (MB)
+#Peak memory = 1236.11 (MB)
+#Skip updating routing design signature in db-snapshot flow
+#
+#globalDetailRoute statistics:
+#Cpu time = 00:00:01
+#Elapsed time = 00:00:01
+#Increased memory = 31.87 (MB)
+#Total memory = 1197.72 (MB)
+#Peak memory = 1236.11 (MB)
+#Number of warnings = 2
+#Total number of warnings = 3
+#Number of fails = 0
+#Total number of fails = 0
+#Complete globalDetailRoute on Sat May  2 12:26:15 2026
+#
+#% End globalDetailRoute (date=05/02 12:26:15, total cpu=0:00:00.6, real=0:00:01.0, peak res=1236.1M, current mem=1197.9M)
+<CMD> timeDesign -postroute -prefix signoff -outDir RPT/signoff
+*** timeDesign #1 [begin] : totSession cpu/real = 0:00:42.6/0:00:44.2 (1.0), mem = 1606.7M
+ Reset EOS DB
+Ignoring AAE DB Resetting ...
+#num needed restored net=0
+#need_extraction net=0 (total=100)
+#Extract in post route mode
+#Finish check_net_pin_list step Enter extract_rc_in_nr_cmd
+#Fast data preparation for tQuantus.
+#Start routing data preparation on Sat May  2 12:26:15 2026
+#
+# met1         H   Track-Pitch = 0.4600    Line-2-Via Pitch = 0.3400
+# met2         V   Track-Pitch = 0.4600    Line-2-Via Pitch = 0.3400
+# met3         H   Track-Pitch = 0.6100    Line-2-Via Pitch = 0.6100
+# met4         V   Track-Pitch = 0.6150    Line-2-Via Pitch = 0.6150
+# met5         H   Track-Pitch = 3.6600    Line-2-Via Pitch = 3.2000
+#Regenerating Ggrids automatically.
+#Auto generating G-grids with size=15 tracks, using layer met3's pitch = 0.6150.
+#Using automatically generated G-grids.
+#Done routing data preparation.
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1199.26 (MB), peak = 1236.11 (MB)
+#Start routing data preparation on Sat May  2 12:26:15 2026
+#
+#Minimum voltage of a net in the design = 0.000.
+#Maximum voltage of a net in the design = 1.980.
+#Voltage range [0.000 - 1.980] has 98 nets.
+#Voltage range [1.620 - 1.980] has 1 net.
+#Voltage range [0.000 - 0.000] has 1 net.
+#Build and mark too close pins for the same net.
+#Bottom routing layer index=1(met1), bottom routing layer for shielding=1(met1), bottom shield layer=1(met1)
+#shield_bottom_stripe_layer=1(met1), shield_top_stripe_layer=5(met5)
+#pin_access_rlayer=2(met2)
+#shield_top_dpt_rlayer=-1 top_rlayer=5 top_trim_metal_rlayer=-1 rlayer_lowest=1 bottom_rlayer=1
+#enable_trim_layer_shield=F enable_dpt_layer_shield=F has_line_end_grid=F
+#Regenerating Ggrids automatically.
+#Auto generating G-grids with size=15 tracks, using layer met3's pitch = 0.6150.
+#Using automatically generated G-grids.
+#Done routing data preparation.
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1205.37 (MB), peak = 1236.11 (MB)
+#
+#Start tQuantus RC extraction...
+#Start building rc corner(s)...
+#Number of RC Corner = 1
+#Corner rctypical /home/eee/sky130_cadence/sky130_release_0.0.4/quantus/extraction/typical/qrcTechFile 25.000000 (real) 
+#(i=5, n=5 1000)
+#metal1 -> met1 (1)
+#metal2 -> met2 (2)
+#metal3 -> met3 (3)
+#metal4 -> met4 (4)
+#metal5 -> met5 (5)
+#SADV-On
+# Corner(s) : 
+#rctypical [25.00]
+# Corner id: 0
+# Layout Scale: 1.000000
+# Has Metal Fill model: yes
+# Temperature was set
+# Temperature : 25.000000
+# Ref. Temp   : 25.000000
+#SADV-Off
+#
+#layer[5] tech width 1600 != ict width 800.0
+#
+#layer[5] tech spc 1600 != ict spc 800.0
+#total pattern=35 [5, 90]
+#Reading previously stored rc_model file ( /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_SKY/pnr/DBS/route.enc.dat/libs/misc/rc_model.bin ) ...
+#found CAPMODEL /home/eee/sky130_cadence/sky130_release_0.0.4/quantus/extraction/typical/qrcTechFile
+#found RESMODEL /home/eee/sky130_cadence/sky130_release_0.0.4/quantus/extraction/typical/qrcTechFile 25.000000 
+#number model r/c [1,1] [5,90] read
+#0 rcmodel(s) requires rebuild
+#Build RC corners: cpu time = 00:00:01, elapsed time = 00:00:01, memory = 1208.76 (MB), peak = 1236.11 (MB)
+#Finish check_net_pin_list step Enter extract
+#Start init net ripin tree building
+#Finish init net ripin tree building
+#Cpu time = 00:00:00
+#Elapsed time = 00:00:00
+#Increased memory = 0.02 (MB)
+#Total memory = 1208.78 (MB)
+#Peak memory = 1236.11 (MB)
+#begin processing metal fill model file
+#end processing metal fill model file
+#Length limit = 200 pitches
+#opt mode = 2
+#Finish check_net_pin_list step Fix net pin list
+#Start generate extraction boxes.
+#
+#Extract using 30 x 30 Hboxes
+#2x2 initial hboxes
+#Use area based hbox pruning.
+#0/0 hboxes pruned.
+#Complete generating extraction boxes.
+#Extract 1 hboxes with single thread on machine with  Xeon 2.20GHz 20480KB Cache 32CPU...
+#Process 0 special clock nets for rc extraction
+#Total 89 nets were built. 0 nodes added to break long wires. 0 net(s) have incomplete routes.
+#Run Statistics for Extraction:
+#   Cpu time = 00:00:00, elapsed time = 00:00:00 .
+#   Increased memory =     5.42 (MB), total memory =  1214.93 (MB), peak memory =  1236.11 (MB)
+#Register nets and terms for rcdb /tmp/innovus_temp_34369_cadence_B2_Robiul_QGhJaS/nr34369_BIfqui.rcdb.d
+#Finish registering nets and terms for rcdb.
+#Simplify RC tree: cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1219.58 (MB), peak = 1236.11 (MB)
+#RC Statistics: 250 Res, 107 Ground Cap, 83 XCap (Edge to Edge)
+#RC V/H edge ratio: 0.24, Avg V/H Edge Length: 3138.92 (88), Avg L-Edge Length: 10301.40 (86)
+#Nets and terms are pre-registered for rcdb /tmp/innovus_temp_34369_cadence_B2_Robiul_QGhJaS/nr34369_BIfqui.rcdb.d.
+#Start writing RC data.
+#Finish writing RC data
+#Finish writing rcdb with 343 nodes, 254 edges, and 166 xcaps
+#cpu time = 00:00:00, elapsed time = 00:00:00, memory = 1218.15 (MB), peak = 1236.11 (MB)
+Restoring parasitic data from file '/tmp/innovus_temp_34369_cadence_B2_Robiul_QGhJaS/nr34369_BIfqui.rcdb.d' ...
+Reading RCDB with compressed RC data.
+Reading RCDB with compressed RC data.
+Begin read_parasitics... (cpu: 0:00:00.0 real: 0:00:00.0 mem: 1651.176M)
+Following multi-corner parasitics specified:
+	/tmp/innovus_temp_34369_cadence_B2_Robiul_QGhJaS/nr34369_BIfqui.rcdb.d (rcdb)
+Reading RCDB with compressed RC data.
+		Cell MAC_4BIT has rcdb /tmp/innovus_temp_34369_cadence_B2_Robiul_QGhJaS/nr34369_BIfqui.rcdb.d specified
+Cell MAC_4BIT, hinst 
+Reading RCDB with compressed RC data.
+Done read_parasitics... (cpu: 0:00:00.7 real: 0:00:01.0 mem: 1651.176M)
+#
+#Restore RCDB.
+#
+#Complete tQuantus RC extraction.
+#Cpu time = 00:00:01
+#Elapsed time = 00:00:02
+#Increased memory = 13.37 (MB)
+#Total memory = 1218.74 (MB)
+#Peak memory = 1236.11 (MB)
+#
+#0 inserted nodes are removed
+#Restored 0 tie nets, 0 tie snets, 0 partial nets
+#Start Inst Signature in MT(0)
+#Start Net Signature in MT(20779417)
+#Calculate SNet Signature in MT (29302110)
+#Run time and memory report for RC extraction:
+#RC extraction running on  Xeon 2.20GHz 20480KB Cache 32CPU.
+#Run Statistics for snet signature:
+#   Cpu time = 00:00:00, elapsed time = 00:00:00 .
+#   Increased memory =     0.00 (MB), total memory =  1214.14 (MB), peak memory =  1236.11 (MB)
+#Run Statistics for Net Final Signature:
+#   Cpu time = 00:00:00, elapsed time = 00:00:00 .
+#   Increased memory =     0.00 (MB), total memory =  1214.14 (MB), peak memory =  1236.11 (MB)
+#Run Statistics for Net launch:
+#   Cpu time = 00:00:00, elapsed time = 00:00:00 .
+#   Increased memory =     0.02 (MB), total memory =  1214.14 (MB), peak memory =  1236.11 (MB)
+#Run Statistics for Net init_dbsNet_slist:
+#   Cpu time = 00:00:00, elapsed time = 00:00:00 .
+#   Increased memory =     0.00 (MB), total memory =  1214.11 (MB), peak memory =  1236.11 (MB)
+#Run Statistics for net signature:
+#   Cpu time = 00:00:00, elapsed time = 00:00:00 .
+#   Increased memory =     0.03 (MB), total memory =  1214.14 (MB), peak memory =  1236.11 (MB)
+#Run Statistics for inst signature:
+#   Cpu time = 00:00:00, elapsed time = 00:00:00 .
+#   Increased memory =    -0.01 (MB), total memory =  1214.11 (MB), peak memory =  1236.11 (MB)
+Starting delay calculation for Setup views
+AAE_INFO: opIsDesignInPostRouteState() is 1
+AAE_INFO: resetNetProps viewIdx 0 
+Starting SI iteration 1 using Infinite Timing Windows
+#################################################################################
+# Design Stage: PostRoute
+# Design Name: MAC_4BIT
+# Design Mode: 45nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI On 
+#################################################################################
+AAE_INFO: 1 threads acquired from CTE.
+Start delay calculation (fullDC) (1 T). (MEM=1725.1)
+Initializing multi-corner resistance tables ...
+ Report initialization with DMWrite ... (0, Worst)
+Reading RCDB with compressed RC data.
+Total number of fetched objects 98
+AAE_INFO-618: Total number of nets in the design is 100,  100.0 percent of the nets selected for SI analysis
+End delay calculation. (MEM=1863.98 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1827.37 CPU=0:00:00.3 REAL=0:00:00.0)
+Loading CTE timing window with TwFlowType 0...(CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 1827.4M)
+Add other clocks and setupCteToAAEClockMapping during iter 1
+Loading CTE timing window is completed (CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 1827.4M)
+Starting SI iteration 2
+Start delay calculation (fullDC) (1 T). (MEM=1802.58)
+ Report initialization with DMUpdate ... (1, Worst)
+Glitch Analysis: View func_slow -- Total Number of Nets Skipped = 4. 
+Glitch Analysis: View func_slow -- Total Number of Nets Analyzed = 98. 
+Total number of fetched objects 98
+AAE_INFO-618: Total number of nets in the design is 100,  1.0 percent of the nets selected for SI analysis
+End delay calculation. (MEM=1845.76 CPU=0:00:00.0 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1845.76 CPU=0:00:00.0 REAL=0:00:00.0)
+*** Done Building Timing Graph (cpu=0:00:00.6 real=0:00:01.0 totSessionCpu=0:00:45.1 mem=1845.8M)
+
+------------------------------------------------------------------
+          timeDesign Summary
+------------------------------------------------------------------
+
+Setup views included:
+ func_slow 
+
++--------------------+---------+---------+---------+
+|     Setup mode     |   all   | reg2reg | default |
++--------------------+---------+---------+---------+
+|           WNS (ns):|  5.936  |  6.001  |  5.936  |
+|           TNS (ns):|  0.000  |  0.000  |  0.000  |
+|    Violating Paths:|    0    |    0    |    0    |
+|          All Paths:|   16    |    8    |   16    |
++--------------------+---------+---------+---------+
+
++----------------+-------------------------------+------------------+
+|                |              Real             |       Total      |
+|    DRVs        +------------------+------------+------------------|
+|                |  Nr nets(terms)  | Worst Vio  |  Nr nets(terms)  |
++----------------+------------------+------------+------------------+
+|   max_cap      |      0 (0)       |   0.000    |      0 (0)       |
+|   max_tran     |      0 (0)       |   0.000    |      0 (0)       |
+|   max_fanout   |      0 (0)       |     0      |      0 (0)       |
+|   max_length   |      0 (0)       |     0      |      0 (0)       |
++----------------+------------------+------------+------------------+
+
+Density: 65.227%
+       (100.000% with Fillers)
+Total number of glitch violations: 0
+------------------------------------------------------------------
+Reported timing to dir RPT/signoff
+Total CPU time: 2.72 sec
+Total Real time: 6.0 sec
+Total Memory Usage: 1828.097656 Mbytes
+Reset AAE Options
+*** timeDesign #1 [finish] : cpu/real = 0:00:02.7/0:00:06.2 (0.4), totSession cpu/real = 0:00:45.3/0:00:50.4 (0.9), mem = 1828.1M
+<CMD> saveNetlist final/MAC_4BIT.v
+** NOTE: Created directory path 'final' for file 'final/MAC_4BIT.v'.
+Writing Netlist "final/MAC_4BIT.v" ...
+<CMD> saveNetlist final/MAC_4BIT.lvs.v -includePowerGround
+Writing Netlist "final/MAC_4BIT.lvs.v" ...
+Pwr name (VDD).
+Gnd name (VSS).
+1 Pwr names and 1 Gnd names.
+<CMD> streamOut -dieAreaAsBoundary -mode ALL -units 1000 -mapfile /home/eee/sky130_cadence/sky130_scl_9T_0.0.5/gds/sky130_stream.mapFile -merge /home/eee/sky130_cadence/sky130_scl_9T_0.0.5/gds/sky130_scl_9T.gds final/MAC_4BIT.gds
+Merge file: /home/eee/sky130_cadence/sky130_scl_9T_0.0.5/gds/sky130_scl_9T.gds has version number: 5
+Parse flat map file...
+Writing GDSII file ...
+	****** db unit per micron = 1000 ******
+	****** output gds2 file unit per micron = 1000 ******
+	****** unit scaling factor = 1 ******
+Output for instance
+Output for bump
+Output for physical terminals
+Output for logical terminals
+Output for regular nets
+Output for special nets and metal fills
+Output for via structure generation total number 15
+Statistics for GDS generated (version 5)
+----------------------------------------
+Stream Out Layer Mapping Information:
+GDS Layer Number          GDS Layer Name
+----------------------------------------
+    72                              met5
+    71                              via4
+    71                              met4
+    69                              via2
+    70                              via3
+    69                              met2
+    68                              met1
+    68                               via
+    70                              met3
+
+
+Stream Out Information Processed for GDS version 5:
+Units: 1000 DBU
+
+Object                             Count
+----------------------------------------
+Instances                            168
+
+Ports/Pins                            18
+    metal layer met3                  18
+
+Nets                                 579
+    metal layer met1                 159
+    metal layer met2                 304
+    metal layer met3                 100
+    metal layer met4                  16
+
+    Via Instances                    322
+
+Special Nets                          49
+    metal layer met1                  33
+    metal layer met4                   8
+    metal layer met5                   8
+
+    Via Instances                    236
+
+Metal Fills                            0
+
+    Via Instances                      0
+
+Metal FillOPCs                         0
+
+    Via Instances                      0
+
+Metal FillDRCs                         0
+
+    Via Instances                      0
+
+Text                                  18
+    metal layer met3                  18
+
+
+Blockages                              0
+
+
+Custom Text                            0
+
+
+Custom Box                             0
+
+Trim Metal                             0
+
+Scanning GDS file /home/eee/sky130_cadence/sky130_scl_9T_0.0.5/gds/sky130_scl_9T.gds to register cell name ......
+Merging GDS file /home/eee/sky130_cadence/sky130_scl_9T_0.0.5/gds/sky130_scl_9T.gds ......
+	****** Merge file: /home/eee/sky130_cadence/sky130_scl_9T_0.0.5/gds/sky130_scl_9T.gds has version number: 5.
+	****** Merge file: /home/eee/sky130_cadence/sky130_scl_9T_0.0.5/gds/sky130_scl_9T.gds has units: 1000 per micron.
+	****** unit scaling factor = 1 ******
+######Streamout is finished!
+<CMD> defOut -netlist -routing final/MAC_4BIT.def
+Writing DEF file 'final/MAC_4BIT.def', current time is Sat May  2 12:26:21 2026 ...
+unitPerMicron=1000, dbgMicronPerDBU=0.001000, unitPerDBU=1.000000
+DEF file 'final/MAC_4BIT.def' is written, current time is Sat May  2 12:26:21 2026 ...
+<CMD> saveDesign DBS/signoff.enc
+The in-memory database contained RC information but was not saved. To save 
+the RC information, use saveDesign's -rc option. Note: Saving RC information can be quite large, 
+so it should only be saved when it is really desired.
+#% Begin save design ... (date=05/02 12:26:22, mem=1339.0M)
+% Begin Save ccopt configuration ... (date=05/02 12:26:22, mem=1339.0M)
+% End Save ccopt configuration ... (date=05/02 12:26:22, total cpu=0:00:00.0, real=0:00:00.0, peak res=1340.6M, current mem=1340.6M)
+% Begin Save netlist data ... (date=05/02 12:26:22, mem=1340.7M)
+Writing Binary DB to DBS/signoff.enc.dat/MAC_4BIT.v.bin in single-threaded mode...
+% End Save netlist data ... (date=05/02 12:26:22, total cpu=0:00:00.0, real=0:00:00.0, peak res=1340.8M, current mem=1340.8M)
+Saving symbol-table file ...
+Saving congestion map file DBS/signoff.enc.dat/MAC_4BIT.route.congmap.gz ...
+% Begin Save AAE data ... (date=05/02 12:26:22, mem=1341.0M)
+Saving AAE Data ...
+% End Save AAE data ... (date=05/02 12:26:22, total cpu=0:00:00.0, real=0:00:00.0, peak res=1341.0M, current mem=1341.0M)
+Saving preference file DBS/signoff.enc.dat/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+% Begin Save floorplan data ... (date=05/02 12:26:23, mem=1342.3M)
+Saving floorplan file ...
+Convert 0 swires and 0 svias from compressed groups
+% End Save floorplan data ... (date=05/02 12:26:23, total cpu=0:00:00.0, real=0:00:00.0, peak res=1342.8M, current mem=1342.8M)
+Saving PG file DBS/signoff.enc.dat/MAC_4BIT.pg.gz, version#2, (Created by Innovus v21.18-s099_1 on Sat May  2 12:26:23 2026)
+*** Completed savePGFile (cpu=0:00:00.0 real=0:00:01.0 mem=1832.6M) ***
+Saving Drc markers ...
+... No Drc file written since there is no markers found.
+% Begin Save placement data ... (date=05/02 12:26:24, mem=1342.8M)
+** Saving stdCellPlacement_binary (version# 2) ...
+Save Adaptive View Pruning View Names to Binary file
+% End Save placement data ... (date=05/02 12:26:24, total cpu=0:00:00.0, real=0:00:00.0, peak res=1342.8M, current mem=1342.8M)
+% Begin Save routing data ... (date=05/02 12:26:24, mem=1342.8M)
+Saving route file ...
+*** Completed saveRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1832.6M) ***
+% End Save routing data ... (date=05/02 12:26:24, total cpu=0:00:00.0, real=0:00:00.0, peak res=1343.1M, current mem=1343.1M)
+Saving property file DBS/signoff.enc.dat/MAC_4BIT.prop
+*** Completed saveProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1835.6M) ***
+#Saving pin access data to file DBS/signoff.enc.dat/MAC_4BIT.apa ...
+#
+Saving preRoute extracted patterns in file 'DBS/signoff.enc.dat/MAC_4BIT.techData.gz' ...
+Saving preRoute extraction data in directory 'DBS/signoff.enc.dat/extraction/' ...
+% Begin Save power constraints data ... (date=05/02 12:26:25, mem=1344.8M)
+% End Save power constraints data ... (date=05/02 12:26:25, total cpu=0:00:00.0, real=0:00:00.0, peak res=1344.9M, current mem=1344.9M)
+rctypical
+rctypical
+rctypical
+Generated self-contained design signoff.enc.dat
+#% End save design ... (date=05/02 12:26:25, total cpu=0:00:01.2, real=0:00:03.0, peak res=1373.1M, current mem=1347.2M)
+*** Message Summary: 0 warning(s), 0 error(s)
+
+
+*** Memory Usage v#1 (Current mem = 1892.012M, initial mem = 486.109M) ***
+*** Message Summary: 13 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:46.7, real=0:00:56.0, mem=1892.0M) ---

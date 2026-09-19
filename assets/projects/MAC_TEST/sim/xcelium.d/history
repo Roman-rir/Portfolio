@@ -1,0 +1,7 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(18Apr2026:11:52:15):( xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/rtl/top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/tb/TB_top.sv -top TB_test -elaborate -log elaborate.log -sv -gui -coverage all -input waves.tcl )
+s2::(18Apr2026:12:15:46):( xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/rtl/top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/tb/TB_top.sv -top TB_test -elaborate -log elaborate.log -sv -gui -coverage all -input waves.tcl )
+s3::(25Apr2026:13:25:19):( xrun -uvm -timescale 1ns/1ps +access+rwc +incdir+rtl +incdir+tb /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/rtl/top.sv /home/B2_Robiul/UDIF/aiub_vlsi_impl_demo/projects/MAC_TEST/tb/TB_top.sv -top TB_test -elaborate -log elaborate.log -sv -gui -coverage all -input waves.tcl )

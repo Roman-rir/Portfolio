@@ -1,0 +1,40 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jun 16, 2026 at 13:27:13 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Abid/UDIF/aiub_vlsi_impl_demo/projects/Project_3A/rtl/DATA_MEM.sv
+	/home/B2_Abid/UDIF/aiub_vlsi_impl_demo/projects/Project_3A/rtl/PROCESSOR_V3.sv
+	/home/B2_Abid/UDIF/aiub_vlsi_impl_demo/projects/Project_3A/rtl/PROG_MEM.sv
+	/home/B2_Abid/UDIF/aiub_vlsi_impl_demo/projects/Project_3A/rtl/RISC_V3.sv
+	/home/B2_Abid/UDIF/aiub_vlsi_impl_demo/projects/Project_3A/tb/RISC_V3_tb1.sv
+	-top RISC_V3_tb1
+	-R
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+xrun: *W,CSSF: -TOP with -R option will be ignored.
+xrun: *W,CSSF: HDL source files with -R option will be ignored.
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /home/cadence/lnx/xce_24/tools/xcelium/files/xmsimrc
+xcelium> source /home/cadence/lnx/xce_24/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl
+xcelium> database -open waves.shm -shm -default
+Created default SHM database waves.shm
+xcelium> probe -create -shm $::env(SIM_TOP) -depth all -all
+Created probe 1
+xcelium> run
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+Simulation complete via $finish(1) at time 230 NS + 0
+../tb/RISC_V3_tb1.sv:141 $finish;
+xcelium> ^C
+xcelium> exit
+xmsim: *E,C58EXE: Coverage database file already exists in the test output directory './cov_work/scope/test', and will not be overwritten. Specify a different name for the test output directory or use the '-covoverwrite' option to overwrite the existing test output directory, and rerun the simulation.
+TOOL:	xrun(64)	23.03-s011: Exiting on Jun 16, 2026 at 13:54:06 +06  (total: 00:26:53)

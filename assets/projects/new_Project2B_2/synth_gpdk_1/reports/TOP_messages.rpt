@@ -1,0 +1,19 @@
+  =================
+   Message Summary
+  =================
+------------------------------------------------------------------------------------------------------------
+|     Id     |  Sev   |Count |                                Message Text                                 |
+------------------------------------------------------------------------------------------------------------
+| MESG-11    |Warning |    5 |Maximum message print count reached.                                         |
+| RPT-16     |Info    |    2 |Joules engine is used.                                                       |
+| RPT_CG-12  |Warning |    1 |Potential error generating clock gating report.                              |
+|            |        |      |The 'report clock_gating' command depends on the 'lp_insert_clock_gating'    |
+|            |        |      | attribute.  Set it to 'true' before calling this command.                   |
+| RPT_DP-100 |Warning |    1 |The filename, column and line number information will not be available in    |
+|            |        |      | the report.                                                                 |
+|            |        |      |You must set the 'hdl_track_filename_row_col' attribute to 'true'            |
+|            |        |      | (before elaborate)                                                          |
+|            |        |      | to enable filename, column, and line number tracking in the datapath        |
+|            |        |      | report.                                                                     |
+| SYNTH-8    |Info    |    1 |Done incrementally optimizing.                                               |
+------------------------------------------------------------------------------------------------------------

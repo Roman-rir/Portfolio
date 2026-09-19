@@ -1,0 +1,88 @@
+*** Message Type: info ***
+When: Thu Jul 09 03:03:56 PM +06 2026
+SimVision started.
+Version: TOOL:  simvision(64)   23.03-s011
+User: B2_Faysal
+Host: cadence
+Platform: Linux/x86_64/3.10.0-1160.el7.x86_64
+Started: Thu Jul 09 03:03:56 PM +06 2026
+Command: /home/cadence/lnx/xce_24/tools.lnx86/simvision/bin/64bit/simvision.exe -connect dc:cadence:39357 -64BIT -nocopyright
+Work Directory: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C
+ 
+*** Message Type: info ***
+When: Thu Jul 09 03:03:57 PM +06 2026
+Create browser window: "Design Browser 1"
+ 
+*** Message Type: info ***
+When: Thu Jul 09 03:03:58 PM +06 2026
+Create console window: "Console"
+ 
+*** Message Type: info ***
+When: Thu Jul 09 03:04:00 PM +06 2026
+Connect to Simulator
+      Design: worklib.testbench:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:     xmsim(64)       23.03-s011
+        User: B2_Faysal
+        Host: cadence
+Time Started: Thu Jul 09 03:03:55 PM +06 2026
+  Process ID: 23769
+   Directory: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C
+     Command: xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all
+
+ 
+*** Message Type: info ***
+When: Thu Jul 09 03:04:01 PM +06 2026
+Create utility window: "Properties"
+ 
+*** Message Type: info ***
+When: Thu Jul 09 03:04:43 PM +06 2026
+Create waveform window: "Waveform 1"
+ 
+*** Message Type: info ***
+When: Thu Jul 09 03:22:40 PM +06 2026
+Exit XM-Sim: user
+      Design: worklib.testbench:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:     xmsim(64)       23.03-s011
+        User: B2_Faysal
+        Host: cadence
+Time Started: Thu Jul 09 03:03:55 PM +06 2026
+  Process ID: 23769
+   Directory: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C
+     Command: xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all
+
+ 
+*** Message Type: error ***
+When: Thu Jul 09 03:22:41 PM +06 2026
+XM-Sim Crashed:
+      Design: worklib.testbench:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL:     xmsim(64)       23.03-s011
+        User: B2_Faysal
+        Host: cadence
+Time Started: Thu Jul 09 03:03:55 PM +06 2026
+  Process ID: 23769
+   Directory: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C
+     Command: xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all
+      Design: worklib.testbench:sv
+   Languages: verilog assertion
+   Simulator: XM-Sim
+     Version: TOOL: xmsim(64)       23.03-s011
+        User: B2_Faysal
+        Host: cadence
+Time Started: Thu Jul 09 03:03:55 PM +06 2026
+  Process ID: 23769
+   Directory: /home/B2_Faysal/UDIF/aiub_vlsi_impl_demo/projects/Project_2C
+     Command: xrun -sv -access +rwc +gui design.sv testbench.sv -coverage all
+
+Outstanding STRAP Requests:
+        strap::report enable out
+ 
+*** Message Type: info ***
+When: Sat Jul 11 02:03:49 PM +06 2026
+SimVision Exit.
+ 

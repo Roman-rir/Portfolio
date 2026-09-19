@@ -1,0 +1,21 @@
+xrun(64): 23.03-s011: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.03-s011: Started on Jul 29, 2026 at 20:47:51 +06
+xrun
+	-uvm
+	-timescale 1ns/1ps
+	+access+rwc
+	+incdir+rtl
+	+incdir+tb
+	/home/B2_Ishrak/UDIF/aiub_vlsi_impl_demo/projects/Project3Bdemo/rtl/DATA_MEM.sv
+	/home/B2_Ishrak/UDIF/aiub_vlsi_impl_demo/projects/Project3Bdemo/rtl/PROCESSOR.sv
+	/home/B2_Ishrak/UDIF/aiub_vlsi_impl_demo/projects/Project3Bdemo/rtl/PROG_MEMORY.sv
+	/home/B2_Ishrak/UDIF/aiub_vlsi_impl_demo/projects/Project3Bdemo/rtl/RISC_V3.sv
+	/home/B2_Ishrak/UDIF/aiub_vlsi_impl_demo/projects/Project3Bdemo/tb/RISC_V3_TB.sv
+	-top RISC_V3_tb
+	-elaborate
+	-log elaborate.log
+	-sv
+	-gui
+	-coverage all
+	-input waves.tcl
+TOOL:	xrun(64)	23.03-s011: Exiting on Jul 29, 2026 at 20:47:52 +06  (total: 00:00:01)

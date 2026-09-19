@@ -1,0 +1,375 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Jul 12 16:56:33 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.18-s099_1 (64bit) 07/18/2023 13:03 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.18-s099_1 NR230707-1955/21_18-UB (database version 18.20.605) {superthreading v2.17}
+#@(#)CDS: AAE 21.18-s017 (64bit) 07/18/2023 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.18-s022_1 () Jul 11 2023 23:10:24 ( )
+#@(#)CDS: SYNTECH 21.18-s010_1 () Jul  5 2023 06:32:03 ( )
+#@(#)CDS: CPE v21.18-s053
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getVersion
+define_proc_arguments ViaFillQor -info {This procedure extracts Viafill details from innovus db} -define_args {
+		{-window "window coordinates" "" list optional}
+		{-window_size "window size in microns" "" string optional}
+	
+	}
+define_proc_arguments ProcessFills -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+define_proc_arguments FillQor -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+define_proc_arguments ProcessFills_fast -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+define_proc_arguments FillQor_fast -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+define_proc_arguments ProcessFills_fast_stampOnly -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+	
+}
+define_proc_arguments FillQor_fast_stampOnly -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+}
+setAnalysisMode -analysisType onChipVariation
+set init_layout_view {}
+set init_verilog design_data/RISC_V3_gate.v
+set init_mmmc_file design_data/viewDefinition.tcl
+set init_lef_file { /home/eee/sky130_cadence/sky130_scl_9T_0.0.5/lef/sky130_scl_9T.tlef /home/eee/sky130_cadence/sky130_scl_9T_0.0.5/lef/sky130_scl_9T.lef}
+set init_top_cell RISC_V3
+set init_gnd_net VSS
+set init_pwr_net VDD
+init_design
+floorPlan -site CoreSite -r 1 0.6 10 10 10 10
+setAddRingMode -ring_target default -extend_over_row 0 -ignore_rows 0 -avoid_short 0 -skip_crossing_trunks none -stacked_via_top_layer 5 -stacked_via_bottom_layer 1 -via_using_exact_crossover_size 1 -orthogonal_only true -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape }
+addRing -nets {VDD VSS} -type core_rings -follow core -layer {top 5 bottom 5 left 5 right 5} -width {top 1.8 bottom 1.8 left 1.8 right 1.8} -spacing {top 1.6 bottom 1.6 left 1.6 right 1.6} -offset {top 1.8 bottom 1.8 left 1.8 right 1.8} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid None
+setAddStripeMode -ignore_block_check false -break_at none -route_over_rows_only false -rows_without_stripes_only false -extend_to_closest_target none -stop_at_last_wire_for_area false -partial_set_thru_domain false -ignore_nondefault_domains false -trim_antenna_back_to_shape none -spacing_type edge_to_edge -spacing_from_block 0 -stripe_min_length stripe_width -stacked_via_top_layer 5 -stacked_via_bottom_layer 1 -via_using_exact_crossover_size false -split_vias false -orthogonal_only true -allow_jog { padcore_ring  block_ring } -skip_via_on_pin {  standardcell } -skip_via_on_wire_shape {  noshape   }
+addStripe -nets {VDD VSS} -layer 4 -direction vertical -width 1.8 -spacing 1.8 -number_of_sets 4 -start_from left -switch_layer_over_obs false -max_same_layer_jog_length 2 -padcore_ring_top_layer_limit 5 -padcore_ring_bottom_layer_limit 1 -block_ring_top_layer_limit 5 -block_ring_bottom_layer_limit 1 -use_wire_group 0 -snap_wire_center_to_grid None
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { 1(1) 5(5) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 0 -crossoverViaLayerRange { 1(1) 5(5) } -nets { VDD VSS } -allowLayerChange 0 -blockPin useLef -targetViaLayerRange { 1(1) 5(5) }
+editPowerVia -skip_via_on_pin Standardcell -bottom_layer 1 -add_vias 1 -top_layer 5
+addWellTap -cell FILL4 -cellInterval 60 -prefix WELLTAP
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit TRACK -spreadDirection clockwise -side Left -layer 3 -spreadType center -spacing 2 -pin {SYS_CLOCK RST {PM_OUT[31]} {PM_OUT[30]} {PM_OUT[29]} {PM_OUT[28]} {PM_OUT[27]} {PM_OUT[26]} {PM_OUT[25]} {PM_OUT[24]} {PM_OUT[23]} {PM_OUT[22]} {PM_OUT[21]} {PM_OUT[20]} {PM_OUT[19]} {PM_OUT[18]} {PM_OUT[17]} {PM_OUT[16]} {PM_OUT[15]} {PM_OUT[14]} {PM_OUT[13]} {PM_OUT[12]} {PM_OUT[11]} {PM_OUT[10]} {PM_OUT[9]} {PM_OUT[8]} {PM_OUT[7]} {PM_OUT[6]} {PM_OUT[5]} {PM_OUT[4]} {PM_OUT[3]} {PM_OUT[2]} {PM_OUT[1]} {PM_OUT[0]} {DM_OUT[31]} {DM_OUT[30]} {DM_OUT[29]} {DM_OUT[28]} {DM_OUT[27]} {DM_OUT[26]} {DM_OUT[25]} {DM_OUT[24]} {DM_OUT[23]} {DM_OUT[22]} {DM_OUT[21]} {DM_OUT[20]} {DM_OUT[19]} {DM_OUT[18]} {DM_OUT[17]} {DM_OUT[16]} {DM_OUT[15]} {DM_OUT[14]} {DM_OUT[13]} {DM_OUT[12]} {DM_OUT[11]} {DM_OUT[10]} {DM_OUT[9]} {DM_OUT[8]} {DM_OUT[7]} {DM_OUT[6]} {DM_OUT[5]} {DM_OUT[4]} {DM_OUT[3]} {DM_OUT[2]} {DM_OUT[1]} {DM_OUT[0]}}
+editPin -fixOverlap 1 -unit TRACK -spreadDirection clockwise -side Right -layer 3 -spreadType center -spacing 2 -pin {{DM_IN[31]} {DM_IN[30]} {DM_IN[29]} {DM_IN[28]} {DM_IN[27]} {DM_IN[26]} {DM_IN[25]} {DM_IN[24]} {DM_IN[23]} {DM_IN[22]} {DM_IN[21]} {DM_IN[20]} {DM_IN[19]} {DM_IN[18]} {DM_IN[17]} {DM_IN[16]} {DM_IN[15]} {DM_IN[14]} {DM_IN[13]} {DM_IN[12]} {DM_IN[11]} {DM_IN[10]} {DM_IN[9]} {DM_IN[8]} {DM_IN[7]} {DM_IN[6]} {DM_IN[5]} {DM_IN[4]} {DM_IN[3]} {DM_IN[2]} {DM_IN[1]} {DM_IN[0]} {PC[3]} {PC[2]} {PC[1]} {PC[0]} {DM_ADDR[3]} {DM_ADDR[2]} {DM_ADDR[1]} {DM_ADDR[0]} DM_WR {IR[31]} {IR[30]} {IR[29]} {IR[28]} {IR[27]} {IR[26]} {IR[25]} {IR[24]} {IR[23]} {IR[22]} {IR[21]} {IR[20]} {IR[19]} {IR[18]} {IR[17]} {IR[16]} {IR[15]} {IR[14]} {IR[13]} {IR[12]} {IR[11]} {IR[10]} {IR[9]} {IR[8]} {IR[7]} {IR[6]} {IR[5]} {IR[4]} {IR[3]} {IR[2]} {IR[1]} {IR[0]} {ACCUM_R[31]} {ACCUM_R[30]} {ACCUM_R[29]} {ACCUM_R[28]} {ACCUM_R[27]} {ACCUM_R[26]} {ACCUM_R[25]} {ACCUM_R[24]} {ACCUM_R[23]} {ACCUM_R[22]} {ACCUM_R[21]} {ACCUM_R[20]} {ACCUM_R[19]} {ACCUM_R[18]} {ACCUM_R[17]} {ACCUM_R[16]} {ACCUM_R[15]} {ACCUM_R[14]} {ACCUM_R[13]} {ACCUM_R[12]} {ACCUM_R[11]} {ACCUM_R[10]} {ACCUM_R[9]} {ACCUM_R[8]} {ACCUM_R[7]} {ACCUM_R[6]} {ACCUM_R[5]} {ACCUM_R[4]} {ACCUM_R[3]} {ACCUM_R[2]} {ACCUM_R[1]} {ACCUM_R[0]} {PSTATE[2]} {PSTATE[1]} {PSTATE[0]}}
+setPinAssignMode -pinEditInBatch false
+globalNetConnect VDD -pin VDD -instanceBasename * -verbose
+globalNetConnect VSS -pin VSS -instanceBasename * -verbose
+setDontUse *CLK* true
+setRouteMode -earlyGlobalMaxRouteLayer 5
+setPinAssignMode -maxLayer 5
+setNanoRouteMode -routeTopRoutingLayer 5
+setDesignMode -topRoutingLayer met5
+setDesignMode -process 130
+timeDesign -preplace -prefix init -outDir RPT/init
+checkDesign -all
+check_timing
+um::get_metric_definition -name *.drc
+um::get_metric_definition -name *.drc.layer:*
+um::get_metric_definition -name *.drc.layer:*.type:*
+um::get_metric_definition -name *.drc.type:*
+um::get_metric_definition -name check.drc
+um::get_metric_definition -name check.drc.antenna
+um::get_metric_definition -name check.place.*
+um::get_metric_definition -name clock.area.buffer
+um::get_metric_definition -name clock.area.clkgate
+um::get_metric_definition -name clock.area.inverter
+um::get_metric_definition -name clock.area.logic
+um::get_metric_definition -name clock.area.nonicg
+um::get_metric_definition -name clock.area.total
+um::get_metric_definition -name clock.area_distribution.buffer.base_cell:*
+um::get_metric_definition -name clock.area_distribution.clkgate.base_cell:*
+um::get_metric_definition -name clock.area_distribution.inverter.base_cell:*
+um::get_metric_definition -name clock.area_distribution.logic.base_cell:*
+um::get_metric_definition -name clock.area_distribution.nonicg.base_cell:*
+um::get_metric_definition -name clock.buffer_depth_constraint.skew_group:*.*
+um::get_metric_definition -name clock.capacitance.gate.leaf
+um::get_metric_definition -name clock.capacitance.gate.top
+um::get_metric_definition -name clock.capacitance.gate.trunk
+um::get_metric_definition -name clock.capacitance.sink.*
+um::get_metric_definition -name clock.capacitance.total.leaf
+um::get_metric_definition -name clock.capacitance.total.top
+um::get_metric_definition -name clock.capacitance.total.trunk
+um::get_metric_definition -name clock.capacitance.wire.leaf
+um::get_metric_definition -name clock.capacitance.wire.top
+um::get_metric_definition -name clock.capacitance.wire.trunk
+um::get_metric_definition -name clock.drv.nets.capacitance.*
+um::get_metric_definition -name clock.drv.nets.capacitance.count
+um::get_metric_definition -name clock.drv.nets.capacitance.max
+um::get_metric_definition -name clock.drv.nets.fanout.*
+um::get_metric_definition -name clock.drv.nets.fanout.count
+um::get_metric_definition -name clock.drv.nets.fanout.max
+um::get_metric_definition -name clock.drv.nets.length.*
+um::get_metric_definition -name clock.drv.nets.length.count
+um::get_metric_definition -name clock.drv.nets.length.max
+um::get_metric_definition -name clock.drv.nets.remaining
+um::get_metric_definition -name clock.drv.nets.resistance.*
+um::get_metric_definition -name clock.drv.nets.resistance.count
+um::get_metric_definition -name clock.drv.nets.resistance.max
+um::get_metric_definition -name clock.drv.nets.unfixable
+um::get_metric_definition -name clock.halo.clock_tree:*.count
+um::get_metric_definition -name clock.halo.clock_tree:*.violations
+um::get_metric_definition -name clock.instances.buffer
+um::get_metric_definition -name clock.instances.buffer.creator.*
+um::get_metric_definition -name clock.instances.clkgate
+um::get_metric_definition -name clock.instances.inverter
+um::get_metric_definition -name clock.instances.inverter.creator.*
+um::get_metric_definition -name clock.instances.logic
+um::get_metric_definition -name clock.instances.nonicg
+um::get_metric_definition -name clock.instances.total
+um::get_metric_definition -name clock.instances_distribution.buffer.base_cell:*
+um::get_metric_definition -name clock.instances_distribution.clkgate.base_cell:*
+um::get_metric_definition -name clock.instances_distribution.inverter.base_cell:*
+um::get_metric_definition -name clock.instances_distribution.logic.base_cell:*
+um::get_metric_definition -name clock.instances_distribution.nonicg.base_cell:*
+um::get_metric_definition -name clock.latency.primary_reporting_skew_group.primary_half_corner.*
+um::get_metric_definition -name clock.latency.skew_group:*.delay_corner:*.early.*
+um::get_metric_definition -name clock.latency.skew_group:*.delay_corner:*.late.*
+um::get_metric_definition -name clock.nets.length.leaf
+um::get_metric_definition -name clock.nets.length.top
+um::get_metric_definition -name clock.nets.length.total
+um::get_metric_definition -name clock.nets.length.trunk
+um::get_metric_definition -name clock.skew.primary_reporting_skew_group.primary_half_corner.*
+um::get_metric_definition -name clock.skew.primary_reporting_skew_group.primary_half_corner.skew_band.*
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.gate
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.skew_band.*
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.target
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.target_met
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.total
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.early.wire
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.gate
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.skew_band.*
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.target
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.target_met
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.total
+um::get_metric_definition -name clock.skew.skew_group:*.delay_corner:*.late.wire
+um::get_metric_definition -name clock.stage_depth_constraint.*
+um::get_metric_definition -name clock.transition.auto_target.delay_corner:*.early.clock_tree:*
+um::get_metric_definition -name clock.transition.auto_target.delay_corner:*.late.clock_tree:*
+um::get_metric_definition -name clock.transition.primary_half_corner.leaf.*.*
+um::get_metric_definition -name clock.transition.primary_half_corner.leaf.*.max
+um::get_metric_definition -name clock.transition.primary_half_corner.top.*.*
+um::get_metric_definition -name clock.transition.primary_half_corner.top.*.max
+um::get_metric_definition -name clock.transition.primary_half_corner.trunk.*.*
+um::get_metric_definition -name clock.transition.primary_half_corner.trunk.*.max
+um::get_metric_definition -name clock.transition.target.delay_corner:*.early.leaf.clock_tree:*
+um::get_metric_definition -name clock.transition.target.delay_corner:*.early.top.clock_tree:*
+um::get_metric_definition -name clock.transition.target.delay_corner:*.early.trunk.clock_tree:*
+um::get_metric_definition -name clock.transition.target.delay_corner:*.late.leaf.clock_tree:*
+um::get_metric_definition -name clock.transition.target.delay_corner:*.late.top.clock_tree:*
+um::get_metric_definition -name clock.transition.target.delay_corner:*.late.trunk.clock_tree:*
+um::get_metric_definition -name clock.transition.target.primary_half_corner.leaf.*
+um::get_metric_definition -name clock.transition.target.primary_half_corner.top.*
+um::get_metric_definition -name clock.transition.target.primary_half_corner.trunk.*
+um::get_metric_definition -name design.area
+um::get_metric_definition -name design.area.always_on
+um::get_metric_definition -name design.area.blackbox
+um::get_metric_definition -name design.area.buffer
+um::get_metric_definition -name design.area.combinatorial
+um::get_metric_definition -name design.area.hinst:*
+um::get_metric_definition -name design.area.icg
+um::get_metric_definition -name design.area.inverter
+um::get_metric_definition -name design.area.io
+um::get_metric_definition -name design.area.isolation
+um::get_metric_definition -name design.area.latch
+um::get_metric_definition -name design.area.level_shifter
+um::get_metric_definition -name design.area.logical
+um::get_metric_definition -name design.area.macro
+um::get_metric_definition -name design.area.physical
+um::get_metric_definition -name design.area.power_switch
+um::get_metric_definition -name design.area.register
+um::get_metric_definition -name design.area.std_cell
+um::get_metric_definition -name design.area.vth:*
+um::get_metric_definition -name design.area.vth:*.ratio
+um::get_metric_definition -name design.blockages.place.area
+um::get_metric_definition -name design.blockages.route.area
+um::get_metric_definition -name design.blockages.route.area.layer:*
+um::get_metric_definition -name design.congestion.hotspot.max
+um::get_metric_definition -name design.congestion.hotspot.total
+um::get_metric_definition -name design.density
+um::get_metric_definition -name design.floorplan.image
+um::get_metric_definition -name design.instances
+um::get_metric_definition -name design.instances.always_on
+um::get_metric_definition -name design.instances.blackbox
+um::get_metric_definition -name design.instances.buffer
+um::get_metric_definition -name design.instances.combinatorial
+um::get_metric_definition -name design.instances.hinst:*
+um::get_metric_definition -name design.instances.icg
+um::get_metric_definition -name design.instances.inverter
+um::get_metric_definition -name design.instances.io
+um::get_metric_definition -name design.instances.isolation
+um::get_metric_definition -name design.instances.latch
+um::get_metric_definition -name design.instances.level_shifter
+um::get_metric_definition -name design.instances.logical
+um::get_metric_definition -name design.instances.macro
+um::get_metric_definition -name design.instances.physical
+um::get_metric_definition -name design.instances.power_switch
+um::get_metric_definition -name design.instances.register
+um::get_metric_definition -name design.instances.std_cell
+um::get_metric_definition -name design.instances.vth:*
+um::get_metric_definition -name design.instances.vth:*.ratio
+um::get_metric_definition -name design.multibit.*
+um::get_metric_definition -name design.name
+um::get_metric_definition -name design.route.drc.image
+um::get_metric_definition -name flow.cputime
+um::get_metric_definition -name flow.cputime.total
+um::get_metric_definition -name flow.last_child_snapshot
+um::get_metric_definition -name flow.log
+um::get_metric_definition -name flow.machine
+um::get_metric_definition -name flow.machine.cpu.frequency
+um::get_metric_definition -name flow.machine.cpu.model
+um::get_metric_definition -name flow.machine.cpu.number
+um::get_metric_definition -name flow.machine.hostname
+um::get_metric_definition -name flow.machine.load
+um::get_metric_definition -name flow.machine.memory.free
+um::get_metric_definition -name flow.machine.memory.total
+um::get_metric_definition -name flow.machine.os
+um::get_metric_definition -name flow.machine.swap.free
+um::get_metric_definition -name flow.machine.swap.total
+um::get_metric_definition -name flow.memory
+um::get_metric_definition -name flow.memory.resident
+um::get_metric_definition -name flow.memory.resident.peak
+um::get_metric_definition -name flow.realtime
+um::get_metric_definition -name flow.realtime.total
+um::get_metric_definition -name flow.root_config
+um::get_metric_definition -name flow.run_directory
+um::get_metric_definition -name flow.run_tag
+um::get_metric_definition -name flow.step.tcl
+um::get_metric_definition -name flow.template.feature_enabled
+um::get_metric_definition -name flow.template.type
+um::get_metric_definition -name flow.tool_list
+um::get_metric_definition -name flow.user
+um::get_metric_definition -name flowtool.status
+um::get_metric_definition -name messages
+um::get_metric_definition -name name
+um::get_metric_definition -name power
+um::get_metric_definition -name power.clock
+um::get_metric_definition -name power.hinst:*
+um::get_metric_definition -name power.internal
+um::get_metric_definition -name power.internal.hinst:*
+um::get_metric_definition -name power.internal.type:*
+um::get_metric_definition -name power.leakage
+um::get_metric_definition -name power.leakage.hinst:*
+um::get_metric_definition -name power.leakage.type:*
+um::get_metric_definition -name power.switching
+um::get_metric_definition -name power.switching.hinst:*
+um::get_metric_definition -name power.switching.type:*
+um::get_metric_definition -name route.drc
+um::get_metric_definition -name route.drc.antenna
+um::get_metric_definition -name route.drc.layer:*
+um::get_metric_definition -name route.map.*
+um::get_metric_definition -name route.overflow
+um::get_metric_definition -name route.overflow.horizontal
+um::get_metric_definition -name route.overflow.layer:*
+um::get_metric_definition -name route.overflow.vertical
+um::get_metric_definition -name route.shielding.*
+um::get_metric_definition -name route.via
+um::get_metric_definition -name route.via.layer:*
+um::get_metric_definition -name route.via.multicut
+um::get_metric_definition -name route.via.multicut.layer:*
+um::get_metric_definition -name route.via.multicut.percentage
+um::get_metric_definition -name route.via.singlecut
+um::get_metric_definition -name route.via.singlecut.layer:*
+um::get_metric_definition -name route.via.singlecut.percentage
+um::get_metric_definition -name route.via.total
+um::get_metric_definition -name route.wirelength
+um::get_metric_definition -name timing.drv.max_cap.total
+um::get_metric_definition -name timing.drv.max_cap.worst
+um::get_metric_definition -name timing.drv.max_fanout.total
+um::get_metric_definition -name timing.drv.max_fanout.worst
+um::get_metric_definition -name timing.drv.max_length.total
+um::get_metric_definition -name timing.drv.max_length.worst
+um::get_metric_definition -name timing.drv.max_tran.total
+um::get_metric_definition -name timing.drv.max_tran.worst
+um::get_metric_definition -name timing.hold.feps
+um::get_metric_definition -name timing.hold.feps.analysis_view:*
+um::get_metric_definition -name timing.hold.feps.path_group:*
+um::get_metric_definition -name timing.hold.feps.path_group:*.analysis_view:*
+um::get_metric_definition -name timing.hold.feps.path_group:reg2reg
+um::get_metric_definition -name timing.hold.histogram
+um::get_metric_definition -name timing.hold.histogram.views
+um::get_metric_definition -name timing.hold.tns
+um::get_metric_definition -name timing.hold.tns.analysis_view:*
+um::get_metric_definition -name timing.hold.tns.path_group:*
+um::get_metric_definition -name timing.hold.tns.path_group:*.analysis_view:*
+um::get_metric_definition -name timing.hold.tns.path_group:reg2reg
+um::get_metric_definition -name timing.hold.type
+um::get_metric_definition -name timing.hold.wns
+um::get_metric_definition -name timing.hold.wns.analysis_view:*
+um::get_metric_definition -name timing.hold.wns.path_group:*
+um::get_metric_definition -name timing.hold.wns.path_group:*.analysis_view:*
+um::get_metric_definition -name timing.hold.wns.path_group:reg2reg
+um::get_metric_definition -name timing.min_pulse_width.clocktree.feps
+um::get_metric_definition -name timing.min_pulse_width.clocktree.feps.analysis_view:*
+um::get_metric_definition -name timing.min_pulse_width.clocktree.feps.analysis_view:*.clock:*
+um::get_metric_definition -name timing.min_pulse_width.clocktree.feps.clock:*
+um::get_metric_definition -name timing.min_pulse_width.clocktree.tns
+um::get_metric_definition -name timing.min_pulse_width.clocktree.tns.analysis_view:*
+um::get_metric_definition -name timing.min_pulse_width.clocktree.tns.analysis_view:*.clock:*
+um::get_metric_definition -name timing.min_pulse_width.clocktree.tns.clock:*
+um::get_metric_definition -name timing.min_pulse_width.clocktree.wns
+um::get_metric_definition -name timing.min_pulse_width.clocktree.wns.analysis_view:*
+um::get_metric_definition -name timing.min_pulse_width.clocktree.wns.analysis_view:*.clock:*
+um::get_metric_definition -name timing.min_pulse_width.clocktree.wns.clock:*
+um::get_metric_definition -name timing.min_pulse_width.endpoints.feps
+um::get_metric_definition -name timing.min_pulse_width.endpoints.feps.analysis_view:*
+um::get_metric_definition -name timing.min_pulse_width.endpoints.feps.analysis_view:*.clock:*
+um::get_metric_definition -name timing.min_pulse_width.endpoints.feps.clock:*
+um::get_metric_definition -name timing.min_pulse_width.endpoints.tns
+um::get_metric_definition -name timing.min_pulse_width.endpoints.tns.analysis_view:*
+um::get_metric_definition -name timing.min_pulse_width.endpoints.tns.analysis_view:*.clock:*
+um::get_metric_definition -name timing.min_pulse_width.endpoints.tns.clock:*
+um::get_metric_definition -name timing.min_pulse_width.endpoints.wns
+um::get_metric_definition -name timing.min_pulse_width.endpoints.wns.analysis_view:%.clock:*
+um::get_metric_definition -name timing.min_pulse_width.endpoints.wns.analysis_view:*
+um::get_metric_definition -name timing.min_pulse_width.endpoints.wns.analysis_view:*.clock:*
+um::get_metric_definition -name timing.min_pulse_width.endpoints.wns.clock:*
+um::get_metric_definition -name timing.setup.feps
+um::get_metric_definition -name timing.setup.feps.analysis_view:*
+um::get_metric_definition -name timing.setup.feps.path_group:*
+um::get_metric_definition -name timing.setup.feps.path_group:*.analysis_view:*
+um::get_metric_definition -name timing.setup.feps.path_group:reg2reg
+um::get_metric_definition -name timing.setup.histogram
+um::get_metric_definition -name timing.setup.histogram.views
+um::get_metric_definition -name timing.setup.tns
+um::get_metric_definition -name timing.setup.tns.analysis_view:*
+um::get_metric_definition -name timing.setup.tns.path_group:*
+um::get_metric_definition -name timing.setup.tns.path_group:*.analysis_view:*
+um::get_metric_definition -name timing.setup.tns.path_group:reg2reg
+um::get_metric_definition -name timing.setup.type
+um::get_metric_definition -name timing.setup.wns
+um::get_metric_definition -name timing.setup.wns.analysis_view:*
+um::get_metric_definition -name timing.setup.wns.path_group:*
+um::get_metric_definition -name timing.setup.wns.path_group:*.analysis_view:*
+um::get_metric_definition -name timing.setup.wns.path_group:reg2reg
+um::get_metric_definition -name timing.si.double_clocking.analysis_view:*
+um::get_metric_definition -name timing.si.double_clocking.frequency_violations.analysis_view:*
+um::get_metric_definition -name timing.si.double_clocking.report_file.analysis_view:*
+um::get_metric_definition -name timing.si.glitches
+um::get_metric_definition -name timing.si.noise
+um::get_metric_definition -name transition.*
+um::get_metric_definition -name transition.count
+um::get_metric_definition -name transition.max
+um::get_metric -id current -uuid e94ddef9-681d-4073-a32d-560659b98771 messages.instant -exclude_inherited
+saveDesign DBS/init.enc -compress
+saveNetlist DBS/LEC/init.v.gz
