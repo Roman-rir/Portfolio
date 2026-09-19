@@ -186,7 +186,7 @@
       image.alt = preview.alt;
       image.setAttribute('width', preview.getAttribute('width'));
       image.setAttribute('height', preview.getAttribute('height'));
-      main.setAttribute('href', preview.getAttribute('src'));
+      main.setAttribute('href', choice.dataset.fullsize || preview.getAttribute('src'));
       main.dataset.tone = choice.dataset.tone;
       main.setAttribute('aria-label', `Open full-size image: ${choice.dataset.title}`);
       title.textContent = choice.dataset.title;
