@@ -58,3 +58,8 @@ Vercel references: [static build settings](https://vercel.com/docs/builds/config
 - Selected Work, Toolkit scrolling, and Recognition each have independent pause/resume controls.
 - Toolkit logo rows scroll continuously, pause on hover/focus, and allow manual horizontal scrolling with reduced motion.
 - Technology logos are served locally from `assets/tool-logos.svg`; attribution and license are alongside it.
+- The hero headline, status panel, and stats animate in on load. The expertise band scrolls as a ticker and pauses on hover.
+- Section headings rise word by word, and blocks that enter together reveal in a stagger. The Experience rail fills as you scroll.
+- Project gallery images crossfade when you switch views and zoom slightly on hover.
+- Cards show a pointer-following glow, and primary buttons pull toward the pointer. These effects run only with a fine pointer.
+- With reduced motion enabled, all of these effects are off and the content shows in its final state.

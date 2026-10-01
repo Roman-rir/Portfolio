@@ -32,6 +32,11 @@
 
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
+  const navIndicator = document.createElement('span');
+  navIndicator.className = 'nav-indicator';
+  navIndicator.setAttribute('aria-hidden', 'true');
+  navLinks.append(navIndicator);
+  navLinks.classList.add('has-indicator');
   function setMenu(open) {
     navLinks.classList.toggle('open', open);
     navToggle.setAttribute('aria-expanded', String(open));
@@ -73,6 +78,10 @@
     }, { threshold: .05 }).observe(toolkitScroll);
   } else toolkitScroll.classList.add('is-in-view');
 
+  const siteNav = document.querySelector('.site-nav');
+  const hero = document.querySelector('.personal-hero');
+  const experienceChain = document.querySelector('.experience-chain');
+  const chainItems = experienceChain.querySelectorAll('.t-item');
   let progressPending = false;
   function updateReadingProgress() {
     if (progressPending) return;
@@ -80,6 +89,16 @@
     requestAnimationFrame(() => {
       const distance = document.documentElement.scrollHeight - innerHeight;
       root.style.setProperty('--reading-progress', distance > 0 ? Math.min(1, Math.max(0, scrollY / distance)) : 0);
+      siteNav.classList.toggle('is-scrolled', scrollY > 8);
+      if (!motionQuery.matches) {
+        if (scrollY < innerHeight * 1.3) hero.style.setProperty('--hero-scroll', scrollY.toFixed(1));
+        // Fill the experience rail from the first node to the last as the timeline passes.
+        const chain = experienceChain.getBoundingClientRect();
+        const progress = Math.min(1, Math.max(0, (innerHeight * .65 - chain.top) / chain.height));
+        const nodeSize = chainItems[0].querySelector('.timeline-node').offsetHeight;
+        const railLength = chainItems[chainItems.length - 1].offsetTop - nodeSize;
+        experienceChain.style.setProperty('--chain-h', `${(progress * railLength).toFixed(1)}px`);
+      }
       progressPending = false;
     });
   }
@@ -180,9 +199,25 @@
     const detail = gallery.querySelector('[data-gallery-detail]');
     const count = gallery.querySelector('[data-gallery-count]');
     const choices = Array.from(gallery.querySelectorAll('[data-gallery-select]'));
+    const figure = main.closest('.work-figure');
+    let swapTimer;
     choices.forEach((choice, index) => choice.addEventListener('click', () => {
+      if (choice.getAttribute('aria-pressed') === 'true') return;
       const preview = choice.querySelector('img');
-      image.setAttribute('src', preview.getAttribute('src'));
+      // Fade the current image out, swap the source, and fade back in once the new image is ready.
+      const animate = !motionQuery.matches;
+      if (animate) {
+        image.classList.add('is-swapping');
+        figure.classList.add('is-swapping');
+      }
+      clearTimeout(swapTimer);
+      swapTimer = setTimeout(() => {
+        const reveal = () => { image.classList.remove('is-swapping'); figure.classList.remove('is-swapping'); };
+        image.addEventListener('load', reveal, { once: true });
+        image.addEventListener('error', reveal, { once: true });
+        image.setAttribute('src', preview.getAttribute('src'));
+        if (image.complete) reveal();
+      }, animate ? 220 : 0);
       image.alt = preview.alt;
       image.setAttribute('width', preview.getAttribute('width'));
       image.setAttribute('height', preview.getAttribute('height'));
@@ -217,15 +252,43 @@
   if ('IntersectionObserver' in window) {
 
     if (!motionQuery.matches) {
+      // Wrap each heading word so it can rise into view once its block is revealed.
+      document.querySelectorAll('.reveal h2').forEach(heading => {
+        let index = 0;
+        (function split(node) {
+          Array.from(node.childNodes).forEach(child => {
+            if (child.nodeType === Node.ELEMENT_NODE) { split(child); return; }
+            if (child.nodeType !== Node.TEXT_NODE || !child.textContent.trim()) return;
+            const fragment = document.createDocumentFragment();
+            child.textContent.split(/(\s+)/).forEach(part => {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { fragment.append(part); return; }
+              const word = document.createElement('span');
+              const inner = document.createElement('span');
+              word.className = 'word';
+              inner.textContent = part;
+              inner.style.setProperty('--w', index++);
+              word.append(inner);
+              fragment.append(word);
+            });
+            child.replaceWith(fragment);
+          });
+        })(heading);
+      });
+
+      // Blocks entering together are staggered; once settled, hover transitions run without delay.
       const revealObserver = new IntersectionObserver(entries => {
+        let batch = 0;
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove('is-revealing');
-            entry.target.classList.add('has-entered');
-            revealObserver.unobserve(entry.target);
-          }
+          if (!entry.isIntersecting) return;
+          const element = entry.target;
+          element.style.setProperty('--reveal-delay', `${Math.min(batch++, 5) * 90}ms`);
+          element.classList.remove('is-revealing');
+          element.classList.add('has-entered');
+          setTimeout(() => element.classList.add('is-settled'), 1500);
+          revealObserver.unobserve(element);
         });
-      }, { threshold: .08 });
+      }, { threshold: .08, rootMargin: '0px 0px -6% 0px' });
       document.querySelectorAll('.reveal').forEach(element => {
         element.classList.add('is-revealing');
         revealObserver.observe(element);
@@ -241,8 +304,105 @@
           if (active) link.setAttribute('aria-current', 'location');
           else link.removeAttribute('aria-current');
         });
+        moveNavIndicator();
       });
     }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 });
     document.querySelectorAll('main > section[id]').forEach(section => sectionObserver.observe(section));
   }
+
+  // A sliding marker under the active (or hovered) navigation link.
+  function moveNavIndicator(target = navLinks.querySelector('a.active')) {
+    navIndicator.classList.toggle('is-visible', Boolean(target));
+    if (!target) return;
+    navIndicator.style.setProperty('--nav-x', `${target.offsetLeft}px`);
+    navIndicator.style.setProperty('--nav-w', `${target.offsetWidth}px`);
+  }
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('pointerenter', () => moveNavIndicator(link));
+    link.addEventListener('focus', () => moveNavIndicator(link));
+  });
+  navLinks.addEventListener('pointerleave', () => moveNavIndicator());
+  navLinks.addEventListener('focusout', () => moveNavIndicator());
+  window.addEventListener('resize', () => moveNavIndicator());
+  document.fonts?.ready.then(() => moveNavIndicator());
+
+  // Hero stats count up once, the first time they are seen.
+  function formatStat(element, value) {
+    element.textContent = String(value).padStart(Number(element.dataset.pad || 0), '0') + (element.dataset.suffix || '');
+  }
+  if (!motionQuery.matches && 'IntersectionObserver' in window) {
+    const statObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        statObserver.unobserve(entry.target);
+        const element = entry.target;
+        const target = Number(element.dataset.count);
+        const start = performance.now() + 700;
+        formatStat(element, 0);
+        (function tick(now) {
+          const t = Math.min(1, Math.max(0, (now - start) / 1200));
+          formatStat(element, Math.round(target * (1 - Math.pow(1 - t, 3))));
+          if (t < 1) requestAnimationFrame(tick);
+        })(performance.now());
+      });
+    }, { threshold: .6 });
+    document.querySelectorAll('[data-count]').forEach(stat => statObserver.observe(stat));
+  }
+
+  // Rotating focus areas in the hero panel; screen readers get the full list instead.
+  const rotator = document.querySelector('.hero-rotator');
+  const rotatorWords = rotator.dataset.words.split('|');
+  let rotatorIndex = 0;
+  setInterval(() => {
+    if (motionQuery.matches || document.hidden) return;
+    rotatorIndex = (rotatorIndex + 1) % rotatorWords.length;
+    rotator.classList.remove('is-swapping');
+    void rotator.offsetWidth;
+    rotator.classList.add('is-swapping');
+    setTimeout(() => { rotator.textContent = rotatorWords[rotatorIndex]; }, 280);
+  }, 2800);
+
+  // Pointer effects run only for precise pointers with motion allowed.
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const pointerMotion = () => finePointer.matches && !motionQuery.matches;
+
+  document.querySelectorAll('.proj-card, .skill-group, .certificate-card, .honor-feature, .logo-tile, .research-banner, .recognition-step').forEach(card => {
+    const glow = document.createElement('span');
+    glow.className = 'spotlight';
+    glow.setAttribute('aria-hidden', 'true');
+    card.prepend(glow);
+    card.addEventListener('pointermove', event => {
+      if (!finePointer.matches) return;
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+      card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+    });
+  });
+
+  document.querySelectorAll('.btn-primary, .nav-cta').forEach(button => {
+    button.addEventListener('pointermove', event => {
+      if (!pointerMotion()) return;
+      const rect = button.getBoundingClientRect();
+      button.style.setProperty('--mag-x', `${((event.clientX - rect.left) / rect.width - .5) * 10}px`);
+      button.style.setProperty('--mag-y', `${((event.clientY - rect.top) / rect.height - .5) * 8}px`);
+    });
+    button.addEventListener('pointerleave', () => {
+      button.style.removeProperty('--mag-x');
+      button.style.removeProperty('--mag-y');
+    });
+  });
+
+  hero.addEventListener('pointermove', event => {
+    if (!pointerMotion()) return;
+    const rect = hero.getBoundingClientRect();
+    hero.style.setProperty('--hx', `${event.clientX - rect.left}px`);
+    hero.style.setProperty('--hy', `${event.clientY - rect.top}px`);
+    hero.style.setProperty('--px', ((event.clientX - rect.left) / rect.width - .5).toFixed(3));
+    hero.style.setProperty('--py', ((event.clientY - rect.top) / rect.height - .5).toFixed(3));
+    hero.style.setProperty('--glow-on', 1);
+  });
+  hero.addEventListener('pointerleave', () => {
+    ['--px', '--py'].forEach(name => hero.style.removeProperty(name));
+    hero.style.setProperty('--glow-on', 0);
+  });
 })();
